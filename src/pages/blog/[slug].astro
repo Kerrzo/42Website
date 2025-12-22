@@ -7,26 +7,21 @@ import config from '../../../data/config.json';
 // Get all blog posts to generate static paths
 export async function getStaticPaths() {
     const allBlogPosts = await import.meta.glob('../../../data/blog/*.mdx', { 
-        eager: true,
-        import: 'frontmatter'
+        eager: true
     });
 
-    return Object.entries(allBlogPosts).map(([path, frontmatter]) => {
+    return Object.entries(allBlogPosts).map(([path, module]) => {
         const fileName = path.split('/').pop()?.replace('.mdx', '') || '';
         return {
             params: { slug: fileName },
-            props: { blogPath: path, frontmatter: frontmatter }
+            props: { blogPath: path, frontmatter: module.frontmatter, Content: module.default }
         };
     });
 }
 
-// Get the blogPath and frontmatter from props (set in getStaticPaths)
-const { blogPath, frontmatter } = Astro.props;
+// Get the blogPath, frontmatter, and Content from props (set in getStaticPaths)
+const { blogPath, frontmatter, Content } = Astro.props;
 const currentSlug = blogPath.split('/').pop()?.replace('.mdx', '') || '';
-
-// Import the MDX content
-const blogModule = await import(blogPath);
-const Content = blogModule.default;
 
 // Load all blog posts for sidebar
 const allBlogPosts = await import.meta.glob('../../../data/blog/*.mdx', { 
