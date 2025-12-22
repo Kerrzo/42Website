@@ -4,7 +4,7 @@
 
 .what-we-do-landing-section {
     background-color: var(--text-dark);
-    padding: 360px var(--page-margin) 80px;
+    padding: 360px var(--page-margin) 0;
     position: relative;
 }
 
@@ -144,7 +144,7 @@
 
 @media (max-width: 768px) {
     .what-we-do-landing-section {
-        padding: 120px var(--page-margin) 80px;
+        padding: 120px var(--page-margin) 0;
     }
 
     .what-we-do-landing-title {
@@ -184,7 +184,7 @@
 
 @media (max-width: 480px) {
     .what-we-do-landing-section {
-        padding: 100px var(--page-margin) 60px;
+        padding: 100px var(--page-margin) 0;
     }
 
     .what-we-do-landing-title {
@@ -228,7 +228,7 @@
 
 .what-we-do-work-section {
     background-color: var(--text-dark);
-    padding: 0 0 80px 0;
+    padding: 80px 0 80px 0;
     margin-top: 0;
     position: relative;
 }
