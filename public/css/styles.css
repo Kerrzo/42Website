@@ -561,11 +561,14 @@ p {
     display: flex;
     gap: 20px;
     animation: scroll-left 60s linear infinite;
+    animation-play-state: running !important;
     will-change: transform;
 }
 
 .carousel-row-reverse .carousel-track {
     animation: scroll-right 60s linear infinite;
+    animation-play-state: running !important;
+    will-change: transform;
 }
 
 .carousel-image {
@@ -582,19 +585,19 @@ p {
 }
 
 @keyframes scroll-left {
-    0% {
+    from {
         transform: translateX(0);
     }
-    100% {
+    to {
         transform: translateX(-50%);
     }
 }
 
 @keyframes scroll-right {
-    0% {
+    from {
         transform: translateX(-50%);
     }
-    100% {
+    to {
         transform: translateX(0);
     }
 }

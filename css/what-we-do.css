@@ -1,9 +1,17 @@
 /* ========================================
+   WHAT WE DO CONTAINER (Shared Background)
+   ======================================== */
+
+.what-we-do-container {
+    background-color: var(--text-dark);
+    position: relative;
+}
+
+/* ========================================
    WHAT WE DO LANDING PAGE STYLES
    ======================================== */
 
 .what-we-do-landing-section {
-    background-color: var(--text-dark);
     padding: 360px var(--page-margin) 0;
     position: relative;
 }
@@ -225,7 +233,6 @@
    ======================================== */
 
 .what-we-do-work-section {
-    background-color: var(--text-dark);
     padding: 80px 0 80px 0;
     margin-top: 0;
     position: relative;

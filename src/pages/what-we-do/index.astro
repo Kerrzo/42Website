@@ -13,46 +13,50 @@ import Footer from "../../components/Footer.astro";
 
     <main class="main-content">
         <!-- ========================================
-             WHAT WE DO LANDING PAGE
+             WHAT WE DO CONTAINER (Shared Background)
              ======================================== -->
-        <section class="what-we-do-landing-section gradient-animated-bg" data-theme="dark">
-            <div class="section-inner">
-                <!-- Main Heading -->
-                <h1 class="what-we-do-landing-title">WHAT WE DO</h1>
+        <div class="what-we-do-container gradient-animated-bg" data-theme="dark">
+            <!-- ========================================
+                 WHAT WE DO LANDING PAGE
+                 ======================================== -->
+            <section class="what-we-do-landing-section">
+                <div class="section-inner">
+                    <!-- Main Heading -->
+                    <h1 class="what-we-do-landing-title">WHAT WE DO</h1>
 
-                <!-- Three Service Cards -->
-                <div class="service-cards-grid">
-                    <!-- Card 1: Branding & Design -->
-                    <div class="service-card service-card--branding">
-                        <h2 class="service-card-title">BRANDING & DESIGN</h2>
-                        <p class="service-card-description">
-                            Bringing together strategic branding, UI, UX and digital design to help clients shape clear identities and create intuitive, engaging digital experiences.
-                        </p>
-                    </div>
+                    <!-- Three Service Cards -->
+                    <div class="service-cards-grid">
+                        <!-- Card 1: Branding & Design -->
+                        <div class="service-card service-card--branding">
+                            <h2 class="service-card-title">BRANDING & DESIGN</h2>
+                            <p class="service-card-description">
+                                Bringing together strategic branding, UI, UX and digital design to help clients shape clear identities and create intuitive, engaging digital experiences.
+                            </p>
+                        </div>
 
-                    <!-- Card 2: Web, App & AI Development -->
-                    <div class="service-card service-card--development">
-                        <h2 class="service-card-title">WEB APP & AI DEVELOPMENT</h2>
-                        <p class="service-card-description">
-                            Utilising design thinking and our technical expertise to assist our clients and partners creating, launching, or producing successful products and services.
-                        </p>
-                    </div>
+                        <!-- Card 2: Web, App & AI Development -->
+                        <div class="service-card service-card--development">
+                            <h2 class="service-card-title">WEB APP & AI DEVELOPMENT</h2>
+                            <p class="service-card-description">
+                                Utilising design thinking and our technical expertise to assist our clients and partners creating, launching, or producing successful products and services.
+                            </p>
+                        </div>
 
-                    <!-- Card 3: Interactive Experiences -->
-                    <div class="service-card service-card--interactive">
-                        <h2 class="service-card-title">INTERACTIVE EXPERIENCES</h2>
-                        <p class="service-card-description">
-                            Delivers immersive experiences that blends the physical and digital worlds, creating engaging interactions beyond the traditional screen or apps.
-                        </p>
+                        <!-- Card 3: Interactive Experiences -->
+                        <div class="service-card service-card--interactive">
+                            <h2 class="service-card-title">INTERACTIVE EXPERIENCES</h2>
+                            <p class="service-card-description">
+                                Delivers immersive experiences that blends the physical and digital worlds, creating engaging interactions beyond the traditional screen or apps.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- ========================================
-             WORK GRID SECTION
-             ======================================== -->
-        <section class="what-we-do-work-section gradient-animated-bg" data-theme="dark">
+            <!-- ========================================
+                 WORK GRID SECTION
+                 ======================================== -->
+            <section class="what-we-do-work-section">
             <div class="section-inner">
                 <!-- Work Grid -->
                 <div class="work-grid">
@@ -215,6 +219,7 @@ import Footer from "../../components/Footer.astro";
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- ========================================
              TOOLS OF THE TRADE SECTION

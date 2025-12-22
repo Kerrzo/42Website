@@ -128,9 +128,24 @@
      * Initialize animations on all elements on the page
      */
     App.initAnimations = function() {
-        // Animate crew carousel section as a whole component
+        // Fade in the crew carousel section as a whole component
+        // Ensure scrolling animations start immediately and consistently
         const crewCarouselSection = document.querySelector('.crew-carousel-section');
         if (crewCarouselSection) {
+            // Force carousel animations to start immediately and consistently
+            const carouselTracks = crewCarouselSection.querySelectorAll('.carousel-track');
+            carouselTracks.forEach(track => {
+                // Force animation restart to ensure consistent timing
+                track.style.animation = 'none';
+                // Use double requestAnimationFrame to ensure the reset is applied
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        track.style.animation = '';
+                    });
+                });
+            });
+            
+            // Apply fade-in to the section container
             crewCarouselSection.classList.add('scroll-fade-in');
             const alreadyVisible = isInViewport(crewCarouselSection);
             if (alreadyVisible) {
@@ -171,6 +186,10 @@
         // Also observe sections for any remaining elements (excluding hero and crew carousel)
         const sections = document.querySelectorAll('section:not(.home-hero-section)');
         sections.forEach(section => {
+            // Skip crew carousel section entirely - it has its own CSS animations
+            if (section.querySelector('.crew-carousel-section')) {
+                return;
+            }
             // Find any child elements that weren't caught by the main selector
             const children = section.querySelectorAll('*:not(.scroll-fade-in):not(.crew-carousel-section *)');
             const textImageElements = Array.from(children).filter(child => {
