@@ -1,0 +1,354 @@
+/* ========================================
+   WHAT WE DO LANDING PAGE STYLES
+   ======================================== */
+
+.what-we-do-landing-section {
+    min-height: 100vh;
+    background-color: #2a1a4a; /* Dark purple background */
+    padding: 150px var(--page-margin) 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.what-we-do-landing-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+    letter-spacing: 2px;
+}
+
+/* Service Cards Grid */
+.service-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Service Card Base Styles */
+.service-card {
+    position: relative;
+    padding: 60px 40px;
+    border-radius: 20px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Card 1: Branding & Design - Purple, Pink, Yellow, Light Blue Gradient */
+.service-card--branding {
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(221, 74, 255, 0.8) 0%, rgba(221, 74, 255, 0) 50%),
+        radial-gradient(circle at 70% 40%, rgba(255, 200, 100, 0.7) 0%, rgba(255, 200, 100, 0) 50%),
+        radial-gradient(circle at 20% 70%, rgba(100, 220, 255, 0.6) 0%, rgba(100, 220, 255, 0) 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 100, 200, 0.7) 0%, rgba(255, 100, 200, 0) 50%),
+        linear-gradient(135deg, rgba(138, 43, 226, 0.9) 0%, rgba(75, 0, 130, 0.9) 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+/* Card 2: Web, App & AI Development - Purple, Orange, Yellow Gradient */
+.service-card--development {
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(138, 43, 226, 0.8) 0%, rgba(138, 43, 226, 0) 50%),
+        radial-gradient(circle at 75% 30%, rgba(255, 140, 0, 0.8) 0%, rgba(255, 140, 0, 0) 50%),
+        radial-gradient(circle at 50% 70%, rgba(255, 215, 0, 0.7) 0%, rgba(255, 215, 0, 0) 50%),
+        linear-gradient(135deg, rgba(75, 0, 130, 0.9) 0%, rgba(255, 69, 0, 0.9) 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 18s ease infinite;
+}
+
+/* Card 3: Interactive Experiences - Blue Gradient (Indigo to Sky Blue) */
+.service-card--interactive {
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(75, 0, 130, 0.8) 0%, rgba(75, 0, 130, 0) 50%),
+        radial-gradient(circle at 70% 50%, rgba(0, 191, 255, 0.7) 0%, rgba(0, 191, 255, 0) 50%),
+        radial-gradient(circle at 50% 80%, rgba(135, 206, 250, 0.6) 0%, rgba(135, 206, 250, 0) 50%),
+        linear-gradient(135deg, rgba(25, 25, 112, 0.9) 0%, rgba(135, 206, 250, 0.9) 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 20s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Service Card Title */
+.service-card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Service Card Description */
+.service-card-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .what-we-do-landing-title {
+        font-size: 60px;
+        margin-bottom: 60px;
+    }
+
+    .service-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .service-card {
+        min-height: 400px;
+        padding: 50px 35px;
+    }
+
+    .service-card-title {
+        font-size: 28px;
+    }
+
+    .service-card-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .what-we-do-landing-section {
+        padding: 120px var(--page-margin) 80px;
+    }
+
+    .what-we-do-landing-title {
+        font-size: 48px;
+        margin-bottom: 50px;
+        letter-spacing: 1px;
+    }
+
+    .service-card {
+        min-height: 350px;
+        padding: 40px 30px;
+    }
+
+    .service-card-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .service-card-description {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .what-we-do-landing-section {
+        padding: 100px var(--page-margin) 60px;
+    }
+
+    .what-we-do-landing-title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .service-card {
+        min-height: 300px;
+        padding: 30px 25px;
+    }
+
+    .service-card-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .service-card-description {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+/* ========================================
+   WORK GRID SECTION
+   ======================================== */
+
+.what-we-do-work-section {
+    background-color: #2a1a4a; /* Dark purple background */
+    padding: 80px 0;
+    position: relative;
+}
+
+.what-we-do-work-section .work-grid {
+    padding: 0 var(--page-margin);
+    margin-bottom: 0;
+}
+
+/* ========================================
+   TOOLS OF THE TRADE SECTION
+   ======================================== */
+
+.tools-of-trade-section {
+    background-color: #2a1a4a; /* Dark purple background */
+    padding: 100px var(--page-margin) 120px;
+    position: relative;
+}
+
+.tools-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.tools-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    text-align: center;
+}
+
+.tools-subtitle strong {
+    font-weight: 700;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    max-width: 1440px;
+    width: 100%;
+}
+
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tool-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffffff;
+    margin: 0;
+}
+
+.tool-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Responsive Design for Tools Section */
+@media (max-width: 1024px) {
+    .tools-title {
+        font-size: 60px;
+    }
+
+    .tools-subtitle {
+        font-size: 20px;
+        margin-bottom: 60px;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tools-of-trade-section {
+        padding: 80px var(--page-margin) 100px;
+    }
+
+    .tools-title {
+        font-size: 48px;
+        margin-bottom: 30px;
+    }
+
+    .tools-subtitle {
+        font-size: 18px;
+        margin-bottom: 50px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .tool-name {
+        font-size: 18px;
+    }
+
+    .tool-description {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-of-trade-section {
+        padding: 60px var(--page-margin) 80px;
+    }
+
+    .tools-title {
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+
+    .tools-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .tool-name {
+        font-size: 16px;
+    }
+
+    .tool-description {
+        font-size: 14px;
+    }
+}
+

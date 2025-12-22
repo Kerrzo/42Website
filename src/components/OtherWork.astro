@@ -70,7 +70,7 @@ const otherWorkItems = allWorkItems.filter((item) => item.slug !== currentSlug);
 <section class="other-work-section" data-theme="light">
     <div class="section-inner">
         <div class="section-header">
-            <h2 class="section-title">Other work</h2>
+            <h2 class="section-title">Our Work</h2>
         </div>
 
         <!-- Work Grid -->
@@ -159,8 +159,8 @@ const otherWorkItems = allWorkItems.filter((item) => item.slug !== currentSlug);
 
     .btn-load-more {
         background: transparent;
-        border: 2px solid currentColor;
-        color: inherit;
+        border: 2px solid var(--primary-text, #ffffff);
+        color: var(--primary-text, #ffffff);
         padding: 12px 32px;
         font-size: 1rem;
         font-weight: 600;
@@ -171,7 +171,7 @@ const otherWorkItems = allWorkItems.filter((item) => item.slug !== currentSlug);
     }
 
     .btn-load-more:hover {
-        background: currentColor;
+        background: var(--primary-text, #ffffff);
         color: var(--text-dark, #000);
     }
 

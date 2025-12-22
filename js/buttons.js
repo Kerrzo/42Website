@@ -17,19 +17,7 @@
             });
         });
         
-        // Add hover effect for cards
-        const cards = document.querySelectorAll('.podcast-card, .blog-card-large, .blog-card-small, .tech-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-                this.style.transition = 'transform 0.3s ease';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
+        // Card hover effects are now handled via CSS (image zoom instead of card lift)
     };
 })();
 

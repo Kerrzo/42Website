@@ -1,4 +1,30 @@
 {
+  "testimonials": [
+    {
+      "name": "Tony Byrne",
+      "title": "General Manager",
+      "company": "International Towers",
+      "quote": "\"42 Interactive is a great tech partner for International Towers. Their innovative ideas help us build our digital experience for the whole precinct. They are reliable, trustworthy and put our best interest first.\""
+    },
+    {
+      "name": "Liam Timms",
+      "title": "Fund Manager",
+      "company": "International Towers",
+      "quote": "\"We had an amazing experience working with 42 Interactive and fostered a good relationship with the team. They always listened to our business challenges, present when needed and motivated to help. They're good at explaining complicated tech in a way that's easy to understand. What sets them apart is their honesty and helpful feedback on our ideas and tech choices.\""
+    },
+    {
+      "name": "Lily Coleman",
+      "title": "Digital Product Manager",
+      "company": "Craveable Brands Pty Ltd",
+      "quote": "\"Amazing - I would highly recommend them and I have been very vocal within our business that I have thoroughly enjoyed digital project management alongside them. They are very easy to work with.\""
+    },
+    {
+      "name": "Julie Anders",
+      "title": "",
+      "company": "",
+      "quote": "\"The team at 42 Interactive are highly creative and skilled and they beautifully encapsulated the essence of my work. The ongoing support from the team has been outstanding. Their technical expertise and knowledge is exceptional. I highly recommend working with 42 Interactive for not only a professional but a highly enjoyable experience.\""
+    }
+  ],
   "highlightedBlogs": [
     "3-tips-on-using-x-ray-plugins",
     "when-my-role-was-temporarily-handed-over-to-an-avatar",

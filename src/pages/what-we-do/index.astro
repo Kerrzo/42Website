@@ -1,0 +1,261 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<BaseLayout
+    title="What We Do - 42 Interactive"
+    bodyClass="what-we-do-page"
+    additionalStyles={["/css/what-we-do.css"]}
+>
+    <Header activePage="what-we-do" />
+
+    <main class="main-content">
+        <!-- ========================================
+             WHAT WE DO LANDING PAGE
+             ======================================== -->
+        <section class="what-we-do-landing-section" data-theme="dark">
+            <div class="section-inner">
+                <!-- Main Heading -->
+                <h1 class="what-we-do-landing-title">WHAT WE DO</h1>
+
+                <!-- Three Service Cards -->
+                <div class="service-cards-grid">
+                    <!-- Card 1: Branding & Design -->
+                    <div class="service-card service-card--branding">
+                        <h2 class="service-card-title">BRANDING & DESIGN</h2>
+                        <p class="service-card-description">
+                            Bringing together strategic branding, UI, UX and digital design to help clients shape clear identities and create intuitive, engaging digital experiences.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Web, App & AI Development -->
+                    <div class="service-card service-card--development">
+                        <h2 class="service-card-title">WEB, APP & AI DEVELOPMENT</h2>
+                        <p class="service-card-description">
+                            Utilising design thinking and our technical expertise to assist our clients and partners creating, launching, or producing successful products and services.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Interactive Experiences -->
+                    <div class="service-card service-card--interactive">
+                        <h2 class="service-card-title">INTERACTIVE EXPERIENCES</h2>
+                        <p class="service-card-description">
+                            Delivers immersive experiences that blends the physical and digital worlds, creating engaging interactions beyond the traditional screen or apps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             WORK GRID SECTION
+             ======================================== -->
+        <section class="what-we-do-work-section" data-theme="dark">
+            <div class="section-inner">
+                <!-- Work Grid -->
+                <div class="work-grid">
+                    <!-- Work Item 1 - Red Rooster -->
+                    <a
+                        href="/what-we-do/building-restaurants-of-the-future"
+                        class="work-card"
+                        style="text-decoration: none;"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-redrooster.png"
+                                alt="Building Restaurants of The Future"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Building Restaurants of The Future
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 2 - Amica Branding -->
+                    <a
+                        href="/what-we-do/a-brand-that-feels-like-a-friend"
+                        class="work-card"
+                        style="text-decoration: none;"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-amica-branding.png"
+                                alt="A Brand That Feels Like a Friend"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            A Brand That Feels Like a Friend
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 3 - Amica App -->
+                    <a
+                        href="/what-we-do/connecting-people-to-workplace"
+                        class="work-card"
+                        style="text-decoration: none;"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-amica.png"
+                                alt="Connecting People to workplace"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Connecting People to workplace
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 4 - AI -->
+                    <a
+                        href="/what-we-do/putting-the-intelligence-in-ai"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-ai.png"
+                                alt="Putting the Intelligence in AI"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Putting the Intelligence in AI
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 5 - Box Office VR -->
+                    <a
+                        href="/what-we-do/the-magic-of-theatre-at-home"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-bovr.png"
+                                alt="The Magic of Theatre at home"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">The Magic of Theatre at home</h3>
+                    </a>
+
+                    <!-- Work Item 6 - Neurotechnology -->
+                    <a
+                        href="/what-we-do/a-better-way-to-manage-pain"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-nt.png"
+                                alt="A Better Way to Manage Pain"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">A Better Way to Manage Pain</h3>
+                    </a>
+
+                    <!-- Work Item 7 - WRG -->
+                    <a
+                        href="/what-we-do/immortalising-creativity"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-wrg.png"
+                                alt="Immortalising Creativity"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Immortalising<br />Creativity
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 8 - Vivid -->
+                    <a
+                        href="/what-we-do/bringing-art-to-life"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-vivid.png"
+                                alt="Bringing Art To Life"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Bringing Art<br />To Life</h3>
+                    </a>
+
+                    <!-- Work Item 9 - Latham -->
+                    <a
+                        href="/what-we-do/bringing-products-to-life"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-latham.png"
+                                alt="Bringing Products to Life"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Bringing Products to Life</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             TOOLS OF THE TRADE SECTION
+             ======================================== -->
+        <section class="tools-of-trade-section" data-theme="dark">
+            <div class="section-inner">
+                <h2 class="tools-title">Tools of the Trade</h2>
+                <p class="tools-subtitle">
+                    We've honed our craft over years, and these are our preferred stack to build a world-class product.
+                </p>
+
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <h3 class="tool-name">Mobile</h3>
+                        <p class="tool-description">React Native</p>
+                    </div>
+
+                    <div class="tool-item">
+                        <h3 class="tool-name">Web</h3>
+                        <p class="tool-description">NextJS</p>
+                    </div>
+
+                    <div class="tool-item">
+                        <h3 class="tool-name">Serverless</h3>
+                        <p class="tool-description">AWS Lambda</p>
+                    </div>
+
+                    <div class="tool-item">
+                        <h3 class="tool-name">Database</h3>
+                        <p class="tool-description">MongoDB (Atlas)</p>
+                    </div>
+
+                    <div class="tool-item">
+                        <h3 class="tool-name">Design</h3>
+                        <p class="tool-description">Figma</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>
+

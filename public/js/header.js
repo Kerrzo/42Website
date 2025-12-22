@@ -49,10 +49,35 @@
             }
             
             // Determine which themed section is under the header
-            const activeSection = themedSections.find(section => {
-                const rect = section.getBoundingClientRect();
-                return rect.top <= headerHeight + 10 && rect.bottom >= headerHeight + 10;
-            }) || themedSections[0];
+            // Check if header is at the very top (before any section)
+            let activeSection = null;
+            
+            if (currentScroll === 0) {
+                // At the top, check the first section
+                activeSection = themedSections[0];
+            } else {
+                // Find the section that contains the header position
+                activeSection = themedSections.find(section => {
+                    const rect = section.getBoundingClientRect();
+                    return rect.top <= headerHeight + 10 && rect.bottom >= headerHeight + 10;
+                });
+                
+                // If no section found, check which section the header is closest to
+                if (!activeSection && themedSections.length > 0) {
+                    let closestSection = themedSections[0];
+                    let closestDistance = Math.abs(themedSections[0].getBoundingClientRect().top - headerHeight);
+                    
+                    themedSections.forEach(section => {
+                        const rect = section.getBoundingClientRect();
+                        const distance = Math.abs(rect.top - headerHeight);
+                        if (distance < closestDistance) {
+                            closestDistance = distance;
+                            closestSection = section;
+                        }
+                    });
+                    activeSection = closestSection;
+                }
+            }
             
             const isLight = activeSection?.dataset.theme === 'light';
             
@@ -64,7 +89,37 @@
         // Initial state - no background at top
         header.classList.remove('header-show-background');
         
-        // Trigger scroll event to set initial theme
+        // Set initial theme based on first section
+        function setInitialTheme() {
+            if (themedSections.length > 0) {
+                const firstSection = themedSections[0];
+                const rect = firstSection.getBoundingClientRect();
+                
+                // If first section starts at or before header position, use its theme
+                if (rect.top <= headerHeight) {
+                    const isLight = firstSection.dataset.theme === 'light';
+                    header.classList.toggle('header-theme-light', isLight);
+                    header.classList.toggle('header-theme-dark', !isLight);
+                } else {
+                    // Otherwise, check if header is over a light section
+                    const headerOverSection = themedSections.find(section => {
+                        const sRect = section.getBoundingClientRect();
+                        return sRect.top <= headerHeight && sRect.bottom >= headerHeight;
+                    });
+                    
+                    if (headerOverSection) {
+                        const isLight = headerOverSection.dataset.theme === 'light';
+                        header.classList.toggle('header-theme-light', isLight);
+                        header.classList.toggle('header-theme-dark', !isLight);
+                    }
+                }
+            }
+        }
+        
+        // Set initial theme
+        setInitialTheme();
+        
+        // Trigger scroll event to update theme
         const event = new Event('scroll');
         window.dispatchEvent(event);
     };

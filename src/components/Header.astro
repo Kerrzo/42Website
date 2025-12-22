@@ -1,6 +1,6 @@
 ---
 interface Props {
-    activePage?: "home" | "who-we-are";
+    activePage?: "home" | "who-we-are" | "what-we-do";
 }
 
 const { activePage = "home" } = Astro.props;
@@ -22,8 +22,8 @@ const { activePage = "home" } = Astro.props;
                 >Who We Are</a
             >
             <a
-                href="/"
-                class={`nav-link ${activePage === "home" ? "active" : ""}`}
+                href="/what-we-do"
+                class={`nav-link ${activePage === "what-we-do" ? "active" : ""}`}
                 >What We Do</a
             >
             <button class="btn-get-touch">Get in touch</button>
@@ -43,5 +43,5 @@ const { activePage = "home" } = Astro.props;
 <div class="mobile-menu-overlay"></div>
 <nav class="mobile-menu">
     <a href="/who-we-are" class="mobile-nav-link">Who We Are</a>
-    <a href="/" class="mobile-nav-link">What We Do</a>
+    <a href="/what-we-do" class="mobile-nav-link">What We Do</a>
 </nav>

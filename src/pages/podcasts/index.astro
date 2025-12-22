@@ -1,23 +1,32 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import configData from '../../../data/config.json';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import configData from "../../../data/config.json";
 
 // Get all podcasts and sort by date (latest first)
 // Parse date strings to Date objects for sorting
 const parseDate = (dateString: string): Date => {
     // Handle formats like "April 26, 2023"
     const months: { [key: string]: number } = {
-        'January': 0, 'February': 1, 'March': 2, 'April': 3,
-        'May': 4, 'June': 5, 'July': 6, 'August': 7,
-        'September': 8, 'October': 9, 'November': 10, 'December': 11
+        January: 0,
+        February: 1,
+        March: 2,
+        April: 3,
+        May: 4,
+        June: 5,
+        July: 6,
+        August: 7,
+        September: 8,
+        October: 9,
+        November: 10,
+        December: 11,
     };
-    
-    const parts = dateString.split(' ');
+
+    const parts = dateString.split(" ");
     if (parts.length === 3) {
         const month = months[parts[0]];
-        const day = parseInt(parts[1].replace(',', ''));
+        const day = parseInt(parts[1].replace(",", ""));
         const year = parseInt(parts[2]);
         return new Date(year, month, day);
     }
@@ -25,69 +34,94 @@ const parseDate = (dateString: string): Date => {
 };
 
 const podcasts = [...configData.podcasts]
-    .map(podcast => ({
+    .map((podcast) => ({
         ...podcast,
-        publishedDate: parseDate(podcast.date)
+        publishedDate: parseDate(podcast.date),
     }))
     .sort((a, b) => b.publishedDate.getTime() - a.publishedDate.getTime());
 ---
 
-<BaseLayout 
+<BaseLayout
     title="Podcasts | 42 Interactive"
     description="Watch our latest podcasts and videos about technology, design, and innovation"
     bodyClass="podcasts-listing-page"
 >
     <Header activePage="who-we-are" />
-    
+
     <main class="main-content">
+        <!-- ========================================
+             HERO
+             ======================================== -->
+        <section class="podcasts-hero section-hero fade-in" data-theme="dark">
+            <div class="hero-bg-image-wrapper">
+                <img
+                    src="/images/podcast/image.png"
+                    alt=""
+                    class="hero-bg-image"
+                />
+            </div>
+            <div class="hero-info">
+                <div class="hero-text-box">
+                    <h1 class="hero-title">Our Story</h1>
+                </div>
+                <div class="hero-credits-box">
+                    <p class="credit-value">
+                        Here's a glimpse into our world, what we do and what
+                        makes us different.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section class="podcasts-listing-section" data-theme="light">
             <div class="section-inner">
-                <div class="section-header">
-                    <h1 class="section-title">Podcasts</h1>
-                    <p class="section-description">Latest videos and podcasts from 42 Interactive</p>
-                </div>
-
                 <div class="podcasts-grid grid-3col">
-                    {podcasts.map((podcast) => (
-                        <div 
-                            class="podcast-card youtube-video-card"
-                            data-video-id={podcast.id}
-                        >
-                            <div class="podcast-card-image-wrapper">
-                                <img
-                                    src={`https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg`}
-                                    alt={podcast.title}
-                                    class="podcast-image"
-                                />
-                                <div class="podcast-card-overlay">
-                                    <div class="play-button">
-                                        <svg
-                                            width="68"
-                                            height="48"
-                                            viewBox="0 0 68 48"
-                                            fill="none"
-                                        >
-                                            <path
-                                                d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
-                                                fill="#f00"
-                                            />
-                                            <path
-                                                d="M 45,24 27,14 27,34"
-                                                fill="#fff"
-                                            />
-                                        </svg>
+                    {
+                        podcasts.map((podcast) => (
+                            <div
+                                class="podcast-card youtube-video-card"
+                                data-video-id={podcast.id}
+                            >
+                                <div class="podcast-card-image-wrapper">
+                                    <img
+                                        src={`https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg`}
+                                        alt={podcast.title}
+                                        class="podcast-image"
+                                    />
+                                    <div class="podcast-card-overlay">
+                                        <div class="play-button">
+                                            <svg
+                                                width="68"
+                                                height="48"
+                                                viewBox="0 0 68 48"
+                                                fill="none"
+                                            >
+                                                <path
+                                                    d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+                                                    fill="#f00"
+                                                />
+                                                <path
+                                                    d="M 45,24 27,14 27,34"
+                                                    fill="#fff"
+                                                />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="podcast-card-content">
+                                    <h3 class="podcast-title">
+                                        {podcast.title}
+                                    </h3>
+                                    {podcast.description && (
+                                        <p class="podcast-description">
+                                            {podcast.description}
+                                        </p>
+                                    )}
+                                    <p class="podcast-date">{podcast.date}</p>
+                                </div>
                             </div>
-                            <div class="podcast-card-content">
-                                <h3 class="podcast-title">{podcast.title}</h3>
-                                {podcast.description && (
-                                    <p class="podcast-description">{podcast.description}</p>
-                                )}
-                                <p class="podcast-date">{podcast.date}</p>
-                            </div>
-                        </div>
-                    ))}
+                        ))
+                    }
                 </div>
             </div>
         </section>
@@ -97,27 +131,61 @@ const podcasts = [...configData.podcasts]
 </BaseLayout>
 
 <style>
+    .podcasts-hero {
+        position: relative;
+    }
+
+    .podcasts-hero .hero-info {
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: flex-end;
+    }
+
+    .podcasts-hero .hero-text-box {
+        background-color: rgba(42, 42, 252, 0.8);
+        padding: 25px 60px;
+        width: 620px;
+        height: 266px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .podcasts-hero .hero-title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 1;
+        color: #ffffff;
+        margin: 0;
+        text-align: left;
+    }
+
+    .podcasts-hero .hero-credits-box {
+        background-color: rgba(16, 22, 83, 0.8);
+        width: 720px;
+        height: 133px;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .podcasts-hero .hero-credits-box .credit-value {
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 22.4px;
+        color: #ffffff;
+        margin: 0;
+        text-align: left;
+    }
+
     .podcasts-listing-section {
         background-color: #ffffff;
         padding: 80px 0;
         min-height: 60vh;
-    }
-
-    .section-header {
-        margin-bottom: 60px;
-        text-align: center;
-    }
-
-    .section-title {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: var(--text-dark, #0e1026);
-    }
-
-    .section-description {
-        font-size: 1.2rem;
-        color: #666666;
     }
 
     .podcasts-grid {
@@ -204,9 +272,8 @@ const podcasts = [...configData.podcasts]
         margin-bottom: 12px;
         color: var(--text-dark, #0e1026);
         line-height: 1.4;
-        min-height: 3.6em; /* Fixed height for title area (2 lines) */
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 4; /* Allow up to 4 lines for longer titles */
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -231,7 +298,7 @@ const podcasts = [...configData.podcasts]
         .podcasts-grid {
             grid-template-columns: repeat(2, 1fr);
         }
-        
+
         .podcast-card-image-wrapper {
             height: 240px; /* Slightly smaller on tablet */
         }
@@ -242,20 +309,12 @@ const podcasts = [...configData.podcasts]
             padding: 60px 0;
         }
 
-        .section-title {
-            font-size: 2rem;
-        }
-
         .podcasts-grid {
             grid-template-columns: 1fr;
         }
-        
+
         .podcast-card-image-wrapper {
             height: 200px; /* Smaller on mobile */
-        }
-        
-        .podcast-title {
-            min-height: auto; /* Allow natural height on mobile */
         }
     }
 </style>
@@ -263,10 +322,9 @@ const podcasts = [...configData.podcasts]
 <script>
     // Initialize YouTube lightbox functionality for podcast cards
     // The existing youtube.js will handle .youtube-video-card elements
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function () {
         if (window.App && window.App.initYouTubeLightbox) {
             window.App.initYouTubeLightbox();
         }
     });
 </script>
-

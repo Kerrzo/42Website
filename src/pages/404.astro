@@ -1,0 +1,269 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+    title="404 - Page Not Found | 42 Interactive"
+    description="The page you're looking for doesn't exist. Let's get you back on track."
+>
+    <Header activePage="home" />
+
+    <main class="main-content">
+        <!-- ========================================
+             SECTION 1: 404 HERO
+             ======================================== -->
+        <section class="error-hero-section" data-theme="dark">
+            <div class="section-inner">
+                <div class="error-content-wrapper">
+                    <div class="error-number">404</div>
+                    <h1 class="error-title">
+                        Page <span class="bold">Not Found</span>
+                    </h1>
+                    <p class="error-description">
+                        Looks like you've wandered into the <span class="bold">unknown.</span> 
+                        The page you're looking for doesn't exist, but we can help you find your way back.
+                    </p>
+                    <a href="/" class="btn-go-home">Go Home</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION 2: QUICK LINKS
+             ======================================== -->
+        <section class="error-links-section gradient-animated-bg" data-theme="light">
+            <div class="section-inner">
+                <h2 class="section-title">Where would you like to go?</h2>
+                <div class="error-links-grid">
+                    <a href="/" class="error-link-card">
+                        <h3 class="error-link-title">What We Do</h3>
+                        <p class="error-link-text">Explore our work and projects</p>
+                    </a>
+                    <a href="/who-we-are" class="error-link-card">
+                        <h3 class="error-link-title">Who We Are</h3>
+                        <p class="error-link-text">Learn about our team</p>
+                    </a>
+                    <a href="/podcasts" class="error-link-card">
+                        <h3 class="error-link-title">Videos</h3>
+                        <p class="error-link-text">Watch our latest content</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>
+
+<style>
+    .error-hero-section {
+        min-height: 700px;
+        background: linear-gradient(to bottom, #000000 0%, #0a1628 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 200px var(--page-margin) 100px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .error-hero-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .error-hero-section .section-inner {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+    }
+
+    .error-content-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    .error-number {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 180px;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--accent-blue);
+        margin-bottom: 20px;
+        opacity: 0.3;
+        letter-spacing: -0.05em;
+    }
+
+    .error-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 64px;
+        line-height: 1.2;
+        color: white;
+        font-weight: 400;
+        margin: 0 0 30px 0;
+    }
+
+    .error-title .bold {
+        font-weight: 700;
+        color: var(--accent-blue);
+    }
+
+    .error-description {
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        line-height: 1.6;
+        color: var(--text-gray);
+        margin: 0 0 40px 0;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .error-description .bold {
+        font-weight: 500;
+        color: white;
+    }
+
+    .btn-go-home {
+        display: inline-block;
+        background-color: var(--accent-blue);
+        color: var(--primary-text);
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .btn-go-home:hover {
+        background-color: #3d3dff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(42, 42, 252, 0.4);
+    }
+
+    .error-links-section {
+        background-color: var(--text-dark);
+        padding: 100px 0;
+        position: relative;
+    }
+
+    .error-links-section .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .error-links-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .error-link-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .error-link-card:hover {
+        background-color: rgba(42, 42, 252, 0.1);
+        border-color: var(--accent-blue);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(42, 42, 252, 0.2);
+    }
+
+    .error-link-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: white;
+        margin: 0 0 15px 0;
+    }
+
+    .error-link-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        color: var(--text-gray);
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+        .error-number {
+            font-size: 140px;
+        }
+
+        .error-title {
+            font-size: 48px;
+        }
+
+        .error-description {
+            font-size: 18px;
+        }
+
+        .error-links-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .error-hero-section {
+            min-height: 600px;
+            padding: 150px var(--page-margin) 80px;
+        }
+
+        .error-number {
+            font-size: 100px;
+        }
+
+        .error-title {
+            font-size: 36px;
+        }
+
+        .error-description {
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        .error-links-section {
+            padding: 60px 0;
+        }
+
+        .error-links-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .error-link-card {
+            padding: 30px 20px;
+        }
+
+        .error-link-title {
+            font-size: 24px;
+        }
+    }
+</style>
+

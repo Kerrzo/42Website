@@ -38,13 +38,32 @@ const formatDate = (dateString: string) => {
     <Header activePage="who-we-are" />
     
     <main class="main-content">
+        <!-- ========================================
+             HERO
+             ======================================== -->
+        <section class="blog-hero section-hero fade-in" data-theme="dark">
+            <div class="hero-bg-image-wrapper">
+                <img
+                    src="/images/blog/image.png"
+                    alt=""
+                    class="hero-bg-image"
+                />
+            </div>
+            <div class="hero-info">
+                <div class="hero-text-box">
+                    <h1 class="hero-title">Our Voice</h1>
+                </div>
+                <div class="hero-credits-box">
+                    <p class="credit-value">
+                        Here's a glimpse into our world, what we do and what
+                        makes us different.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section class="blog-listing-section" data-theme="light">
             <div class="section-inner">
-                <div class="section-header">
-                    <h1 class="section-title">Blog</h1>
-                    <p class="section-description">Latest articles and insights from 42 Interactive</p>
-                </div>
-
                 <div class="blog-grid grid-3col">
                     {blogPosts.map((post) => (
                         <a 
@@ -80,27 +99,61 @@ const formatDate = (dateString: string) => {
 </BaseLayout>
 
 <style>
+    .blog-hero {
+        position: relative;
+    }
+
+    .blog-hero .hero-info {
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: flex-end;
+    }
+
+    .blog-hero .hero-text-box {
+        background-color: rgba(42, 42, 252, 0.8);
+        padding: 25px 60px;
+        width: 620px;
+        height: 266px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .blog-hero .hero-title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 1;
+        color: #ffffff;
+        margin: 0;
+        text-align: left;
+    }
+
+    .blog-hero .hero-credits-box {
+        background-color: rgba(16, 22, 83, 0.8);
+        width: 720px;
+        height: 133px;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .blog-hero .hero-credits-box .credit-value {
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 22.4px;
+        color: #ffffff;
+        margin: 0;
+        text-align: left;
+    }
+
     .blog-listing-section {
         background-color: #ffffff;
         padding: 80px 0;
         min-height: 60vh;
-    }
-
-    .section-header {
-        margin-bottom: 60px;
-        text-align: center;
-    }
-
-    .section-title {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: var(--text-dark, #0e1026);
-    }
-
-    .section-description {
-        font-size: 1.2rem;
-        color: #666666;
     }
 
     .blog-grid {
@@ -117,7 +170,7 @@ const formatDate = (dateString: string) => {
     }
 
     .blog-card:hover {
-        transform: translateY(-5px);
+        /* No card movement - only image zooms */
     }
 
     .blog-card-image-wrapper {
@@ -137,6 +190,11 @@ const formatDate = (dateString: string) => {
         height: 100%;
         object-fit: cover;
         object-position: center;
+        transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover .blog-card-image {
+        transform: scale(1.15);
     }
 
     .blog-card-overlay {
@@ -192,10 +250,6 @@ const formatDate = (dateString: string) => {
     @media (max-width: 768px) {
         .blog-listing-section {
             padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
         }
 
         .blog-grid {

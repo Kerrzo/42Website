@@ -265,12 +265,12 @@ p {
 }
 
 .header-theme-light .nav-link {
-    color: #ffffff;
+    color: var(--accent-blue, #2a2afc);
 }
 
 .header-theme-light .nav-link.active,
 .header-theme-light .nav-link:hover {
-    color: var(--accent-blue);
+    color: var(--accent-blue, #2a2afc);
 }
 
 .btn-get-touch {
@@ -287,6 +287,7 @@ p {
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
+    margin-left: 20px;
 }
 
 .btn-get-touch:hover {
@@ -802,7 +803,34 @@ p {
 
 .podcasts-section .section-label {
     text-align: left;
+    margin-bottom: 0;
+}
+
+.section-header-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 40px;
+}
+
+.btn-show-all {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent-light-blue);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+}
+
+.btn-show-all:hover {
+    opacity: 0.7;
+}
+
+.blog-card-link {
+    display: block;
+    text-decoration: none;
 }
 
 .podcasts-grid {
@@ -811,6 +839,14 @@ p {
     gap: var(--column-gap);
     max-width: var(--max-width);
     margin: 0 auto;
+}
+
+/* Mobile: Single column for blogs and podcasts */
+@media (max-width: 768px) {
+    .podcasts-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
 
 /* YouTube Video Cards */
@@ -822,7 +858,7 @@ p {
 }
 
 .youtube-video-card:hover {
-    transform: translateY(-5px);
+    /* No card movement - only image zooms */
 }
 
 .youtube-thumbnail {
@@ -852,6 +888,11 @@ p {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.youtube-video-card:hover .youtube-thumbnail img {
+    transform: scale(1.15);
 }
 
 .play-button {
@@ -954,6 +995,14 @@ p {
     margin-bottom: 20px;
     display: block;
     background-color: var(--bg-gray);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-card-large:hover .blog-image-large {
+    transform: scale(1.15);
 }
 
 .blog-title-large {
@@ -977,6 +1026,14 @@ p {
     flex-shrink: 0;
     display: block;
     background-color: var(--bg-gray);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-card-small:hover .blog-image-small {
+    transform: scale(1.15);
 }
 
 .blog-content-small {
@@ -1082,6 +1139,14 @@ p {
     margin-bottom: 20px;
     display: block;
     background-color: var(--bg-gray);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.tech-card:hover .tech-image {
+    transform: scale(1.15);
 }
 
 .tech-title {
@@ -1523,10 +1588,11 @@ main > section:last-of-type {
     
     .footer-content {
         align-items: center;
+        order: 1;
     }
     
     .footer-logo {
-        margin-bottom: 20px;
+        order: 2;
     }
     
     /* Carousel */

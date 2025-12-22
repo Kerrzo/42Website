@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Testimonials from "../components/Testimonials.astro";
 import configData from "../data/config.json";
 
 // Get featured podcasts using the featuredPodcasts array from config
@@ -11,6 +12,39 @@ const featuredPodcasts = configData.featuredPodcasts
         configData.podcasts.find((podcast) => podcast.id === podcastId),
     )
     .filter((podcast) => podcast !== undefined);
+
+// Load all blog posts
+const allBlogPosts = await (import.meta as any).glob("../../data/blog/*.mdx", {
+    eager: true,
+    import: "frontmatter",
+});
+
+// Convert to array with slug
+const blogPosts = Object.entries(allBlogPosts).map(
+    ([path, frontmatter]: [string, any]) => {
+        const fileName = path.split("/").pop()?.replace(".mdx", "") || "";
+        return {
+            slug: fileName,
+            ...frontmatter,
+        };
+    },
+);
+
+// Get featured blogs from config (first 3 from highlightedBlogs)
+const featuredBlogs = configData.highlightedBlogs
+    .slice(0, 3)
+    .map((slug: string) => blogPosts.find((blog) => blog.slug === slug))
+    .filter((blog: any) => blog !== undefined);
+
+// Format date helper
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
+};
 ---
 
 <BaseLayout
@@ -241,18 +275,7 @@ const featuredPodcasts = configData.featuredPodcasts
                 </div>
 
                 <!-- Testimonial Section -->
-                <div class="testimonial-section">
-                    <div class="testimonial-label">TESTIMONIAL</div>
-                    <div
-                        class="testimonial-content-wrapper"
-                        data-testimonial-container
-                    >
-                        <!-- Slides injected by JavaScript -->
-                    </div>
-                    <div class="testimonial-slider" data-testimonial-dots>
-                        <!-- Dots injected by JavaScript -->
-                    </div>
-                </div>
+                <Testimonials />
             </div>
         </section>
 
@@ -272,9 +295,12 @@ const featuredPodcasts = configData.featuredPodcasts
                     >
                 </div>
 
-                <!-- YouTube Videos Section -->
+                <!-- Podcasts Section -->
                 <div class="podcasts-section">
-                    <div class="section-label">VIDEOS</div>
+                    <div class="section-header-with-button">
+                        <div class="section-label">PODCASTS</div>
+                        <a href="/podcasts" class="btn-show-all">Show All</a>
+                    </div>
                     <div class="podcasts-grid">
                         {
                             featuredPodcasts.map((podcast) => (
@@ -311,6 +337,50 @@ const featuredPodcasts = configData.featuredPodcasts
                                     </h3>
                                     <p class="podcast-date">{podcast.date}</p>
                                 </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <!-- Blogs Section -->
+                <div class="podcasts-section">
+                    <div class="section-header-with-button">
+                        <div class="section-label">BLOGS</div>
+                        <a href="/blog" class="btn-show-all">Show All</a>
+                    </div>
+                    <div class="podcasts-grid">
+                        {
+                            featuredBlogs.map((blog) => (
+                                <a
+                                    href={`/blog/${blog.slug}`}
+                                    class="blog-card-link"
+                                    style="text-decoration: none; display: block;"
+                                >
+                                    <div class="youtube-video-card">
+                                        {blog.image && (
+                                            <div class="youtube-thumbnail">
+                                                <img
+                                                    src={blog.image}
+                                                    alt={blog.title}
+                                                    class="podcast-image"
+                                                />
+                                            </div>
+                                        )}
+                                        {!blog.image && (
+                                            <div class="youtube-thumbnail">
+                                                <div style="width: 100%; height: 100%; background: var(--bg-gray); display: flex; align-items: center; justify-content: center; color: #999;">
+                                                    No Image
+                                                </div>
+                                            </div>
+                                        )}
+                                        <h3 class="podcast-title">
+                                            {blog.title}
+                                        </h3>
+                                        <p class="podcast-date">
+                                            {formatDate(blog.publishedAt)}
+                                        </p>
+                                    </div>
+                                </a>
                             ))
                         }
                     </div>

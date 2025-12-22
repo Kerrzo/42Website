@@ -4,6 +4,14 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import configData from '../data/config.json';
 
+// Get featured podcasts using the featuredPodcasts array from config
+// The order in the array determines display order (1st = left, 2nd = middle, 3rd = right)
+const featuredPodcasts = configData.featuredPodcasts
+    .map((podcastId) =>
+        configData.podcasts.find((podcast) => podcast.id === podcastId),
+    )
+    .filter((podcast) => podcast !== undefined);
+
 // Load all blog posts
 const allBlogPosts = await import.meta.glob('../../data/blog/*.mdx', { 
     eager: true,
@@ -160,9 +168,44 @@ const formatDate = (dateString: string) => {
                 <!-- YouTube Videos Section -->
                 <div class="podcasts-section">
                     <div class="section-label">VIDEOS</div>
-                    <!-- Podcasts dynamically loaded from data/podcasts.json -->
-                    <div class="podcasts-grid" data-podcast-container>
-                        <!-- Podcast cards will be dynamically inserted here by JavaScript -->
+                    <div class="podcasts-grid">
+                        {
+                            featuredPodcasts.map((podcast) => (
+                                <div
+                                    class="youtube-video-card"
+                                    data-video-id={podcast.id}
+                                >
+                                    <div class="youtube-thumbnail">
+                                        <img
+                                            src={`https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg`}
+                                            alt={podcast.title}
+                                            class="podcast-image"
+                                        />
+                                        <div class="play-button">
+                                            <svg
+                                                width="68"
+                                                height="48"
+                                                viewBox="0 0 68 48"
+                                                fill="none"
+                                            >
+                                                <path
+                                                    d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+                                                    fill="#f00"
+                                                />
+                                                <path
+                                                    d="M 45,24 27,14 27,34"
+                                                    fill="#fff"
+                                                />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h3 class="podcast-title">
+                                        {podcast.title}
+                                    </h3>
+                                    <p class="podcast-date">{podcast.date}</p>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
 
