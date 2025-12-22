@@ -3,14 +3,9 @@
    ======================================== */
 
 .what-we-do-landing-section {
-    min-height: 100vh;
-    background-color: #2a1a4a;
-    /* Dark purple background */
-    padding: 0px var(--page-margin) 100px;
+    background-color: var(--text-dark);
+    padding: 360px var(--page-margin) 80px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .what-we-do-landing-title {
@@ -230,9 +225,9 @@
    ======================================== */
 
 .what-we-do-work-section {
-    background-color: #2a1a4a;
-    /* Dark purple background */
-    padding: 80px 0;
+    background-color: var(--text-dark);
+    padding: 0 0 80px 0;
+    margin-top: 0;
     position: relative;
 }
 
