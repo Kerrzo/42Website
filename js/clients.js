@@ -37,6 +37,11 @@
             const logoData = logos[columnLogos[index]];
             const logoDiv = createLogoElement(logoData);
             column.appendChild(logoDiv);
+            
+            // Animate the newly added logo
+            if (App.animateNewElements) {
+                App.animateNewElements(logoDiv);
+            }
         });
         
         // Start the rotation animation
@@ -82,6 +87,11 @@
             
             // Add new logo to column
             column.appendChild(newLogo);
+            
+            // Animate the newly added logo
+            if (App.animateNewElements) {
+                App.animateNewElements(newLogo);
+            }
             
             // Remove old logo after animation completes
             setTimeout(() => {

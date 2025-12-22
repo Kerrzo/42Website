@@ -1,11 +1,11 @@
-(function() {
+(function () {
     const App = window.App = window.App || {};
 
     /**
      * Load Podcasts from JSON
      * Dynamically generates podcast cards from data/config.json
      */
-    App.loadPodcasts = async function(filterFeatured = false) {
+    App.loadPodcasts = async function (filterFeatured = false) {
         try {
             // Fetch the config data
             const response = await fetch('/data/config.json');
@@ -13,24 +13,24 @@
                 console.error('Failed to load config data');
                 return;
             }
-            
+
             const data = await response.json();
             let podcasts = data.podcasts;
-            
+
             // Filter for featured podcasts if requested (for homepage)
             if (filterFeatured) {
                 podcasts = podcasts
                     .filter(podcast => podcast.featured)
                     .sort((a, b) => a.featured - b.featured);
             }
-            
+
             // Find podcast containers on the page
             const podcastContainers = document.querySelectorAll('[data-podcast-container]');
-            
+
             if (podcastContainers.length === 0) {
                 return; // No podcast containers on this page
             }
-            
+
             // Play button SVG
             const playButtonSVG = `
                 <svg width="68" height="48" viewBox="0 0 68 48" fill="none">
@@ -38,7 +38,7 @@
                     <path d="M 45,24 27,14 27,34" fill="#fff"></path>
                 </svg>
             `;
-            
+
             // Generate HTML for each podcast
             const podcastsHTML = podcasts.map(podcast => `
                 <div class="youtube-video-card" data-video-id="${podcast.id}">
@@ -54,12 +54,17 @@
                     <p class="podcast-date">${podcast.date}</p>
                 </div>
             `).join('');
-            
+
             // Insert podcasts into all containers
             podcastContainers.forEach(container => {
                 container.innerHTML = podcastsHTML;
+
+                // Animate the newly added podcast elements
+                if (App.animateNewElements) {
+                    App.animateNewElements(container);
+                }
             });
-            
+
             // Attach thumbnail fallbacks immediately
             const allThumbnails = document.querySelectorAll('.youtube-video-card .podcast-image');
             allThumbnails.forEach(img => {
@@ -68,15 +73,15 @@
                     App.setupThumbnailFallback(img, vid);
                 }
             });
-            
+
             // After loading podcasts, reinitialize YouTube lightbox for new elements
             setTimeout(() => {
                 App.initYouTubeLightbox && App.initYouTubeLightbox();
                 App.loadYouTubeMetadata && App.loadYouTubeMetadata();
             }, 100);
-            
+
             console.log(`Loaded ${podcasts.length} podcasts into ${podcastContainers.length} container(s)`);
-            
+
         } catch (error) {
             console.error('Error loading podcasts:', error);
         }

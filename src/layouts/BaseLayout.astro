@@ -1,4 +1,6 @@
 ---
+import configData from "../data/config.json";
+
 interface Props {
     title: string;
     description?: string;
@@ -16,6 +18,9 @@ const {
 // Get base URL from Astro config
 // BASE_URL is automatically set by Astro based on the base config
 const baseUrl = (import.meta.env as any).BASE_URL || "/";
+
+// Get Google Analytics ID from config
+const gaId = (configData as any).googleAnalytics;
 ---
 
 <!doctype html>
@@ -41,9 +46,25 @@ const baseUrl = (import.meta.env as any).BASE_URL || "/";
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&family=Barlow+Condensed:wght@400&display=swap"
             rel="stylesheet"
         />
+        {
+            gaId && (
+                <>
+                    <script
+                        async
+                        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+                    />
+                    <script
+                        set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+                    />
+                </>
+            )
+        }
     </head>
     <body class={bodyClass}>
         <slot />

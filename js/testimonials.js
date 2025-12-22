@@ -1,10 +1,10 @@
-(function() {
+(function () {
     const App = window.App = window.App || {};
 
     /**
      * Initialize Testimonials Carousel (4 items, auto-play, loop)
      */
-    App.initTestimonialsCarousel = function() {
+    App.initTestimonialsCarousel = function () {
         const container = document.querySelector('[data-testimonial-container]');
         const dotsContainer = document.querySelector('[data-testimonial-dots]');
         if (!container || !dotsContainer) return;
@@ -110,6 +110,12 @@
         // Render and start
         renderSlides();
         renderDots();
+
+        // Animate the newly added testimonial elements
+        if (App.animateNewElements && container) {
+            App.animateNewElements(container);
+        }
+
         bindEvents();
         startAutoplay();
     };
