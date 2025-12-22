@@ -12,6 +12,10 @@ const {
     additionalStyles = [],
     bodyClass = "",
 } = Astro.props;
+
+// Get base URL from Astro config
+// BASE_URL is automatically set by Astro based on the base config
+const baseUrl = (import.meta.env as any).BASE_URL || "/";
 ---
 
 <!doctype html>
@@ -21,10 +25,17 @@ const {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" href={`${baseUrl}css/styles.css`} />
         {
             additionalStyles.map((style) => (
-                <link rel="stylesheet" href={style} />
+                <link
+                    rel="stylesheet"
+                    href={
+                        style.startsWith("/")
+                            ? `${baseUrl}${style.slice(1)}`
+                            : style
+                    }
+                />
             ))
         }
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,15 +63,15 @@ const {
         </div>
 
         <!-- JavaScript -->
-        <script is:inline src="/js/header.js"></script>
-        <script is:inline src="/js/buttons.js"></script>
-        <script is:inline src="/js/animations.js"></script>
-        <script is:inline src="/js/youtube.js"></script>
-        <script is:inline src="/js/podcasts.js"></script>
-        <script is:inline src="/js/clients.js"></script>
-        <script is:inline src="/js/testimonials.js"></script>
-        <script is:inline src="/js/gradient.js"></script>
-        <script is:inline src="/js/main.js"></script>
-        <script is:inline src="/js/stars-background.js"></script>
+        <script is:inline src={`${baseUrl}js/header.js`}></script>
+        <script is:inline src={`${baseUrl}js/buttons.js`}></script>
+        <script is:inline src={`${baseUrl}js/animations.js`}></script>
+        <script is:inline src={`${baseUrl}js/youtube.js`}></script>
+        <script is:inline src={`${baseUrl}js/podcasts.js`}></script>
+        <script is:inline src={`${baseUrl}js/clients.js`}></script>
+        <script is:inline src={`${baseUrl}js/testimonials.js`}></script>
+        <script is:inline src={`${baseUrl}js/gradient.js`}></script>
+        <script is:inline src={`${baseUrl}js/main.js`}></script>
+        <script is:inline src={`${baseUrl}js/stars-background.js`}></script>
     </body>
 </html>
