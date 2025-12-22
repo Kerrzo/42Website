@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout 
+  title="Bringing Art To Life – VIVID Sydney 2019 | 42 Interactive"
+  bodyClass="vivid-page"
+  additionalStyles={['/css/amica.css', '/css/vivid.css']}
+>
+    <Header activePage="home" />
+    
+    <main class="main-content">
+
+        <!-- ========================================
+             HERO
+             ======================================== -->
+        <section class="vivid-hero section-hero fade-in" data-theme="dark">
+            <img src="/images/work/vivid/image-vivid-hero.png"
+                 alt="VIVID Sydney 2019 installation"
+                 class="hero-bg-image">
+            <div class="hero-info">
+                <div class="hero-text-box">
+                    <h1 class="hero-title">Bringing Art<br>To Life</h1>
+                </div>
+                <div class="hero-credits-box">
+                    <div class="credit-info">
+                        <p class="credit-label">Client</p>
+                        <p class="credit-value">VIVID Sydney 2019</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             INTRO – WHAT WE'VE DONE
+             ======================================== -->
+        <section class="vivid-intro section-intro fade-in" data-theme="dark">
+            <p class="intro-label">WHAT WE'VE DONE</p>
+            <p class="intro-text">
+                We <span class="bold">created</span> an <span class="bold">inclusive interactive experience</span> with minimal friction, using <span class="bold">face and body tracking</span> to invite everyone in.
+            </p>
+        </section>
+
+        <!-- ========================================
+             YOUTUBE VIDEO SECTION
+             ======================================== -->
+        <section class="vivid-youtube-section fade-in" data-theme="dark">
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/HeJnddDG4YI" 
+                    title="See What I See - Vivid 2019"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- ========================================
+             INCLUSIVE CREATIVE + ARTIST SECTION
+             ======================================== -->
+        <section class="vivid-artist-section fade-in" data-theme="dark">
+            <h2 class="section-title">Inclusive Creative Technology</h2>
+            <p class="section-label">THE ARTIST WE COLLABORATE WITH</p>
+            <div class="section-divider"></div>
+            <div class="artist-content">
+                <div class="artist-text">
+                    <p>"See What I See" is an interactive installation that invites visitors to experience how they are seen through Digby's eyes. Standing in front of the frame, audiences see their features and expressions interpreted through advanced facial recognition, transforming them into a shifting vision of colour and light rendered in Digby's distinctive style.</p>
+                    <p>Digby is a widely exhibited, Sydney-based visual artist whose work spans abstracts, portraits, and landscapes. His canvases burst with vibrant colour, shaped by a unique and deeply personal way of seeing the world — a perspective that sits at the heart of the experience.</p>
+                </div>
+                <div class="artist-info">
+                    <img src="/images/work/vivid/image-vivid-digby.png"
+                         alt="Digby Webster"
+                         class="artist-image">
+                    <p class="artist-name">Digby Webster</p>
+                    <p class="artist-title">Visual Artist</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             TECHNOLOGY SECTION
+             ======================================== -->
+        <section class="vivid-tech-section fade-in" data-theme="light">
+            <div class="tech-columns">
+                <div class="tech-column">
+                    <p>The experience was designed to feel intimate and exclusive, while remaining completely frictionless. Face and body tracking allowed visitors to engage naturally, ensuring the work could be enjoyed by everyone without barriers.</p>
+                </div>
+                <div class="tech-column">
+                    <p>Participants simply step into the space and are instantly immersed, with no instructions or devices required. This approach maximised participation while preserving a sense of considered, gallery-quality engagement.</p>
+                </div>
+                <div class="tech-column">
+                    <p>At the core of the installation, a Microsoft Kinect V2.0 powers the face tracking that drives Digby's artwork. His hand-drawn illustrations were scanned and separated into facial elements, then recombined in real time to generate unique faces. Paired with varied backgrounds, each interaction produces a one-of-a-kind digital portrait, resulting in endless visual outcomes for every visitor.</p>
+                </div>
+            </div>
+            <div class="tech-images">
+                <img src="/images/work/vivid/image-vivid-diagram.png"
+                     alt="Technical diagram"
+                     class="tech-diagram">
+                <img src="/images/work/vivid/image-vivid-face.png"
+                     alt="Face tracking visualization"
+                     class="tech-face">
+            </div>
+        </section>
+
+        <!-- ========================================
+             GALLERY IMAGE SECTION
+             ======================================== -->
+        <section class="vivid-gallery-section fade-in" data-theme="dark">
+            <img src="/images/work/vivid/image-vivid-gallery.png"
+                 alt="VIVID installation in gallery">
+        </section>
+
+    </main>
+
+    <Footer />
+</BaseLayout>
+

@@ -1,0 +1,23 @@
+{
+  "podcasts": [
+    {
+      "id": "clG1qcF2Nrc",
+      "title": "Box Office VR: Theatre Performance Anytime Anywhere",
+      "date": "April 26, 2023",
+      "description": "Explore how virtual reality is transforming theatre experiences"
+    },
+    {
+      "id": "11dftwJtcgM",
+      "title": "AI Powered Strategy",
+      "date": "May 15, 2023",
+      "description": "A conversation about harnessing AI for strategic business decisions"
+    },
+    {
+      "id": "-az3b0ROFiE",
+      "title": "Tried and Tested - Human+AI Marketing Summit",
+      "date": "June 10, 2023",
+      "description": "Insights from the Human+AI Marketing Summit presentation"
+    }
+  ]
+}
+

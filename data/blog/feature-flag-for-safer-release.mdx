@@ -1,0 +1,51 @@
+---
+title: "Feature Flags: Safeguarding Your Release Process Effectively"
+publishedAt: "2023-11-05"
+summary: "Take your release process to the next level with feature flags. Enhance testing, enable feature toggling, and achieve greater control over your releases."
+image: "/blog/images/614c3d48db6026379d1766db_heylagostechie-IgUR1iX0mqM-unsplash.jpeg"
+---
+
+Once I was in a project where website deployment was sacred. We crossed fingers every time there’s a new web feature or enhancement that needed to go to production. We let everyone on the team know a couple of days before deployment and then have them watched over the deployment in case something went wrong. Sometimes the deployment went really well, but some weren’t. There were cases such as different configurations between production and test server.
+
+Crashes on specific devices as there are lots of devices today and it varies from low specification until high spec, different type, different os so it’s impossible to test on every real device. After realizing the deployment wasn’t successful so our options were reverting back or patching it as soon as possible and that day will absorb the energy for the whole week.
+
+This failed deployment would affect the team, as it’s tiring and stressful, it would also cause losing user, especially for a new user who has just installed the application. So after several unsuccessful deployments, we decided to find another solution on how to do it more properly, and the feature flag came as one of our solutions.
+
+![stack of programming code](/blog/images/6130bfa42299264af3372703_chris-ried-ieic5Tq8YMk-unsplash-1024x684.jpeg)
+
+‍
+
+## What is Feature Flag, or Feature Toggle? 
+
+It’s a mechanism to turn off or on a feature without having to do a deployment, changing env var, and anyone with access could do it, not just the developers. It looks like an a/b test but the feature flag is not used to compare whether solution a is better than b, or trying to measure the metric, but it’s more used as a safer option to roll out feature/enhancement.
+
+## How Does Feature Flag Works?
+
+Here’s an example of how simple a feature flag work. When deploying a new feature or enhancement, turn it off as default so no user can see it, then we can turn it on and set the rollout percentage to 10% or 15% while monitoring the performance or if there’s any issue occurs.
+
+If any critical issue comes up, turn the feature off, patch it with no rush then repeat the process. If monitoring looks good then increase the percentage so more users could see the new feature, repeat it until the feature is 100% release. 
+
+It can also set to release the feature to specific user, for example to the QA team only by specifying the user id, so the QA team can test in production before any user gets the new feature. If the team wants to see how the application works without the new feature, they can use the excluded user id, so the user won’t get the new feature. 
+
+If there’s segmentation, it could also be applied to release the feature to specific segment. For example, user who is living in certain area, or user who has purchase more than 10x, or new user, or even alpha tester segmentation.
+
+![Add Feature Flag ](/blog/images/6130bfa2ef8e2433e4b3c0ea_1_Wmd3iq96xeWqP9fJZHQbLw.png)
+
+‍
+
+## Advantage and Disadvantage 
+
+### Advantages of Feature Flag
+
+1.  Easily turn on/off feature, without having to push, build and deploy. Anyone, such as PM, BA, QA, with access to the dashboard, can do it without asking the devs.
+2.  Reduce the risk when releasing a new feature/enhancement. As we’re releasing to a small subset of users first, so the risk is minimized.
+3.  Faster release, when releasing teams just need to ensure the regression for the existing feature is working well.
+4.  Better team morale, no more sacred deployment, increase confidence when deploying as deployment to production is just a normal routine as deploying to test. The team can focus on other tasks rather than monitoring the production deployment and rolling back.
+5.  Ability to release smaller pieces to production instead of waiting until the feature is complete then do the bulk deployment.
+
+### Disadvantages of Feature Flag
+
+1.  Adding complexity, as devs need to ensure everything works ok with the feature flag on or off. When enhancing the existing feature, devs also need to make sure the old feature is still working and the new feature won’t crash with the old feature.
+2.  Need extra time to remove the flag when it’s 100% release, if the feature flag is not removed then it will cause disruption and confusion if we have lots of feature flags. This is also to ensure that all users will get the feature.
+
+I hope by sharing our experience in using feature flag, it will help development teams anywhere to run deployment smoothly and successfully.

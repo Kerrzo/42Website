@@ -1,0 +1,218 @@
+---
+title: "Essential Flutter Widgets When Developing Mobile Apps"
+publishedAt: "2024-06-05"
+summary: "Uncover the essential Flutter widgets for seamless mobile app development. Elevate your projects with ease!"
+image: "/blog/images/663332039c58a2ecacb24881_Essential_Flutter_widgets_when_developing_mobile_app.jpg"
+---
+
+Flutter is a popular framework for building beautiful and engaging mobile apps. Learning about the core widgets is essential if you're new to [Flutter developmen](https://www.42interactive.com/services/digital-design-and-development)t. This article will introduce you to 2 essential Flutter widgets that you can use for every app that you create and also include the example code and demo app.
+
+‍
+
+## **The Goals:**
+
+1.  Learning about Flutter development
+2.  Getting started with Essential Widget in Flutter
+3.  Can create an app using Widgets in Flutter
+
+‍
+
+## **The Good Things:**
+
+1.  Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase.
+2.  Flutter Widgets system gives more flexibility, able to combine multiple widgets
+3.  Flutter has a very active and large community base
+
+‍
+
+## **The Challenges:**
+
+1.  When enter into Flutter for the first time, it is very confusing because as we know, Flutter is a collection of widgets, so it makes confused, but after knowing the flow we will be amazed.
+2.  Need to learn and adapt to a new programming language, namely Dart
+
+‍
+
+First of all, let's talk about the 2 widgets that we will discuss
+
+‍
+
+### **Bottom Navigation Bar**
+
+‍
+
+The bottom navigation bar is a cool widget that has been given by the Flutter framework.
+
+We can easily add a bottom navigation bar to the scaffold. In the scaffold, there is an attribute called bottom Navigation Bar and we can assign Bottom Navigation Bar for that. Inside the Bottom Navigation Bar class, we can define the navigation button's behaviour and what the buttons need to show inside the bar.
+
+There are mainly two attributes that are very useful when considering Bottom Navigation Bar.
+
+‍
+
+**Key Considerations:**
+
+‍
+
+**_type_**: This attribute governs the visual behaviour of the buttons when tapped. Choose between:
+
+-   **_fixed_**: Maintains a static appearance, ideal for a minimalist approach.
+-   **_shifting_**: Introduces a subtle animation effect when a button is selected, enhancing user engagement.
+
+‍
+
+**_items_**: This crucial property takes a list of **_BottomNavigationBarItem_** objects, each representing a single navigation button. You'll need at least two items to provide users with sufficient navigation options.
+
+‍
+
+For **Customising Navigation Items,** each **_BottomNavigationBarItem_** object is comprised of two essential attributes:
+
+‍
+
+-   **_icon_**: This defines the visual representation of the button using an icon from an icon font or an image asset.
+-   **_label_**: While currently non-removable in Flutter, you can set the label to an empty string ("") if you prefer a purely icon-based navigation bar. However, remember that empty labels still occupy some space, potentially affecting the UI's overall layout.
+
+‍
+
+### **Grid View**
+
+‍
+
+The Grid View widget serves as a versatile tool for constructing scrollable grids of child widgets. It efficiently presents your content in a well-organised and visually pleasing manner.
+
+‍
+
+**Key Considerations:**
+
+‍
+
+-   **_Child_** Widgets: The **_GridView_** widget acts as a container, housing an array of child widgets that you define. These child widgets can be anything from text and images to custom components, allowing you to tailor the grid's content to your specific needs.
+-   **Scroll Behaviour**: By default, the GridView offers vertical scrolling functionality, enabling users to navigate through extensive lists of items within the grid. You can customise the scroll direction to horizontal if that better suits your data presentation.
+-   **Grid Configuration**: The GridView widget provides various properties for fine-tuning the grid's layout.
+-   **_gridDelegate_**: This property controls the overall structure of the grid. You can specify the number of items per row (cross-axis count) and define the spacing between items using properties like crossAxisSpacing and mainAxisSpacing.
+
+‍
+
+After we know the 2 essential widgets that are often used when [building a mobile app](https://www.42interactive.com/services/creative-technology-consultancy), now our goal is to create an app using these two widgets, here I will put an example code that I have created.
+
+‍
+
+#### Bottom Navigation Bar Widget
+
+‍
+
+![__wf_reserved_inherit](/blog/images/662724291a96df471114094a_Flutter_widget_1.png)
+
+‍
+
+In the code above we create a Bottom Navigation Bar which has 3 tabs, namely Home, Favourites, and Settings.
+
+‍
+
+#### Grid View Widget
+
+‍
+
+![__wf_reserved_inherit](/blog/images/66272441be02730601b7d120_Flutter_widget_2.png)
+
+‍
+
+In the code above we create a Grid View which has 2 **_crossAxisCounts_** which means the grid will have 2 columns, apart from that this grid also gets value data via dummy JSON, the function can be seen in the **_readJson ()_** code section.
+
+‍
+
+#### Home Page Screen
+
+‍
+
+![__wf_reserved_inherit](/blog/images/662724aec2ae63be86d3db3a_Flutter_widget_3.png)
+
+‍
+
+the code above used for display our home page screen with widget Grid View that we already created before.
+
+‍
+
+#### Favourites Screen
+
+‍
+
+![__wf_reserved_inherit](/blog/images/662724db8e79703529d7ac1c_Flutter_widget_4.png)
+
+‍
+
+that code above used to display our favourite images that we selected.
+
+‍
+
+#### **Provider**
+
+To add data to the favourite page, we create utils to handle it, the utils use the default Provider from Flutter, the implementation can be seen in the code below
+
+‍
+
+![__wf_reserved_inherit](/blog/images/662724fab5fcda5a4b44e239_Flutter_widget_5.png)
+
+‍
+
+then for the final step, just call the **_BottomNavigationBar_** widget which is already filled with the Grid view widget in **_main._** dart.
+
+‍
+
+## Demo
+
+‍
+
+‍
+
+## Summary
+
+‍
+
+#### **Benefits of Flutter:**
+
+-   It's an open-source framework for building beautiful mobile apps with a single codebase.
+-   It's development from year to year is very fast.
+-   has a large and active community base, making it easy to get information and learn about it.
+
+‍
+
+#### **Learning Curve**
+
+Getting started with Flutter requires learning Dart programming language and understanding its widget system.
+
+‍
+
+#### **Essential Widgets need to be learn:**
+
+-   **Bottom Navigation Bar:** This widget provides a way to navigate between different sections of the app. It allows customization of appearance (fixed vs shifting) and button items (icon and label).
+-   **Grid View:** This widget is useful for displaying a scrollable grid of content, like images or text. It allows defining child widgets, scroll behavior (vertical/horizontal), and grid layout (number of items per row, spacing).
+
+‍
+
+#### **References**
+
+[https://docs.flutter.dev/](https://docs.flutter.dev/)
+
+[https://pub.dev/packages/flutter\_staggered\_grid\_view](https://pub.dev/packages/flutter_staggered_grid_view)
+
+‍
+
+**Are you looking for mobile app development?**
+
+**We can help, let's chat.**
+
+‍
+
+_Written by:  
+‍_
+
+_Fibra Diarta \[Fullstack developer at 42 Interactive\]_
+
+_\- As a part of 42 Interactive training and research programme -_
+
+‍
+
+‍
+
+‍
+
+‍

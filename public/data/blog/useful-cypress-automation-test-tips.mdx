@@ -1,0 +1,100 @@
+---
+title: "Useful Tips on Cypress Automation Test"
+publishedAt: "2023-11-05"
+summary: "Learn some of the Cypress features and easy tips for testing with Cypress. In the field of end-to-end testing automation, Cypress can be an invaluable tool. "
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6232dacb27c41c2003bd9424_cypress-recursive.jpg"
+---
+
+## Reliable wait using network wait
+
+### The challenge: Flakiness due to unreliable waiting for elements
+
+So, we've created a test script, selected all the proper elements, executing all the right actions and prepared all kinds of assertion, but when the time to run the script comes, the elements took too long to load or disappear too quickly. What do we do?
+
+### The Solution: Use cy.wait() for more reliable wait
+
+In cypress we could use cy.wait() to make cypress wait for certain resource to resolve before continue to the next action.
+
+### Let's try it
+
+#### Here's the code in wait.spec.js
+
+![sample code in wait.spec.js](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d98216243ae64c995c69_cypress1.jpg)
+
+Now check the relevant code.
+
+1.  Let say you already have cypress installed in your project and ready to run them. For more information on how to install Cypress, Cypress.io has a great [documentation](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements) you could [check out](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements).
+2.  Create a new spec file under cypress/integration
+3.  Let's call it wait.spec.js
+4.  Let's try it on https://opensource-demo.orangehrmlive.com/ demo website on how to use cy.wait()
+5.  On this line cy.server(); we basically tell Cypress that we want to work with network. It's required for the next command which is cy.route()
+6.  cy.route("/index.php/dashboard/employeeDistribution").as("indexDashboardEmployeeDistribution");   On this line of code, we're telling Cypress to spy on any request with format of  "/index.php/dashboard/employeeDistribution" and giving it alias of  "indexDashboardEmployeeDistribution" which we'll use later.
+7.  And on this code cy.wait("@indexDashboardEmployeeDistribution"); we told cypress to wait for the request of   "indexDashboardEmployeeDistribution"  to be completed
+8.  After all the wait has been completed then Cypress will execute the next commands resulting in more **reliable automated test**.
+
+#### Here's how the waiting looks like when you run the script
+
+‍
+
+## The power comes from .within()
+
+### The challenge: Test failed because multiple similar elements are found (Including the hidden one)
+
+So, we've created a test script, selected all the proper elements, executing all the right actions and prepared all kinds of assertion, but when the time to run the script comes, multiple elements are selected and the action failed to execute or only execute one of them. What do we do?
+
+It's especially a problem if there's no specific selector is defined.
+
+### The solution: .within() make sure you select the element **within** the right element
+
+Use .within()
+
+According to [cypress documentation](https://docs.cypress.io/api/commands/within.html#Syntax), .within() will scopes all subsequent cy commands to within this element. Useful when working within a particular group of elements such as a `<form>`.
+
+### Let's try it
+
+#### Here's the code in within.spec.js
+
+![sample code in within.spec.js](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d9bf16243a3d1f995d3b_cypress2.jpg)
+
+‍
+
+#### Now check the relevant code.
+
+```js
+cy.get("@mainMenu").within(($mainMenu) => {  
+  cy.get("li").should("have.length.greaterThan", 11);  
+  cy.contains("li", "Buzz").should("exist").click();  
+});
+```
+
+Cypress will search for li and only search inside @mainMenu. Cypress will also search li which contain "Buzz" text inside it.
+
+#### Here's how the script look like when run
+
+![sample cypress script when run](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d9cb458d849cb3769dd7_cypress-3.jpg)
+
+## NEXT: Testing upload file with cypress
+
+### Challenge: How do I testing a file upload with  cypress?
+
+### Solution: Use cypress-file-upload from npmjs.com
+
+You can use cypress-file-upload from npmjs.com to test file upload. Here's the link: [https://www.npmjs.com/package/cypress-file-upload](https://www.npmjs.com/package/cypress-file-upload)
+
+First, install the package using npm by cd into the root cypress directory and run  npm install --save-dev cypress-file-upload in command prompt.
+
+After installing the package, you'll need to add  **import** 'cypress-file-upload';  in the  cypress/support/commands.js  file
+
+Then, You'll be able to use  .attachFile(yourFixturePath) command in your spec.js files
+
+#### Here's an example test script for uploading file.
+
+![sample test script for uploading file](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d9d503df1874e938d98a_cypress-4.jpg)
+
+‍
+
+#### Here's how the script looks like when you run it
+
+![sample uploading file script when run](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d9df3f72a00cbf032cf0_cypress-5.jpg)
+
+Cypress in a pot photo by [Tzingtao Chow](https://unsplash.com/@cyphexl?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/cypress?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

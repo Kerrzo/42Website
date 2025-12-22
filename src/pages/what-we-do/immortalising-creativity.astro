@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import OtherWork from '../../components/OtherWork.astro';
+---
+
+<BaseLayout 
+  title="White Rabbit Gallery – Immortalising Creativity | 42 Interactive"
+  bodyClass="wrg-page"
+  additionalStyles={['/css/amica.css', '/css/wrg.css']}
+>
+    <Header activePage="home" />
+    
+    <main class="main-content">
+
+        <!-- ========================================
+             HERO
+             ======================================== -->
+        <section class="wrg-hero section-hero fade-in" data-theme="dark">
+            <img src="/images/work/wrg/42i/image-wrg-hero.png"
+                 alt="White Rabbit Gallery interior"
+                 class="hero-bg-image">
+            <div class="hero-info">
+                <div class="hero-text-box">
+                    <h1 class="hero-title">Immortalising<br>Creativity</h1>
+                </div>
+                <div class="hero-credits-box">
+                    <div class="credit-info">
+                        <p class="credit-label">Client</p>
+                        <p class="credit-value">White Rabbit Gallery</p>
+                    </div>
+                    <div class="credit-photo">
+                        <p>Photo credits - White Rabbit Gallery</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             INTRO – WHAT WE'VE DONE
+             ======================================== -->
+        <section class="wrg-intro section-intro fade-in" data-theme="dark">
+            <p class="intro-label">WHAT WE'VE DONE</p>
+            <p class="intro-text">
+                We created a precise <span class="bold">digital twin</span> of White Rabbit Gallery's private Chinese art collection, making it <span class="bold">accessible beyond the physical space</span>.
+            </p>
+        </section>
+
+        <!-- ========================================
+             3D SECTION
+             ======================================== -->
+        <section class="wrg-3d-section fade-in" data-theme="dark">
+            <p class="wrg-description">
+                <a href="https://whiterabbitcollection.org/">The White Rabbit art gallery</a> is a premier destination for anyone interested in 21st-century Chinese contemporary art. With over 3000 works by 700 different artists, the collection offers something for everyone. The gallery was founded by Judith Neilson, who was inspired to establish it after her first trips to Beijing in the late 1990s. She was thrilled by the idea of a society that is so different from what she had seen in Australia.
+            </p>
+            <div class="wrg-3d-image">
+                <img src="/images/work/wrg/42i/image-wrg-3d.png"
+                     alt="3D digital twin of White Rabbit Gallery">
+            </div>
+        </section>
+
+        <!-- ========================================
+             GALLERY 1 WITH STATEMENT
+             ======================================== -->
+        <section class="wrg-gallery1 fade-in" data-theme="dark">
+            <img src="/images/work/wrg/42i/image-wrg-gallery1.png"
+                 alt="White Rabbit Gallery exhibition space">
+            <h2 class="gallery1-statement">Making the world's most significant Chinese Contemporary Art accessible for everyone.</h2>
+        </section>
+
+        <!-- ========================================
+             GALLERY 2
+             ======================================== -->
+        <section class="wrg-gallery2 fade-in" data-theme="dark">
+            <img src="/images/work/wrg/42i/image-wrg-galllery2.png"
+                 alt="White Rabbit Gallery artwork display">
+            <div class="gallery2-text">
+                <h3>We leverage 3D scanning technology to preserve art.</h3>
+            </div>
+        </section>
+
+    </main>
+
+    <OtherWork currentSlug="immortalising-creativity" />
+
+    <Footer />
+</BaseLayout>
+

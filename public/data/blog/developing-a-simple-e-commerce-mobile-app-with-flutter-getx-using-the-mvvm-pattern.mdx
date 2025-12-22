@@ -1,0 +1,421 @@
+---
+title: "Developing a Simple E-commerce Mobile App with Flutter & GetX using the MVVM Pattern"
+publishedAt: "2024-04-03"
+summary: "Learn how to develop a straightforward e-commerce mobile app using Flutter & GetX with the MVVM pattern. Build efficient, user-friendly apps."
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc8dbcc8e764222660559_Simple%20e-commerce%20main%20image.jpg"
+---
+
+Hi **coders,** I will share how to create a simple e-commerce mobile app using the **Flutter** framework and **GetX** state management library with **Model-View-ViewModel (MVVM)** architectural patterns in this article. By the end of this article, you’ll not only have a functional e-commerce app but also a deeper understanding of how to structure and manage your Flutter projects for scalability and maintainability.
+
+‍
+
+## **What is Flutter/GetX Flutter Library/Model-View-ViewModel (MVVM) pattern?**
+
+‍
+
+**Flutter** is an open-source framework developed by Google for building natively compiled mobile, web, and desktop applications from a single codebase. It is primarily used for creating user interfaces (UIs) and is particularly popular for mobile app development.
+
+‍
+
+**GetX** is a popular state management and navigation library for Flutter. GetX is designed to simplify and streamline the development process by offering a set of tools and utilities that make it easier to manage application state, handle navigation, and perform other common tasks in Flutter app development.
+
+‍
+
+**Model-View-ViewModel (MVVM)** is a software architectural pattern used to develop user interfaces, particularly in the context of software applications. MVVM is often associated with frameworks and technologies for building graphical user interfaces (GUIs) such as WPF (Windows Presentation Foundation), :, and others. It aims to separate the concerns of an application’s user interface into three distinct components which are **Model, View,** and **ViewModel**.
+
+‍
+
+**App Features**
+
+-   Display list products.
+-   Display list products by category.
+-   Display product detail.
+-   Add product to Cart by quantity.
+-   Remove product from Cart.
+
+‍
+
+## The Goals
+
+‍
+
+-   Implementing GetX state management and GetX route in the app.
+
+-   Implementing MVVM pattern by data model (model), screen (view), and controller & binding (view-model).
+-   Separate screen widgets into reusable components.
+-   Implement the app features.
+
+‍
+
+## **The Good Things**
+
+‍
+
+-   Flutter Widgets system gives more flexibility, able to combine multiple widgets.
+-   GetX is simple, and its state & navigation management is easy to use. They have multiple ways to render the data into the view.
+-   A lot of Flutter packages are available and have good documentation. Useful website for Flutter package detailing ➝ [https://fluttergems.dev/](https://fluttergems.dev/).
+-   With GetX, we can initialise multiple controllers. With this feature, we can define a global controller and screen controller and then use them for our purpose.
+
+‍
+
+## The Challenges
+
+‍
+
+-   When dealing with API requests, it's essential to establish the model according to the API response. Initially, I manually crafted the model, but later discovered helpful tools like [https://javiercbk.github.io/json\_to\_dart/](https://javiercbk.github.io/json_to_dart/) to convert JSON responses into models, saving me valuable time.
+-   Occasionally, when relocating widgets, I find myself copying and pasting code, leading to errors when I forget to include the closing bracket.
+
+‍
+
+App Demo: 
+
+‍
+
+## **Steps**
+
+‍
+
+Let's start by outlining the step-by-step process of building a basic e-commerce Mobile App using Flutter & GetX with the MVVM Pattern.
+
+‍
+
+#### **Create Flutter Project**
+
+Run the flutter create command: **_flutter create simple\_ecommerce_**
+
+‍
+
+If you encounter a "command not found" error, please consult this solution for resolution: [https://stackoverflow.com/a/50653621.](https://stackoverflow.com/a/50653621)
+
+‍
+
+Alternatively, you can create a Flutter project from Visual Studio Code by following this guide: [https://docs.flutter.dev/get-started/test-drive?tab=vscode.](https://docs.flutter.dev/get-started/test-drive?tab=vscode)
+
+‍
+
+Upon successful creation, the project structure will resemble the following:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efbe4ded9db0172fc06540_Simple%20e-commerce%201.png)
+
+‍
+
+#### **Install GetX Flutter Package**
+
+[https://pub.dev/packages/get](https://pub.dev/packages/get)
+
+**_flutter pub add get_**
+
+‍
+
+#### **Update Project Structure**
+
+Here is project structure that we will use in this app:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc01c1ebde73e63666b15_Simple%20e-commerce%202.png)
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc034d9d0f8ce669c9212_Simple%20e-commerce%203.png)
+
+‍
+
+#### **Create Home Screen**
+
+‍
+
+There are 4 components used in the screen:
+
+-   App Bar
+-   Carousel
+-   Category Card
+-   Product Card
+-   Paginator
+
+‍
+
+Let’s start creating those components:
+
+‍
+
+##### **App Bar Component**
+
+-   Install “flutter svg” package [https://pub.dev/packages/flutter\_svg/install](https://pub.dev/packages/flutter_svg/install)
+
+           **_flutter pub add flutter\_svg_**‍
+
+-   Download cart & arrow back icon [https://boxicons.com/](https://boxicons.com/) , then copy and paste it into ‘assets/images’. Finally, add these lines to your ‘pubspec.yaml’
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc10a8c4e0de75d242b2e_Simple%20e-commerce%204.png)
+
+‍
+
+-   Create a file on “lib/config/**spacing.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc19b6b20fa4d6f216d50_Simple%20e-commerce%205.png)
+
+-   Create a file on “lib/app/widgets/**custom\_app\_bar.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc1ac8c4e0de75d24d593_Simple%20e-commerce%206.jpeg)
+
+‍
+
+##### **Carousel Component**
+
+-   Install “carousel slider” package [https://pub.dev/packages/carousel\_slider](https://pub.dev/packages/carousel_slider)
+
+            **_flutter pub add carousel\_slider_**
+
+-   Install “smooth indicator” package [https://pub.dev/packages/smooth\_page\_indicator](https://pub.dev/packages/smooth_page_indicator)
+
+            **_flutter pub add smooth\_page\_indicator_**
+
+-   Install “cached network image” package [https://pub.dev/packages/cached\_network\_image/example](https://pub.dev/packages/cached_network_image/example)
+
+            **_flutter pub add cached\_network\_image_**
+
+-   Create a file on “lib/app/widgets/**carousel.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc244ceafab58b908386f_Simple%20e-commerce%207.jpeg)
+
+‍
+
+**Category Card Component**
+
+Create a file on “lib/app/widgets/**category\_card.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc26e970a80f961817eda_Simple%20e-commerce%208.png)
+
+‍
+
+**Product Card Component**
+
+Create a file on “lib/app/widgets/**product\_card.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc28783cca5692f5e78cd_Simple%20e-commerce%209.jpeg)
+
+‍
+
+**Paginator Component**
+
+Install “pagination flutter” package [https://pub.dev/packages/pagination\_flutter](https://pub.dev/packages/pagination_flutter)
+
+**_flutter pub add pagination\_flutter_**
+
+‍
+
+Create a file on “lib/app/widgets/**paginator.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc2ceb6a51cbde9609d28_Simple%20e-commerce%2010.jpeg)
+
+‍
+
+We've completed developing the Home Screen components. Now, let's delve into data modelling, API requests, and integrate everything into a single screen.
+
+‍
+
+##### **Create Model for Product**
+
+For this project, we will use fake store API to fetch the data [https://fakeapi.platzi.com/](https://fakeapi.platzi.com/). First, we need to create model for the product
+
+Create a file on “lib/app/models/**product\_model.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc33a433747842a6f6db8_Simple%20e-commerce%2011.jpeg)
+
+‍
+
+##### **Create General Config File**
+
+Create a file on “lib/config/general.dart” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc361e21bdb547d62e3e8_Simple%20e-commerce%2012.png)
+
+‍
+
+##### **Create Product Repository (API Services)**
+
+Create a file on “lib/app/repositories/**product\_repository.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc38d6339d47bbba3f4af_Simple%20e-commerce%2013.jpeg)
+
+‍
+
+##### **Create Home Screen Controller**
+
+Create a file on “lib/app/controllers/**home\_screen\_controller.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc3b683cca5692f5fddfe_Simple%20e-commerce%2014.jpeg)
+
+‍
+
+**Create Home Screen Binding**
+
+Create a file on “lib/app/bindings/**home\_screen\_binding.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc3cf86e8742ee74ec0b6_Simple%20e-commerce%2015.png)
+
+‍
+
+**Create Home Screen View**
+
+-   Install “dynamic height grid view” package [https://pub.dev/packages/dynamic\_height\_grid\_view](https://pub.dev/packages/dynamic_height_grid_view)
+
+            **_flutter pub add dynamic\_height\_grid\_view_**
+
+-   Create a file on “lib/app/widgets/**screen\_padding.dart**” and copy the code below
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc3fdb01ebe5bb1ab37e7_Simple%20e-commerce%2016.png)
+
+‍
+
+-   Create a file on “lib/app/screens/**home\_screen.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc4277aa6ec956286b4e6_Simple%20e-commerce%2017.jpeg)
+
+‍
+
+#### **Create Category Screen**
+
+‍
+
+##### **Create Category Screen Controller**
+
+Create a file on “lib/app/controllers/**category\_screen\_controller.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc45364890e135c176358_Simple%20e-commerce%2018.jpeg)
+
+‍
+
+##### **Create Category Screen Binding**
+
+Create a file on “lib/app/bindings/**category\_screen\_binding.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc4901ebde73e636baec7_Simple%20e-commerce%2019.png)
+
+‍
+
+##### **Create Category Screen View**
+
+Create a file on “lib/app/screens/**category\_screen.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc5201ebde73e636c6f88_Simple%20e-commerce%2020.jpeg)
+
+‍
+
+#### **Create Product Detail Screen**
+
+‍
+
+##### **Create Product Detail Screen Controller**
+
+Create a file on “lib/app/controllers/**product\_detail\_screen\_controller.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc4ea523ac3730c5173ff_Simple%20e-commerce%2021.jpeg)
+
+‍
+
+##### **Create Product Detail Screen Binding**
+
+Create a file on “lib/app/bindings/**product\_detail\_screen\_binding.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc4c807101b029d90e26d_Simple%20e-commerce%2022.png)
+
+‍
+
+##### **Create Product Detail Screen View**
+
+Create a file on “lib/app/screens/**product\_detail\_screen.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc6061b19d8a055de079b_Simple%20e-commerce%2023.jpeg)
+
+#### **  
+Create Cart Screen**
+
+‍
+
+##### **Create Cart Model**
+
+Create a file on “lib/app/models/**cart\_model.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc6407435e1ef3dd3301c_Simple%20e-commerce%2024.png)
+
+‍
+
+##### **Create Cart Screen Controller**
+
+Create a file on “lib/app/controllers/**cart\_screen\_controller.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc6be687b05b131e8b554_Simple%20e-commerce%2025.png)
+
+‍
+
+##### **Create Init Binding**
+
+Create a file on “lib/app/bindings/**init\_binding.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc6e6433747842a73ca74_Simple%20e-commerce%2026.png)
+
+‍
+
+##### **Create Cart Screen View**
+
+-   Create Cart Card component on “lib/app/widgets/**cart\_card.dart**” that will be used in Cart Screen:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc776e4e64119233c4ee5_Simple%20e-commerce%2027.jpeg)
+
+‍
+
+Create Cart Screen view on “lib/app/screens/**cart\_screen.dart**” and copy the code below:
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc7a5fa4d7e9858e4092f_Simple%20e-commerce%2028.jpeg)
+
+‍
+
+#### **Update main.dart file**
+
+Copy the code below and replace into **“lib/main.dart”:**
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65efc7c31762eb1ebe0e47aa_Simple%20e-commerce%2029.jpeg)
+
+‍
+
+#### **Run the project.**
+
+‍
+
+## Summary
+
+‍
+
+This tutorial walks you through creating a straightforward e-commerce mobile app using Flutter framework and GetX state [management](https://www.42interactive.com/services/digital-design-and-development) library following the Model-View-ViewModel (MVVM) architectural pattern. Key features of the app include product display, category filtering, product detail viewing, and cart management (adding/removing products). Objectives encompass incorporating GetX state management and routing, implementing MVVM pattern, modularising screen widgets into reusable components, and realising essential app functionalities. The tutorial underscores benefits like Flutter widget flexibility, GetX simplicity, Flutter package availability, and controller setup ease. Challenges discussed entail defining models for API requests and handling widget placement errors.
+
+‍
+
+**Are you looking for mobile app development? We can help, let's chat.**
+
+‍
+
+_Written by:  
+‍_
+
+_Widhi Mahaputra \[Developer at 42 Interactive\]  
+\- As a part of 42 Interactive training and research programme -_
+
+‍
+
+**References**
+
+‍
+
+[https://docs.flutter.dev/](https://docs.flutter.dev/)
+
+[https://fluttergems.dev/settings-ui/](https://fluttergems.dev/settings-ui/)
+
+[https://github.com/jonataslaw/getx](https://github.com/jonataslaw/getx)
+
+[https://fluttergems.dev/settings-ui/](https://fluttergems.dev/settings-ui/)
+
+[https://medium.com/flutter-community/the-flutter-getx-ecosystem-state-management-881c7235511d](https://medium.com/flutter-community/the-flutter-getx-ecosystem-state-management-881c7235511d)
+
+‍
+
+‍

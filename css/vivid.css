@@ -1,0 +1,340 @@
+/* VIVID - Vivid Sydney 2019 Page Styles */
+
+.vivid-page {
+    background-color: #0e1026;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.vivid-hero .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* ========================================
+   YOUTUBE SECTION
+   ======================================== */
+.vivid-youtube-section {
+    background-color: #000000;
+    padding: 0 100px 85px;
+}
+
+.vivid-youtube-section .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background-color: #000;
+}
+
+.vivid-youtube-section .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.vivid-youtube-section .video-thumbnail {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.vivid-youtube-section .video-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========================================
+   ARTIST SECTION (includes Inclusive Creative title)
+   ======================================== */
+.vivid-artist-section {
+    position: relative;
+    background-color: #0e1026;
+    padding: 80px 100px 100px;
+}
+
+.vivid-artist-section__container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.vivid-artist-section .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    max-width: 827px;
+    margin: 0 0 55px 0;
+}
+
+.vivid-artist-section .section-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 55px;
+}
+
+.vivid-artist-section .section-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16.8px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7fa0e5;
+    margin: 0 0 55px 0;
+}
+
+.vivid-artist-section .artist-content {
+    display: flex;
+    gap: 80px;
+}
+
+.vivid-artist-section .artist-text {
+    flex: 1;
+    max-width: 589px;
+}
+
+.vivid-artist-section .artist-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+}
+
+.vivid-artist-section .artist-info {
+    flex: 1;
+}
+
+.vivid-artist-section .artist-image {
+    width: 545px;
+    height: 337px;
+    object-fit: cover;
+    margin-bottom: 24px;
+}
+
+.vivid-artist-section .artist-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22.4px;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.vivid-artist-section .artist-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ========================================
+   TECHNOLOGY SECTION
+   ======================================== */
+.vivid-tech-section {
+    background-color: #ffffff;
+    padding: 76px 102px;
+}
+
+.vivid-tech-section__container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.vivid-tech-section .tech-columns {
+    display: flex;
+    gap: 56px;
+    margin-bottom: 80px;
+}
+
+.vivid-tech-section .tech-column {
+    flex: 1;
+    max-width: 360px;
+}
+
+.vivid-tech-section .tech-column p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    margin: 0;
+}
+
+.vivid-tech-section .tech-images {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.vivid-tech-section .tech-diagram {
+    width: 930px;
+    height: auto;
+}
+
+.vivid-tech-section .tech-face {
+    width: 310px;
+    height: auto;
+}
+
+/* ========================================
+   GALLERY SECTION
+   ======================================== */
+.vivid-gallery-section {
+    position: relative;
+    width: 100%;
+    height: 810px;
+    padding-bottom: 0;
+}
+
+.vivid-gallery-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 1200px) {
+    .vivid-inclusive-section .section-title {
+        font-size: 48px;
+    }
+    
+    .vivid-tech-section .tech-images {
+        flex-direction: column;
+    }
+    
+    .vivid-tech-section .tech-diagram,
+    .vivid-tech-section .tech-face {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .vivid-intro {
+        padding: 60px 40px;
+    }
+    
+    .vivid-intro .intro-text {
+        font-size: 22px;
+    }
+    
+    .vivid-youtube-section {
+        padding: 0 40px 60px;
+    }
+    
+    .vivid-inclusive-section {
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .vivid-inclusive-section .section-content {
+        padding: 60px 40px;
+    }
+    
+    .vivid-inclusive-section .section-title {
+        font-size: 36px;
+    }
+    
+    .vivid-artist-section {
+        padding: 40px 40px 80px;
+    }
+    
+    .vivid-artist-section .artist-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .vivid-artist-section .artist-text {
+        max-width: 100%;
+    }
+    
+    .vivid-artist-section .artist-image {
+        width: 100%;
+        max-width: 545px;
+    }
+    
+    .vivid-tech-section {
+        padding: 60px 40px;
+    }
+    
+    .vivid-tech-section .tech-columns {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .vivid-tech-section .tech-column {
+        max-width: 100%;
+    }
+    
+    .vivid-gallery-section {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .vivid-hero .hero-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+    
+    .vivid-intro {
+        padding: 40px 24px;
+    }
+    
+    .vivid-intro .intro-text {
+        font-size: 18px;
+    }
+    
+    .vivid-youtube-section {
+        padding: 0 24px 40px;
+    }
+    
+    .vivid-inclusive-section .section-content {
+        padding: 40px 24px;
+    }
+    
+    .vivid-inclusive-section .section-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    
+    .vivid-artist-section {
+        padding: 24px 24px 60px;
+    }
+    
+    .vivid-artist-section .artist-text p {
+        font-size: 18px;
+    }
+    
+    .vivid-tech-section {
+        padding: 40px 24px;
+    }
+    
+    .vivid-gallery-section {
+        height: 400px;
+    }
+}

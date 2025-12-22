@@ -1,0 +1,574 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import config from '../../../data/config.json';
+
+// Get all blog posts to generate static paths
+export async function getStaticPaths() {
+    const allBlogPosts = await import.meta.glob('../../../data/blog/*.mdx', { 
+        eager: true,
+        import: 'frontmatter'
+    });
+
+    return Object.entries(allBlogPosts).map(([path, frontmatter]) => {
+        const fileName = path.split('/').pop()?.replace('.mdx', '') || '';
+        return {
+            params: { slug: fileName },
+            props: { blogPath: path, frontmatter: frontmatter }
+        };
+    });
+}
+
+// Get the blogPath and frontmatter from props (set in getStaticPaths)
+const { blogPath, frontmatter } = Astro.props;
+const currentSlug = blogPath.split('/').pop()?.replace('.mdx', '') || '';
+
+// Import the MDX content
+const blogModule = await import(blogPath);
+const Content = blogModule.default;
+
+// Load all blog posts for sidebar
+const allBlogPosts = await import.meta.glob('../../../data/blog/*.mdx', { 
+    eager: true,
+    import: 'frontmatter'
+});
+
+// Format date
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+};
+
+const formattedDate = formatDate(frontmatter.publishedAt);
+
+// Process all blog posts
+const blogPostsArray = Object.entries(allBlogPosts).map(([path, frontmatter]) => {
+    const fileName = path.split('/').pop()?.replace('.mdx', '') || '';
+    return {
+        slug: fileName,
+        ...frontmatter,
+        publishedDate: new Date(frontmatter.publishedAt)
+    };
+});
+
+// Get highlighted blogs (excluding current)
+const highlightedBlogs = blogPostsArray
+    .filter(post => config.highlightedBlogs.includes(post.slug) && post.slug !== currentSlug)
+    .slice(0, 3);
+
+// Get latest blogs (excluding current, sorted by date)
+const latestBlogs = blogPostsArray
+    .filter(post => post.slug !== currentSlug)
+    .sort((a, b) => b.publishedDate.getTime() - a.publishedDate.getTime())
+    .slice(0, 3);
+---
+
+<BaseLayout 
+    title={`${frontmatter.title} | 42 Interactive`}
+    description={frontmatter.summary}
+    bodyClass="blog-page"
+>
+    <Header activePage="who-we-are" />
+    
+    <main class="main-content">
+        {frontmatter.image && (
+            <section class="blog-hero section-hero fade-in" data-theme="dark">
+                <div class="hero-bg-image">
+                    <img
+                        src={frontmatter.image}
+                        alt={frontmatter.title}
+                    />
+                </div>
+                <div class="hero-info">
+                    <div class="hero-text-box">
+                        <h1 class="hero-title">{frontmatter.title}</h1>
+                    </div>
+                    <div class="hero-credits-box">
+                        <div class="credit-info">
+                            <p class="credit-label">Published</p>
+                            <p class="credit-value">{formattedDate}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )}
+        
+        <div class="blog-content-wrapper">
+            <div class="blog-detail-container">
+            <article class="blog-detail-main">
+                {!frontmatter.image && (
+                    <div class="blog-detail-header">
+                        <h1 class="blog-detail-title">{frontmatter.title}</h1>
+                        <p class="blog-detail-date">{formattedDate}</p>
+                    </div>
+                )}
+                
+                <div class="blog-detail-content">
+                    <Content />
+                </div>
+            </article>
+
+            <aside class="blog-sidebar">
+                {highlightedBlogs.length > 0 && (
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Highlighted</h3>
+                        <div class="sidebar-blog-list">
+                            {highlightedBlogs.map((post) => (
+                                <a href={`/blog/${post.slug}`} class="sidebar-blog-card" style="text-decoration: none;">
+                                    {post.image && (
+                                        <div class="sidebar-blog-image-wrapper">
+                                            <img
+                                                src={post.image}
+                                                alt={post.title}
+                                                class="sidebar-blog-image"
+                                            />
+                                            <div class="sidebar-blog-overlay"></div>
+                                        </div>
+                                    )}
+                                    <h4 class="sidebar-blog-title">{post.title}</h4>
+                                    <p class="sidebar-blog-date">{formatDate(post.publishedAt)}</p>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {latestBlogs.length > 0 && (
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Latest</h3>
+                        <div class="sidebar-blog-list">
+                            {latestBlogs.map((post) => (
+                                <a href={`/blog/${post.slug}`} class="sidebar-blog-card" style="text-decoration: none;">
+                                    {post.image && (
+                                        <div class="sidebar-blog-image-wrapper">
+                                            <img
+                                                src={post.image}
+                                                alt={post.title}
+                                                class="sidebar-blog-image"
+                                            />
+                                            <div class="sidebar-blog-overlay"></div>
+                                        </div>
+                                    )}
+                                    <h4 class="sidebar-blog-title">{post.title}</h4>
+                                    <p class="sidebar-blog-date">{formatDate(post.publishedAt)}</p>
+                                </a>
+                            ))}
+                        </div>
+                        <div class="sidebar-show-all">
+                            <a href="/blog" class="btn-show-all">
+                                Show All
+                            </a>
+                        </div>
+                    </div>
+                )}
+            </aside>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</BaseLayout>
+
+<style>
+    /* Blog Hero Section */
+    .blog-hero .hero-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .blog-hero .hero-bg-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .blog-hero .hero-info {
+        display: flex;
+        align-items: flex-end;
+        gap: 0;
+    }
+
+    .blog-hero .hero-text-box {
+        background-color: rgba(42, 42, 252, 0.8);
+        padding: 25px 60px;
+        width: 70%;
+        height: 266px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .blog-hero .hero-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 1;
+        color: #ffffff;
+        margin: 0;
+        text-align: left;
+    }
+
+    .blog-hero .hero-credits-box {
+        background-color: rgba(16, 22, 83, 0.8);
+        width: 30%;
+        height: 133px;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .blog-content-wrapper {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    .blog-detail-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 80px var(--page-margin, 20px);
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+
+    .blog-detail-main {
+        min-width: 0;
+    }
+
+    .blog-detail-header {
+        margin-bottom: 40px;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .blog-detail-title {
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 12px;
+        color: #0e1026;
+        width: 70%;
+        flex-shrink: 0;
+    }
+
+    .blog-detail-date {
+        font-size: 12px;
+        color: #666666;
+        margin-bottom: 30px;
+        width: 30%;
+        flex-shrink: 0;
+    }
+
+    .blog-detail-content {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #0e1026;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+    }
+
+    .blog-detail-content :global(h1),
+    .blog-detail-content :global(h2),
+    .blog-detail-content :global(h3) {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        color: #0e1026;
+    }
+
+    .blog-detail-content :global(h1) {
+        font-size: 36px;
+    }
+
+    .blog-detail-content :global(h2) {
+        font-size: 30px;
+    }
+
+    .blog-detail-content :global(h3) {
+        font-size: 24px;
+    }
+
+    .blog-detail-content :global(p) {
+        margin-bottom: 20px;
+        color: #0e1026;
+    }
+
+    .blog-detail-content :global(img) {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 30px 0;
+    }
+
+    .blog-detail-content :global(ul),
+    .blog-detail-content :global(ol) {
+        margin: 20px 0;
+        padding-left: 30px;
+    }
+
+    .blog-detail-content :global(li) {
+        margin-bottom: 10px;
+        color: #0e1026;
+    }
+
+    .blog-detail-content :global(a) {
+        color: var(--primary-color, #0066cc);
+        text-decoration: underline;
+    }
+
+    .blog-detail-content :global(blockquote) {
+        border-left: 4px solid var(--primary-color, #0066cc);
+        padding-left: 20px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #0e1026;
+    }
+
+    /* Sidebar Styles */
+    .blog-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+    }
+
+    .sidebar-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .sidebar-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #0e1026;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .sidebar-blog-list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .sidebar-blog-card {
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        display: block;
+    }
+
+    .sidebar-blog-image-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 12px;
+    }
+
+    .sidebar-blog-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar-blog-card:hover .sidebar-blog-image {
+        transform: scale(1.1);
+    }
+
+    .sidebar-blog-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .sidebar-blog-card:hover .sidebar-blog-overlay {
+        opacity: 1;
+    }
+
+    .sidebar-blog-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #0e1026;
+        margin: 0 0 8px 0;
+        transition: color 0.3s ease;
+    }
+
+    .sidebar-blog-card:hover .sidebar-blog-title {
+        color: var(--accent-blue, #2a2afc);
+    }
+
+    .sidebar-blog-date {
+        font-size: 12px;
+        color: #666666;
+        margin: 0;
+    }
+
+    .sidebar-show-all {
+        text-align: center;
+        margin-top: 24px;
+    }
+
+    .btn-show-all {
+        display: inline-block;
+        background: transparent;
+        border: 2px solid #0e1026;
+        color: #0e1026;
+        padding: 12px 32px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+    }
+
+    .btn-show-all:hover {
+        background: #0e1026;
+        color: #ffffff;
+    }
+
+    /* Responsive styles for blog hero */
+    @media (max-width: 1200px) {
+        .blog-detail-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .blog-hero .hero-text-box {
+            width: 70%;
+        }
+        
+        .blog-hero .hero-credits-box {
+            width: 30%;
+        }
+        
+        .blog-hero .hero-title {
+            font-size: 48px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .blog-hero .hero-info {
+            left: 60px;
+            transform: none;
+            flex-direction: column;
+            gap: 0;
+            align-items: flex-start;
+        }
+        
+        .blog-hero .hero-text-box {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            padding: 30px 40px;
+        }
+        
+        .blog-hero .hero-credits-box {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            padding: 20px 40px;
+        }
+        
+        .blog-hero .hero-title {
+            font-size: 40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-detail-container {
+            padding: 40px var(--page-margin, 20px);
+        }
+
+        .blog-detail-header {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .blog-detail-title {
+            font-size: 40px;
+            width: 100%;
+        }
+
+        .blog-detail-date {
+            width: 100%;
+        }
+
+        .blog-hero .hero-info {
+            left: 0;
+            right: 0;
+            width: 100%;
+            transform: none;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+            padding: 0;
+        }
+        
+        .blog-hero .hero-title {
+            font-size: 32px;
+        }
+        
+        .blog-hero .hero-text-box {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            max-width: none;
+        }
+        
+        .blog-hero .hero-credits-box {
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 15px 20px;
+            max-width: none;
+        }
+
+        .sidebar-blog-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sidebar-blog-list {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+

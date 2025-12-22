@@ -1,0 +1,505 @@
+/* Page-specific styles for Amica work page */
+
+.amica-page {
+    background: #0e1026;
+    color: #f2f2f2;
+}
+
+.amica-page .section-label {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 12px;
+    color: #7fa0e5;
+    margin-bottom: 16px;
+}
+
+/* Hero image positioning */
+.hero-image {
+    position: absolute;
+    bottom: 0;
+    right: calc((100% - 1440px) / 2);
+    width: 907px;
+    height: 810px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Award section */
+.amica-award {
+    background: #0e1026;
+    padding: 100px 0;
+}
+
+.amica-award__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.amica-award__image img {
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+.amica-award__copy h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    color: #f2f2f2;
+    margin: 0 0 20px;
+    line-height: 1.15;
+}
+
+.amica-award__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    color: #cfd6ff;
+    font-size: 13px;
+}
+
+.amica-award__tags span {
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+}
+
+.amica-award__tags img {
+    margin-top: 40px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Loyalty section */
+.amica-loyalty {
+    position: relative;
+    min-height: 820px;
+    overflow: hidden;
+}
+
+.amica-loyalty__bg {
+    position: absolute;
+    inset: 0;
+    background: url('../images/work/amica/image-carpediem.png') center/cover no-repeat;
+    transform: scale(1.02);
+}
+
+.amica-loyalty::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.amica-loyalty__content {
+    position: relative;
+    min-height: 820px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.amica-loyalty__content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 auto;
+    max-width: 1150px;
+}
+
+/* Phones + metrics */
+.amica-phones {
+    position: relative;
+    background: transparent;
+    padding: 40px 0 60px;
+    margin-top: -220px;
+    z-index: 2;
+}
+
+.amica-phones__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.amica-phones__row {
+    display: flex;
+    justify-content: center;
+}
+
+.amica-phone-card {
+    background: #0c0e22;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.amica-phone-card img {
+    width: 100%;
+    max-width: 280px;
+    display: block;
+}
+
+.amica-phones__row img {
+    width: 100%;
+    max-width: 1120px;
+    height: auto;
+    display: block;
+}
+
+.amica-metrics {
+    display: block;
+    text-align: center;
+}
+
+.metric__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7fa0e5;
+}
+
+.metric__value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    color: #f2f2f2;
+}
+
+.metric__value.accent {
+    color: #ffc48c;
+}
+
+.amica-metrics img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Car */
+.amica-car {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.amica-car__bg {
+    position: absolute;
+    inset: 0;
+    background: url('../images/work/amica/image-amica-parking.png') center/cover no-repeat;
+}
+
+.amica-car::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.25) 100%);
+}
+
+.amica-car__content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    align-items: center;
+    gap: 40px;
+    padding: 140px 0;
+}
+
+.amica-car__text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #f2f2f2;
+    margin: 0;
+    max-width: 640px;
+}
+
+.amica-car__phone img {
+    width: 100%;
+    max-width: 260px;
+    display: block;
+}
+
+/* Access permits */
+.amica-access {
+    position: relative;
+    background: #0e1026;
+    padding: 160px 0 120px;
+    z-index: 2;
+}
+
+.amica-access__inner {
+    display: flex;
+    justify-content: center;
+}
+
+.amica-access__circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #121434;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    margin: -200px auto 40px;
+}
+
+.amica-access__circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.amica-access__copy {
+    text-align: center;
+    max-width: 960px;
+}
+
+.amica-access__copy h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #f2f2f2;
+    margin: 0 0 24px;
+    line-height: 1.15;
+}
+
+.amica-access__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 24px;
+}
+
+.stat__value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 150.61px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.stat__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.344px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
+.stat-operator {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 45.9px;
+    color: #ffffff;
+}
+
+.stat__unit {
+    font-size: 97.1433px;
+    margin-left: 4px;
+}
+
+/* Walkthrough */
+.amica-walkthrough {
+    background: transparent;
+    color: #0e1026;
+    padding: 120px 0;
+}
+
+.amica-walkthrough__inner {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 56px;
+    align-items: center;
+    min-height: 583px;
+    background: #f8f8f8;
+    padding: 64px 72px;
+}
+
+.walkthrough-left .section-label {
+    color: #2a2afc;
+}
+
+.amica-walkthrough__lead {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    line-height: 1.6;
+    color: #2a2a2a;
+    max-width: 360px;
+    margin: 0 0 40px;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.checklist li::before {
+    content: '■';
+    color: #2a2afc;
+    margin-right: 8px;
+}
+
+.awards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.awards img {
+    height: 160px;
+    width: auto;
+    object-fit: contain;
+}
+
+.walkthrough-right img {
+    width: 100%;
+    max-width: 780px;
+    margin-left: auto;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 1200px) {
+    .amica-award__inner {
+        grid-template-columns: 1fr;
+    }
+    .amica-car__content {
+        grid-template-columns: 1fr;
+    }
+    .amica-access__inner {
+        grid-template-columns: 1fr;
+    }
+    .amica-phones__row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .amica-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .amica-hero.section-hero {
+        height: auto;
+        min-height: 600px;
+    }
+    .hero-image {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+        margin: 0;
+        padding: 0;
+    }
+    .amica-phones__row {
+        grid-template-columns: 1fr;
+    }
+    .amica-metrics {
+        grid-template-columns: 1fr 1fr;
+    }
+    .amica-car__content {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding: 80px 20px;
+    }
+    .amica-car__text {
+        text-align: center;
+    }
+    .amica-car__text h2 {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .amica-car__phone {
+        display: flex;
+        justify-content: center;
+    }
+    .amica-walkthrough__inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding: 60px 20px;
+    }
+    .walkthrough-left {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .amica-walkthrough__lead {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .awards {
+        align-items: center;
+    }
+    .amica-access__circle {
+        margin: 0 auto;
+    }
+    .amica-access {
+        padding: 80px 20px 60px;
+    }
+    .amica-access__copy {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    .amica-access__copy h2 {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
+    .amica-access__stats {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .stat {
+        text-align: center;
+    }
+    .stat__value {
+        font-size: 60px;
+    }
+    .stat__label {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+    .stat-operator {
+        font-size: 24px;
+        margin: 0;
+    }
+    .stat__unit {
+        font-size: 40px;
+    }
+}

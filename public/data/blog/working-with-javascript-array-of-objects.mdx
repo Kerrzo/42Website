@@ -1,0 +1,61 @@
+---
+title: "Working with Javascript Array of Objects"
+publishedAt: "2023-11-05"
+summary: "In this quick tutorial, we will learn how to create arrays. An array in JavaScript is a common data structure and a type of global object used to store data. "
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6232ab9509760f7f064c1b05_javascript-function.jpg"
+---
+
+_Image credit to Any IP Ltd  
+_[_anyip.io_](https://anyip.io/)
+
+**Array of objects** is a common data structure that you will find frequently when you are working with a list in a modern Javascript framework. As a list, you will easily loop it by for Each () method or for the () function to access each of the Array’s elements in order to manipulate it.
+
+But [Javascript](https://www.javascript.com/) now has some Array’s methods that will help you to manipulate the elements and makes your life as a JS engineer much easier. The strength of these methods is that it doesn’t change the original data so you can safely manipulate the values without worrying about the original one. We wanted to share a few of them that our creative technology development team have regularly been using in some recent in [projects](/digital-agency-projects-accolades).
+
+## Array.map()
+
+Array map () will create a new array that a result from manipulating the original array. This method is powerful as in my imagination it’s working as for Each () in simpler and more compact syntax.
+
+This is an example:
+
+![sample javascript array map](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be95290e6ca931692524_bondan-js-object-1.png)
+
+‍
+
+If you need a new array that only contains email address only from the data, you can map () the array:
+
+![sample javascript people email](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be95e3f4d0cc74757fc6_bondan-js-object-2.png)
+
+‍
+
+The map () method is handy too if you think you need to manipulate the data a bit (adding new property) before further process. Let say you need 1 new property “location” that indicates all “Senior Developer” are from “Bali” and others are from “Sydney”. You can write your map () something like this:
+
+![sample javascript new people](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9565c91315fc6b5bf4_bondan-js-object-3.png)
+
+‍
+
+## Array.find()
+
+find () method will return the first element that is found in the Array. This method, as the name says it, is helpful for us to find the element, based on the criteria you have set, in the Array.
+
+![sample javascript find method](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be94c2ccf5863e3afb42_bondan-js-object-4.png)
+
+‍
+
+## Array.filter()
+
+filter() will return a new array, based on the search criteria that is set. So it can be an empty or filled array.
+
+![sample javascript filter people](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be950cbe729f2408e0f8_bondan-js-object-6.png)
+
+‍
+
+## Putting Them All Together
+
+This section will show you how we use the sample above in a vue.js project. I have 1 page, About Us page, that shows the list of personnel with a filter search form. The search/filter in this example is only found in the “name” field only.
+
+The page will look like this:
+
+![sample page using javascript array of objects](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9765c91306b96b5bf6_bondan-javascript-array-objects-1024x462.png)
+
+‍

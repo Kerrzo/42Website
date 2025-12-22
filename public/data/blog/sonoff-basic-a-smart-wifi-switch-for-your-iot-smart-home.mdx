@@ -1,0 +1,88 @@
+---
+title: "Effortless Home Automation with Sonoff Basic WiFi Switch"
+publishedAt: "2023-11-05"
+summary: "Embrace the future of smart living! Simplify your life with Sonoff Basic, a WiFi switch that revolutionizes the way you control and manage your home appliances."
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/614c3c8d1077941fc891b659_sonoff-basic-1.jpeg"
+---
+
+If you want to build a smarter house for your home, like a scheduled garden lighting, a remote gate opener, even create or open a door lock with an application via internet connection, then perhaps a smart switch from Sonoff can be the answer for that.
+
+## **What is Sonoff and Sonoff Basic**
+
+Sonoff ([https://sonoff.itead.cc/en/](https://sonoff.itead.cc/en/)) is a brand that focuses on creating IoT (Internet of Things) devices for home appliances. Sonoff has various devices such as smart sockets, smart lamp switches, etc and the most basic one is the _Sonoff Basic_.
+
+_Sonoff Basic_ is basically a wire switch that is connected to a homes WiFi and can be accessed via internet connection to turn the power on or off.
+
+![back view sonoff wifi smart switch](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/614c3c8d1077941fc891b659_sonoff-basic-1.jpeg)
+
+‍
+
+You can get _Sonoff Basic_ from Amazon for $5 US. Let’s try to configure this device and we will see the wide possibilities on the application in your home.
+
+### **Setting Up**
+
+Open the input and output covers from your Sonoff device, and put the wires in both sides of the input and output sections.
+
+![sonoff device setup](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be6fef8e24eb41b3bbc6_IMG_20190521_130737-1024x768.jpeg)
+
+‍
+
+After the wire installation is ready, you need to download the **eWeLink** app on Android or [IOS](https://apps.apple.com/us/app/ewelink-smart-home-control/id1035163158﻿) to your smartphone to control the switch later.
+
+### **Pairing**
+
+After you have installed the _Sonoff Basic_ with the cable power input and output like shown above, you are then ready to pair the device with your wifi network. To do that open the **eWeLink app** you have installed on your smartphone, register a new account, and the app will send you the link to finalise the registration. Follow the steps shown then after you successfully login to the app, prepare the cable installation by plugging it to the power outlet.
+
+Press the black button on the device near the LED lamp for about 5 seconds until the LED is blinking. It indicates that the device is ready to be paired. Open the **eWeLink app**, and click the ‘+’button on the bottom centre of the app, then click ‘Quick pairing’ button to continue the steps.
+
+![screenshot of add a device in sonoff app](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6232dccb2b0a07e5a471fb76_sonoff-ui1.jpg)
+
+‍
+
+Set the wifi connection name and password in the next step  then click the ‘Next’ button and let the app pairing between device and wifi begin. When the app succeeds in pairing, you can name the device in the last step to identify it later. When you have more than 1 device registered in the **eWeLink app** device with meaningful naming will really help identify your IoT device.
+
+![screenshot of choosing a wifi network in sonoff app](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6232dcdff160d752e7896216_sonoff-ui2.jpg)
+
+‍
+
+### **Controlling the Device**
+
+After you successfully add _Sonoff Basic_ into the eWeLink app, the device will be listed. You can now turn the switch On and Off by the tap of a button!
+
+![toggle on in sonoff app screen](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6232dcf18197a43633a61926_sonoff-ui3.jpg)
+
+![toggle off in sonoff app screen](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6232dd028657ec6872d8adfc_sonoff-ui4.jpg)
+
+![an eWeLink lit a light bulb](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be7022992653d937202f_IMG_20190521_151949-1024x644.jpeg)
+
+‍
+
+The eWeLink has the other useful options like Schedule, Timer, and Loop Timer.
+
+Video: [https://photos.app.goo.gl/VhffXXoGuWznknS4A](https://photos.app.goo.gl/VhffXXoGuWznknS4A)
+
+## **What’s Next from Here?**
+
+You can create another similar remote control project based on the above concept, for example a simple door lock system using electromagnetic/selenoid door lock that can lock and unlock based on power.
+
+You can also integrate eWeLink further with home assistant devices like _Google Assistant_, _Amazon Alexa_, or _Mi Home. This would enable you to_ activate the Sonoff device with voice commands.
+
+Video: [https://photos.app.goo.gl/YErjT4kv7uSkyAiD6](https://photos.app.goo.gl/YErjT4kv7uSkyAiD6)
+
+If you are looking for a harder challenge, you can install a hacked version of the firmware that is ready to read data from additional sensor modules such as aa humidity sensor. Better yet, use your own local WiFi to pair it with a local nodejs webserver that you can put on a _Raspberry Pi._ 
+
+This means you don’t need eWelink to act as a cloud server anymore enforcing device and data security. Just set the wifi of your server as your new Access Point, pair Sonoff to that AP, and create your app that will control the device inside the new network.  
+
+Or if you just want to create your own presentation layer app but without creating a whole new server, you can still use eWelink but just access the eWeLink server via web hooks. Check out IFTTT ([https://ifttt.com/discover](https://ifttt.com/discover)) it has some applets/code snippets that is ready to be used to access your Sonoff device that is already paired and stored inside your eWelink account. 
+
+Further Reading
+
+[https://www.jackenhack.com/sonoff-switch-i2c/](https://www.jackenhack.com/sonoff-switch-i2c/)
+
+[https://www.hackster.io/TechGuru/sonoff-control-from-any-web-application-or-page-d5f6cd](https://www.hackster.io/TechGuru/sonoff-control-from-any-web-application-or-page-d5f6cd)
+
+[https://blog.ipsumdomus.com/sonoff-switch-complete-hack-without-firmware-upgrade-1b2d6632c01](https://blog.ipsumdomus.com/sonoff-switch-complete-hack-without-firmware-upgrade-1b2d6632c01)
+
+[https://www.instructables.com/id/Control-Sonoff-From-Raspberry-Pi/](https://www.instructables.com/id/Control-Sonoff-From-Raspberry-Pi/)
+
+[https://www.npmjs.com/package/simple-sonoff-server](https://www.npmjs.com/package/simple-sonoff-server)

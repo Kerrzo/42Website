@@ -1,0 +1,319 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import OtherWork from "../../components/OtherWork.astro";
+---
+
+<BaseLayout
+    title="Craveable Brands – Building Restaurants of The Future | 42 Interactive"
+    bodyClass="craveable-page"
+    additionalStyles={["/css/craveablebrands.css"]}
+>
+    <Header activePage="home" />
+
+    <main class="main-content">
+        <!-- ========================================
+             HERO
+             ======================================== -->
+        <section class="craveable-hero section-hero fade-in" data-theme="dark">
+            <div class="craveable-hero__bg" aria-hidden="true">
+                <img
+                    src="/images/work/craveable/image-craveable-hero.png"
+                    alt=""
+                    class="craveable-hero__bg-image"
+                />
+            </div>
+
+            <div class="craveable-hero__bottom">
+                <div class="craveable-hero__title-card">
+                    <h1 class="craveable-hero__title">
+                        Building Restaurants of The Future
+                    </h1>
+                </div>
+
+                <div class="craveable-hero__client-card" data-name="client">
+                    <div class="craveable-hero__client-inner">
+                        <div class="craveable-hero__client-left">
+                            <p class="craveable-hero__client-label">Client</p>
+                            <p class="craveable-hero__client-value">
+                                Craveable Brands
+                            </p>
+                        </div>
+                        <p class="craveable-hero__client-credits">
+                            Photo credits - Craveable Brands
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             WHAT WE'VE DONE
+             ======================================== -->
+        <section class="craveable-intro fade-in" data-theme="dark">
+            <p class="craveable-intro__label">WHAT WE'VE DONE</p>
+            <p class="craveable-intro__text">
+                We <span class="bold">designed</span>, <span class="bold"
+                    >developed</span
+                > and <span class="bold">maintained</span>
+                <span class="bold">ecommerce platform</span> across three brands.
+                Including <span class="bold">online ordering</span> and <span
+                    class="bold">point of sale</span
+                > implementation.
+            </p>
+        </section>
+
+        <!-- ========================================
+             MEET THE FLOCK
+             ======================================== -->
+        <section class="craveable-flock" data-theme="light">
+            <div class="section-inner craveable-flock__inner">
+                <h2 class="craveable-flock__title">Meet the flock</h2>
+                <p class="craveable-flock__subtitle">
+                    SEO and UX <span class="bold">optmisations</span> resulted in
+                    a <span class="bold">50%</span>
+                    <span class="bold">increase</span> in <span
+                        >online
+                    </span><span class="bold">conversions</span>
+                    (3 - 4.5%)
+                </p>
+
+                <div
+                    class="craveable-flock__logos"
+                    aria-label="Craveable Brands logos"
+                >
+                    <img
+                        src="/images/work/craveable/logo-oporto.png"
+                        alt="Oporto"
+                        class="craveable-flock__logo craveable-flock__logo--oporto"
+                    />
+                    <img
+                        src="/images/work/craveable/logo-redrooster.png"
+                        alt="Red Rooster"
+                        class="craveable-flock__logo craveable-flock__logo--redrooster"
+                    />
+                    <img
+                        src="/images/work/craveable/logo-chickentreat.png"
+                        alt="Chicken Treat"
+                        class="craveable-flock__logo craveable-flock__logo--chickentreat"
+                    />
+                </div>
+            </div>
+            <div class="craveable-flock__websites" aria-hidden="true">
+                <img
+                    src="/images/work/craveable/website-oporto.png"
+                    alt=""
+                    class="craveable-flock__site craveable-flock__site--oporto"
+                    loading="lazy"
+                />
+                <img
+                    src="/images/work/craveable/website-redrooster.png"
+                    alt=""
+                    class="craveable-flock__site craveable-flock__site--redrooster"
+                    loading="lazy"
+                />
+                <img
+                    src="/images/work/craveable/website-chickentreat.png"
+                    alt=""
+                    class="craveable-flock__site craveable-flock__site--chickentreat"
+                    loading="lazy"
+                />
+            </div>
+        </section>
+
+        <!-- ========================================
+             WE DELIVERED
+             ======================================== -->
+        <section class="craveable-delivered" data-theme="dark">
+            <div class="section-inner craveable-delivered__inner">
+                <div class="craveable-delivered__copy">
+                    <h2 class="craveable-delivered__title">We Delivered.</h2>
+                    <p class="craveable-delivered__text">
+                        Working closely with delivery partners to ensure the
+                        food is always hot by releasing the order as the driver
+                        approaches the store, reduced delivery time by 6
+                        minutes.
+                    </p>
+
+                    <div class="craveable-delivered__logos">
+                        <img
+                            src="/images/work/craveable/logo-ubereats.png"
+                            alt="Uber Eats"
+                            class="craveable-delivered__logo craveable-delivered__logo--ubereats"
+                        />
+                        <img
+                            src="/images/work/craveable/logo-doordash.png"
+                            alt="DoorDash"
+                            class="craveable-delivered__logo craveable-delivered__logo--doordash"
+                        />
+                    </div>
+                </div>
+
+                <div class="craveable-delivered__image">
+                    <img
+                        src="/images/work/craveable/image-craveable-delivery.png"
+                        alt=""
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             APP SCREENS (FULL-WIDTH IMAGE)
+             ======================================== -->
+        <section class="craveable-apps-image" data-theme="dark">
+            <img
+                src="/images/work/craveable/image-craveable-apps.png"
+                alt=""
+                loading="lazy"
+            />
+        </section>
+
+        <!-- ========================================
+             FOREVER LOYAL / PAYMENTS / FLY THRU
+             ======================================== -->
+        <section class="craveable-orange" data-theme="light">
+            <div class="section-inner craveable-orange__inner">
+                <img
+                    src="/images/work/craveable/image-craveable-loyalty.png"
+                    alt=""
+                    class="craveable-orange__loyalty-image"
+                    loading="lazy"
+                />
+
+                <h2 class="craveable-orange__loyalty-title">Forever</h2>Loyal.
+            
+                <p class="craveable-orange__loyalty-text">
+                    Loyalty across <span class="bold">online</span> and <span
+                        class="bold"
+                        >in-store
+                    </span>creadit card payments through an Integration with
+                    Tranxactor.
+                </p>
+
+                <img
+                    src="/images/work/craveable/imave-craveable-payapp.png"
+                    alt=""
+                    class="craveable-orange__payapp"
+                    loading="lazy"
+                />
+
+                <h2 class="craveable-orange__payments-title">
+                    <span>Payments</span>
+                    <span>Made Simple</span>
+                </h2>
+                <p class="craveable-orange__payments-text">
+                    Integrated payment system with most popular merchants.
+                </p>
+
+                <div class="craveable-orange__wallets" aria-label="Wallet payments">
+                    <div
+                        class="craveable-wallet craveable-wallet--apple"
+                        aria-label="Apple Pay"
+                    >
+                        <img
+                            src="/images/work/craveable/image-craveable-applepay.png"
+                            alt=""
+                        />
+                    </div>
+                    <div
+                        class="craveable-wallet craveable-wallet--google"
+                        aria-label="Google Pay"
+                    >
+                        <img
+                            src="/images/work/craveable/image-craveable-googleplaay.png"
+                            alt=""
+                        />
+                    </div>
+                </div>
+
+                <div class="craveable-orange__flythru-row">
+                    <img
+                        src="/images/work/craveable/image-craveable-flythru.png"
+                        alt=""
+                        class="craveable-orange__flythru"
+                        loading="lazy"
+                    />
+                    <div class="craveable-orange__flythru-content">
+                        <h2 class="craveable-orange__drive-title">
+                            Drive Thru<br />Fly Thru
+                        </h2>
+                        <p class="craveable-orange__drive-text">
+                            Implemented <span class="bold">Drive-Thru</span>, <span
+                                class="bold">Kerbside pickup</span
+                            > and
+                            <span class="bold"> in-store contactless </span>payments
+                            for quick and easy options for customers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================
+             SERIOUSLY SCALABLE TECHNOLOGY
+             ======================================== -->
+    <section class="craveable-scalable" data-theme="dark">
+        <div class="section-inner craveable-scalable__inner">
+            <h2 class="craveable-scalable__title">
+                Seriously <br />Scalable <br />Technology
+            </h2>
+
+            <p class="craveable-scalable__lead">
+                <span class="italic"
+                    ><span class="bold-italic">Technology</span> connected to ~</span
+                ><span class="bold-italic">580 restaurants</span>
+                <span class="italic"> that serves </span><span
+                    class="bold-italic">over 1 million</span
+                >
+                <span class="italic"> customers per week.</span>
+            </p>
+
+            <p class="craveable-scalable__quote">
+                <span class="italic">"The </span><span class="bold-italic"
+                    >largest</span
+                >
+                <span class="italic"> </span><span class="bold-italic"
+                    >microservice</span
+                >
+                <span class="italic"> </span><span class="bold-italic"
+                    >architecture</span
+                >
+                <span class="italic"> in APAC" </span><span
+                    class="craveable-scalable__quote-source">~ AWS</span
+                >
+            </p>
+
+            <div class="craveable-fraud">
+                <div class="craveable-fraud__left">
+                    <h3 class="craveable-fraud__title">Fraud Prevention</h3>
+                    <p class="craveable-fraud__text">
+                        Implementing <span class="bold">Forter</span> with Fatzebra
+                        Payment Gateway
+                    </p>
+                </div>
+
+                <div class="craveable-fraud__divider" aria-hidden="true"></div>
+
+                <div class="craveable-fraud__right">
+                    <div class="craveable-fraud__percent">
+                        <span class="craveable-fraud__num">2.6</span><span
+                            class="craveable-fraud__pct">%</span
+                        >
+                    </div>
+                    <p class="craveable-fraud__right-text">
+                        <span class="bold">less</span>
+                        <span class="bold">fraudulent</span> transactions
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <OtherWork currentSlug="building-restaurants-of-the-future" />
+</BaseLayout>
+
+<Footer />

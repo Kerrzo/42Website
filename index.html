@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42 Interactive - Building What Others Only Imagine</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Menu / Header -->
+    <header class="main-menu header-theme-dark">
+        <div class="header-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo-42interactive-h.svg" alt="42 Interactive" class="logo-42i">
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">What We Do</a>
+                <a href="about.html" class="nav-link">Who We Are</a>
+                <button class="btn-get-touch">Get in touch</button>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="close-icon">&times;</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <nav class="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">What We Do</a>
+        <a href="about.html" class="mobile-nav-link">Who We Are</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- ========================================
+             SECTION 1: HERO / INTRO
+             ======================================== -->
+        <section class="home-hero-section" data-theme="dark">
+            <video class="hero-background-video" autoplay loop muted playsinline>
+                <source src="https://cdn.prod.website-files.com/6111d6047a5c21028fd21eb2/65a4c8146841a21a6fd5695c_42interactivebg2024-transcode.mp4" type="video/mp4">
+            </video>
+            <div class="section-inner">
+                <div class="hero-content-wrapper">
+                    <h1 class="home-hero-title">
+                        <span class="bold">Building</span> What Others Only <span class="bold">Imagine</span>
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION 2: WHAT WE DO
+             ======================================== -->
+        <section class="what-we-do-main-section gradient-animated-bg" data-theme="light">
+            <div class="section-inner">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">What We Do</h2>
+                    <p class="section-description">
+                        We <strong>Design</strong> and <strong>Develop</strong> <strong>Web</strong>, <strong>App</strong> & <strong>AI</strong> <strong>Interactive Experiences,</strong> that deepen the connection between Brands and Audiences.
+                    </p>
+                </div>
+
+                <!-- Work Grid -->
+                <div class="work-grid">
+                    <!-- Work Item 1 - Red Rooster -->
+                    <a href="work/craveablebrands.html" class="work-card" style="text-decoration: none;">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-redrooster.png" alt="Building Restaurants of The Future" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Building Restaurants of The Future</h3>
+                    </a>
+
+                    <!-- Work Item 2 - Amica Branding -->
+                    <a href="work/amicabrand.html" class="work-card" style="text-decoration: none;">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-amica-branding.png" alt="A Brand That Feels Like a Friend" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">A Brand That Feels Like a Friend</h3>
+                    </a>
+
+                    <!-- Work Item 3 - Amica App -->
+                    <a href="work/amica.html" class="work-card" style="text-decoration: none;">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-amica.png" alt="Connecting People to workplace" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Connecting People to workplace</h3>
+                    </a>
+
+                    <!-- Work Item 4 - AI -->
+                    <a href="work/ai.html" class="work-card">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-ai.png" alt="Putting the Intelligence in AI" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Putting the Intelligence in AI</h3>
+                    </a>
+
+                    <!-- Work Item 5 - Box Office VR -->
+                    <a href="work/bovr.html" class="work-card">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-bovr.png" alt="The Magic of Theatre at home" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">The Magic of Theatre at home</h3>
+                    </a>
+
+                    <!-- Work Item 6 - Neurotechnology -->
+                    <a href="work/neurotechnology.html" class="work-card">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-nt.png" alt="A Better Way to Manage Pain" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">A Better Way to Manage Pain</h3>
+                    </a>
+
+                    <!-- Work Item 7 - WRG -->
+                    <a href="work/wrg.html" class="work-card">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-wrg.png" alt="Immortalising Creativity" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Immortalising<br>Creativity</h3>
+                    </a>
+
+                    <!-- Work Item 8 - Vivid -->
+                    <a href="work/vivid.html" class="work-card">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-vivid.png" alt="Bringing Art To Life" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Bringing Art<br>To Life</h3>
+                    </a>
+
+                    <!-- Work Item 9 - Latham -->
+                    <a href="work/latham.html" class="work-card">
+                        <div class="work-image-wrapper">
+                            <img src="images/work/image-latham.png" alt="Bringing Products to Life" class="work-image">
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Bringing  Products to Life</h3>
+                    </a>
+                </div>
+
+                <!-- Client Logos -->
+                <div class="clients-section">
+                    <div class="clients-grid" id="clients-carousel">
+                        <!-- 5 columns for rotating logos - populated by JavaScript -->
+                        <div class="client-column" data-column="0"></div>
+                        <div class="client-column" data-column="1"></div>
+                        <div class="client-column" data-column="2"></div>
+                        <div class="client-column" data-column="3"></div>
+                        <div class="client-column" data-column="4"></div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Section -->
+                <div class="testimonial-section">
+                    <div class="testimonial-label">TESTIMONIAL</div>
+                    <div class="testimonial-content-wrapper" data-testimonial-container>
+                        <!-- Slides injected by JavaScript -->
+                    </div>
+                    <div class="testimonial-slider" data-testimonial-dots>
+                        <!-- Dots injected by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION 3: WHO WE ARE PREVIEW
+             ======================================== -->
+        <section class="who-we-are-preview-section" data-theme="light">
+            <div class="section-inner">
+                <div class="preview-header">
+                    <h2 class="preview-title">Who We Are</h2>
+                    <p class="preview-description">
+                        Here's a glimpse into <strong>our world</strong>, what we do and what <strong>makes us different.</strong>
+                    </p>
+                    <a href="about.html" class="btn-find-out-more">Find Out More</a>
+                </div>
+
+                <!-- YouTube Videos Section -->
+                <div class="podcasts-section">
+                    <div class="section-label">VIDEOS</div>
+                    <!-- Podcasts dynamically loaded from data/podcasts.json -->
+                    <div class="podcasts-grid" data-podcast-container>
+                        <!-- Podcast cards will be dynamically inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo-42.svg" alt="42" class="logo-42">
+            </div>
+            <div class="footer-content">
+                <p class="footer-cta-text">Let's build something amazing together!</p>
+                <button class="footer-button">Get in touch</button>
+                <div class="social-icons">
+                    <a href="https://au.linkedin.com/company/42-interactive" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <img src="images/Social-linkedin.svg" alt="LinkedIn" style="width: 100%; height: 100%;">
+                    </a>
+                    <a href="https://www.instagram.com/42interactive/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <img src="images/Social-instagram.svg" alt="Instagram" style="width: 100%; height: 100%;">
+                    </a>
+                    <a href="https://www.youtube.com/@42interactive" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <img src="images/Social-youtube.svg" alt="YouTube" style="width: 100%; height: 100%;">
+                    </a>
+                </div>
+                <p class="footer-copyright">© 42 Interactive Pty Ltd</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- YouTube Lightbox -->
+    <div id="youtube-lightbox" class="youtube-lightbox">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <iframe id="youtube-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/header.js"></script>
+    <script src="js/buttons.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/youtube.js"></script>
+    <script src="js/podcasts.js"></script>
+    <script src="js/clients.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="js/gradient.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/stars-background.js"></script>
+</body>
+</html>

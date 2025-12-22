@@ -1,0 +1,212 @@
+/* WRG - White Rabbit Gallery Page Styles */
+
+.wrg-page {
+    background-color: #0e1026;
+}
+
+/* ========================================
+   INTRO SECTION
+   ======================================== */
+.wrg-intro {
+    background-color: #222353;
+    padding: 85px 100px;
+    text-align: center;
+}
+
+.wrg-intro .intro-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16.8px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7fa0e5;
+    margin: 0 0 15px 0;
+}
+
+.wrg-intro .intro-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: normal;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.wrg-intro .intro-text .bold {
+    font-weight: 700;
+}
+
+/* ========================================
+   3D SECTION
+   ======================================== */
+.wrg-3d-section {
+    background-color: #101112;
+    position: relative;
+    padding-top: 83px;
+    padding-bottom: 0;
+}
+
+.wrg-3d-section .wrg-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #ffffff;
+    text-align: center;
+    max-width: 774px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.wrg-3d-section .wrg-description a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.wrg-3d-section .wrg-3d-image {
+    width: 100%;
+    display: block;
+}
+
+.wrg-3d-section .wrg-3d-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ========================================
+   GALLERY 1 SECTION
+   ======================================== */
+.wrg-gallery1 {
+    position: relative;
+    width: 100%;
+    height: 811px;
+}
+
+.wrg-gallery1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.wrg-gallery1::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.wrg-gallery1 .gallery1-statement {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    z-index: 1;
+    padding: 60px 100px;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   GALLERY 2 SECTION
+   ======================================== */
+.wrg-gallery2 {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    padding-bottom: 0;
+}
+
+.wrg-gallery2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.wrg-gallery2 .gallery2-text {
+    position: absolute;
+    top: 155px;
+    left: 100px;
+    width: 404px;
+}
+
+.wrg-gallery2 .gallery2-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 1;
+    color: #000000;
+    margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 992px) {
+    .wrg-intro .intro-text {
+        font-size: 22px;
+    }
+    
+    .wrg-statement h2 {
+        font-size: 36px;
+    }
+    
+    .wrg-gallery1,
+    .wrg-gallery2 {
+        height: 500px;
+    }
+    
+    .wrg-gallery2 .gallery2-text {
+        left: 40px;
+        width: 300px;
+    }
+    
+    .wrg-gallery2 .gallery2-text h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrg-intro {
+        padding: 60px 24px;
+    }
+    
+    .wrg-intro .intro-text {
+        font-size: 18px;
+    }
+    
+    .wrg-3d-section .wrg-description {
+        font-size: 18px;
+    }
+    
+    .wrg-statement {
+        padding: 60px 24px;
+    }
+    
+    .wrg-statement h2 {
+        font-size: 28px;
+    }
+    
+    .wrg-gallery2 .gallery2-text {
+        top: 60px;
+        left: 24px;
+        width: 250px;
+    }
+    
+    .wrg-gallery2 .gallery2-text h3 {
+        font-size: 24px;
+    }
+}

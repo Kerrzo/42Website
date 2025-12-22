@@ -1,0 +1,57 @@
+---
+title: "Unlocking Creativity: Key Takeaways from Unity Unite 2018"
+publishedAt: "2023-11-05"
+summary: "Unlock the future of gaming with Unity Unite 2018. Explore the cutting-edge technologies and industry insights that emerged from this epic conference."
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d7f8121fe203b2c35dd6_unity-unite.jpg"
+---
+
+Unity recently held their latest unite conference in LA on October 23rd 2018. There were a number of great talks through the event and impressive announcements about upcoming features and systems in development and in beta. A takeaway from the event was the engine being highlighted in use across automotive, architecture and film industries.
+
+## Cinemachine and Cinecast
+
+GTFO (4player horror shooter where communication is key to survive) sample of a live broadcast. CineCast allows you to direct a story all from inside the game enabling you to get a lot of the best shots. “How do you film something when you don’t know what's going to happen next” This is unity’s broadcast pipeline for e-sports enabling developers to add a “Spectator mode” to any multiplayer game with ease. This tech has some AI behind it to go into an “Automatic mode” which also obeys the Director line rule, where a shot cannot cross more than 180 from the previous shot. The implementation of this rule was created by [Inria](https://www.inria.fr/en/centre/paris), a French computer research business.
+
+![sample cinemachine and cinecast](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d7e3abda9eed4c35bc9b_unity-face.jpg)
+
+> “Gaming is so big it has suppressed the movie industry in revenue and sports in viewership. It’s is crazy…”
+
+## New Demo Project – the FPS Sample
+
+Free demo [project](/our-digital-projects) coming out to enable developers to look at how you might build a large hi-res AA/AAA game. The project looks great and will help introduce not only new developers to Unity workflows but also intermediate teams looking to build something more complex and graphically rich. The Demo showed tools to spin up a headless server and two clients for multiplayer testing and will contain new features built with Netcode, HDRP, client-side prediction, lag compensation among others. Find out more on the Unity site [https://unity.com/fps-sample](https://unity.com/fps-sample)
+
+## Realtime Multiplayer Services
+
+Unity has combined with Google Cloud to offer new solutions to common hosting and multiplayer problems facing developers around they world. They announced integrated fibre networks (Transport Layer) and PAAS solutions for Game Server Hosting, Custom Server solutions, Match Making and Headless Unity Servers. Signup now for alpha releases on Unitys site [https://unity.com/solutions/real-time-multiplayer](https://unity.com/solutions/real-time-multiplayer)
+
+## Visual Effect Graph
+
+Artists rejoice, the Visual Effects Graph enables effects without code! A new node based system to enable artists to be able to [create visual effects](https://www.42interactive.com/blog/virtual-reality-augmented-reality-and-mixed-reality-what-are-they) easily and without the need for code. The new tool is integrated with a Timeline which will be great for directors and film animators/artists. Unity provides a library of simple ready to go effects and an API for anything more complex than an artist would want to build up to.
+
+![sample viusal effect graph](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6233d7ed32e849e1b8ee06d6_unity-effect.jpg)
+
+The effects nodes update in real-time within the editor which is pretty cool, no build time. All effects are saved into an effect package making them transferable. The visual effects graph is built on top of the Scriptable Render Pipeline which enables the creation of your own render pipelines. While there are two Unity provisioned pipelines:
+
+-   LWRP: Lightweight Render Pipeline and
+-   HDRP: High-Definition Render pipeline,
+
+the Visual Effects graph is currently only available on HDRP.
+
+## ECS (Entity Component System)
+
+From a developers point of view, wow! The most impressive demo and a new feature for developers is The Entity Component System (ECS). The ECS helps the developer layout all of their entities for the best memory access performance. The system streams in content based on a few rules that help to optimise the render frame rate. The demo shows what can be possible in both the HDRP or LWRP, combing the C# Job system (the Unity APIs for multi-threaded safe code execution) and Burst Compiler (compiling to machine code). Both ECS and the Burst compiler were pointed out for faster performance and lower battery drain on your projects. We are looking forward to Unity 2019.1!
+
+## Addressables
+
+The Addressables feature, while not in the keynote is worthy of a mention. Once released it will greatly improve iteration time for artists as builds are not needed to showcase new art changes. It will also help with Dependency Management and content packing and distribution. From the Unity site:
+
+##### ..."What is an Addressable Asset?
+
+> Once an asset is marked "addressable", the addressable asset can be called from anywhere. Whether that addressable asset resides in the local player or on a content delivery network, the system will locate and return it. You can load a single addressable via its address or load many addressables using a customized group label that you define.
+
+##### Why do I care?
+
+> Traditionally, structuring game assets to efficiently load content has been difficult. Using Addressable Assets shortens your iteration cycles, allowing you to devote more time to designing, coding, and testing your application. With Addressable Assets you identify the asset as addressable and load it."...
+
+**_Source_**: [https://docs.unity3d.com/Packages/com.unity.addressables@0.3/manual/index.html](https://docs.unity3d.com/Packages/com.unity.addressables@0.3/manual/index.html)
+
+[‍](https://docs.unity3d.com/Packages/com.unity.addressables@0.3/manual/index.html)That is all of the new features announced in the keynote at Unite LA 2018

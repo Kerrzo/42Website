@@ -1,0 +1,327 @@
+/* ========================================
+   BOVR PAGE STYLES
+   ======================================== */
+
+.bovr-page {
+    background-color: #0e1026;
+}
+
+/* ========================================
+   HERO SECTION - BOVR SPECIFIC
+   ======================================== */
+.bovr-hero .hero-text-box {
+    padding: 40px 50px;
+    align-items: flex-end;
+}
+
+.bovr-hero .hero-credits-box {
+    padding: 40px 36px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ========================================
+   INTRO SECTION (override for bovr)
+   ======================================== */
+.bovr-page .section-intro {
+    background-color: #010203;
+    padding: 100px 100px;
+}
+
+/* ========================================
+   IMMERSIVE SECTION
+   ======================================== */
+.bovr-immersive {
+    background-color: #010203;
+    padding: 80px 100px 120px;
+}
+
+.bovr-immersive__inner {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.bovr-immersive__logo {
+    flex-shrink: 0;
+    width: 263px;
+}
+
+.bovr-immersive__logo img {
+    width: 100%;
+    height: auto;
+}
+
+.bovr-immersive__content {
+    flex: 1;
+}
+
+.bovr-immersive__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0 0 50px 0;
+    max-width: 816px;
+}
+
+.bovr-immersive__columns {
+    display: flex;
+    gap: 40px;
+}
+
+.bovr-immersive__columns p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #e7e7e7;
+    margin: 0;
+    width: 397px;
+}
+
+.bovr-immersive__columns p .bold {
+    font-weight: 700;
+}
+
+/* ========================================
+   APP SHOWCASE SECTION
+   ======================================== */
+.bovr-app {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+}
+
+.bovr-app__image {
+    width: 100%;
+    height: 100%;
+}
+
+.bovr-app__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ========================================
+   ARTICLE SECTIONS
+   ======================================== */
+.bovr-article {
+    background-color: #191716;
+    padding: 100px 100px;
+}
+
+.bovr-article__inner {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.bovr-article__text {
+    width: 600px;
+    flex-shrink: 0;
+}
+
+.bovr-article__text p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.bovr-article__text p:last-child {
+    margin-bottom: 0;
+}
+
+.bovr-article__image {
+    flex: 1;
+}
+
+.bovr-article__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Alt layout (image on left, text on right) */
+.bovr-article__inner--alt {
+    flex-direction: row;
+}
+
+.bovr-article__inner--alt .bovr-article__image {
+    width: 560px;
+    flex-shrink: 0;
+    flex: none;
+}
+
+.bovr-article__inner--alt .bovr-article__text {
+    flex: 1;
+    width: auto;
+}
+
+/* ========================================
+   YOUTUBE SECTIONS
+   ======================================== */
+.bovr-youtube {
+    background-color: #191716;
+    padding: 40px 100px;
+}
+
+.bovr-youtube__image {
+    width: 1240px;
+    max-width: 100%;
+}
+
+.bovr-youtube__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.bovr-youtube__video {
+    width: 1240px;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.bovr-youtube__video iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ========================================
+   VR SECTION
+   ======================================== */
+.bovr-vr {
+    position: relative;
+    width: 100%;
+    height: 681px;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.bovr-vr__image {
+    width: 100%;
+    height: 100%;
+}
+
+.bovr-vr__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 1200px) {
+    .bovr-immersive__inner {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .bovr-immersive__logo {
+        width: 200px;
+    }
+
+    .bovr-immersive__title {
+        font-size: 42px;
+    }
+
+    .bovr-immersive__columns {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .bovr-immersive__columns p {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .bovr-article__inner {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .bovr-article__text {
+        width: 100%;
+    }
+
+    .bovr-article__inner--alt {
+        flex-direction: column;
+    }
+
+    .bovr-article__inner--alt .bovr-article__image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .bovr-immersive {
+        padding: 60px 24px;
+    }
+
+    .bovr-immersive__inner {
+        align-items: center;
+        text-align: center;
+    }
+
+    .bovr-immersive__logo {
+        margin: 0 auto;
+    }
+
+    .bovr-immersive__content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bovr-immersive__title {
+        font-size: 32px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bovr-immersive__columns {
+        align-items: center;
+    }
+
+    .bovr-immersive__columns p {
+        font-size: 18px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bovr-article {
+        padding: 60px 24px;
+    }
+
+    .bovr-article__text p {
+        font-size: 18px;
+    }
+
+    .bovr-youtube {
+        padding: 40px 24px;
+    }
+
+    .bovr-app {
+        height: 500px;
+    }
+
+    .bovr-vr {
+        height: 400px;
+        padding-bottom: 0;
+    }
+}

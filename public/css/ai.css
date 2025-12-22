@@ -1,0 +1,322 @@
+/* ========================================
+   AI PAGE STYLES
+   ======================================== */
+
+.ai-page {
+    background-color: #0e1026;
+}
+
+/* ========================================
+   HERO SECTION - AI SPECIFIC
+   ======================================== */
+.ai-hero .hero-text-box {
+    align-items: center;
+}
+
+/* ========================================
+   PHONE SECTION
+   ======================================== */
+.ai-phone-section {
+    position: relative;
+    height: 1054px;
+    overflow: hidden;
+}
+
+.ai-phone-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/work/ai/image-ai-background.png') center center / cover no-repeat;
+    z-index: 0;
+}
+
+.ai-phone-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 100px;
+}
+
+.ai-phone-device {
+    position: relative;
+    width: 408px;
+    flex-shrink: 0;
+}
+
+.ai-phone-device img {
+    width: 100%;
+    height: auto;
+}
+
+.ai-phone-text {
+    flex: 1;
+    padding-left: 100px;
+}
+
+.ai-phone-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ========================================
+   PLATFORM SECTION
+   ======================================== */
+.ai-platform-section {
+    background-color: #ffffff;
+    padding: 94px 100px 120px;
+}
+
+.ai-platform-section .section-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #2a2afc;
+    text-align: center;
+    margin: 0 0 50px;
+}
+
+.ai-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.ai-feature {
+    text-align: center;
+    padding: 30px;
+}
+
+.ai-feature-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+}
+
+.ai-feature h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #1b2226;
+    margin: 0 0 20px;
+}
+
+.ai-feature p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #1b2226;
+    margin: 0;
+}
+
+/* ========================================
+   WHAT'S NEXT SECTION
+   ======================================== */
+.ai-next-section {
+    position: relative;
+    background-color: #0e1026;
+    padding: 80px 100px 120px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.ai-next-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.ai-next-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.ai-next-header .section-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7fa0e5;
+    margin: 0 0 20px;
+}
+
+.ai-next-intro {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    max-width: 522px;
+    margin: 0 auto;
+}
+
+.ai-next-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin-bottom: 80px;
+    align-items: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ai-next-item--left .ai-next-image {
+    order: 1;
+}
+
+.ai-next-item--left .ai-next-text {
+    order: 2;
+}
+
+.ai-next-item--right .ai-next-image {
+    order: 2;
+}
+
+.ai-next-item--right .ai-next-text {
+    order: 1;
+}
+
+.ai-next-image {
+    display: flex;
+    justify-content: center;
+}
+
+.ai-next-image img {
+    width: 301px;
+    height: 301px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.ai-next-text {
+    padding-top: 0;
+}
+
+.ai-next-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0 0 15px;
+}
+
+.ai-next-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0;
+    max-width: 456px;
+}
+
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 1200px) {
+    .ai-phone-text h2 {
+        font-size: 48px;
+    }
+    
+    .ai-next-item:first-of-type .ai-next-image img {
+        width: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .ai-phone-section {
+        height: auto;
+        padding: 80px 0;
+    }
+    
+    .ai-phone-content {
+        flex-direction: column;
+        padding: 0 40px;
+    }
+    
+    .ai-phone-device {
+        width: 300px;
+        margin-bottom: 40px;
+    }
+    
+    .ai-phone-text {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .ai-phone-text h2 {
+        font-size: 36px;
+    }
+    
+    .ai-features-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .ai-platform-section {
+        padding: 60px 40px;
+    }
+    
+    .ai-next-section {
+        padding: 60px 40px;
+    }
+    
+    .ai-next-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .ai-next-item--left .ai-next-image,
+    .ai-next-item--right .ai-next-image {
+        order: 1;
+    }
+    
+    .ai-next-item--left .ai-next-text,
+    .ai-next-item--right .ai-next-text {
+        order: 2;
+    }
+    
+    .ai-next-image img,
+    .ai-next-item:first-of-type .ai-next-image img,
+    .ai-next-item:not(:first-of-type) .ai-next-image img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .ai-next-text {
+        padding-top: 0;
+    }
+    
+    .ai-next-text h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ai-phone-text h2 {
+        font-size: 28px;
+    }
+    
+    .ai-feature h3 {
+        font-size: 24px;
+    }
+}

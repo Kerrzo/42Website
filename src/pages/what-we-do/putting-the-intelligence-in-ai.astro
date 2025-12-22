@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import OtherWork from '../../components/OtherWork.astro';
+---
+
+<BaseLayout 
+  title="AI – Putting the Intelligence in AI | 42 Interactive"
+  bodyClass="ai-page"
+  additionalStyles={['/css/amica.css', '/css/ai.css']}
+>
+    <Header activePage="home" />
+    
+    <main class="main-content">
+
+        <!-- ========================================
+             HERO
+             ======================================== -->
+        <section class="ai-hero section-hero fade-in" data-theme="dark">
+            <div class="hero-bg-image-wrapper">
+                <img src="/images/work/ai/image-ai-hero.png" alt="" class="hero-bg-image">
+            </div>
+            <div class="hero-info">
+                <div class="hero-text-box">
+                    <h1 class="hero-title">Putting the Intelligence in AI</h1>
+                </div>
+                <div class="hero-credits-box">
+                    <div class="credit-info">
+                        <p class="credit-label">Client</p>
+                        <p class="credit-value">Strategy Connect</p>
+                    </div>
+                    <div class="credit-photo">
+                        <p>Photo credits - International Towers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             INTRO – WHAT WE'VE DONE
+             ======================================== -->
+        <section class="section-intro fade-in" data-theme="dark">
+            <p class="intro-label">WHAT WE'VE DONE</p>
+            <p class="intro-text">
+                We <span class="bold">designed</span> and <span class="bold">developed</span> an<span class="bold"> AI platform</span> that helps with <span class="bold">conversation at scale</span>. The platform provides <span class="bold">actionable insights</span> and consolidates the consensus.
+            </p>
+        </section>
+
+        <!-- ========================================
+             PHONE SECTION – UNCOVERING INSIGHTS
+             ======================================== -->
+        <section class="ai-phone-section" data-theme="light">
+            <div class="ai-phone-bg"></div>
+            <div class="ai-phone-content">
+                <div class="ai-phone-device">
+                    <img src="/images/work/ai/image-ai-phone.png" alt="AI chatbot on mobile phone">
+                </div>
+                <div class="ai-phone-text">
+                    <h2>Uncovering actionable insights from big data with custom built AI.</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             WHAT THE PLATFORM DOES
+             ======================================== -->
+        <section class="ai-platform-section" data-theme="light">
+            <p class="section-label">WHAT THE PLATFORM DOES</p>
+            <div class="ai-features-grid">
+                <div class="ai-feature">
+                    <img src="/images/work/ai/image-ai-brain.svg" alt="" class="ai-feature-icon">
+                    <h3>Understanding Questions Contextually</h3>
+                    <p>mArvIn AI chatbot is different, with the power of LLM, it will try and understand the context of your question and give you an answer based of its understanding and closest to what you've asked. On top of that, we can give it more knowledge or data which it will learn or ingest and expand its contextual knowledge.</p>
+                </div>
+                <div class="ai-feature">
+                    <img src="/images/work/ai/image-ai-lock.svg" alt="" class="ai-feature-icon">
+                    <h3>Enterprise Grade and Secure</h3>
+                    <p>Because we're being able to control the data source, we can also secure where the data is going to be analysed by mArvIn. Instead of sending the data to publicly accessible AI services, we can control it to a private AI server instead. This way any organisation who would like to have AI to help crunch their data don't need to worry that their private data would be exposed to the public.</p>
+                </div>
+                <div class="ai-feature">
+                    <img src="/images/work/ai/image-ai-chat.svg" alt="" class="ai-feature-icon">
+                    <h3>Following Conversation Thread</h3>
+                    <p>The power of AI and Natural Language Processing (NLP) fix this and giving us an easier way to converse with the chatbot. mArvIn can understand thread of conversation and it's enjoyable to chat and ask questions without a steep learning curve of understanding the correct prompts to get the information that we need.</p>
+                </div>
+                <div class="ai-feature">
+                    <img src="/images/work/ai/image-ai-link.svg" alt="" class="ai-feature-icon">
+                    <h3>Controlled Data</h3>
+                    <p>We can limit what mArvIn can answer by limiting the data it can learn from. We've tested this using our website data, when the context of the information is larger, without training it further, it will provide an answer with the most data available. Of course with further training and giving it few guidelines, it will perform better.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             WHAT'S NEXT SECTION
+             ======================================== -->
+        <section class="ai-next-section gradient-animated-bg" data-theme="dark">
+            <div class="ai-next-content">
+                <div class="ai-next-header">
+                    <p class="section-label">WHAT'S NEXT?</p>
+                    <p class="ai-next-intro">Once we have the foundation of contextual conversation from LLM, we can then upgrade it even more with:</p>
+                </div>
+
+                <div class="ai-next-item ai-next-item--left">
+                    <div class="ai-next-image">
+                        <img src="/images/work/ai/image-ai-man1.png" alt="Man speaking to AI">
+                    </div>
+                    <div class="ai-next-text">
+                        <h3>Speech to Text</h3>
+                        <p>You can talk to mArvIn through your computer or mobile phone's microphone. It will then transcribe what you say as text to talk to the bot. We've seen this functionality for personal assistants on your phone and it's really handy for accessibility challenged users or visitors.</p>
+                    </div>
+                </div>
+
+                <div class="ai-next-item ai-next-item--right">
+                    <div class="ai-next-text">
+                        <h3>Text to Speech</h3>
+                        <p>mArvIn can read its answers to you, very handy for a chatbot that you can be hands free or if it needs to dictate text to you.</p>
+                    </div>
+                    <div class="ai-next-image">
+                        <img src="/images/work/ai/image-ai-girl1.png" alt="Girl with headphones">
+                    </div>
+                </div>
+
+                <div class="ai-next-item ai-next-item--left">
+                    <div class="ai-next-image">
+                        <img src="/images/work/ai/image-ai-people1.png" alt="Diverse group of people">
+                    </div>
+                    <div class="ai-next-text">
+                        <h3>Multi-Lingual</h3>
+                        <p>Instead of translating the content you're providing, mArvIn can do it instead becoming on demand translator for the content. This is handy when the user is trying to converse in their own language instead of English.</p>
+                    </div>
+                </div>
+
+                <div class="ai-next-item ai-next-item--right">
+                    <div class="ai-next-text">
+                        <h3>Expanding Data</h3>
+                        <p>Although it comes with its own risk, we can expand mArvIn to use OpenAI's data so it behaves like ChatGPT at home. But as we mentioned above, it will also reduce the accuracy of the answers it can give you as the wealth of information it's learning from.</p>
+                    </div>
+                    <div class="ai-next-image">
+                        <img src="/images/work/ai/image-ai-gpt.png" alt="ChatGPT interface">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <OtherWork currentSlug="putting-the-intelligence-in-ai" />
+
+    <Footer />
+</BaseLayout>
+

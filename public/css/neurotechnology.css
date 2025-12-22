@@ -1,0 +1,392 @@
+/* ========================================
+   NEUROTECHNOLOGY PAGE STYLES
+   ======================================== */
+
+.neurotechnology-page {
+    background-color: #0e1026;
+}
+
+/* ========================================
+   HERO SECTION - NT SPECIFIC
+   ======================================== */
+.nt-hero .hero-text-box {
+    padding: 40px 50px;
+    align-items: flex-start;
+}
+
+.nt-hero .hero-credits-box {
+    padding: 40px 36px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ========================================
+   INTRO SECTION (override for neurotechnology)
+   ======================================== */
+.neurotechnology-page .section-intro {
+    background-color: #010203;
+    padding: 100px 100px;
+}
+
+/* ========================================
+   SPLIT SECTION (PATIENT & COMPUTERS)
+   ======================================== */
+.nt-split-section {
+    display: flex;
+    height: 990px;
+    background-color: #0071a2;
+}
+
+.nt-split-section__left {
+    width: 656px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.nt-split-section__left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nt-split-section__right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.nt-split-section__image-top {
+    height: 449px;
+    overflow: hidden;
+}
+
+.nt-split-section__image-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nt-split-section__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px;
+}
+
+.nt-split-section__logo {
+    margin-bottom: 40px;
+}
+
+.nt-split-section__logo img {
+    height: 129px;
+    width: auto;
+}
+
+.nt-split-section__text {
+    max-width: 340px;
+}
+
+.nt-split-section__text p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.nt-split-section__text p:last-child {
+    margin-bottom: 0;
+}
+
+.nt-split-section__text .bold {
+    font-weight: 700;
+}
+
+/* ========================================
+   CLINIC SECTION
+   ======================================== */
+.nt-clinic {
+    position: relative;
+    height: 1027px;
+    width: 100%;
+}
+
+.nt-clinic__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nt-clinic__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nt-clinic__title {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    width: 827px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ========================================
+   YOUTUBE SECTION
+   ======================================== */
+.nt-youtube {
+    background-color: #0e1026;
+    padding: 80px 100px;
+}
+
+.nt-youtube__video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+}
+
+.nt-youtube__video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================
+   INNOVATION SECTION
+   ======================================== */
+.nt-innovation {
+    background-color: #0e1026;
+    padding: 60px 100px;
+    text-align: center;
+}
+
+.nt-innovation__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16.8px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7fa0e5;
+    margin: 0 0 20px 0;
+}
+
+.nt-innovation__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #ffffff;
+    max-width: 868px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   INSTACALM SECTION
+   ======================================== */
+.nt-instacalm {
+    background-color: #0071a2;
+    padding: 54px 100px 80px;
+    margin-bottom: 0;
+}
+
+.nt-instacalm__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 56px 0;
+    max-width: 918px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nt-instacalm__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+
+.nt-instacalm__row {
+    display: flex;
+    gap: 10px;
+}
+
+.nt-instacalm__row img {
+    flex: 1;
+    width: calc(33.333% - 7px);
+    object-fit: cover;
+}
+
+.nt-instacalm__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #ffffff;
+    text-align: center;
+    max-width: 688px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 1200px) {
+    .nt-split-section__left {
+        width: 45%;
+    }
+    
+    .nt-clinic__title {
+        font-size: 48px;
+        width: 600px;
+    }
+    
+    .nt-instacalm__title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 992px) {
+    .nt-split-section {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .nt-split-section__left {
+        width: 100%;
+        height: 500px;
+    }
+    
+    .nt-split-section__image-top {
+        height: 350px;
+    }
+    
+    .nt-split-section__content {
+        padding: 40px;
+    }
+    
+    .nt-split-section__text {
+        max-width: 100%;
+    }
+    
+    .nt-clinic {
+        height: 600px;
+    }
+    
+    .nt-clinic__title {
+        font-size: 36px;
+        width: 90%;
+        left: 5%;
+    }
+    
+    .nt-youtube {
+        padding: 0 40px;
+    }
+    
+    .nt-innovation {
+        padding: 40px;
+    }
+    
+    .nt-innovation__text {
+        font-size: 20px;
+    }
+    
+    .nt-instacalm {
+        padding: 40px;
+    }
+    
+    .nt-instacalm__title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+    
+    .nt-instacalm__text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nt-hero .hero-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .nt-hero .hero-bg-image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    
+    .nt-split-section__left {
+        height: 350px;
+    }
+    
+    .nt-split-section__image-top {
+        height: 250px;
+    }
+    
+    .nt-split-section__content {
+        padding: 30px;
+    }
+    
+    .nt-split-section__text p {
+        font-size: 18px;
+    }
+    
+    .nt-split-section__logo img {
+        height: 80px;
+    }
+    
+    .nt-clinic {
+        height: 400px;
+    }
+    
+    .nt-clinic__title {
+        font-size: 28px;
+        top: 40px;
+    }
+    
+    .nt-instacalm__row {
+        flex-direction: column;
+    }
+    
+    .nt-instacalm__row img {
+        width: 100%;
+    }
+    
+    .nt-instacalm__title {
+        font-size: 28px;
+    }
+    
+    .nt-innovation__text,
+    .nt-instacalm__text {
+        font-size: 16px;
+    }
+}

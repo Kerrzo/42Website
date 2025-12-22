@@ -1,0 +1,323 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import configData from "../data/config.json";
+
+// Get featured podcasts using the featuredPodcasts array from config
+// The order in the array determines display order (1st = left, 2nd = middle, 3rd = right)
+const featuredPodcasts = configData.featuredPodcasts
+    .map((podcastId) =>
+        configData.podcasts.find((podcast) => podcast.id === podcastId),
+    )
+    .filter((podcast) => podcast !== undefined);
+---
+
+<BaseLayout
+    title="42 Interactive - Building What Others Only Imagine"
+    bodyClass=""
+>
+    <Header activePage="home" />
+
+    <main class="main-content">
+        <!-- ========================================
+             SECTION 1: HERO / INTRO
+             ======================================== -->
+        <section class="home-hero-section" data-theme="dark">
+            <video
+                class="hero-background-video"
+                autoplay
+                loop
+                muted
+                playsinline
+            >
+                <source
+                    src="https://cdn.prod.website-files.com/6111d6047a5c21028fd21eb2/65a4c8146841a21a6fd5695c_42interactivebg2024-transcode.mp4"
+                    type="video/mp4"
+                />
+            </video>
+            <div class="section-inner">
+                <div class="hero-content-wrapper">
+                    <h1 class="home-hero-title">
+                        <span class="bold">Building</span> What Others Only <span
+                            class="bold">Imagine</span
+                        >
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION 2: WHAT WE DO
+             ======================================== -->
+        <section
+            class="what-we-do-main-section gradient-animated-bg"
+            data-theme="light"
+        >
+            <div class="section-inner">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">What We Do</h2>
+                    <p class="section-description">
+                        We <strong>Design</strong> and <strong>Develop</strong>
+                        <strong>Web</strong>, <strong>App</strong> & <strong
+                            >AI</strong
+                        >
+                        <strong>Interactive Experiences,</strong> that deepen the
+                        connection between Brands and Audiences.
+                    </p>
+                </div>
+
+                <!-- Work Grid -->
+                <div class="work-grid">
+                    <!-- Work Item 1 - Red Rooster -->
+                    <a
+                        href="/what-we-do/building-restaurants-of-the-future"
+                        class="work-card"
+                        style="text-decoration: none;"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-redrooster.png"
+                                alt="Building Restaurants of The Future"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Building Restaurants of The Future
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 2 - Amica Branding -->
+                    <a
+                        href="/what-we-do/a-brand-that-feels-like-a-friend"
+                        class="work-card"
+                        style="text-decoration: none;"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-amica-branding.png"
+                                alt="A Brand That Feels Like a Friend"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            A Brand That Feels Like a Friend
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 3 - Amica App -->
+                    <a
+                        href="/what-we-do/connecting-people-to-workplace"
+                        class="work-card"
+                        style="text-decoration: none;"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-amica.png"
+                                alt="Connecting People to workplace"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Connecting People to workplace
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 4 - AI -->
+                    <a
+                        href="/what-we-do/putting-the-intelligence-in-ai"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-ai.png"
+                                alt="Putting the Intelligence in AI"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Putting the Intelligence in AI
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 5 - Box Office VR -->
+                    <a
+                        href="/what-we-do/the-magic-of-theatre-at-home"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-bovr.png"
+                                alt="The Magic of Theatre at home"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">The Magic of Theatre at home</h3>
+                    </a>
+
+                    <!-- Work Item 6 - Neurotechnology -->
+                    <a
+                        href="/what-we-do/a-better-way-to-manage-pain"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-nt.png"
+                                alt="A Better Way to Manage Pain"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">A Better Way to Manage Pain</h3>
+                    </a>
+
+                    <!-- Work Item 7 - WRG -->
+                    <a
+                        href="/what-we-do/immortalising-creativity"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-wrg.png"
+                                alt="Immortalising Creativity"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">
+                            Immortalising<br />Creativity
+                        </h3>
+                    </a>
+
+                    <!-- Work Item 8 - Vivid -->
+                    <a
+                        href="/what-we-do/bringing-art-to-life"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-vivid.png"
+                                alt="Bringing Art To Life"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Bringing Art<br />To Life</h3>
+                    </a>
+
+                    <!-- Work Item 9 - Latham -->
+                    <a
+                        href="/what-we-do/bringing-products-to-life"
+                        class="work-card"
+                    >
+                        <div class="work-image-wrapper">
+                            <img
+                                src="/images/work/image-latham.png"
+                                alt="Bringing Products to Life"
+                                class="work-image"
+                            />
+                            <div class="work-overlay"></div>
+                        </div>
+                        <h3 class="work-title">Bringing Products to Life</h3>
+                    </a>
+                </div>
+
+                <!-- Client Logos -->
+                <div class="clients-section">
+                    <div class="clients-grid" id="clients-carousel">
+                        <!-- 5 columns for rotating logos - populated by JavaScript -->
+                        <div class="client-column" data-column="0"></div>
+                        <div class="client-column" data-column="1"></div>
+                        <div class="client-column" data-column="2"></div>
+                        <div class="client-column" data-column="3"></div>
+                        <div class="client-column" data-column="4"></div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Section -->
+                <div class="testimonial-section">
+                    <div class="testimonial-label">TESTIMONIAL</div>
+                    <div
+                        class="testimonial-content-wrapper"
+                        data-testimonial-container
+                    >
+                        <!-- Slides injected by JavaScript -->
+                    </div>
+                    <div class="testimonial-slider" data-testimonial-dots>
+                        <!-- Dots injected by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION 3: WHO WE ARE PREVIEW
+             ======================================== -->
+        <section class="who-we-are-preview-section" data-theme="light">
+            <div class="section-inner">
+                <div class="preview-header">
+                    <h2 class="preview-title">Who We Are</h2>
+                    <p class="preview-description">
+                        Here's a glimpse into <strong>our world</strong>, what
+                        we do and what <strong>makes us different.</strong>
+                    </p>
+                    <a href="/who-we-are" class="btn-find-out-more"
+                        >Find Out More</a
+                    >
+                </div>
+
+                <!-- YouTube Videos Section -->
+                <div class="podcasts-section">
+                    <div class="section-label">VIDEOS</div>
+                    <div class="podcasts-grid">
+                        {
+                            featuredPodcasts.map((podcast) => (
+                                <div
+                                    class="youtube-video-card"
+                                    data-video-id={podcast.id}
+                                >
+                                    <div class="youtube-thumbnail">
+                                        <img
+                                            src={`https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg`}
+                                            alt={podcast.title}
+                                            class="podcast-image"
+                                        />
+                                        <div class="play-button">
+                                            <svg
+                                                width="68"
+                                                height="48"
+                                                viewBox="0 0 68 48"
+                                                fill="none"
+                                            >
+                                                <path
+                                                    d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+                                                    fill="#f00"
+                                                />
+                                                <path
+                                                    d="M 45,24 27,14 27,34"
+                                                    fill="#fff"
+                                                />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h3 class="podcast-title">
+                                        {podcast.title}
+                                    </h3>
+                                    <p class="podcast-date">{podcast.date}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>

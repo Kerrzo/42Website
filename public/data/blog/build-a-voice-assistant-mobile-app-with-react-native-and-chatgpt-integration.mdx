@@ -1,0 +1,280 @@
+---
+title: "Building a Voice Assistant Mobile App with React Native and ChatGPT Integration"
+publishedAt: "2024-04-16"
+summary: "Create a top-notch mobile app blending React Native and ChatGPT for seamless voice assistant experience."
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e825ee78ecccf9361636ee_Voice%20Asst%20-%20main%20image.jpeg"
+---
+
+_During the training process, one of Developers penned this article, taking advantage of the services offered by 42 Interactive._
+
+‍
+
+In this article, he will explore how to use Reach Native and integrate ChatGPT to build a smart voice-driven, app. The audience will learn how to start a project and make [interactive](https://www.42interactive.com/) voice features, combining Reach Native’s strengths with ChatGPT’s language abilities.
+
+‍
+
+# **What is A Voice Assistant?**
+
+‍
+
+A voice assistant is a digital assistant that uses speech recognition, natural language processing, and artificial intelligence (AI) to understand and respond to spoken commands or queries. These assistants are designed to perform various tasks and provide information based on user input.
+
+‍
+
+Voice assistants can be found in various devices, including smartphones, smart speakers, smart TVs, and other internet-connected devices. Some well-known examples of voice assistants include: Amazon Alexa, Apple Siri, Google Assistant, Microsoft Cortana, Samsung Bixby.
+
+‍
+
+Voice assistants have become increasingly popular due to advancements in natural language processing and the widespread adoption of smart devices.
+
+‍
+
+# **What is ChatGPT?**
+
+‍
+
+ChatGPT is a language model developed by OpenAI, based on the GPT (Generative Pre-trained Transformer) architecture. The “Chat” in ChatGPT signifies its focus on generating human-like text for conversational purposes. It is designed to understand and generate coherent responses in natural language, making it suitable for chat-based applications.
+
+‍
+
+ChatGPT was created by OpenAI an artificial intelligence (AI) research organisation that aims to advance digital intelligence in a safe and beneficial manner. It was founded in December 2015 by Elon Musk, Sam Altman, Greg Brockman, Ilya Sutskever, John Schulman, and Wojciech Zaremba, among others. OpenAI’s mission is to ensure that artificial general intelligence (AGI) benefits all of humanity.
+
+‍
+
+The application will look like below:
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e81eade971316d1e72d571_Voice%20Asst%202.png)
+
+‍
+
+## **Prerequisites:**
+
+‍
+
+-   Node.js and npm: _Ensure that Node.js and npm are installed on your machine._
+-   Text Editor: _Choose a text editor of your preference; Visual Studio Code is recommended._
+-   OpenAI API Key: _Obtain your OpenAI API key by signing up at_ [_https://openai.com_](https://openai.com/)_._
+
+‍
+
+## **Create a New React Native Project**
+
+Start by initiating a fresh React Native project with the provided commands:
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e81f541600d4c147607d84_VA%20A.jpg)
+
+Once finished, proceed to run the project using the following commands:
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e81f60f5aa6897ee1e1003_VA%20B.jpg)
+
+It will display a default screen as shown below:
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e81f7dd3c406efe38ef6ec_Voice%20Asst%205.png)
+
+‍
+
+## **Open Project with Visual Studio Code**
+
+‍
+
+Open the project with Visual Studio Code. Here we can see some files and folders that were automatically generated from the previous step.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e81fa628b9329d36ca6e1e_Voice%20Asst%206.png)
+
+‍
+
+## **Installing Dependencies**
+
+‍
+
+Dependencies are external libraries or packages that enhance the functionality of your application, providing pre-built solutions for common tasks.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e81fd3fc63dd72989cd6e2_Voice%20Asst%207.png)
+
+‍
+
+I won't delve into the specifics of each library mentioned above here. For documentation, you can visit their respective official websites.
+
+‍
+
+# **Implementing Voice Assistant**
+
+‍
+
+## **Creating Additional Folder**
+
+‍
+
+Let's create some folders: **_src/screens_**, **_src/navigations_**, **_src/services_**, **_src/styles_**, **_src/store_**, **_src/utils_**, and **_src/components_** to better organise our code. In the **_screens_** folder, we will place all code related to the screen, the **_navigations_** folder for code related to navigation, **_services_** for code related to accessing the rest API for OpenAI, **_styles_** for stylesheets, and **_store_** for Redux state management.
+
+‍`‍`
+
+## **Creating Service for Accessing the ChatGPT REST API**
+
+‍
+
+Creating this [service](https://www.42interactive.com/services/creative-technology-consultancy) is a fundamental step in enabling seamless communication with the ChatGPT API, allowing your tutorial mobile app to leverage the power of ChatGPT for an interactive and dynamic conversational experience.
+
+‍
+
+First, let’s create a file named **_env_**. Inside it, there should be a constant for accessing OpenAI. Yes, it should be without single or double quotes. Please remember not to publish your API key.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e8225d1dcfe328177265e7_Voice%20Asst%208.png)
+
+‍
+
+Create the file **_src/services/OpenAiService.js_**. The code will read a variable from the .env file and use Axios to call the API, returning the response from OpenAI. If an error occurs, it will return an error message.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e822a1c3d618f20a7056b3_Voice%20Asst%209.png)
+
+‍
+
+## **Creating a Welcome Screen**
+
+‍
+
+Creating a welcome screen in a mobile app involves designing a screen that serves as the initial interface for users when they launch your app. Welcome screens typically provide a warm introduction, branding, and often include features like onboarding or sign-in options. Below is the welcome screen he will create.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e822fc308624590418a095_Voice%20Asst%2010.png)
+
+‍
+
+Lets create file on folder **_src/screens_** with filename **_WelcomeScreen.tsx_** use this code:
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e82320f62607258958e0ed_Voice%20Asst%2011.png)
+
+‍
+
+In the code snippet above, you can observe our utilisation of _Navigation_, _Stylesheet_, and _MaterialCommunity_ icons as components of the Vector Icon.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e8233d28b9329d36ce8d1c_Voice%20Asst%2012.png)
+
+‍
+
+# Creating a Voice Assistant Screen
+
+‍
+
+Now, we are creating a screen for our voice assistant application, located in the **_src/screens_** folder with the filename **_ChatWithVoiceScreen.tsx_**. This screen will manage voice recognition, converting spoken words to text, facilitating chat typing, activating voice settings, and, of course, presenting response results from ChatGPT. Additionally, it will include text-to-speech functionality to transform written text into spoken words. Please look at red dot, it all features of our screen.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e8237a5c5e227994d24b7e_Voice%20Asst%2013.png)
+
+‍
+
+This screen is organised into seven main sections, each serving a specific function. Starting from the top:
+
+‍
+
+-   User Chat: Input from either typing or voice command.
+-   ChatGPT Responses: Displayed with corresponding avatars.
+-   Scroll-down Icon: Allows scrolling to the latest response.
+-   Typing Input: Field for entering text.
+-   Send Button: Initiates the sending of messages.
+-   Voice Command Button: Press to start recording voice commands, and press again to stop recording.
+
+‍
+
+Here are parts of the code:
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e823e14a90a262a7921722_VA%20c.jpg)
+
+## **Creating a Navigation**
+
+‍
+
+Lets create file **_AppNavigation.tsx_** on folder **_src/navigations._**
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e8242d7c8d745d43881779_VA%20d.jpg)
+
+‍
+
+Next, we will integrate navigation into our application by modifying the **_App.tsx_** file to include the **_AppNavigation_** component.
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e824792a6d2556b25be5d3_VA%20e.jpg)
+
+‍
+
+# Run Your React Native App
+
+‍
+
+To set up your environment, run, and build a React Native project, you can follow the instructions outlined in the [**_React Native Get Started guide_**](https://reactnative.dev/docs/environment-setup).
+
+‍
+
+run Android:
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e824de1c26ae1a8ef6f56b_VA%20f.jpg)
+
+‍
+
+run iOS: 
+
+‍
+
+![](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/65e82506c3d618f20a734362_VA%20g.jpg)
+
+‍
+
+You can watch the demo below:
+
+‍
+
+‍
+
+# **Conclusion**
+
+‍
+
+By [building](https://www.42interactive.com/about-us) an advanced voice assistant with React Native and the ChatGPT API, users can easily engage with the app through voice commands, while the system effectively transcribes and analyses spoken words using OpenAI's sophisticated language models. This tutorial serves as a foundation for developing voice-controlled applications, seamlessly integrating them with OpenAI's potent natural language processing capabilities.
+
+‍
+
+The audiences are encouraged to customise and expand the app to suit your requirements, adding new features, refining the user interface, and improving error handling for a more seamless user experience. With ample room for customisation, unleash your creativity to elevate the functionality and appeal of your voice assistant application.
+
+‍
+
+**Are you ready to make your customer service up a notch with AI? We can help. Contact us now.**
+
+‍
+
+_Written by:   
+‍_
+
+_Putu Kusuma \[Fullstack developer at 42 Interactive\]_
+
+_\- As a part of 42 Interactive training and research programme -_
+
+‍

@@ -1,0 +1,86 @@
+---
+title: "Automation for Early Testing"
+publishedAt: "2023-11-05"
+summary: "When is the best time to use automated testing? Automated testing is a quicker way to get feedback on failures than manual testing. Read on to learn more."
+image: "/blog/images/614c3d4036fecf44b6f31b69_wallace-heng-4IekBw52HKE-unsplash.jpeg"
+---
+
+Software testing is a process that sometimes gets overlooked and forgotten until the end of the software development process when actually it should be done as early as possible.
+
+Early testing is necessary to avoid any rework costs. If testing is included in the requirement phase, we can acknowledge any issue related to the requirement before it goes into the development phase and it will only cost us effort in rewriting or completing the requirement.
+
+But if bugs are found during development, then it will cost us effort and time rewriting the code, retesting, and also might cost us delay in other features.
+
+Another scenario is bugs are found when the application is already in production, then it will cost more. We need to rewrite the code, retest, redeploy, and it can also risk the reputation with the client and impact the timeline for other projects. So the cost of fixing bugs in the later phase will be bigger.
+
+One of the approaches that can be used to find bugs in development phase in by using automation testing. With automation we can test as early and as often as possible.
+
+#### **Let's consider the first scenario where manual testing is implemented**
+
+_Developer_: I've deployed the latest code for the latest feature that needs to be deployed COB. Please test
+
+_Tester_: I found an issue on the new feature and also an issue on an old feature that is impacted by these changes
+
+_Developer_ (after several hours): I've deployed the latest code
+
+_Tester_:  it has caused an issue on the other feature
+
+_Developer_ (after several hours): I've deployed the latest code
+
+Then the tester needs to execute testing against the new feature and also works on regression testing for the existing feature to ensure the other feature is not impacted by the changes.
+
+Imagine if another issue is found, then the whole testing process needs to be repeated and manual testing will cost lots of time.
+
+When the tester is requested to deploy a new feature to production ASAP, there might be some regression bugs that pass through the production. This happens because the tester is focusing on the new feature. The regression test is where the automation test can take part and help out.
+
+#### **Let's** talk about the scenario for a **bundle of joy deployment (bulk deployment)**
+
+A project is being developed by 10 developers and every day there are more than 10 pull requests created by the devs. Deployment to test is done daily, and deployment to production is scheduled once a month that includes new features and hotfixes. Tester does the testing everyday and performs regression testing manually.
+
+After deployment to production, some old features might not working, alerts keep ringing and the devs are going crazy. Reverting might works, but which _PR_ (pull request) should be reverted? Are all _PR_ backward compatible? Can we cherry-pick after reverting?
+
+#### **Another scenario for bulk deployment**
+
+Deployment is scheduled for today and needs to include several hotfix raised by the client. After several hotfixes deployed to test and the tester started testing, turns out there's feature that's broken by one of the hotfixes. Unsure which hotfix causing the issue so they decide to hotfix the hotfix.
+
+While fixing, the client raises a critical issue that needs to be deployed ASAP because it's blocking their core functionality, so one of the developers working on it and deploying it to test.
+
+The critical issue is fixed on the test but can't be deployed to production as the master now contains an issue from the previous hotfix.
+
+We can cherry-pick the hotfix for the critical issue only, but how do we know that it won't impact the other feature as regression test is done in the test environment that has other _PR_ as well?
+
+We can revert the hotfix that has an issue, but tracing it down will take some time and still need to retest after reverting.
+
+#### **The last scenario is clients find an issue on production before the team**
+
+All goes well after deployment, testing is done and no issue is found after deployment. But after several hours alert comes and notify there are lots of crashes on the app.
+
+After the investigation, turns out that the content team has created content that's not up to the standard and hasn't been handled properly, so every time the user opens the page it will cause a crash in the app.
+
+![people at a meeting](/blog/images/6130bf98c2ccf5bdf83b06ae_headway-5QgIuuBxKwM-unsplash-1024x683.jpeg)
+
+‍
+
+### So where's the automation test can help ?
+
+#### **Create an automation test for every core process in the application**
+
+Developing automation test, especially UI automation test can takes time and effort. So as a starter, we need to focus on creating automation test for the core functionality, and then adding the test coverage for non core functionality after that. This will help us capturing issue in hot path faster.
+
+#### **Ability to run test on developer's branch**
+
+Before merging the _PR,_ devs can test the changes on their branch and ensuring there's no broken feature. If the test is passed then they can merge their _PR_ so the tester can focus on the changes that haven't been covered by the automation test.
+
+#### **Merge every _PR_ automatically to test environment and run automation test**
+
+By merging every _PR_ automatically to the test environment and running the test afterward will help us to isolate which _PR_ has an issue, so we can revert or hotfix the changes faster before the other _PR_ is merged into master.
+
+If the test coverage has covered the core and non-core functionality, we can also do an automated deployment to production after the automated test in the test environment has passed. This will avoid bulk deployment.
+
+#### **Run automation test in production**
+
+How often do we hear, it works on the test site but it doesn't work on production? It happens sometimes, maybe due to different data, different environment configurations and etc.
+
+If an automation test is running in production then the issue can be captured faster, even before the client knows it. Automation test can run after there's deployment to production, or it can run every hour.
+
+We can also combine automation test in production with feature flags **(read here)** to reduce the risk of releasing a new feature to the customer that might be "buggy".

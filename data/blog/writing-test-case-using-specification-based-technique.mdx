@@ -1,0 +1,103 @@
+---
+title: "Writing Test Case Using Specification-Based Technique"
+publishedAt: "2023-11-05"
+summary: "This is a hands-on tutorial on how to write test cases. Learn what is a test case and how to write test cases with step-by-step techniques and examples."
+image: "/blog/images/614c3d525a54eb90b4766416_ux-indonesia-WCID2JWoxwE-unsplash.jpeg"
+---
+
+## What Is A Test Case? 
+
+Referring to [ISTQB](https://www.istqb.org/), “ test case is a set of input values, execution preconditions, expected results, and execution postconditions, developed for a particular objective or test condition, such as to exercise a particular program path or to verify compliance with a specific requirement.”
+
+One of the techniques that can be used in test design is a specification-based or black box. Specification-based or also known as a black box is a test design technique that focuses on the requirement and specification without knowledge on how the internal code works.
+
+There are 5 techniques in specification-based:
+
+-   Equivalence Partitioning
+-   Boundary Value Analysis
+-   Decision tables
+-   State transition diagrams / tables
+-   Use case testing
+
+## Equivalence Partitioning
+
+In equivalence partitioning, the input variable is group into a class that is equivalence. Input is equivalence means that if every input in each class partition is testing the same thing. If one [catches bug](https://www.42interactive.com/blog/why-mobile-app-testing-is-important-and-what-it-can-do) then the other will probably too. If one passed the test then the will passed the test as well.
+
+**Example**: In the requirement stated that user will input their age into the text field and then different text based on their age group will be displayed. Using a negative number or number bigger than 150 will give an error message, and the input will be an integer.
+
+![man wearing headphones using his computer](/blog/images/6130bfaec5271cbc2d3a06b2_hussam-abd-XvNEv5OhjQg-unsplash-1024x696.jpeg)
+
+Age group:
+
+-   0 until 12 y.o will direct to page A
+-   13 until 20 y.o will direct to page B
+-   21 until 35 y.o will direct to page C
+-   36 until 60 y.o will direct to page D
+-   more than 60 y.o will direct to page E
+
+To write the case for the requirement, the equivalence class are:
+
+1.  negative number
+2.  0–12
+3.  13–20
+4.  21–35
+5.  36–60
+6.  61–150
+7.  \> 150
+
+Input that will be used for the test case will be taken from each class, so there will be 7 test cases.
+
+For example, the test case input will be -5, 6, 15, 30, 50, 80, 200. There’s no need to use more than one input from the same class as it will be redundant. If the test case is using 6 as the input, then there’s no need to test 7, 8, and 9 as the result will be the same if the input is 6.
+
+The benefit of using equivalence partitioning is reducing the redundancy of the test case, so testing will be more efficient.
+
+## Boundary Value Analysis
+
+In boundary value analysis, the same class as in the equivalence partitioning is used. The difference is, the input will be taken from the upper and lower bound of the class.
+
+So using the same example and class in the previous example, the boundary value that will be used as the input are -1, 0, 12, 13, 20, 21, 35, 36, 60, 61,150, and 151. Why boundary value is needed because most issue comes in the boundary, such as the dev incorrectly put 13 as the boundary of the age group 1, if the user uses 13 as the input then the result will be incorrect.
+
+## Decision Tables
+
+Using the decision table technique, the testing will be focused on how the combination of inputs will give different outputs or responses in the system under test.
+
+**Example**: The system has a log-in feature, giving the correct username and password will direct the user to the home page. If the username or password is incorrect then the user will be given an error message. 
+
+So the input will be a combination of username and password, while the output or the expected result could be an error message or homepage. What test case should be used when testing this kind of requirement?
+
+First, start by creating the decision table.
+
+![decision table with correct captcha required](/blog/images/615326c5c4612f6399bffe7f_tabel1.jpg)
+
+Using the decision table, all possible conditions have been listed, there will be 4 test cases to test the requirement. If there's another input then the decision table could be expanded.
+
+For example there's another input for captcha, user need to input the correct captcha in order to be able to login. The decision table will be.
+
+![decision table with correct captcha required](/blog/images/615326dd9d4ca4760a2c9ea0_tabel2.jpg)
+
+If there are 3 combinations of input then there will be 8 test cases that will need to be tested. Using decision table will ensure that no conditions will be left out.
+
+## **State Transition**
+
+State transition technique is testing the changes in input or sequence of input that will cause different transitions in the system under test. An example is, the login feature will lock the user if the user uses an incorrect password for the third time.
+
+The state transition diagram will be:
+
+![state transition technique diagram](/blog/images/6130bfad4de4221a76ff43d9_1_FWQb0VvZA9jr03Ef0E71hQ.png)
+
+‍
+
+## Use Case Testing
+
+Use case testing is a test that is created based on the scenario use of the user. This type of testing will include multiple functionalities as it will describe how the actual user will use the system under test. As an example, the system under test is an [e-commerce system](https://www.42interactive.com/blog/e-commerce-getting-business-online).
+
+One of the use cases is registered users could buy from the SUT. So the test case will be:
+
+1.  User logged in to the system
+2.  User add products to cart
+3.  User process to cart and continue until the order is success
+4.  User receives an invoice
+
+In this type of test, will be easier to find integration issue as the testing is no longer for isolated component or feature.
+
+**_Do you have any feedback or questions? Don't hesitate to drop us a comment here or write us an email below:_**

@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import configData from '../data/config.json';
+
+// Load all blog posts
+const allBlogPosts = await import.meta.glob('../../data/blog/*.mdx', { 
+    eager: true,
+    import: 'frontmatter'
+});
+
+// Convert to array with slug
+const blogPosts = Object.entries(allBlogPosts).map(([path, frontmatter]: [string, any]) => {
+    const fileName = path.split('/').pop()?.replace('.mdx', '') || '';
+    return {
+        slug: fileName,
+        ...frontmatter,
+        publishedAtDate: new Date(frontmatter.publishedAt)
+    };
+});
+
+// Sort by publishedAt (most recent first) for "The Latest"
+const latestBlogs = [...blogPosts]
+    .sort((a, b) => b.publishedAtDate.getTime() - a.publishedAtDate.getTime())
+    .slice(0, 3); // Get top 3 most recent
+
+// Get highlighted blogs from config
+const highlightedBlogs = configData.highlightedBlogs
+    .map((slug: string) => blogPosts.find(blog => blog.slug === slug))
+    .filter((blog: any) => blog !== undefined);
+
+// Get technology blogs from config
+const technologyBlogs = configData.technologyBlogs
+    .map((slug: string) => blogPosts.find(blog => blog.slug === slug))
+    .filter((blog: any) => blog !== undefined);
+
+// Format date helper
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+};
+---
+
+<BaseLayout 
+  title="Who We Are - 42 Interactive"
+  bodyClass=""
+>
+    <Header activePage="who-we-are" />
+    
+    <main class="main-content">
+        
+        <!-- ========================================
+             SECTION 1: WHO WE ARE (Black Background)
+             ======================================== -->
+        <section class="who-we-are-section stars-bg" data-theme="dark">
+            
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <h1 class="hero-title">Who We Are</h1>
+            </div>
+
+            <!-- Vision Section -->
+            <div class="vision-section">
+                <div class="section-label">our vision</div>
+                <h2 class="vision-title">
+                    <span>Building </span>
+                    <span class="regular">What Others Only</span>
+                    <span> Imagine</span>
+                </h2>
+            </div>
+
+            <!-- What We Do Section -->
+            <div class="what-we-do-section">
+                <div class="section-label">WHAT WE DO</div>
+                <p class="what-we-do-text">
+                    We <strong>Design</strong> and <strong>Develop</strong> <strong>Web</strong>, <strong>App</strong> & <strong>AI</strong> <strong>Interactive Experiences,</strong> that deepen the connection between Brands and Audiences.
+                </p>
+            </div>
+
+            <!-- Our History Section -->
+            <div class="history-section">
+                <div class="section-label">OUR HISTORY</div>
+                <div class="history-content">
+                    <p class="history-text">
+                        42 Interactive began with a small group of people who cared deeply about good design and thoughtful technology. After years in fast agency environments where the craft was often overlooked, we wanted to build a studio that did things differently. A place where work is created with intention and clarity.
+                    </p>
+                    <p class="history-text">
+                        As we grew, we partnered with major organisations while staying true to that original focus on craft and purpose. We remained small enough to care about every detail and skilled enough to deliver work at a global standard. Today, that same commitment guides everything we make.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Crew Carousel Section -->
+            <div class="crew-carousel-section">
+                <div class="carousel-row">
+                    <div class="carousel-track">
+                        <img src="/images/crew/image-crew-1.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-2.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-3.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-4.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-6.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-7.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-8.png" alt="Team Member" class="carousel-image">
+                        <!-- Duplicate for seamless loop -->
+                        <img src="/images/crew/image-crew-1.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-2.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-3.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-4.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-6.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-7.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-8.png" alt="Team Member" class="carousel-image">
+                    </div>
+                </div>
+                <div class="carousel-row carousel-row-reverse">
+                    <div class="carousel-track">
+                        <img src="/images/crew/image-crew-9.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-10.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-11.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-12.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-13.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-14.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-15.png" alt="Team Member" class="carousel-image">
+                        <!-- Duplicate for seamless loop -->
+                        <img src="/images/crew/image-crew-9.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-10.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-11.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-12.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-13.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-14.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-15.png" alt="Team Member" class="carousel-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Don't Panic Section -->
+            <div class="dont-panic-section">
+                <h2 class="dont-panic-title">DON'T PANIC</h2>
+                <p class="dont-panic-text">
+                    <strong>42 is the answer</strong> to the ultimate question of life, the universe and everything, said Deep thought supercomputer after seven and a half million years of thought. Taken from "<strong>The Hitchhiker's Guide to the Galaxy</strong>" novel series by Douglas Adams.<br/>We liked the idea and use the number as our name, with space exploration and technology as our brand theme.
+                </p>
+            </div>
+            
+        </section>
+
+        <!-- ========================================
+             SECTION 2: OUR STORY (White Background)
+             ======================================== -->
+        <section class="our-story-section" data-theme="light">
+            <div class="section-inner">
+                <!-- Our Story Title -->
+                <div class="story-title-section">
+                    <h2 class="story-title">Our Story</h2>
+                </div>
+
+                <!-- YouTube Videos Section -->
+                <div class="podcasts-section">
+                    <div class="section-label">VIDEOS</div>
+                    <!-- Podcasts dynamically loaded from data/podcasts.json -->
+                    <div class="podcasts-grid" data-podcast-container>
+                        <!-- Podcast cards will be dynamically inserted here by JavaScript -->
+                    </div>
+                </div>
+
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <div class="blog-container">
+                <div class="blog-left">
+                    <div class="blog-label">HIGHLIGHTS</div>
+                    {highlightedBlogs.map((blog) => (
+                        <a href={`/blog/${blog.slug}`} class="blog-card-large" style="text-decoration: none;">
+                            {blog.image && (
+                                <div 
+                                    class="blog-image-large"
+                                    style={`background-image: url(${blog.image});`}
+                                ></div>
+                            )}
+                            <h3 class="blog-title-large">{blog.title}</h3>
+                            <p class="blog-date">{formatDate(blog.publishedAt)}</p>
+                        </a>
+                    ))}
+                </div>
+                <div class="blog-right">
+                    <div class="blog-label">THE LATEST</div>
+                    {latestBlogs.map((blog) => (
+                        <a href={`/blog/${blog.slug}`} class="blog-card-small" style="text-decoration: none;">
+                            {blog.image && (
+                                <div 
+                                    class="blog-image-small"
+                                    style={`background-image: url(${blog.image});`}
+                                ></div>
+                            )}
+                            <div class="blog-content-small">
+                                <h3 class="blog-title-small">{blog.title}</h3>
+                                <p class="blog-date">{formatDate(blog.publishedAt)}</p>
+                            </div>
+                        </a>
+                    ))}
+                    <!-- CTA Block -->
+                    <div class="cta-block">
+                        <div class="cta-category">Reach out</div>
+                        <h3 class="cta-title">Let's build something amazing together!</h3>
+                        <p class="cta-subtitle">We're here to help.</p>
+                        <button class="cta-button">Get in touch</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="technology-section">
+            <div class="section-inner">
+                <div class="section-label">technology</div>
+                <div class="technology-grid">
+                    {technologyBlogs.map((blog) => (
+                        <a href={`/blog/${blog.slug}`} class="tech-card" style="text-decoration: none;">
+                            {blog.image && (
+                                <div 
+                                    class="tech-image"
+                                    style={`background-image: url(${blog.image});`}
+                                ></div>
+                            )}
+                            <h3 class="tech-title">{blog.title}</h3>
+                            <p class="tech-date">{formatDate(blog.publishedAt)}</p>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+            
+        </section>
+        
+    </main>
+
+    <Footer />
+</BaseLayout>
+

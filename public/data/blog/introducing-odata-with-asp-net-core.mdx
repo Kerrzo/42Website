@@ -1,0 +1,198 @@
+---
+title: "Implementing OData: A Game-Changing Approach in ASP.NET Core"
+publishedAt: "2023-11-05"
+summary: "Dive into the world of OData Core. Discover how to leverage the power of OData in ASP.NET Core to create flexible and efficient APIs for your applications."
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/623188d61454c0e0f0564a79_pedestrian-odata.jpg"
+---
+
+## **Overview**
+
+OData short for Open Data Protocol allows developer to create a simple query able RESTFULAPIs. With OData the caller can freely filter, select and expand the data in server side with a standard query and the implementation is very simple and straight forward.  OData builds on HTTP and JSON using URIs to address and access data feed resources, it makes OData interoperable and easy to implement.
+
+Imagine in real case, we need to do pagination, we need to include more detail information into certain depth and detail, we need to filter the data that send, it will be better if the request can do query just like we have in Linq or SQL right?
+
+Well case like this is perfect with OData, with just one endpoint the client can do various query that suit for their needs.
+
+## **Getting Started**
+
+In this article lets discus how to implement OData in Asp.Net Core, we will try to build the solution using [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/), using basic Dependency Injection and finally how to use OData in possible real case in real world.
+
+As a start we will need this:
+
+1.  Northwind Database, it can be downloaded from [https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-2017)
+2.  Microsoft.EntityFrameworkCore.SqlServernuget Package
+3.  Microsoft.AspNetCore.OData nugetPackage
+4.  Scrutor, this is a helper for Dependency Injection, more information about scrutor can be found in [https://andrewlock.net/using-scrutor-to-automatically-register-your-services-with-the-asp-net-core-di-container/](https://andrewlock.net/using-scrutor-to-automatically-register-your-services-with-the-asp-net-core-di-container/)
+5.  ValueInjecter nu get Package
+
+First, we need to restore the Database, create a new Asp.Net Core Project and ensure the connection string setup properly.
+
+At the data level, OData will need to have a “Direct” access to our database, so we will not to worry about query or any linq, we can just give it our DbSet at lets OData do the job.
+
+The code in data level will look like this:
+
+![sample code in data level ](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9b9d47040bc1dd845f_image002.png)
+
+‍
+
+We are using interfaces to make our life in Dependency Injection easier, we can use Scrutor to do assembly scan and register all the classes in the DI
+
+![sample code using scrutor](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9c290e6cf803692527_image004.png)
+
+‍
+
+Now we can start to implement the OData Part. First of all, we need to register the OData within the Startup class.
+
+## **OData Implementation**
+
+Add this line to ConfigureServices method:
+
+![sample line of code to ConfigureServices method](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9c5b5ea3b886d5a311_image006-1.png)
+
+‍
+
+And the following lines to Configure Method:
+
+![sample line of code to configure method](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9c9bb0ab56e44b2afa_image008-1.png)
+
+‍
+
+‍
+
+It will register our OData and tell that we support“select”,”expand”,”filter”,”orderby”, “top” and “count” query for OData.EnableDependencyInjection is needed because we want to use standard ASP.Net Core controller not ODataController.
+
+After all set up we are ready to implement the OData endpoint.
+
+Create a new controller and put these lines:
+
+![sample code Odata endpoint](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9c57121b318ad6856a_image010.png)
+
+‍
+
+It’s just ordinary controller and in the action method we just need to return our DbSet which is an access to the DB Table and put attribute EnableQuery.
+
+Now, lets try our work using Postman.
+
+query: [https://localhost:44354/api/person-odata](https://localhost:44354/api/person-odata)
+
+result:
+
+![sample result using Postman](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9e10749c17e7cc2f20_image011-1024x330.png)
+
+‍
+
+Perhaps you will notice that its very slow and heavy, because its return all of the data and the size is almost 7.71 MB, now let’s try another call
+
+Query: [https://localhost:44354/api/person-odata?$top=20](https://localhost:44354/api/person-odata?$top=20)
+
+Result:
+
+![sample result personal odata](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9e1ecc743445aebb52_image013-1024x298.png)
+
+‍
+
+Now it only takes 20 records, and we are doing this without any extra implementation in the server side. Let’s call another query
+
+Query: https://localhost:44354/api/person-odata?$filter=titleeq 'Mr.' and person
+
+Type eq 'SP'
+
+Result:
+
+![sample raw code](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9e9bb0ab0cbe4b2afd_image015-1024x248.png)
+
+‍
+
+Query: https://localhost:44354/api/person-odata?$filter=titleeq 'Mr.' and person
+
+Type eq'SP'&$select=businessEntityId,person
+
+Type,title,firstName
+
+Result:
+
+![sample odata code result](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9ef4e75d139fc182df_image017-1024x167.png)
+
+‍
+
+OData is query-able, as we can see we can define our own query and we could see that the implementation is very straight forward.
+
+## **OData with Data Transfer Object (DTO)**
+
+In the implementation above we return the whole Person entity into real world, for internal system perhaps it won’t be much problem but still if the data contain sensitive information such as “password” it will cause many problems. Usually to handle this issue the best practise is to use Data Transfer Object as the returned object.
+
+The problem with OData is because it uses do “Direct” query to our DBSet it will always return the entity type, so we need to somehow do the query with Entity type but modify the result into DTO.
+
+Create a new controller and do some modification from the code above
+
+![sample code modification](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9e290e6c584669252b_image020.png)
+
+‍
+
+In the example we receive the ODataQueryOptions with the type of Person, and return value of PersonDto, it allows the query to be received and used later. In the logic we can see that the query applied into the DBSet and then mapped into DTO.
+
+Let’s do a query and see the result
+
+Query: https://localhost:44354/api/person-vm?$filter=titleeq 'Mr.' and person Type eq 'SP'
+
+Result:
+
+![sample code query result](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130bea048f60a2ff61be0ee_image021-1024x415.png)
+
+‍
+
+## **OData and Pagination**
+
+Pagination is a common practise to present data, it helps the performance of retrieving data and avoid big chunk of data to be sent to caller. Let’s see how ODatahandle the server-side paging.
+
+![sample person paging controller](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130be9fef8e240e5ab3bbf0_image024.png)
+
+‍
+
+In order the pagination to work we needs to define the PageSize and ensure the caller define“count=true” so we can get the total count of records. Let’s see it in action.
+
+Query: [https://localhost:44354/api/person-paging?$count=true](https://localhost:44354/api/person-paging?$count=true)
+
+Result:
+
+![sample raw line of code](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6130bea08ceb58a9811e7e40_image025-1024x399.png)
+
+The response is limited into 15 records and we are given a link to next page.
+
+## **OData Endpoints**
+
+OData endpoints are a powerful tool that allows developers to expose data through a RESTful API. This standardized protocol makes it easy for developers to query and manipulate data from various sources without worrying about the underlying data structure.
+
+### **What Are OData Endpoints?**
+
+OData endpoints are a type of API that allows you to access and manipulate data in a standardized way. This protocol provides a uniform way to access data from a variety of sources, such as databases, SharePoint, and more. OData endpoints are built on the principles of RESTful architecture, which makes it easy for developers to work with them.
+
+### **Why Are OData Endpoints Important?**
+
+OData endpoints are important because they provide a simple and consistent way to interact with data. They allow developers to work with data from various sources without having to learn the specifics of each individual data source. This makes it easier for developers to build applications that work with multiple data sources. Additionally, OData endpoints make it easy to filter, sort, and paginate data, which can help improve the performance of your application.
+
+**Different types of OData endpoints:**
+
+1.  **Entity Set Endpoints** - Entity set endpoints allow you to access data from a specific entity set. Entity sets are essentially tables in your data source, and they contain a collection of related data. With entity set endpoints, you can filter, sort, and paginate data from a specific entity set.
+2.  **Singleton Endpoints** - Singleton endpoints allow you to access data from a single record in your data source. This is useful if you need to access a specific record, such as the current user or a specific configuration setting.
+3.  **Function Endpoints** - Function endpoints allow you to execute custom functions that are defined in your data source. These functions can perform complex calculations or data manipulations that are not possible with simple queries.
+4.  **Action Endpoints** - Action endpoints allow you to perform custom actions on your data source. These actions can modify data, send notifications, or perform any other custom operation that you define.
+5.  **Media Endpoints** - Media endpoints allow you to access binary data, such as images or videos, from your data source. With media endpoints, you can easily retrieve and display media content in your application.
+
+### **How to Implement OData Endpoints?**
+
+Implementing OData endpoints can be done using a variety of programming languages and frameworks. One popular framework for implementing OData endpoints is the .NET Framework. In .NET, you can use the ODataController class to define your endpoints and handle requests.
+
+To implement an OData endpoint in .NET, you first need to define your entity model. This model should represent the data that you want to expose through your endpoint. Once you have defined your model, you can create a controller that inherits from the ODataController class.
+
+In this controller, you can define your endpoints and implement the necessary actions to handle requests.
+
+## **Conclusion**
+
+We have seen OData in action, we can see how efficient the logic in server-side and how flexible to the caller to build their query to get data. Its really helpful where we can just expose 1 Get endpoint without much logic to filter, select or pagination.
+
+Ability to convert to DTO also useful so we can modify the data that returned to the caller, but we need to be smart on defining it, because with the DTO some ability like “expand” can be limited. We need to choose when it is secure to sent the entity class or dto class. Beside DTO we can hide field from caller by using IgnoreDataMember attribute the only problem is sometime we need more flexibility and do some calculation when populating DTO.
+
+But in the end OData will help us to speed up our development time because it's straight forward and save us from many Get Methods that perhaps serve very specific needs of data.
+
+_\*Any questions get in touch with us via the contact form_

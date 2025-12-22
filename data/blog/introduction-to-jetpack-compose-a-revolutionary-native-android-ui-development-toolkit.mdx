@@ -1,0 +1,188 @@
+---
+title: "Introduction to Jetpack Compose: A Revolutionary Native Android UI Development Toolkit"
+publishedAt: "2024-05-01"
+summary: "Discover Jetpack Compose, the groundbreaking toolkit for crafting native Android user interfaces, revolutionizing UI development with simplicity and efficiency."
+image: "/blog/images/65f250c7b3e3b6a6d726f433_Jetpack_Compose-_A_Revolutionary_Native_Android_UI_Development_Toolkit.jpg"
+---
+
+_As part of my training and technical assignment at 42 Interactive, I took the initiative to craft an article focusing on a groundbreaking native Android UI_ [_development_](https://www.42interactive.com/) _toolkit. This toolkit represents a significant advancement in the field, revolutionising the way developers create user interfaces for Android applications._
+
+‍
+
+I used to work with Flutter and wanted to explore native Android app development. In the past, Android used XML Layout Views for UI creation, which I found difficult to grasp. Now, Android has introduced Jetpack Compose, a modern toolkit by Google for building native Android UIs, making the process much simpler.
+
+‍
+
+Unlike the old way of building native Android UI using an XML layout approach that often results in a complex hierarchy and boilerplate code, Jetpack Compose simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs. With its declarative approach and powerful features, Jetpack Compose is revolutionising Android UI development, offering developers unprecedented flexibility and efficiency.
+
+‍
+
+## **The Goals**
+
+-   Learning about Android native development
+-   Getting started with Jetpack Compose and learn the features
+-   Compare the old XML Views approach vs the Jetpack Compose approach
+
+‍
+
+## **The Good Things**
+
+-   Jetpack Compose has a similar paradigm as Flutter which is Declarative Programming
+-   Less code to achieve the same result, compared with the XML Views approach
+
+‍
+
+## **The Challenges**
+
+-   I'm still getting used to the new Android Studio IDE and need some time to remember the shortcuts and how files and folders are structured.
+-   Styling the component is quite challenging for me because there are many attributes that I can use to achieve the same result.
+
+‍
+
+## **Key Features of Jetpack Compose**
+
+-   **_Declarative Approach_** - With Compose, developers can describe the UI using a simple syntax. You just say how you want your UI to look, and Compose handles updating it accordingly.
+-   **_Composable Functions_** - In Jetpack Compose, UI components are like building blocks, called composable functions. They're light and modular, and you can put them together to make intricate UI structures.
+-   **_State Management_** - Compose makes it simple to manage the state of UI components, helping handle UI changes and updates more easily.
+-   **_Material Design_** - Compose is designed to seamlessly integrate with Material Design, Google's design system for building intuitive and beautiful user interfaces.
+-   **_Interoperability_** - Compose is designed to work seamlessly with existing Android views and libraries, allowing developers to gradually adopt it into their existing projects.
+
+‍
+
+## Comparison of XML Views and Compose
+
+‍
+
+With XML Views, [developers](https://www.42interactive.com/about-us) have to split their UI code into an XML file and write logic in a Kotlin file. This often leads to repetitive code because developers must manually sync the UI with the data model. For example, if we want to display a value from an EditText on a TextView, developers need to take additional steps to update the model state of the component and display it on the UI.
+
+‍
+
+Here's an example to demonstrate this:
+
+‍
+
+**_XML Layout (activity\_main.xml)_**
+
+‍
+
+![__wf_reserved_inherit](/blog/images/65f24ec9dc94692febc31d7b_Jetpack_1.png)
+
+‍
+
+This is the simple layout of the Tip Calculator program which has an EditText component for a user to insert the tip value and a TextView component for showing the amount of tip that the user needs to pay.
+
+‍
+
+In this case, I just hardcoded the percentage amount of the tip to 15%.
+
+‍
+
+From the XML above, it will appear like this in the preview:
+
+‍
+
+![__wf_reserved_inherit](/blog/images/65f24f06f15a687ed98bff11_Jetpack_2.png)
+
+‍
+
+**_MainActivity.kt_**
+
+![__wf_reserved_inherit](/blog/images/65f24f2bdca1d5ce17f0d864_Jetpack_3.png)
+
+‍
+
+Let's dissect some of the actions taking place in the Kotlin code provided above:
+
+‍
+
+-   The initial layout is loaded from the XML file using _setContentView_
+-   Each UI component (TextView, EditText) is found using _findViewById_, which is a common source of boilerplate code.
+-   I set a _doAfterTextChanged_ listener that will run after the user inputs some value on the EditText component. When the value is changed it will run the code inside the listener.
+-   In this step, I manually get the value from the EditText component, and do the calculation by calling the calculateTip function, after that, I update the state of the TextView component by explicitly setting the value of the result TextView.
+
+‍
+
+In Jetpack Compose, I attempted to replicate the same app, resulting in less code and a more intuitive and efficient method of managing the app's state. By employing Composable Functions, state can be managed reactively, which means that when the state changes, only the UI components dependent on that state will be updated. This process is referred to as re-composition in Jetpack Compose.
+
+‍
+
+Here's the example using Compose:
+
+‍
+
+![__wf_reserved_inherit](/blog/images/65f24f50dc94692febc3d1e6_Jetpack_4.png)
+
+‍
+
+In MainActivity, we simply invoke the composable function; there's no need to load the UI separately.
+
+‍
+
+**_TipCalculator.kt_**
+
+![__wf_reserved_inherit](/blog/images/65f24f6f50e59a24809db926_Jetpack_5.png)
+
+‍
+
+Here, I've created a composable function named TipCalculatorApp, which constructs the same UI as in the previous XML Views layout. However, instead of defining the UI in an XML file, I've created it using Kotlin, resulting in cleaner code.
+
+‍
+
+![__wf_reserved_inherit](/blog/images/65f24f8c014cba0bbf04652a_Jetpack_6.png)
+
+‍
+
+Let's break down the Composable function mentioned above:
+
+‍
+
+-   When using Jetpack Compose, we must create a composable function by putting annotation composable above our function name, in code it’s indicated with _@Composable_.
+-   In the code I have 1 state called _amountInput_, this state will contain the value of user input which is managed by Compose’s state management system.
+-   The _mutableStateOf_ function is a function to create an observable MutableState so Compose can observe the value of this state and trigger a recomposition to update the UI.
+-   The _remember_ function is used to store the value in the composition during initial composition and it will retain the value during recomposition, we need to use the remember function to avoid the state value reverting to its initial value.
+-   I created a variable called _tip_ this variable will call the _CalculateTip_ function during the recomposition phase to calculate the tip based on the updated value of state _amountInput_, I also put the _Elvis operator_ ?: which indicates when the _amountInput_ is null, the default value will be 0.0.
+-   This is where I create the UI part, the layout is organised in a Column that wraps a few components:
+
+‍
+
+                    - A text component to display the title.
+
+                    - A TextField component is where the user inputs the tip amount.
+
+                    - Text component to display the information of Tip Percentage that currently I hardcoded to 15%.
+
+                    - The last thing is a Text component to show the Total amount the user needs to pay.
+
+## **Summary**
+
+‍
+
+Jetpack Compose is a groundbreaking tool for crafting native Android UIs, poised to revolutionise development with its ability to drastically reduce code compared to traditional XML views. Coming from a Flutter background, I find the declarative approach of Jetpack Compose familiar and easy to grasp, streamlining my learning process. While still in its early stages and evolving to match the capabilities of XML views, Jetpack Compose holds immense promise for driving [innovation](https://www.42interactive.com/services/digital-design-and-development) in the Android development landscape. As more developers embrace it, we can anticipate a new era of creativity and efficiency in Android app development.
+
+‍
+
+**Do you have an Android app needing maintenance? Or are you looking for creating an app?**
+
+**We can help, let's chat.**
+
+‍
+
+_Written by:  
+  
+Yana \[Developer at 42 Interactive\]_
+
+_\- As a part of 42 Interactive training and research programme -  
+  
+_
+
+##### **References:**
+
+[https://developer.android.com/courses/android-basics-compose/course](https://developer.android.com/courses/android-basics-compose/course)
+
+[https://medium.com/@MeenoTeK/xml-views-or-jetpack-compose-which-is-the-best-option-for-your-next-project-ccf38573a82#:~:text=XML%20Layout%20typically%20requires%20manual,well%2Destablished%20and%20extensive%20community](https://medium.com/@MeenoTeK/xml-views-or-jetpack-compose-which-is-the-best-option-for-your-next-project-ccf38573a82#:~:text=XML%20Layout%20typically%20requires%20manual,well%2Destablished%20and%20extensive%20community).
+
+‍
+
+‍
+
+‍

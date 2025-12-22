@@ -1,0 +1,167 @@
+---
+title: "Exploring SwiftUI: Building a Map App with MVVM Architecture"
+publishedAt: "2024-07-12"
+summary: "Discover how to build a map app using SwiftUI and MVVM architecture. This guide covers key concepts, best practices, and step-by-step instructions to create a robust and efficient map application."
+image: "https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/66739abdf1db6c4c6101115a_SwiftUI%20main%20image.jpeg"
+---
+
+SwiftUI as a framework introduced by Apple for building user interfaces across all Apple platforms. It's designed to simplify and streamline the UI development process, offering a declarative syntax that allows developers to describe the desired interface and its behaviour concisely.
+
+‍
+
+Unlike UIKit, which relies heavily on imperative programming, SwiftUI embraces a more modern approach, enabling developers to create dynamic and interactive interfaces with less code. With SwiftUI, developers can enjoy features like live previews, automatic layout adjustments, and seamless integration with Swift code.
+
+‍
+
+To get better understanding SwiftUI, we’ll make case study called Map App, we will import a bunch of real-world locations, such as the Colosseum and the Eiffel Tower, and then display them on the map with a nice UI. The focus of this project is to (1) better understand MVVM architecture, and (2) to get more comfortable using SwiftUI frames, alignments, animations, and transitions.
+
+## Map app demo
+
+‍
+
+‍
+
+## Start SwiftUI Development with Xcode
+
+### Setup project
+
+-   Open Xcode (my version is 15.3 (15E204a))
+-   File > New > Project
+-   Choose iOS > App
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6673920c02d0959703054ebc_SwiftUI%201.jpeg)
+
+‍
+
+Enter the product name “App”, and leave storage as none for now.
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6673922df174c532a93bf94a_SwiftUI%202.jpeg)
+
+‍
+
+### Setup assets
+
+-   Download the assets here [https://www.swiftful-thinking.com/downloads](https://www.swiftful-thinking.com/downloads). Choose  “SwiftUI Map App - Resources”.
+-   Remove folder **_Assets.xcassets_** on our project directory, then paste it with new download resources folder called **_Assets.xcassets_** to our project directory**_._**
+-   Create new folder named **_DataServices_**, and paste **_LocationsDataService.swift_** inside.
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/66739302dcaaf6a9b9a04fb0_SwiftUI%203.jpeg)
+
+‍
+
+#### **Models/Location.swift**
+
+Let’s create new model called **_Location_**.
+
+This model encapsulates data related to a geographical location. The struct contains properties such as name, cityName, coordinates, etc. Additionally, the Identifiable protocol is adopted to enable unique identification of instances through the id property, which concatenates the name and cityName. The Equatable protocol is also implemented to support comparison of Location instances. Overall, this struct serves as a data model facilitating the management and manipulation of location data within map-based applications.
+
+‍
+
+#### ViewModels/LocationViewModel.swift
+
+**_LocationViewModel class_**, which serves as the view model for managing location-related data and interactions within the map app. Let's dissect its functionalities:
+
+‍
+
+-   ‍**ObservableObject: _LocationViewModel_** adopts the **_ObservableObject_** protocol, indicating that it can publish changes to its properties, allowing SwiftUI views to react and update accordingly.
+
+-   **Published Properties**:_‍_
+    -   **locations**: An array of **Locations** objects, published to notify views of any changes.
+    -   **_mapLocation_**: Represents the currently selected location on the map. Whenever it changes, **_the updateMapRegion_** method is called to update the map's region accordingly.
+    -   **_mapRegion_**: Represents the visible region of the map.
+    -   **_showLocationList_**: A boolean flag indicating whether to display a list of locations.
+    -   **_sheetLocation_**: Represents a location to be displayed in a sheet view.
+
+-   **Constants**:
+    -   **_mapSpan_**: Specifies the span (the width and height) of the map region to be displayed.
+
+-   **Initialisation**: In the **_init_** method **_locations_** are loaded from **_LocationsDataService_**, and the first location in the list is set as the initial **_mapLocation_**. The map region is then updated accordingly.
+
+-   **Methods**:
+    -   **_updateMapRegion_**: Updates the **_mapRegion_** based on the given location's coordinates.
+    -   **_toggleLocationList_**: Toggles the visibility of the locations list.
+    -   **_showNextLocationList_**: Update the **_mapLocation_** and hides the locations list, typically triggered when selecting a location from the list.
+    -   **_clickNextLocation_**: Advances to the next location in the **_locations_** array, updating **_mapLocation_** and hiding the locations list accordingly.
+
+Overall, **_LocationViewModel_** manages the state of location-related data and interactions, facilitating communication between SwiftUI views and data sources within the map app.
+
+‍
+
+#### MapApp.swift
+
+The LocationViewModel instance vm is created using the @StateObject property wrapper. This ensures that the view model is preserved across view updates and is only created once during the app's lifecycle.
+
+‍
+
+#### Views/LocationsListView.swift
+
+Responsible for displaying a list of locations fetched from the **_LocationViewModel_**. Each location is represented as a button within a List view, triggering the presentation of detailed information when tapped. The design utilises a custom **_listRowView_** unction to render each list item with an image, location name, and city name in a horizontal layout. The **_LocationListView_** is styled with a plain list style, ensuring a clean and minimalistic appearance. Additionally, the code includes a preview for the **_ListLocationView_**, showcasing its appearance with sample data.
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/6673983ae388d8325d0382e8_SwiftUI%208.jpeg)
+
+#### Views/LocationPreviewView.swift
+
+This view designed to provide a compact preview of a location's details. It displays an image of the location followed by its name, with buttons for learning more about the location and navigating to the next one. The design employs a horizontal layout with aligned vertical stacks, ensuring an organised presentation of information. Additionally, the view features rounded corners and a subtle background, enhancing its visual appeal. The preview showcases the appearance of the **_LocationPreviewView_** with sample data from the **_LocationDataService_**.
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/667398a0b0401aae92161a2c_SwiftUI%2010.jpeg)
+
+#### Views/LocationDetailView.swift
+
+This display detailed information about a specific location. It presents an image banner showcasing multiple images of the location in a scrollable TabView. Below the image banner, the view includes sections for the location's name, city, description, and a link to learn more about the location on Wikipedia if available. Additionally, it incorporates a Map view displaying the location's coordinates and a back button to dismiss the detail view. The design emphasises a clean and organised layout, with each section appropriately spaced and aligned for optimal readability. The preview demonstrates the appearance of the **_LocationDetailView_** with sample data from **_LocationDataService_** and an environment object of **_LocationViewModel_**.
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/66739930dde376ebc4607332_SwiftUI%2012.jpeg)
+
+#### Views/LocationView.swift
+
+This is the main interface for the map app. It displays a map with annotations for each location stored in the **_LocationViewModel_**. Tapping on an annotation triggers the display of a preview for the selected location. Additionally, there's a header section displaying the name and city of the current location, with a button to toggle the visibility of a list of locations. The view also includes a sheet presentation for detailed information about a selected location. The design employs a ZStack to overlay the map with UI elements and incorporates transitions for smooth interface changes. Finally, the code includes a preview for the **_LocationVIew_** and a custom **_MapMaker_** view used for map annotations.
+
+‍
+
+![__wf_reserved_inherit](https://uploads-ssl.webflow.com/611c5611c7286822ba86a62c/667399f3ff1a4af98599fbd1_SwiftUI%2014.jpeg)
+
+## Summary
+
+‍
+
+This case studies of map app using the Model-View-ViewModel (MVVM) architecture with SwiftUI. The MVVM pattern facilitates the organisation, efficiency, and scalability of the app by separating concerns into distinct layers: the Model (represented by the **_Location_** struct), the View (comprised of **_LocationView_**, **_LocationListView_**, and **_LocationDetailView_**), and the ViewModel **_LocationViewModel_**.
+
+‍
+
+The ViewModel manages the app's state and logic, including data loading, navigation, and user interactions, while the Views are responsible for presenting the UI elements and responding to changes in the ViewModel. Through this structured approach, the code achieves a clear separation of concerns, promoting maintainability and extensibility of the map app.
+
+‍
+
+## References
+
+[https://developer.apple.com/xcode/swiftui/](https://developer.apple.com/xcode/swiftui/)
+
+[https://www.youtube.com/playlist?list=PLwvDm4Vfkdphbc3bgy\_LpLRQ9DDfFGcFu](https://www.youtube.com/playlist?list=PLwvDm4Vfkdphbc3bgy_LpLRQ9DDfFGcFu)
+
+‍
+
+**We can help with your mobile app development, let's chat.**
+
+‍
+
+‍
+
+_Written by:  
+‍_
+
+_Alvin Amri \[Fullstack developer at 42 Interactive\]_
+
+_\- As a part of 42 Interactive training and research programme -_
+
+‍

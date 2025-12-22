@@ -1,0 +1,184 @@
+---
+interface Props {
+    currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+
+// All work items with their data
+const allWorkItems = [
+    {
+        slug: "building-restaurants-of-the-future",
+        title: "Building Restaurants of The Future",
+        image: "/images/work/image-redrooster.png",
+        alt: "Building Restaurants of The Future"
+    },
+    {
+        slug: "a-brand-that-feels-like-a-friend",
+        title: "A Brand That Feels Like a Friend",
+        image: "/images/work/image-amica-branding.png",
+        alt: "A Brand That Feels Like a Friend"
+    },
+    {
+        slug: "connecting-people-to-workplace",
+        title: "Connecting People to workplace",
+        image: "/images/work/image-amica.png",
+        alt: "Connecting People to workplace"
+    },
+    {
+        slug: "putting-the-intelligence-in-ai",
+        title: "Putting the Intelligence in AI",
+        image: "/images/work/image-ai.png",
+        alt: "Putting the Intelligence in AI"
+    },
+    {
+        slug: "the-magic-of-theatre-at-home",
+        title: "The Magic of Theatre at home",
+        image: "/images/work/image-bovr.png",
+        alt: "The Magic of Theatre at home"
+    },
+    {
+        slug: "a-better-way-to-manage-pain",
+        title: "A Better Way to Manage Pain",
+        image: "/images/work/image-nt.png",
+        alt: "A Better Way to Manage Pain"
+    },
+    {
+        slug: "immortalising-creativity",
+        title: "Immortalising<br />Creativity",
+        image: "/images/work/image-wrg.png",
+        alt: "Immortalising Creativity"
+    },
+    {
+        slug: "bringing-art-to-life",
+        title: "Bringing Art<br />To Life",
+        image: "/images/work/image-vivid.png",
+        alt: "Bringing Art To Life"
+    },
+    {
+        slug: "bringing-products-to-life",
+        title: "Bringing Products to Life",
+        image: "/images/work/image-latham.png",
+        alt: "Bringing Products to Life"
+    }
+];
+
+// Filter out current page
+const otherWorkItems = allWorkItems.filter(item => item.slug !== currentSlug);
+---
+
+<section class="other-work-section" data-theme="light">
+    <div class="section-inner">
+        <div class="section-header">
+            <h2 class="section-title">Other work</h2>
+        </div>
+
+        <!-- Work Grid -->
+        <div class="work-grid" id="other-work-grid">
+            {otherWorkItems.map((item, index) => (
+                <a
+                    href={`/what-we-do/${item.slug}`}
+                    class={`work-card ${index >= 3 ? 'work-card--hidden' : ''}`}
+                    style="text-decoration: none;"
+                    data-index={index}
+                >
+                    <div class="work-image-wrapper">
+                        <img
+                            src={item.image}
+                            alt={item.alt}
+                            class="work-image"
+                        />
+                        <div class="work-overlay"></div>
+                    </div>
+                    <h3 class="work-title" set:html={item.title}></h3>
+                </a>
+            ))}
+        </div>
+
+        {otherWorkItems.length > 3 && (
+            <div class="other-work-load-more">
+                <button class="btn-load-more" id="other-work-load-more">
+                    Load more
+                </button>
+            </div>
+        )}
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loadMoreButton = document.getElementById('other-work-load-more');
+        const workGrid = document.getElementById('other-work-grid');
+        
+        if (loadMoreButton && workGrid) {
+            const hiddenCards = workGrid.querySelectorAll('.work-card--hidden');
+            
+            if (hiddenCards.length > 0) {
+                loadMoreButton.addEventListener('click', () => {
+                    hiddenCards.forEach(card => {
+                        card.classList.remove('work-card--hidden');
+                    });
+                    loadMoreButton.style.display = 'none';
+                });
+            } else {
+                loadMoreButton.style.display = 'none';
+            }
+        }
+    });
+</script>
+
+<style>
+    .other-work-section {
+        background-color: var(--text-dark);
+        padding: 80px 0;
+        position: relative;
+    }
+
+    .other-work-section .section-header {
+        margin-bottom: 60px;
+    }
+
+    .other-work-section .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    .work-card--hidden {
+        display: none;
+    }
+
+    .other-work-load-more {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .btn-load-more {
+        background: transparent;
+        border: 2px solid currentColor;
+        color: inherit;
+        padding: 12px 32px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-load-more:hover {
+        background: currentColor;
+        color: var(--text-dark, #000);
+    }
+
+    @media (max-width: 768px) {
+        .other-work-section {
+            padding: 60px 0;
+        }
+
+        .other-work-section .section-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+

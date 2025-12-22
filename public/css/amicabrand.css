@@ -1,0 +1,485 @@
+/* Page-specific styles for Amica Brand work page */
+
+.amicabrand-page {
+    background: #0e1026;
+    color: #f2f2f2;
+}
+
+.amicabrand-page .section-label {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 12px;
+    color: #7fa0e5;
+    margin-bottom: 16px;
+}
+
+/* Hero info positioning override */
+.amicabrand-hero .hero-info {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 100px;
+    box-sizing: border-box;
+}
+
+/* Intro section - White background override */
+.amicabrand-page .section-intro {
+    background-color: #ffffff;
+    padding: 92px 0 108px;
+}
+
+.amicabrand-page .section-intro .section-inner {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.amicabrand-page .section-intro .intro-text {
+    color: #000000;
+    max-width: 733px;
+}
+
+/* Brand Logo section */
+.amicabrand-logo {
+    background: #ffffff;
+    padding: 0 0 80px 0;
+    min-height: 343px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amicabrand-logo__inner {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.amicabrand-logo__image {
+    width: 100%;
+    max-width: 1000px;
+    height: 343px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.amicabrand-logo__image img {
+    width: 100%;
+    height: auto;
+    max-height: 343px;
+    object-fit: contain;
+}
+
+/* Brand Transformation section - Teal background */
+.amicabrand-transformation {
+    background: #00676c;
+    padding: 100px 0;
+}
+
+.amicabrand-transformation__inner {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.amicabrand-transformation__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 auto 80px;
+    max-width: 1150px;
+}
+
+.amicabrand-transformation__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10.33px;
+}
+
+.transformation-item {
+    width: 100%;
+    overflow: hidden;
+}
+
+.transformation-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Merchandise section - Orange background */
+.amicabrand-merchandise {
+    background: #cf5530;
+    padding: 100px 0;
+    min-height: 900px;
+}
+
+.amicabrand-merchandise__inner {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.amicabrand-merchandise__layout {
+    display: grid;
+    grid-template-columns: 30% 1fr 22.3%;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
+}
+
+.merchandise-item {
+    overflow: hidden;
+}
+
+.merchandise-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.merchandise-item--large {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 100%;
+    height: 682px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.merchandise-item--large img {
+    width: 100%;
+    height: 682px;
+    object-fit: cover;
+}
+
+.merchandise-top-row {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    display: flex;
+    gap: 0;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+}
+
+.merchandise-item--medium {
+    flex: 0 0 73.5%;
+    height: 355px;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.merchandise-item--medium img {
+    width: 100%;
+    height: 355px;
+    object-fit: cover;
+}
+
+.merchandise-item--small {
+    flex: 0 0 26.5%;
+    height: 355px;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.merchandise-item--small img {
+    width: 100%;
+    height: 355px;
+    object-fit: cover;
+}
+
+.merchandise-bottom-row {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+}
+
+.merchandise-item--bottom {
+    flex: 0 0 auto;
+    height: 287px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.merchandise-item--bottom img {
+    width: 100%;
+    height: 287px;
+    object-fit: cover;
+}
+
+.merchandise-bottom-row .merchandise-item--bottom:nth-child(1) {
+    flex-basis: 29.8%;
+}
+
+.merchandise-bottom-row .merchandise-item--bottom:nth-child(2) {
+    flex-basis: 43.7%;
+}
+
+.merchandise-bottom-row .merchandise-item--bottom:nth-child(3) {
+    flex-basis: 26.5%;
+}
+
+/* Instagram Gallery - Brown background */
+.amicabrand-instagram {
+    background: #6d612e;
+    padding: 79px 0 100px;
+}
+
+.amicabrand-instagram__inner {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.amicabrand-instagram__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10.33px;
+}
+
+.instagram-item {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.instagram-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1200px) {
+    .amicabrand-hero .hero-info {
+        padding: 0 60px;
+    }
+    
+    .amicabrand-page .section-intro .section-inner,
+    .amicabrand-logo__inner,
+    .amicabrand-transformation__inner,
+    .amicabrand-merchandise__inner,
+    .amicabrand-instagram__inner {
+        padding: 0 60px;
+    }
+    
+    .amicabrand-transformation__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .amicabrand-instagram__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .amicabrand-transformation__title {
+        font-size: 48px;
+    }
+    
+    .amicabrand-merchandise__layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .merchandise-item--large {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        height: auto;
+    }
+    
+    .merchandise-item--large img {
+        height: auto;
+    }
+    
+    .merchandise-top-row {
+        grid-column: 2;
+        grid-row: 1;
+        flex-direction: column;
+        max-width: 100%;
+    }
+    
+    .merchandise-item--medium {
+        flex: 1 1 auto;
+        height: auto;
+        width: 100%;
+    }
+    
+    .merchandise-item--medium img {
+        height: auto;
+    }
+    
+    .merchandise-item--small {
+        flex: 1 1 auto;
+        height: auto;
+        width: 100%;
+    }
+    
+    .merchandise-item--small img {
+        height: auto;
+    }
+    
+    .merchandise-bottom-row {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        flex-direction: row;
+        max-width: 100%;
+    }
+    
+    .merchandise-item--bottom {
+        height: auto;
+        flex: 1 1 auto;
+    }
+    
+    .merchandise-item--bottom img {
+        height: auto;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .amicabrand-hero .hero-info {
+        left: 0;
+        right: 0;
+        width: 100%;
+        transform: none;
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+        padding: 0;
+    }
+    
+    .amicabrand-page .section-intro {
+        padding: 40px 0;
+    }
+    
+    .amicabrand-page .section-intro .section-inner {
+        padding: 0 20px;
+    }
+    
+    .amicabrand-logo__inner,
+    .amicabrand-transformation__inner,
+    .amicabrand-merchandise__inner,
+    .amicabrand-instagram__inner {
+        padding: 0 20px;
+    }
+    
+    .amicabrand-transformation__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .amicabrand-instagram__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .amicabrand-transformation__title {
+        font-size: 36px;
+    }
+    
+    .amicabrand-logo__image {
+        height: auto;
+        min-height: 200px;
+    }
+    
+    /* Merchandise - Stack to single column */
+    .amicabrand-merchandise__layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+    
+    .merchandise-item--large {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        height: auto;
+    }
+    
+    .merchandise-item--large img {
+        height: auto;
+    }
+    
+    .merchandise-top-row {
+        grid-column: 1;
+        grid-row: 2;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 100%;
+    }
+    
+    .merchandise-item--medium {
+        flex: 1 1 auto;
+        height: auto;
+        width: 100%;
+        order: 1;
+    }
+    
+    .merchandise-item--medium img {
+        height: auto;
+    }
+    
+    .merchandise-item--small {
+        flex: 1 1 auto;
+        height: auto;
+        width: 100%;
+        order: 2;
+    }
+    
+    .merchandise-item--small img {
+        height: auto;
+    }
+    
+    .merchandise-bottom-row {
+        grid-column: 1;
+        grid-row: 3;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 100%;
+    }
+    
+    .merchandise-item--bottom {
+        height: auto;
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    
+    .merchandise-item--bottom img {
+        height: auto;
+    }
+}
+
+/* Responsive - Small Mobile */
+@media (max-width: 480px) {
+    .amicabrand-transformation__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .amicabrand-instagram__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .amicabrand-transformation__title {
+        font-size: 28px;
+    }
+}

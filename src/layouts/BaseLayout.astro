@@ -1,0 +1,66 @@
+---
+interface Props {
+    title: string;
+    description?: string;
+    additionalStyles?: string[];
+    bodyClass?: string;
+}
+
+const {
+    title,
+    description = "42 Interactive - Building What Others Only Imagine",
+    additionalStyles = [],
+    bodyClass = "",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="stylesheet" href="/css/styles.css" />
+        {
+            additionalStyles.map((style) => (
+                <link rel="stylesheet" href={style} />
+            ))
+        }
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body class={bodyClass}>
+        <slot />
+
+        <!-- YouTube Lightbox -->
+        <div id="youtube-lightbox" class="youtube-lightbox">
+            <div class="lightbox-backdrop"></div>
+            <div class="lightbox-content">
+                <button class="lightbox-close">&times;</button>
+                <iframe
+                    id="youtube-player"
+                    src=""
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script is:inline src="/js/header.js"></script>
+        <script is:inline src="/js/buttons.js"></script>
+        <script is:inline src="/js/animations.js"></script>
+        <script is:inline src="/js/youtube.js"></script>
+        <script is:inline src="/js/podcasts.js"></script>
+        <script is:inline src="/js/clients.js"></script>
+        <script is:inline src="/js/testimonials.js"></script>
+        <script is:inline src="/js/gradient.js"></script>
+        <script is:inline src="/js/main.js"></script>
+        <script is:inline src="/js/stars-background.js"></script>
+    </body>
+</html>

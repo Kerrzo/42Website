@@ -1,0 +1,229 @@
+/* ===========================================
+   LATHAM PAGE STYLES
+   =========================================== */
+
+.latham-page {
+    background-color: #0e1026;
+}
+
+/* ===========================================
+   INTRO SECTION (WHAT WE'VE DONE)
+   =========================================== */
+.latham-page .section-intro {
+    background-color: #3a3b86;
+}
+
+/* ===========================================
+   SHOWCASE SECTION (AUGMENTED REALITY)
+   =========================================== */
+.latham-showcase {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+}
+
+.latham-showcase .showcase-bg {
+    position: absolute;
+    inset: 0;
+}
+
+.latham-showcase .showcase-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.latham-showcase .showcase-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-65.54deg, rgba(42, 43, 252, 0) 44.54%, rgba(42, 43, 252, 0.4) 98.13%);
+}
+
+.latham-showcase .showcase-content {
+    position: absolute;
+    top: 94px;
+    left: 100px;
+    max-width: 640px;
+}
+
+.latham-showcase .showcase-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0 0 52px 0;
+}
+
+.latham-showcase .showcase-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: normal;
+    color: #ffffff;
+    max-width: 415px;
+}
+
+.latham-showcase .showcase-text .bold {
+    font-weight: 700;
+}
+
+/* ===========================================
+   TECHNOLOGY PARTNER SECTION
+   =========================================== */
+.latham-partner {
+    background-color: #277467;
+    padding: 80px 100px 110px;
+    margin-bottom: 0;
+}
+
+.latham-partner .partner-header {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+.latham-partner .partner-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    max-width: 411px;
+}
+
+.latham-partner .partner-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0;
+    max-width: 589px;
+}
+
+.latham-partner .partner-grid {
+    column-count: 3;
+    column-gap: 35px;
+}
+
+.latham-partner .partner-item {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    break-inside: avoid;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+.latham-partner .partner-item-title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0 0 0 0;
+}
+
+.latham-partner .partner-item p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.latham-partner .partner-item-image {
+    overflow: hidden;
+}
+
+.latham-partner .partner-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===========================================
+   RESPONSIVE STYLES
+   =========================================== */
+@media (max-width: 1200px) {
+    .latham-showcase .showcase-title {
+        font-size: 48px;
+    }
+    
+    .latham-partner .partner-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 992px) {
+    .latham-showcase {
+        height: 700px;
+    }
+    
+    .latham-showcase .showcase-content {
+        left: 60px;
+    }
+    
+    .latham-partner {
+        padding: 60px;
+    }
+    
+    .latham-partner .partner-header {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .latham-partner .partner-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .latham-showcase {
+        height: 600px;
+    }
+    
+    .latham-showcase .showcase-content {
+        left: 30px;
+        right: 30px;
+    }
+    
+    .latham-showcase .showcase-title {
+        font-size: 36px;
+    }
+    
+    .latham-showcase .showcase-text {
+        font-size: 18px;
+    }
+    
+    .latham-partner {
+        padding: 40px 30px;
+    }
+    
+    .latham-partner .partner-title {
+        font-size: 36px;
+    }
+    
+    .latham-partner .partner-intro {
+        font-size: 18px;
+    }
+    
+    .latham-partner .partner-grid {
+        column-count: 1;
+        column-gap: 0;
+    }
+    
+    .latham-partner .partner-item {
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    .latham-partner .partner-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .latham-partner .partner-item p,
+    .latham-partner .partner-item-title {
+        font-size: 18px;
+    }
+}
