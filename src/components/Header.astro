@@ -17,14 +17,14 @@ const { activePage = "home" } = Astro.props;
         </a>
         <nav class="nav-menu">
             <a
-                href="/"
-                class={`nav-link ${activePage === "home" ? "active" : ""}`}
-                >What We Do</a
-            >
-            <a
                 href="/who-we-are"
                 class={`nav-link ${activePage === "who-we-are" ? "active" : ""}`}
                 >Who We Are</a
+            >
+            <a
+                href="/"
+                class={`nav-link ${activePage === "home" ? "active" : ""}`}
+                >What We Do</a
             >
             <button class="btn-get-touch">Get in touch</button>
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -42,6 +42,6 @@ const { activePage = "home" } = Astro.props;
 <!-- Mobile Menu -->
 <div class="mobile-menu-overlay"></div>
 <nav class="mobile-menu">
-    <a href="/" class="mobile-nav-link">What We Do</a>
     <a href="/who-we-are" class="mobile-nav-link">Who We Are</a>
+    <a href="/" class="mobile-nav-link">What We Do</a>
 </nav>

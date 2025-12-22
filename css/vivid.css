@@ -216,11 +216,11 @@
     .vivid-inclusive-section .section-title {
         font-size: 48px;
     }
-    
+
     .vivid-tech-section .tech-images {
         flex-direction: column;
     }
-    
+
     .vivid-tech-section .tech-diagram,
     .vivid-tech-section .tech-face {
         width: 100%;
@@ -232,59 +232,59 @@
     .vivid-intro {
         padding: 60px 40px;
     }
-    
+
     .vivid-intro .intro-text {
         font-size: 22px;
     }
-    
+
     .vivid-youtube-section {
         padding: 0 40px 60px;
     }
-    
+
     .vivid-inclusive-section {
         height: auto;
         min-height: 600px;
     }
-    
+
     .vivid-inclusive-section .section-content {
         padding: 60px 40px;
     }
-    
+
     .vivid-inclusive-section .section-title {
         font-size: 36px;
     }
-    
+
     .vivid-artist-section {
         padding: 40px 40px 80px;
     }
-    
+
     .vivid-artist-section .artist-content {
         flex-direction: column;
         gap: 40px;
     }
-    
+
     .vivid-artist-section .artist-text {
         max-width: 100%;
     }
-    
+
     .vivid-artist-section .artist-image {
         width: 100%;
         max-width: 545px;
     }
-    
+
     .vivid-tech-section {
         padding: 60px 40px;
     }
-    
+
     .vivid-tech-section .tech-columns {
         flex-direction: column;
         gap: 24px;
     }
-    
+
     .vivid-tech-section .tech-column {
         max-width: 100%;
     }
-    
+
     .vivid-gallery-section {
         height: 500px;
     }
@@ -300,40 +300,40 @@
         object-fit: cover;
         object-position: center center;
     }
-    
+
     .vivid-intro {
         padding: 40px 24px;
     }
-    
+
     .vivid-intro .intro-text {
         font-size: 18px;
     }
-    
+
     .vivid-youtube-section {
         padding: 0 24px 40px;
     }
-    
+
     .vivid-inclusive-section .section-content {
         padding: 40px 24px;
     }
-    
+
     .vivid-inclusive-section .section-title {
         font-size: 28px;
         margin-bottom: 40px;
     }
-    
+
     .vivid-artist-section {
         padding: 24px 24px 60px;
     }
-    
+
     .vivid-artist-section .artist-text p {
         font-size: 18px;
     }
-    
+
     .vivid-tech-section {
         padding: 40px 24px;
     }
-    
+
     .vivid-gallery-section {
         height: 400px;
     }
