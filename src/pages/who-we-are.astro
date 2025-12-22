@@ -289,9 +289,14 @@ const formatDate = (dateString: string) => {
                     </div>
                 </div>
 
+                <!-- Show All Podcasts Button -->
+                <div class="podcasts-section" style="text-align: center; margin-top: 40px;">
+                    <a href="/podcasts" class="btn-show-all">Show All Podcasts</a>
+                </div>
+
                 <!-- Highlighted Blogs Section -->
                 <div class="podcasts-section">
-                    <div class="section-label">HIGHLIGHTED</div>
+                    <div class="section-label">FEATURED BLOGS</div>
                     <div class="podcasts-grid">
                         {
                             highlightedBlogs.map((blog) => (
@@ -353,36 +358,9 @@ const formatDate = (dateString: string) => {
                     </div>
                 </div>
 
-                <!-- Technology Blogs Section -->
-                <div class="podcasts-section">
-                    <div class="section-label">TECHNOLOGY</div>
-                    <div class="podcasts-grid">
-                        {
-                            technologyBlogs.map((blog) => (
-                                <a href={`/blog/${blog.slug}`} class="youtube-video-card" style="text-decoration: none;">
-                                    {blog.image ? (
-                                        <div class="youtube-thumbnail">
-                                            <img
-                                                src={blog.image}
-                                                alt={blog.title}
-                                                class="podcast-image"
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div class="youtube-thumbnail">
-                                            <div class="podcast-image" style="background-color: #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 200px;">
-                                                <span style="color: #666;">No Image</span>
-                                            </div>
-                                        </div>
-                                    )}
-                                    <h3 class="podcast-title">
-                                        {blog.title}
-                                    </h3>
-                                    <p class="podcast-date">{formatDate(blog.publishedAt)}</p>
-                                </a>
-                            ))
-                        }
-                    </div>
+                <!-- Show All Blogs Button -->
+                <div class="podcasts-section" style="text-align: center; margin-top: 40px;">
+                    <a href="/blog" class="btn-show-all">Show All Blogs</a>
                 </div>
             
         </section>

@@ -2262,7 +2262,7 @@ main>section:last-of-type {
 }
 
 /* ========================================
-   SCROLL ANIMATIONS - Fade In & Float Up
+   SCROLL ANIMATIONS - Fade In
    ======================================== */
 
 /* Hide elements that will be animated initially (before JS runs) */
@@ -2290,18 +2290,16 @@ body:not(.animations-ready) .preview-description {
     visibility: hidden;
 }
 
-/* Initial state - elements are invisible and slightly below */
+/* Initial state - elements are invisible */
 .scroll-fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.8s ease-out;
     visibility: visible;
 }
 
-/* Animated state - elements fade in and float up */
+/* Animated state - elements fade in */
 .scroll-fade-in.animate {
     opacity: 1;
-    transform: translateY(0);
 }
 
 /* Elements marked as already visible should stay visible */
@@ -2330,7 +2328,7 @@ body:not(.animations-ready) .preview-description {
 
 /* Ensure images maintain aspect ratio during animation */
 .scroll-fade-in img {
-    will-change: opacity, transform;
+    will-change: opacity;
 }
 
 /* Reduce motion for users who prefer it */

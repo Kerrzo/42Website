@@ -64,11 +64,23 @@ const formatDate = (dateString: string) => {
 
         <section class="blog-listing-section" data-theme="light">
             <div class="section-inner">
-                <div class="blog-grid grid-3col">
+                <!-- Category Filter -->
+                <div class="blog-filter">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="technology-development">Technology & Development</button>
+                    <button class="filter-btn" data-category="extended-reality">Extended Reality (XR)</button>
+                    <button class="filter-btn" data-category="quality-assurance">Quality Assurance</button>
+                    <button class="filter-btn" data-category="digital-transformation">Digital Transformation</button>
+                    <button class="filter-btn" data-category="web-design">Web Development & Design</button>
+                    <button class="filter-btn" data-category="property-technology">Property Technology</button>
+                </div>
+
+                <div class="blog-grid grid-3col" id="blog-grid">
                     {blogPosts.map((post) => (
                         <a 
                             href={`/blog/${post.slug}`} 
                             class="blog-card"
+                            data-category={post.category || 'all'}
                             style="text-decoration: none; display: block;"
                         >
                             {post.image && (
@@ -97,6 +109,61 @@ const formatDate = (dateString: string) => {
 
     <Footer />
 </BaseLayout>
+
+<script is:inline>
+    (function() {
+        function initBlogFilter() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            const blogGrid = document.getElementById('blog-grid');
+
+            if (!filterButtons.length || !blogCards.length) {
+                // Retry if elements aren't ready yet
+                setTimeout(initBlogFilter, 100);
+                return;
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Filter blog cards
+                    let visibleCount = 0;
+                    blogCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category') || 'all';
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'block';
+                            card.classList.remove('hidden');
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                            card.classList.add('hidden');
+                        }
+                    });
+
+                    // Update grid layout if needed
+                    if (visibleCount === 0) {
+                        if (blogGrid) blogGrid.style.minHeight = '400px';
+                    } else {
+                        if (blogGrid) blogGrid.style.minHeight = 'auto';
+                    }
+                });
+            });
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBlogFilter);
+        } else {
+            initBlogFilter();
+        }
+    })();
+</script>
 
 <style>
     .blog-hero {
@@ -156,8 +223,50 @@ const formatDate = (dateString: string) => {
         min-height: 60vh;
     }
 
+    .blog-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 40px;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        background-color: #f5f5f5;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: none;
+    }
+
+    .filter-btn:hover {
+        background-color: #e8e8e8;
+        color: #333;
+    }
+
+    .filter-btn.active {
+        background-color: var(--accent-blue, #2a2afc);
+        color: #ffffff;
+        border-color: var(--accent-blue, #2a2afc);
+    }
+
     .blog-grid {
-        margin-top: 40px;
+        margin-top: 0;
+    }
+
+    .blog-card {
+        opacity: 1;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .blog-card.hidden {
+        display: none;
     }
 
     .blog-card {
@@ -245,6 +354,15 @@ const formatDate = (dateString: string) => {
         .blog-grid {
             grid-template-columns: repeat(2, 1fr);
         }
+
+        .blog-filter {
+            justify-content: flex-start;
+        }
+
+        .filter-btn {
+            font-size: 13px;
+            padding: 8px 16px;
+        }
     }
 
     @media (max-width: 768px) {
@@ -254,6 +372,16 @@ const formatDate = (dateString: string) => {
 
         .blog-grid {
             grid-template-columns: 1fr;
+        }
+
+        .blog-filter {
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            font-size: 12px;
+            padding: 8px 14px;
         }
     }
 </style>
