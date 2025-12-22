@@ -810,9 +810,13 @@ p {
     color: white;
 }
 
+.podcasts-section:not(:first-of-type) {
+    margin-top: 80px;
+}
+
 .podcasts-section .section-label {
     text-align: left;
-    margin-bottom: 0;
+    margin-bottom: 40px;
 }
 
 .section-header-with-button {
@@ -2261,17 +2265,50 @@ main>section:last-of-type {
    SCROLL ANIMATIONS - Fade In & Float Up
    ======================================== */
 
+/* Hide elements that will be animated initially (before JS runs) */
+/* This prevents the flash/fade-out when page loads */
+body:not(.animations-ready) .work-grid>*,
+body:not(.animations-ready) .podcasts-grid>*,
+body:not(.animations-ready) .work-card,
+body:not(.animations-ready) .work-image,
+body:not(.animations-ready) .work-image-wrapper,
+body:not(.animations-ready) .youtube-video-card,
+body:not(.animations-ready) .podcast-image,
+body:not(.animations-ready) section:not(.home-hero-section) h1,
+body:not(.animations-ready) section:not(.home-hero-section) h2,
+body:not(.animations-ready) section:not(.home-hero-section) h3,
+body:not(.animations-ready) section:not(.home-hero-section) h4,
+body:not(.animations-ready) section:not(.home-hero-section) h5,
+body:not(.animations-ready) section:not(.home-hero-section) h6,
+body:not(.animations-ready) section:not(.home-hero-section) p,
+body:not(.animations-ready) .section-title,
+body:not(.animations-ready) .section-description,
+body:not(.animations-ready) .work-title,
+body:not(.animations-ready) .preview-title,
+body:not(.animations-ready) .preview-description {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* Initial state - elements are invisible and slightly below */
 .scroll-fade-in {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    visibility: visible;
 }
 
 /* Animated state - elements fade in and float up */
 .scroll-fade-in.animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Elements marked as already visible should stay visible */
+.already-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 /* Stagger delays for child elements */

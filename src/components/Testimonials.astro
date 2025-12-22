@@ -7,23 +7,34 @@ const testimonials = configData.testimonials;
 <div class="testimonial-section">
     <div class="testimonial-label">TESTIMONIAL</div>
     <div class="testimonial-content-wrapper" data-testimonial-container>
-        {testimonials.map((item, index) => (
-            <div class={`testimonial-slide ${index === 0 ? 'active' : ''}`} data-index={index}>
-                <div class="testimonial-author">
-                    <h4 class="author-name">{item.name}</h4>
-                    {item.title && <p class="author-title">{item.title}</p>}
-                    {item.company && <p class="author-company">{item.company}</p>}
+        {
+            testimonials.map((item, index) => (
+                <div
+                    class={`testimonial-slide ${index === 0 ? "active" : ""}`}
+                    data-index={index}
+                >
+                    <div class="testimonial-author">
+                        <h4 class="author-name">{item.name}</h4>
+                        {item.title && <p class="author-title">{item.title}</p>}
+                        {item.company && (
+                            <p class="author-company">{item.company}</p>
+                        )}
+                    </div>
+                    <div class="testimonial-quote">
+                        <div class="quote-text">{item.quote}</div>
+                    </div>
                 </div>
-                <div class="testimonial-quote">
-                    <div class="quote-text">{item.quote}</div>
-                </div>
-            </div>
-        ))}
+            ))
+        }
     </div>
     <div class="testimonial-slider" data-testimonial-dots>
-        {testimonials.map((_, index) => (
-            <span class={`slider-dot ${index === 0 ? 'active' : ''}`} data-index={index}></span>
-        ))}
+        {
+            testimonials.map((_, index) => (
+                <span
+                    class={`slider-dot ${index === 0 ? "active" : ""}`}
+                    data-index={index}
+                />
+            ))
+        }
     </div>
 </div>
-

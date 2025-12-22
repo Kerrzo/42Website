@@ -86,10 +86,7 @@
                         titleElement.textContent = data.title;
                     }
                     
-                    // Update author name if available
-                    if (dateElement && data.author_name) {
-                        dateElement.textContent = `By ${data.author_name}`;
-                    }
+                    // Date is set from config.json, not from YouTube API
                 } else {
                     console.warn(`Failed to load metadata for video: ${videoId}`);
                 }

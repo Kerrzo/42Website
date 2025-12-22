@@ -11,21 +11,21 @@
         
         // All client logos data
         const logos = [
-            { src: 'images/logos/logo-internationaltowers.png', alt: 'International Towers' },
-            { src: 'images/logos/logo-catholichealthcare.png', alt: 'Catholic Healthcare' },
-            { src: 'images/logos/Loanoptions.ai.png', alt: 'LoanOptions.ai' },
-            { src: 'images/logos/cushmanwakefield.png', alt: 'Cushman & Wakefield' },
-            { src: 'images/logos/craveablebrands.png', alt: 'Craveable Brands' },
-            { src: 'images/logos/jnprojects.png', alt: 'JN Projects' },
-            { src: 'images/logos/gordonpodiatry.png', alt: 'Gordon Podiatry' },
-            { src: 'images/logos/startswitha.png', alt: 'Starts With A' },
-            { src: 'images/logos/logo-commbank.png', alt: 'CommBank' },
-            { src: 'images/logos/pompompaddock.png', alt: 'Pom Pom Paddock' },
-            { src: 'images/logos/neon8.png', alt: 'Neon8' },
-            { src: 'images/logos/innovationsaccelerated.png', alt: 'Innovations Accelerated' },
-            { src: 'images/logos/julieanders.png', alt: 'Julie Anders' },
-            { src: 'images/logos/1fire.png', alt: '1Fire' },
-            { src: 'images/logos/ignition-advice.png', alt: 'Ignition Advice' }
+            { src: '/images/logos/logo-internationaltowers.png', alt: 'International Towers' },
+            { src: '/images/logos/logo-catholichealthcare.png', alt: 'Catholic Healthcare' },
+            { src: '/images/logos/Loanoptions.ai.png', alt: 'LoanOptions.ai' },
+            { src: '/images/logos/cushmanwakefield.png', alt: 'Cushman & Wakefield' },
+            { src: '/images/logos/craveablebrands.png', alt: 'Craveable Brands' },
+            { src: '/images/logos/jnprojects.png', alt: 'JN Projects' },
+            { src: '/images/logos/gordonpodiatry.png', alt: 'Gordon Podiatry' },
+            { src: '/images/logos/startswitha.png', alt: 'Starts With A' },
+            { src: '/images/logos/logo-commbank.png', alt: 'CommBank' },
+            { src: '/images/logos/pompompaddock.png', alt: 'Pom Pom Paddock' },
+            { src: '/images/logos/neon8.png', alt: 'Neon8' },
+            { src: '/images/logos/innovationsaccelerated.png', alt: 'Innovations Accelerated' },
+            { src: '/images/logos/julieanders.png', alt: 'Julie Anders' },
+            { src: '/images/logos/1fire.png', alt: '1Fire' },
+            { src: '/images/logos/ignition-advice.png', alt: 'Ignition Advice' }
         ];
         
         // Track which logo is in each column

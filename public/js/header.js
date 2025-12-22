@@ -92,6 +92,7 @@
         // Set initial theme based on first section
         function setInitialTheme() {
             if (themedSections.length > 0) {
+                const headerHeight = header.offsetHeight || 0;
                 const firstSection = themedSections[0];
                 const rect = firstSection.getBoundingClientRect();
                 
