@@ -1,9 +1,6 @@
 ---
 // Full-screen Figma creds presentation page
-// Using Figma's official embed format from Share > Get embed code
-const figmaFileKey = "sWgX845VgiSBY91B2aiqEp";
-const nodeId = "3221-6983";
-const figmaUrl = `https://embed.figma.com/design/${figmaFileKey}/42-Interactive-Creds-2025---Master?node-id=${nodeId}&embed-host=share`;
+// Using Figma slides embed format
 ---
 
 <!doctype html>
@@ -29,7 +26,7 @@ const figmaUrl = `https://embed.figma.com/design/${figmaFileKey}/42-Interactive-
             #figma-embed {
                 width: 100%;
                 height: 100vh;
-                border: none;
+                border: 1px solid rgba(0, 0, 0, 0.1);
                 display: block;
             }
         </style>
@@ -37,8 +34,8 @@ const figmaUrl = `https://embed.figma.com/design/${figmaFileKey}/42-Interactive-
     <body>
         <iframe
             id="figma-embed"
-            src={figmaUrl}
-            allowfullscreen
-            allow="clipboard-read; clipboard-write"></iframe>
+            title="42 Interactive Creds Presentation"
+            src="https://embed.figma.com/slides/S4e6fMLQe12mJztAEIOhFn/42-Interactive-Creds-2025?node-id=1-61842&embed-host=share"
+            allowfullscreen></iframe>
     </body>
 </html>
