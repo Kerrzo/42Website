@@ -14,10 +14,26 @@
         if (!lightbox || !player) return;
         
         // Open lightbox when video card is clicked
+        // Only attach handlers to cards that have a valid video ID and are not links
         videoCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const videoId = this.getAttribute('data-video-id');
-                openLightbox(videoId);
+            // Skip if this card is a link or contains a link (for blog cards, etc.)
+            if (card.tagName === 'A' || card.closest('a') || card.querySelector('a')) {
+                return; // Don't attach lightbox handler to link cards
+            }
+            
+            const videoId = card.getAttribute('data-video-id');
+            // Only attach handler if there's a valid video ID
+            if (!videoId || videoId.trim() === '') {
+                return;
+            }
+            
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const id = this.getAttribute('data-video-id');
+                if (id && id.trim() !== '') {
+                    openLightbox(id);
+                }
             });
         });
         
@@ -28,8 +44,11 @@
             document.body.style.overflow = ''; // Re-enable scroll
         }
         
-        // Open lightbox function
+        // Open lightbox function - only if valid videoId
         function openLightbox(videoId) {
+            if (!videoId || videoId.trim() === '') {
+                return; // Don't open if no valid video ID
+            }
             const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
             player.src = embedUrl;
             lightbox.classList.add('active');
