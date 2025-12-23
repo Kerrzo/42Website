@@ -64,8 +64,8 @@ const blogPosts = Object.entries(allBlogPosts).map(([path, frontmatter]: [string
     };
 });
 
-// Get highlighted blogs from config
-const highlightedBlogs = configData.highlightedBlogs
+// Get featured blogs from config
+const featuredBlogs = configData.featuredBlogs
     .map((slug: string) => blogPosts.find(blog => blog.slug === slug))
     .filter((blog: any) => blog !== undefined);
 
@@ -73,11 +73,6 @@ const highlightedBlogs = configData.highlightedBlogs
 const latestBlogs = [...blogPosts]
     .sort((a, b) => b.publishedAtDate.getTime() - a.publishedAtDate.getTime())
     .slice(0, 3); // Get top 3 most recent
-
-// Get technology blogs from config
-const technologyBlogs = configData.technologyBlogs
-    .map((slug: string) => blogPosts.find(blog => blog.slug === slug))
-    .filter((blog: any) => blog !== undefined);
 
 // Format date helper
 const formatDate = (dateString: string) => {
@@ -246,7 +241,7 @@ const formatDate = (dateString: string) => {
                 </div>
 
                 <!-- Latest Podcasts Section -->
-                <div class="podcasts-section">
+                <div class="podcasts-section" style="display: none;">
                     <div class="section-label">LATEST PODCASTS</div>
                     <div class="podcasts-grid">
                         {
@@ -294,12 +289,12 @@ const formatDate = (dateString: string) => {
                     <a href="/podcasts" class="btn-show-all">Show All Podcasts</a>
                 </div>
 
-                <!-- Highlighted Blogs Section -->
+                <!-- Featured Blogs Section -->
                 <div class="podcasts-section">
                     <div class="section-label">FEATURED BLOGS</div>
                     <div class="podcasts-grid">
                         {
-                            highlightedBlogs.map((blog) => (
+                            featuredBlogs.map((blog) => (
                                 <a href={`/blog/${blog.slug}`} class="youtube-video-card" style="text-decoration: none;">
                                     {blog.image ? (
                                         <div class="youtube-thumbnail">
@@ -327,7 +322,7 @@ const formatDate = (dateString: string) => {
                 </div>
 
                 <!-- Latest Blogs Section -->
-                <div class="podcasts-section">
+                <div class="podcasts-section" style="display: none;">
                     <div class="section-label">LATEST BLOGS</div>
                     <div class="podcasts-grid">
                         {

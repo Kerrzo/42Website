@@ -58,11 +58,11 @@ const blogPostsArray = Object.entries(allBlogPosts).map(
     },
 );
 
-// Get highlighted blogs (excluding current)
-const highlightedBlogs = blogPostsArray
+// Get featured blogs (excluding current)
+const featuredBlogs = blogPostsArray
     .filter(
         (post) =>
-            config.highlightedBlogs.includes(post.slug) &&
+            config.featuredBlogs.includes(post.slug) &&
             post.slug !== currentSlug,
     )
     .slice(0, 3);
@@ -127,11 +127,11 @@ const latestBlogs = blogPostsArray
 
                 <aside class="blog-sidebar">
                     {
-                        highlightedBlogs.length > 0 && (
+                        featuredBlogs.length > 0 && (
                             <div class="sidebar-section">
-                                <h3 class="sidebar-title">Highlighted</h3>
+                                <h3 class="sidebar-title">Featured</h3>
                                 <div class="sidebar-blog-list">
-                                    {highlightedBlogs.map((post) => (
+                                    {featuredBlogs.map((post) => (
                                         <a
                                             href={`/blog/${post.slug}`}
                                             class="sidebar-blog-card"

@@ -33,10 +33,52 @@ const parseDate = (dateString: string): Date => {
     return new Date(dateString);
 };
 
+// Helper function to summarize description to 2-3 lines (approximately 150-200 characters)
+const summarizeDescription = (description: string): string => {
+    if (!description) return "";
+
+    // Remove URLs and clean up the text
+    let cleaned = description
+        .replace(/https?:\/\/[^\s]+/g, "") // Remove URLs
+        .replace(/\n+/g, " ") // Replace newlines with spaces
+        .trim();
+
+    // If it's already short enough, return as is
+    if (cleaned.length <= 180) {
+        return cleaned;
+    }
+
+    // Find a good breaking point (sentence end or word boundary)
+    const maxLength = 180;
+    let truncated = cleaned.substring(0, maxLength);
+
+    // Try to break at a sentence end
+    const lastPeriod = truncated.lastIndexOf(".");
+    const lastExclamation = truncated.lastIndexOf("!");
+    const lastQuestion = truncated.lastIndexOf("?");
+    const lastSentenceEnd = Math.max(lastPeriod, lastExclamation, lastQuestion);
+
+    if (lastSentenceEnd > maxLength * 0.6) {
+        // If we found a sentence end in the last 40% of the text, use it
+        truncated = truncated.substring(0, lastSentenceEnd + 1);
+    } else {
+        // Otherwise, break at a word boundary
+        const lastSpace = truncated.lastIndexOf(" ");
+        if (lastSpace > maxLength * 0.7) {
+            truncated = truncated.substring(0, lastSpace) + "...";
+        } else {
+            truncated = truncated.substring(0, maxLength) + "...";
+        }
+    }
+
+    return truncated.trim();
+};
+
 const podcasts = [...configData.podcasts]
     .map((podcast) => ({
         ...podcast,
         publishedDate: parseDate(podcast.date),
+        summary: summarizeDescription(podcast.description || ""),
     }))
     .sort((a, b) => b.publishedDate.getTime() - a.publishedDate.getTime());
 ---
@@ -112,9 +154,9 @@ const podcasts = [...configData.podcasts]
                                     <h3 class="podcast-title">
                                         {podcast.title}
                                     </h3>
-                                    {podcast.description && (
-                                        <p class="podcast-description">
-                                            {podcast.description}
+                                    {podcast.summary && (
+                                        <p class="podcast-abstract">
+                                            {podcast.summary}
                                         </p>
                                     )}
                                     <p class="podcast-date">{podcast.date}</p>
@@ -197,7 +239,6 @@ const podcasts = [...configData.podcasts]
         display: flex;
         flex-direction: column;
         background: transparent;
-        transition: transform 0.3s ease;
         border-radius: 8px;
         overflow: hidden;
         cursor: pointer;
@@ -205,7 +246,7 @@ const podcasts = [...configData.podcasts]
     }
 
     .podcast-card:hover {
-        transform: translateY(-5px);
+        /* No card movement - only image zooms */
     }
 
     .podcast-card-image-wrapper {
@@ -224,6 +265,11 @@ const podcasts = [...configData.podcasts]
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .podcast-card:hover .podcast-image {
+        transform: scale(1.15);
     }
 
     .podcast-card-overlay {
@@ -279,12 +325,18 @@ const podcasts = [...configData.podcasts]
     }
 
     .podcast-description {
+        display: none; /* Hidden by default */
+    }
+
+    .podcast-abstract {
         font-size: 0.95rem;
         color: #666666;
         margin-bottom: 12px;
         line-height: 1.6;
-        flex: 1;
-        min-height: 3em; /* Minimum height for description */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .podcast-date {
@@ -323,8 +375,8 @@ const podcasts = [...configData.podcasts]
     // Initialize YouTube lightbox functionality for podcast cards
     // The existing youtube.js will handle .youtube-video-card elements
     document.addEventListener("DOMContentLoaded", function () {
-        if (window.App && window.App.initYouTubeLightbox) {
-            window.App.initYouTubeLightbox();
+        if ((window as any).App && (window as any).App.initYouTubeLightbox) {
+            (window as any).App.initYouTubeLightbox();
         }
     });
 </script>

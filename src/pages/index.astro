@@ -30,8 +30,8 @@ const blogPosts = Object.entries(allBlogPosts).map(
     },
 );
 
-// Get featured blogs from config (first 3 from highlightedBlogs)
-const featuredBlogs = configData.highlightedBlogs
+// Get featured blogs from config (first 3 from featuredBlogs)
+const featuredBlogs = configData.featuredBlogs
     .slice(0, 3)
     .map((slug: string) => blogPosts.find((blog) => blog.slug === slug))
     .filter((blog: any) => blog !== undefined);
