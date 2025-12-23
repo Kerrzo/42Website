@@ -147,6 +147,62 @@
 }
 
 /* ===========================================
+   AR COMPONENT EMBED SECTION
+   =========================================== */
+.latham-ar-embed {
+    background-color: #277467;
+    padding: 80px 0;
+}
+
+.latham-ar-embed .section-inner {
+    padding: 0 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.latham-ar-embed iframe {
+    width: 100%;
+    min-height: 1200px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.latham-ar-embed .ar-callout {
+    text-align: center;
+    padding: 60px 20px 30px;
+    position: relative;
+}
+
+.latham-ar-embed .ar-callout-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+}
+
+.latham-ar-embed .ar-arrow {
+    font-size: 32px;
+    color: #ffffff;
+    animation: bounce 2s infinite;
+    display: inline-block;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ===========================================
    RESPONSIVE STYLES
    =========================================== */
 @media (max-width: 1200px) {
@@ -183,6 +239,14 @@
     
     .latham-partner .partner-grid {
         column-count: 2;
+    }
+    
+    .latham-ar-embed {
+        padding: 60px 0;
+    }
+    
+    .latham-ar-embed .section-inner {
+        padding: 0 60px;
     }
 }
 
@@ -237,5 +301,29 @@
     .latham-partner .partner-item p,
     .latham-partner .partner-item-title {
         font-size: 18px;
+    }
+    
+    .latham-ar-embed {
+        padding: 40px 0;
+    }
+    
+    .latham-ar-embed .section-inner {
+        padding: 0 30px;
+    }
+    
+    .latham-ar-embed iframe {
+        min-height: 700px;
+    }
+    
+    .latham-ar-embed .ar-callout {
+        padding: 40px 20px 20px;
+    }
+    
+    .latham-ar-embed .ar-callout-text {
+        font-size: 18px;
+    }
+    
+    .latham-ar-embed .ar-arrow {
+        font-size: 24px;
     }
 }
