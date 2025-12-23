@@ -156,7 +156,7 @@
 
 .latham-ar-embed .section-inner {
     padding: 0 100px;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -205,6 +205,12 @@
 /* ===========================================
    RESPONSIVE STYLES
    =========================================== */
+@media (min-width: 1920px) {
+    .latham-ar-embed .section-inner {
+        max-width: 2100px;
+    }
+}
+
 @media (max-width: 1200px) {
     .latham-showcase .showcase-title {
         font-size: 48px;
