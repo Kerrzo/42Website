@@ -62,7 +62,7 @@ const blogPostsArray = Object.entries(allBlogPosts).map(
 const featuredBlogs = blogPostsArray
     .filter(
         (post) =>
-            config.featuredBlogs.includes(post.slug) &&
+            (config.featuredBlogs || []).includes(post.slug) &&
             post.slug !== currentSlug,
     )
     .slice(0, 3);

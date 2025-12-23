@@ -14,7 +14,7 @@ const featuredPodcasts = configData.featuredPodcasts
     .filter((podcast) => podcast !== undefined);
 
 // Load all blog posts
-const allBlogPosts = await (import.meta as any).glob("../../data/blog/*.mdx", {
+const allBlogPosts = await import.meta.glob("../../data/blog/*.mdx", {
     eager: true,
     import: "frontmatter",
 });
@@ -31,10 +31,17 @@ const blogPosts = Object.entries(allBlogPosts).map(
 );
 
 // Get featured blogs from config (first 3 from featuredBlogs)
-const featuredBlogs = configData.featuredBlogs
+// Access featuredBlogs the same way as featuredPodcasts (which works)
+const featuredBlogsSlugs = (configData as any).featuredBlogs || [];
+
+const featuredBlogs = featuredBlogsSlugs
     .slice(0, 3)
-    .map((slug: string) => blogPosts.find((blog) => blog.slug === slug))
-    .filter((blog: any) => blog !== undefined);
+    .map((slug: string) => {
+        // Find blog by exact slug match
+        const blog = blogPosts.find((b) => b.slug === slug);
+        return blog;
+    })
+    .filter((blog: any) => blog !== undefined && blog !== null);
 
 // Format date helper
 const formatDate = (dateString: string) => {
@@ -347,41 +354,47 @@ const formatDate = (dateString: string) => {
                 <div class="podcasts-section">
                     <div class="section-header-with-button">
                         <div class="section-label">FEATURED BLOGS</div>
-                        <a href="/blog" class="btn-show-all">Show All</a>
+                        <a href="/blog" class="btn-show-all"> Show All </a>
                     </div>
                     <div class="podcasts-grid">
                         {
-                            featuredBlogs.map((blog) => (
-                                <a
-                                    href={`/blog/${blog.slug}`}
-                                    class="blog-card-link"
-                                    style="text-decoration: none; display: block;"
-                                >
-                                    <div class="youtube-video-card">
-                                        {blog.image && (
-                                            <div class="youtube-thumbnail">
-                                                <img
-                                                    src={blog.image}
-                                                    alt={blog.title}
-                                                    class="podcast-image"
-                                                />
-                                            </div>
-                                        )}
-                                        {!blog.image && (
-                                            <div class="youtube-thumbnail">
-                                                <div style="width: 100%; height: 100%; background: var(--bg-gray); display: flex; align-items: center; justify-content: center; color: #999;">
-                                                    No Image
+                            featuredBlogs.length > 0 ? (
+                                featuredBlogs.map((blog) => (
+                                    <a
+                                        href={`/blog/${blog.slug}`}
+                                        class="blog-card-link"
+                                        style="text-decoration: none; display: block;"
+                                    >
+                                        <div class="youtube-video-card">
+                                            {blog.image && (
+                                                <div class="youtube-thumbnail">
+                                                    <img
+                                                        src={blog.image}
+                                                        alt={blog.title}
+                                                        class="podcast-image"
+                                                    />
                                                 </div>
+                                            )}
+                                            {!blog.image && (
+                                                <div class="youtube-thumbnail">
+                                                    <div style="width: 100%; height: 100%; background: var(--bg-gray); display: flex; align-items: center; justify-content: center; color: #999;">
+                                                        No Image
+                                                    </div>
+                                                </div>
+                                            )}
+                                            <div class="podcast-card-content">
+                                                <h3 class="podcast-title">
+                                                    {blog.title}
+                                                </h3>
                                             </div>
-                                        )}
-                                        <div class="podcast-card-content">
-                                            <h3 class="podcast-title">
-                                                {blog.title}
-                                            </h3>
                                         </div>
-                                    </div>
-                                </a>
-                            ))
+                                    </a>
+                                ))
+                            ) : (
+                                <div style="padding: 20px; text-align: center; color: #999;">
+                                    No featured blogs available
+                                </div>
+                            )
                         }
                     </div>
                 </div>

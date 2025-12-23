@@ -65,7 +65,7 @@ const blogPosts = Object.entries(allBlogPosts).map(([path, frontmatter]: [string
 });
 
 // Get featured blogs from config
-const featuredBlogs = configData.featuredBlogs
+const featuredBlogs = (configData.featuredBlogs || [])
     .map((slug: string) => blogPosts.find(blog => blog.slug === slug))
     .filter((blog: any) => blog !== undefined);
 
