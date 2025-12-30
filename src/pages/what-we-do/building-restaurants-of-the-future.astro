@@ -130,10 +130,11 @@ import OtherWork from "../../components/OtherWork.astro";
                 <div class="craveable-delivered__copy">
                     <h2 class="craveable-delivered__title">We Delivered.</h2>
                     <p class="craveable-delivered__text">
-                        Working closely with delivery partners to ensure the
-                        food is always hot by releasing the order as the driver
-                        approaches the store, reduced delivery time by 6
-                        minutes.
+                        Working closely with <span class="bold">delivery partners</span> to ensure the
+                        food is always <span class="bold">hot</span> by releasing the order as the <span
+                            class="bold"
+                            >driver approaches the store</span
+                        >, reduced delivery time by <span class="bold">6 minutes</span>.
                     </p>
 
                     <div class="craveable-delivered__logos">
@@ -176,69 +177,85 @@ import OtherWork from "../../components/OtherWork.astro";
              ======================================== -->
         <section class="craveable-orange" data-theme="light">
             <div class="section-inner craveable-orange__inner">
-                <img
-                    src="/images/work/craveable/image-craveable-loyalty.png"
-                    alt=""
-                    class="craveable-orange__loyalty-image"
-                    loading="lazy"
-                />
-
-                <h2 class="craveable-orange__loyalty-title">Forever Loyal.</h2>
-                <p class="craveable-orange__loyalty-text">
-                    Loyalty across <span class="bold">online</span> and <span
-                        class="bold"
-                        >in-store
-                    </span>creadit card payments through an Integration with
-                    Tranxactor.
-                </p>
-
-                <img
-                    src="/images/work/craveable/imave-craveable-payapp.png"
-                    alt=""
-                    class="craveable-orange__payapp"
-                    loading="lazy"
-                />
-
-                <h2 class="craveable-orange__payments-title">
-                    <span>Payments</span>
-                    <span>Made Simple</span>
-                </h2>
-                <p class="craveable-orange__payments-text">
-                    Integrated payment system with most popular merchants.
-                </p>
-
-                <div
-                    class="craveable-orange__wallets"
-                    aria-label="Wallet payments"
-                >
-                    <div
-                        class="craveable-wallet craveable-wallet--apple"
-                        aria-label="Apple Pay"
-                    >
+                <!-- Row 1: Loyalty -->
+                <div class="craveable-orange__row craveable-orange__row--loyalty">
+                    <div class="craveable-orange__col craveable-orange__col--image">
                         <img
-                            src="/images/work/craveable/image-craveable-applepay.png"
-                            alt=""
+                            src="/images/work/craveable/image-craveable-loyalty.png"
+                            alt="Loyalty voucher"
+                            class="craveable-orange__loyalty-image"
+                            loading="lazy"
                         />
                     </div>
-                    <div
-                        class="craveable-wallet craveable-wallet--google"
-                        aria-label="Google Pay"
-                    >
+                    <div class="craveable-orange__col craveable-orange__col--text">
+                        <h2 class="craveable-orange__loyalty-title">
+                            <span>Forever</span>
+                            <span>Loyal.</span>
+                        </h2>
+                        <p class="craveable-orange__loyalty-text">
+                            Loyalty across <span class="bold">online</span> and <span
+                                class="bold"
+                                >in-store</span
+                            > credit card payments through an integration with Tranxactor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Row 2: Payments -->
+                <div class="craveable-orange__row craveable-orange__row--payments">
+                    <div class="craveable-orange__col craveable-orange__col--text craveable-orange__payments-block">
+                        <h2 class="craveable-orange__payments-title">
+                            <span>Payments</span>
+                            <span>Made Simple</span>
+                        </h2>
+                        <p class="craveable-orange__payments-text">
+                            Integrated payment system with most popular merchants.
+                        </p>
+                        <div
+                            class="craveable-orange__wallets"
+                            aria-label="Wallet payments"
+                        >
+                            <div
+                                class="craveable-wallet craveable-wallet--apple"
+                                aria-label="Apple Pay"
+                            >
+                                <img
+                                    src="/images/work/craveable/image-craveable-applepay.png"
+                                    alt="Apple Pay"
+                                />
+                            </div>
+                            <div
+                                class="craveable-wallet craveable-wallet--google"
+                                aria-label="Google Pay"
+                            >
+                                <img
+                                    src="/images/work/craveable/image-craveable-googleplaay.png"
+                                    alt="Google Pay"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="craveable-orange__col craveable-orange__col--image">
                         <img
-                            src="/images/work/craveable/image-craveable-googleplaay.png"
-                            alt=""
+                            src="/images/work/craveable/imave-craveable-payapp.png"
+                            alt="Payment app"
+                            class="craveable-orange__payapp"
+                            loading="lazy"
                         />
                     </div>
                 </div>
 
-                <div class="craveable-orange__flythru-row">
-                    <img
-                        src="/images/work/craveable/image-craveable-flythru.png"
-                        alt=""
-                        class="craveable-orange__flythru"
-                        loading="lazy"
-                    />
-                    <div class="craveable-orange__flythru-content">
+                <!-- Row 3: Fly Thru -->
+                <div class="craveable-orange__row craveable-orange__row--flythru">
+                    <div class="craveable-orange__col craveable-orange__col--image">
+                        <img
+                            src="/images/work/craveable/image-craveable-flythru.png"
+                            alt="Fly Thru"
+                            class="craveable-orange__flythru"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="craveable-orange__col craveable-orange__col--text craveable-orange__flythru-content">
                         <h2 class="craveable-orange__drive-title">
                             Drive Thru<br />Fly Thru
                         </h2>
@@ -248,8 +265,7 @@ import OtherWork from "../../components/OtherWork.astro";
                             > and
                             <span class="bold">
                                 in-store contactless
-                            </span>payments for quick and easy options for
-                            customers.
+                            </span> payments for quick and easy options for customers.
                         </p>
                     </div>
                 </div>

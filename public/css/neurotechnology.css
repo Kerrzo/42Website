@@ -145,6 +145,8 @@
     position: relative;
     height: 1027px;
     width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .nt-clinic__image {
@@ -297,12 +299,12 @@
     .nt-split-section__left {
         width: 45%;
     }
-    
+
     .nt-clinic__title {
         font-size: 48px;
         max-width: 600px;
     }
-    
+
     .nt-instacalm__title {
         font-size: 48px;
     }
@@ -313,62 +315,62 @@
         flex-direction: column;
         height: auto;
     }
-    
+
     .nt-split-section__left {
         width: 100%;
         height: 500px;
     }
-    
+
     .nt-split-section__image-top {
         height: 350px;
     }
-    
+
     .nt-split-section__content {
         padding: 40px 0;
     }
-    
+
     .nt-split-section__content .section-inner {
         padding: 0 40px;
     }
-    
+
     .nt-split-section__text {
         max-width: 100%;
     }
-    
+
     .nt-clinic {
         height: 600px;
     }
-    
+
     .nt-clinic .section-inner {
         padding: 0 40px;
     }
-    
+
     .nt-clinic__title {
         font-size: 36px;
         max-width: 100%;
     }
-    
+
     .nt-youtube {
         padding: 0 40px;
     }
-    
+
     .nt-innovation {
         padding: 40px;
     }
-    
+
     .nt-innovation__text {
         font-size: 20px;
     }
-    
+
     .nt-instacalm {
         padding: 40px;
     }
-    
+
     .nt-instacalm__title {
         font-size: 36px;
         margin-bottom: 40px;
     }
-    
+
     .nt-instacalm__text {
         font-size: 20px;
     }
@@ -383,7 +385,7 @@
         height: 100%;
         overflow: hidden;
     }
-    
+
     .nt-hero .hero-bg-image img {
         position: absolute;
         top: 50%;
@@ -396,57 +398,57 @@
         min-width: 100%;
         min-height: 100%;
     }
-    
+
     .nt-split-section__left {
         height: 350px;
     }
-    
+
     .nt-split-section__image-top {
         height: 250px;
     }
-    
+
     .nt-split-section__content {
         padding: 30px 0;
     }
-    
+
     .nt-split-section__content .section-inner {
         padding: 0 30px;
     }
-    
+
     .nt-split-section__text p {
         font-size: 18px;
     }
-    
+
     .nt-split-section__logo img {
         height: 80px;
     }
-    
+
     .nt-clinic {
         height: 400px;
     }
-    
+
     .nt-clinic .section-inner {
         top: 40px;
         padding: 0 30px;
     }
-    
+
     .nt-clinic__title {
         font-size: 28px;
         max-width: 100%;
     }
-    
+
     .nt-instacalm__row {
         flex-direction: column;
     }
-    
+
     .nt-instacalm__row img {
         width: 100%;
     }
-    
+
     .nt-instacalm__title {
         font-size: 28px;
     }
-    
+
     .nt-innovation__text,
     .nt-instacalm__text {
         font-size: 16px;

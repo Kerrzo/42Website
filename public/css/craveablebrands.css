@@ -385,6 +385,12 @@
     top: 60px;
     right: 100px;
     margin: 0;
+    text-align: right;
+    max-width: 420px;
+}
+
+.craveable-orange__loyalty-title span {
+    display: block;
 }
 
 .craveable-orange__loyalty-text {
@@ -409,14 +415,22 @@
     display: block;
 }
 
+.craveable-orange__payments-block {
+    position: absolute;
+    right: 560px;
+    top: 520px;
+    max-width: 440px;
+    text-align: right;
+}
+
 .craveable-orange__payments-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 100px;
     line-height: 1;
     color: #ffffff;
-    margin: 120px 0 24px 0;
-    text-align: left;
+    margin: 0 0 24px 0;
+    text-align: right;
 }
 
 .craveable-orange__payments-title span {
@@ -431,13 +445,15 @@
     margin: 0 0 40px 0;
     max-width: 406px;
     text-align: right;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .craveable-orange__wallets {
     display: flex;
     gap: 24px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-bottom: 80px;
 }
 
@@ -490,6 +506,99 @@
     color: #1e1e1e;
     max-width: 545px;
     margin: 0;
+}
+
+/* ---------- New layout overrides for orange section (3 rows) ---------- */
+.craveable-orange__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.craveable-orange__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.craveable-orange__col--image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.craveable-orange__col--text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.craveable-orange__loyalty-title {
+    position: static;
+    text-align: left;
+    max-width: none;
+    margin: 0;
+}
+
+.craveable-orange__loyalty-text {
+    position: static;
+    right: auto;
+    top: auto;
+    max-width: 520px;
+    margin: 0;
+}
+
+.craveable-orange__row--payments .craveable-orange__col--text {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.craveable-orange__payments-title {
+    position: static;
+    margin: 0 0 24px 0;
+    font-size: 90px;
+}
+
+.craveable-orange__payments-text {
+    position: static;
+    right: auto;
+    top: auto;
+    max-width: 420px;
+    margin: 0 0 32px 0;
+}
+
+.craveable-orange__payments-block {
+    position: static;
+    text-align: right;
+    max-width: 460px;
+    margin-left: auto;
+}
+
+.craveable-orange__payapp {
+    position: static;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.craveable-orange__row--flythru {
+    grid-template-columns: 1fr 1fr;
+}
+
+.craveable-orange__flythru {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.craveable-orange__flythru-content {
+    padding: 0;
+    text-align: left;
+    gap: 20px;
 }
 
 /* ========================================
