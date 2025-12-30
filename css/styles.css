@@ -240,7 +240,7 @@ p {
 .nav-link {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
-    color: var(--primary-text);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
@@ -248,11 +248,11 @@ p {
 }
 
 .nav-link:hover {
-    color: var(--accent-blue);
+    color: #ffffff;
 }
 
 .nav-link.active {
-    color: var(--accent-blue);
+    color: #ffffff;
 }
 
 .nav-link.active::after {
@@ -262,7 +262,7 @@ p {
     left: 0;
     right: 0;
     height: 2px;
-    background-color: var(--accent-blue);
+    background-color: #ffffff;
 }
 
 .header-theme-dark .nav-link {
@@ -270,12 +270,12 @@ p {
 }
 
 .header-theme-light .nav-link {
-    color: var(--accent-blue, #2a2afc);
+    color: #ffffff;
 }
 
 .header-theme-light .nav-link.active,
 .header-theme-light .nav-link:hover {
-    color: var(--accent-blue, #2a2afc);
+    color: #ffffff;
 }
 
 .btn-get-touch {
@@ -1901,7 +1901,7 @@ main>section:last-of-type {
 
 .client-column {
     position: relative;
-    height: 100px;
+    height: 140px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -1917,12 +1917,12 @@ main>section:last-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .client-logo img {
     max-width: 100%;
-    max-height: 70px;
+    max-height: 110px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1933,6 +1933,46 @@ main>section:last-of-type {
 
 .client-logo:hover img {
     opacity: 1;
+}
+
+/* Mobile: single rotating logo full width */
+@media (max-width: 768px) {
+    .clients-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .client-column {
+        display: none;
+        height: 240px;
+    }
+
+    .client-column[data-column="0"] {
+        display: flex;
+    }
+
+    .client-logo img {
+        max-height: 200px;
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* Tablet: show three logos */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .client-column {
+        height: 170px;
+    }
+
+    .client-logo img {
+        max-height: 160px;
+        width: 100%;
+    }
 }
 
 /* Logo slide-up animation */
@@ -1983,12 +2023,14 @@ main>section:last-of-type {
     text-transform: uppercase;
     color: var(--accent-light-blue);
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .testimonial-content-wrapper {
     display: block;
     margin-bottom: 60px;
     position: relative;
+    min-height: 320px;
 }
 
 .testimonial-author {
@@ -2031,6 +2073,7 @@ main>section:last-of-type {
     width: 100%;
     min-width: 0;
     max-width: 100%;
+    text-align: center;
 }
 
 .testimonial-slider {
@@ -2132,6 +2175,26 @@ main>section:last-of-type {
     gap: 60px;
 }
 
+/* Responsive grid tweaks for more breathing room */
+@media (max-width: 1200px) {
+
+    .work-grid,
+    .blog-cards-grid,
+    .podcasts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+
+    .work-grid,
+    .blog-cards-grid,
+    .podcasts-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
 /* Home Page Responsive */
 @media (max-width: 1024px) {
     .home-hero-title {
@@ -2147,17 +2210,42 @@ main>section:last-of-type {
         font-size: 22px;
     }
 
-    .work-grid,
-    .blog-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .clients-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    .testimonial-content-wrapper {
+        min-height: 380px;
+    }
+
+    /* Stack testimonials earlier on tablet for readability */
+    .testimonial-slide {
+        display: none;
+        flex-direction: column;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    .testimonial-slide.active {
+        display: flex;
+    }
+
+    .testimonial-slide .testimonial-quote {
+        order: 1;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .testimonial-slide .testimonial-author {
+        order: 2;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
     .testimonial-quote .quote-text {
-        font-size: 26px;
+        font-size: 24px;
+        line-height: 1.45;
     }
 }
 
@@ -2181,12 +2269,6 @@ main>section:last-of-type {
         font-size: 18px;
     }
 
-    .work-grid,
-    .blog-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
     .clients-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 30px 40px;
@@ -2194,6 +2276,10 @@ main>section:last-of-type {
 
     .testimonial-quote .quote-text {
         font-size: 22px;
+    }
+
+    .testimonial-content-wrapper {
+        min-height: 420px;
     }
 
     .work-image-wrapper {
