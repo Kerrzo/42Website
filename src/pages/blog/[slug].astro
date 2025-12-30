@@ -210,6 +210,11 @@ const latestBlogs = blogPostsArray
 
 <style>
     /* Blog Hero Section */
+    .blog-hero {
+        position: relative;
+        min-height: 460px;
+    }
+
     .blog-hero .hero-bg-image {
         position: absolute;
         top: 0;
@@ -226,16 +231,26 @@ const latestBlogs = blogPostsArray
     }
 
     .blog-hero .hero-info {
-        display: flex;
-        align-items: flex-end;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: stretch;
         gap: 0;
+        width: min(1400px, calc(100% - 2 * var(--page-margin, 20px)));
+        max-width: 1400px;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     .blog-hero .hero-text-box {
         background-color: rgba(42, 42, 252, 0.8);
-        padding: 25px 60px;
-        width: 70%;
-        height: 266px;
+        padding: 20px 32px;
+        width: 100%;
+        max-width: none;
+        height: auto;
         display: flex;
         align-items: center;
         box-sizing: border-box;
@@ -244,8 +259,8 @@ const latestBlogs = blogPostsArray
     .blog-hero .hero-title {
         font-family: "Montserrat", sans-serif;
         font-weight: 800;
-        font-size: 60px;
-        line-height: 1;
+        font-size: 54px;
+        line-height: 1.05;
         color: #ffffff;
         margin: 0;
         text-align: left;
@@ -253,13 +268,15 @@ const latestBlogs = blogPostsArray
 
     .blog-hero .hero-credits-box {
         background-color: rgba(16, 22, 83, 0.8);
-        width: 30%;
-        height: 133px;
-        padding: 20px 40px;
+        width: 100%;
+        min-width: 200px;
+        height: auto;
+        padding: 16px 28px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         box-sizing: border-box;
+        align-self: stretch;
     }
 
     .blog-content-wrapper {
@@ -504,26 +521,30 @@ const latestBlogs = blogPostsArray
             gap: 40px;
         }
 
-        .blog-hero .hero-text-box {
-            width: 70%;
-        }
-
-        .blog-hero .hero-credits-box {
-            width: 30%;
-        }
-
         .blog-hero .hero-title {
             font-size: 48px;
+        }
+
+        .blog-hero .hero-info {
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1200px, calc(100% - 2 * var(--page-margin, 20px)));
+            grid-template-columns: 2fr 1fr;
         }
     }
 
     @media (max-width: 992px) {
         .blog-hero .hero-info {
-            left: 60px;
-            transform: none;
-            flex-direction: column;
+            position: absolute;
+            left: 50%;
+            right: auto;
+            bottom: 0;
+            transform: translateX(-50%);
+            grid-template-columns: 1fr;
             gap: 0;
-            align-items: flex-start;
+            align-items: stretch;
+            padding: 0 40px;
+            margin: 0 auto;
         }
 
         .blog-hero .hero-text-box {
@@ -565,14 +586,22 @@ const latestBlogs = blogPostsArray
         }
 
         .blog-hero .hero-info {
-            left: 0;
-            right: 0;
+            position: relative;
+            left: auto;
+            right: auto;
+            bottom: auto;
             width: 100%;
             transform: none;
-            flex-direction: column;
+            grid-template-columns: 1fr;
             gap: 0;
             align-items: stretch;
-            padding: 0;
+            padding: 0 var(--page-margin, 20px);
+            margin: 0 auto;
+        }
+
+        .blog-hero .hero-text-box,
+        .blog-hero .hero-credits-box {
+            width: 100%;
         }
 
         .blog-hero .hero-title {

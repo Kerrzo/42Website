@@ -10,8 +10,8 @@ const MatrialTitle = document.querySelector('#MatrialTitle');
 var optionBar = document.querySelector('.option-bar');
 //const StepView = document.querySelector('#MatrialTitle');
 const s3_path = "https://latham-models.s3.ap-southeast-2.amazonaws.com";
-const s3_path_generatedmodel = s3_path +'/generatedmodels/'
-const s3_path_models = s3_path +'/models/'
+const s3_path_generatedmodel = s3_path + '/generatedmodels/'
+const s3_path_models = s3_path + '/models/'
 
 const generatedPath = "generatedmodel";
 // generatedPath + sceneId-STP.gltf
@@ -20,132 +20,132 @@ const models = [
   {
     "sceneId": "775S",
     "Title": "775S",
-    "modelPath": s3_path_models+"775S/775S"
+    "modelPath": s3_path_models + "775S/775S"
   },
   {
     "sceneId": "AB-775S",
     "Title": "AB-775S",
-    "modelPath": s3_path_models+"775S/AB-775S"
+    "modelPath": s3_path_models + "775S/AB-775S"
   },
   {
     "sceneId": "AW-775S",
     "Title": "AW-775S",
-    "modelPath": s3_path_models+"775S/AW-775S"
+    "modelPath": s3_path_models + "775S/AW-775S"
   },
   {
     "sceneId": "B775S",
     "Title": "B775S",
-    "modelPath": s3_path_models+"775S/B775S"
+    "modelPath": s3_path_models + "775S/B775S"
   },
   {
     "sceneId": "AB-FA501S",
     "Title": "AB-FA501S",
-    "modelPath": s3_path_models+"FA501S/AB-FA501S"
+    "modelPath": s3_path_models + "FA501S/AB-FA501S"
   },
   {
     "sceneId": "AW-FA501S",
     "Title": "AW-FA501S",
-    "modelPath": s3_path_models+"FA501S/AW-FA501S"
+    "modelPath": s3_path_models + "FA501S/AW-FA501S"
   },
   {
     "sceneId": "BFA501S",
     "Title": "BFA501S",
-    "modelPath": s3_path_models+"FA501S/BFA501S"
+    "modelPath": s3_path_models + "FA501S/BFA501S"
   },
   {
     "sceneId": "FA501S",
     "Title": "FA501S",
-    "modelPath": s3_path_models+"FA501S/FA501S"
+    "modelPath": s3_path_models + "FA501S/FA501S"
   },
   {
     "sceneId": "BFA591S",
     "Title": "BFA591S",
-    "modelPath": s3_path_models+"FA591S/BFA591S"
+    "modelPath": s3_path_models + "FA591S/BFA591S"
   },
   {
     "sceneId": "FA591S",
     "Title": "FA591S",
-    "modelPath": s3_path_models+"FA591S/FA591S"
+    "modelPath": s3_path_models + "FA591S/FA591S"
   },
   {
     "sceneId": "AB-FA601S",
     "Title": "AB-FA601S",
-    "modelPath": s3_path_models+"FA601S/AB-FA601S"
+    "modelPath": s3_path_models + "FA601S/AB-FA601S"
   },
   {
     "sceneId": "AW-FA601S",
     "Title": "AW-FA601S",
-    "modelPath": s3_path_models+"FA601S/AW-FA601S"
+    "modelPath": s3_path_models + "FA601S/AW-FA601S"
   },
   {
     "sceneId": "FA601S",
     "Title": "FA601S",
-    "modelPath": s3_path_models+"FA601S/FA601S"
+    "modelPath": s3_path_models + "FA601S/FA601S"
   },
   {
     "sceneId": "AB-FA711ST",
     "Title": "AB-FA711ST",
-    "modelPath": s3_path_models+"FA711ST/AB-FA711ST"
+    "modelPath": s3_path_models + "FA711ST/AB-FA711ST"
   },
   {
     "sceneId": "AW-FA711ST",
     "Title": "AW-FA711ST",
-    "modelPath": s3_path_models+"FA711ST/AW-FA711ST"
+    "modelPath": s3_path_models + "FA711ST/AW-FA711ST"
   },
   {
     "sceneId": "FA711ST",
     "Title": "FA711ST",
-    "modelPath": s3_path_models+"FA711ST/FA711ST"
+    "modelPath": s3_path_models + "FA711ST/FA711ST"
   },
   {
     "sceneId": "BFA711ST",
     "Title": "BFA711ST",
-    "modelPath": s3_path_models+"FA711ST/BFA711ST"
+    "modelPath": s3_path_models + "FA711ST/BFA711ST"
   },
   {
     "sceneId": "AB-734ST",
     "Title": "AB-734ST",
-    "modelPath": s3_path_models+"FA734ST/AB-734ST"
+    "modelPath": s3_path_models + "FA734ST/AB-734ST"
   },
   {
     "sceneId": "AW-734ST",
     "Title": "AW-734ST",
-    "modelPath": s3_path_models+"FA734ST/AW-734ST"
+    "modelPath": s3_path_models + "FA734ST/AW-734ST"
   },
   {
     "sceneId": "B734ST",
     "Title": "B734ST",
-    "modelPath": s3_path_models+"FA734ST/B734ST"
+    "modelPath": s3_path_models + "FA734ST/B734ST"
   },
   {
     "sceneId": "734ST",
     "Title": "734ST",
-    "modelPath": s3_path_models+"FA734ST/734ST"
+    "modelPath": s3_path_models + "FA734ST/734ST"
   },
   {
     "sceneId": "BFA741ST",
     "Title": "BFA741ST",
-    "modelPath": s3_path_models+"FA741ST/BFA741ST"
+    "modelPath": s3_path_models + "FA741ST/BFA741ST"
   },
   {
     "sceneId": "FA741ST",
     "Title": "FA741ST",
-    "modelPath": s3_path_models+"FA741ST/FA741ST"
+    "modelPath": s3_path_models + "FA741ST/FA741ST"
   },
   {
     "sceneId": "AB-FA751ST",
     "Title": "AB-FA751ST",
-    "modelPath": s3_path_models+"FA751ST/AB-FA751ST"
+    "modelPath": s3_path_models + "FA751ST/AB-FA751ST"
   },
   {
     "sceneId": "AW-FA751ST",
     "Title": "AW-FA751ST",
-    "modelPath": s3_path_models+"FA751ST/AW-FA751ST"
+    "modelPath": s3_path_models + "FA751ST/AW-FA751ST"
   },
   {
     "sceneId": "FA751ST",
     "Title": "FA751ST",
-    "modelPath": s3_path_models+"FA751ST/FA751ST"
+    "modelPath": s3_path_models + "FA751ST/FA751ST"
   }
 
 ];
@@ -198,11 +198,11 @@ modelViewerVariants.addEventListener('load', () => {
 function blinkVariant() {
   const button = document.querySelector(".Matrial-Button.active");
   if (button) {
-      button.classList.add("blink");
+    button.classList.add("blink");
 
-      setTimeout(() => {
-          button.classList.remove("blink");
-      }, 6000);
+    setTimeout(() => {
+      button.classList.remove("blink");
+    }, 6000);
   }
 }
 //#endregion
@@ -422,7 +422,7 @@ function setActiveMatrial(val) {
   });
   var matrialActive = document.querySelector('[data-id=' + activeMatrialDataId + ']');
   matrialActive.classList.add('active');
-  
+
   variantnm = (modelViewerVariants.variantName == "Lumo-Dark") ? "lumo-dark" : strToDataId(val);
 
   let additional = (stepView) ? "-STP" : "";
@@ -431,11 +431,11 @@ function setActiveMatrial(val) {
 
   if (isSingleModel) {
     url = getUrlOfModel();
-    url = s3_path_generatedmodel + currentModel.sceneId  + "-" + activeMatrialDataId + additional+".gltf";
+    url = s3_path_generatedmodel + currentModel.sceneId + "-" + activeMatrialDataId + additional + ".gltf";
   } else {
-    
-    url += generatedPath + "/" + currentModel.sceneId  + "-" + activeMatrialDataId + additional+".gltf";
-    url = s3_path_generatedmodel + currentModel.sceneId  + "-" + variantnm + additional+".gltf";
+
+    url += generatedPath + "/" + currentModel.sceneId + "-" + activeMatrialDataId + additional + ".gltf";
+    url = s3_path_generatedmodel + currentModel.sceneId + "-" + variantnm + additional + ".gltf";
   }
 
   // AWS EC2 Dynamic AR URL

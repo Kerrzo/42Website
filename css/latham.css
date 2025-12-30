@@ -191,12 +191,19 @@
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     40% {
         transform: translateY(-10px);
     }
+
     60% {
         transform: translateY(-5px);
     }
@@ -215,7 +222,7 @@
     .latham-showcase .showcase-title {
         font-size: 48px;
     }
-    
+
     .latham-partner .partner-title {
         font-size: 48px;
     }
@@ -225,32 +232,32 @@
     .latham-showcase {
         height: 700px;
     }
-    
+
     .latham-showcase .showcase-content {
         left: 60px;
     }
-    
+
     .latham-partner {
         padding: 60px 0;
     }
-    
+
     .latham-partner .section-inner {
         padding: 0 60px;
     }
-    
+
     .latham-partner .partner-header {
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .latham-partner .partner-grid {
         column-count: 2;
     }
-    
+
     .latham-ar-embed {
         padding: 60px 0;
     }
-    
+
     .latham-ar-embed .section-inner {
         padding: 0 60px;
     }
@@ -260,75 +267,75 @@
     .latham-showcase {
         height: 600px;
     }
-    
+
     .latham-showcase .showcase-content {
         left: 30px;
         right: 30px;
     }
-    
+
     .latham-showcase .showcase-title {
         font-size: 36px;
     }
-    
+
     .latham-showcase .showcase-text {
         font-size: 18px;
     }
-    
+
     .latham-partner {
         padding: 40px 0;
     }
-    
+
     .latham-partner .section-inner {
         padding: 0 30px;
     }
-    
+
     .latham-partner .partner-title {
         font-size: 36px;
     }
-    
+
     .latham-partner .partner-intro {
         font-size: 18px;
     }
-    
+
     .latham-partner .partner-grid {
         column-count: 1;
         column-gap: 0;
     }
-    
+
     .latham-partner .partner-item {
         display: block;
         margin-bottom: 20px;
     }
-    
+
     .latham-partner .partner-item:last-child {
         margin-bottom: 0;
     }
-    
+
     .latham-partner .partner-item p,
     .latham-partner .partner-item-title {
         font-size: 18px;
     }
-    
+
     .latham-ar-embed {
         padding: 40px 0;
     }
-    
+
     .latham-ar-embed .section-inner {
         padding: 0 30px;
     }
-    
+
     .latham-ar-embed iframe {
         min-height: 700px;
     }
-    
+
     .latham-ar-embed .ar-callout {
         padding: 40px 20px 20px;
     }
-    
+
     .latham-ar-embed .ar-callout-text {
         font-size: 18px;
     }
-    
+
     .latham-ar-embed .ar-arrow {
         font-size: 24px;
     }
