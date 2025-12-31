@@ -1,25 +1,28 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import OtherWork from '../../components/OtherWork.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import OtherWork from "../../components/OtherWork.astro";
 ---
 
-<BaseLayout 
-  title="AI – Putting the Intelligence in AI | 42 Interactive"
-  bodyClass="ai-page"
-  additionalStyles={['/css/amica.css', '/css/ai.css']}
+<BaseLayout
+    title="AI – Putting the Intelligence in AI | 42 Interactive"
+    bodyClass="ai-page"
+    additionalStyles={["/css/amica.css", "/css/ai.css"]}
 >
     <Header activePage="home" />
-    
-    <main class="main-content">
 
+    <main class="main-content">
         <!-- ========================================
              HERO
              ======================================== -->
         <section class="ai-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-image-wrapper">
-                <img src="/images/work/ai/image-ai-hero.png" alt="" class="hero-bg-image">
+                <img
+                    src="/images/work/ai/image-ai-hero.png"
+                    alt=""
+                    class="hero-bg-image"
+                />
             </div>
             <div class="hero-info">
                 <div class="hero-text-box">
@@ -28,10 +31,10 @@ import OtherWork from '../../components/OtherWork.astro';
                 <div class="hero-credits-box">
                     <div class="credit-info">
                         <p class="credit-label">Client</p>
-                        <p class="credit-value">Strategy Connect</p>
+                        <p class="credit-value">Waterfield</p>
                     </div>
                     <div class="credit-photo">
-                        <p>Photo credits - International Towers</p>
+                        <p>AI platform + insight analysis</p>
                     </div>
                 </div>
             </div>
@@ -43,7 +46,14 @@ import OtherWork from '../../components/OtherWork.astro';
         <section class="section-intro fade-in" data-theme="dark">
             <p class="intro-label">WHAT WE'VE DONE</p>
             <p class="intro-text">
-                We <span class="bold">designed</span> and <span class="bold">developed</span> an<span class="bold"> AI platform</span> that helps with <span class="bold">conversation at scale</span>. The platform provides <span class="bold">actionable insights</span> and consolidates the consensus.
+                We <span class="bold">designed</span> and
+                <span class="bold">developed</span> an
+                <span class="bold">AI platform</span> for Strategy Connect that helps
+                with
+                <span class="bold">conversation at scale</span> and surfaces
+                <span class="bold">real consensus</span> from
+                <span class="bold">large-scale human input</span> to enable
+                <span class="bold">Actionable Insights</span>
             </p>
         </section>
 
@@ -54,99 +64,252 @@ import OtherWork from '../../components/OtherWork.astro';
             <div class="ai-phone-bg"></div>
             <div class="ai-phone-content">
                 <div class="ai-phone-device">
-                    <img src="/images/work/ai/image-ai-phone.png" alt="AI chatbot on mobile phone">
+                    <img
+                        src="/images/work/ai/image-ai-phone.png"
+                        alt="AI chatbot on mobile phone"
+                    />
                 </div>
                 <div class="ai-phone-text">
-                    <h2>Uncovering actionable insights from big data with custom built AI.</h2>
+                    <h2>
+                        Uncovering actionable insights from big data with custom
+                        built AI.
+                    </h2>
                 </div>
             </div>
         </section>
 
         <!-- ========================================
-             WHAT THE PLATFORM DOES
+             THE PROBLEM WE WERE SOLVING
              ======================================== -->
         <section class="ai-platform-section" data-theme="light">
-            <p class="section-label">WHAT THE PLATFORM DOES</p>
+            <p class="section-label">THE CHALLENGE</p>
+            <div class="ai-problem-copy">
+                <p>
+                    Most organisations want to understand what people really
+                    think — but traditional <span class="bold">surveys</span>, <span
+                        class="bold">workshops</span
+                    >, and <span class="bold">interviews</span> don’t scale.
+                </p>
+                <p>
+                    They’re <span class="bold">slow to run</span>, <span
+                        class="bold">expensive to analyse</span
+                    >, and they often reduce <span class="bold"
+                        >nuanced views</span
+                    > into shallow <span class="bold">multiple-choice</span> answers.
+                </p>
+                <p>
+                    Strategy Connect came to us with a different challenge:
+                    <span class="bold"
+                        >capture thousands of authentic conversations</span
+                    > — and turn them into <span class="bold"
+                        >meaningful, analysable insight</span
+                    >.
+                </p>
+            </div>
+
             <div class="ai-features-grid">
                 <div class="ai-feature">
-                    <img src="/images/work/ai/image-ai-brain.svg" alt="" class="ai-feature-icon">
-                    <h3>Understanding Questions Contextually</h3>
-                    <p>mArvIn AI chatbot is different, with the power of LLM, it will try and understand the context of your question and give you an answer based of its understanding and closest to what you've asked. On top of that, we can give it more knowledge or data which it will learn or ingest and expand its contextual knowledge.</p>
+                    <img
+                        src="/images/work/ai/image-ai-chat.svg"
+                        alt=""
+                        class="ai-feature-icon"
+                    />
+                    <h3>Capturing large-scale qualitative insight</h3>
+                    <p>
+                        Capture <span class="bold">open-ended</span> input from large
+                        groups via <span class="bold">guided conversation</span
+                        >, not forms.
+                    </p>
                 </div>
                 <div class="ai-feature">
-                    <img src="/images/work/ai/image-ai-lock.svg" alt="" class="ai-feature-icon">
-                    <h3>Enterprise Grade and Secure</h3>
-                    <p>Because we're being able to control the data source, we can also secure where the data is going to be analysed by mArvIn. Instead of sending the data to publicly accessible AI services, we can control it to a private AI server instead. This way any organisation who would like to have AI to help crunch their data don't need to worry that their private data would be exposed to the public.</p>
+                    <img
+                        src="/images/work/ai/image-ai-brain.svg"
+                        alt=""
+                        class="ai-feature-icon"
+                    />
+                    <h3>Preserving nuance at scale</h3>
+                    <p>
+                        Keep <span class="bold">verbatim answers</span> and
+                        <span class="bold">semantic similarity</span> so minority
+                        viewpoints and edge cases stay visible.
+                    </p>
                 </div>
                 <div class="ai-feature">
-                    <img src="/images/work/ai/image-ai-chat.svg" alt="" class="ai-feature-icon">
-                    <h3>Following Conversation Thread</h3>
-                    <p>The power of AI and Natural Language Processing (NLP) fix this and giving us an easier way to converse with the chatbot. mArvIn can understand thread of conversation and it's enjoyable to chat and ask questions without a steep learning curve of understanding the correct prompts to get the information that we need.</p>
+                    <img
+                        src="/images/work/ai/image-ai-link.svg"
+                        alt=""
+                        class="ai-feature-icon"
+                    />
+                    <h3>Identifying genuine consensus, not forced averages</h3>
+                    <p>
+                        Use <span class="bold">clustering</span> and <span
+                            class="bold">density</span
+                        >
+                        to see where responses <span class="bold">align</span>,
+                        where they <span class="bold">diverge</span>, and what
+                        themes dominate.
+                    </p>
                 </div>
                 <div class="ai-feature">
-                    <img src="/images/work/ai/image-ai-link.svg" alt="" class="ai-feature-icon">
-                    <h3>Controlled Data</h3>
-                    <p>We can limit what mArvIn can answer by limiting the data it can learn from. We've tested this using our website data, when the context of the information is larger, without training it further, it will provide an answer with the most data available. Of course with further training and giving it few guidelines, it will perform better.</p>
+                    <img
+                        src="/images/work/ai/image-ai-lock.svg"
+                        alt=""
+                        class="ai-feature-icon"
+                    />
+                    <h3>
+                        Making complex human perspectives explorable and
+                        transparent
+                    </h3>
+                    <p>
+                        Move from <span class="bold">high-level patterns</span> to
+                        <span class="bold">individual answers</span>, with
+                        insight that stays
+                        <span class="bold">traceable</span> to real responses.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- ========================================
-             WHAT'S NEXT SECTION
+             OUR ROLE + RESULT
              ======================================== -->
         <section class="ai-next-section gradient-animated-bg" data-theme="dark">
             <div class="ai-next-content">
                 <div class="ai-next-header">
-                    <p class="section-label">WHAT'S NEXT?</p>
-                    <p class="ai-next-intro">Once we have the foundation of contextual conversation from LLM, we can then upgrade it even more with:</p>
+                    <p class="section-label">THE SOLUTION</p>
+                    <p class="ai-next-intro">
+                        Organisations create a <span class="bold"
+                            >Consensus</span
+                        >
+                        (a set of questions) and share a <span class="bold"
+                            >single link</span
+                        >. Participants respond through an <span class="bold"
+                            >AI-led chat</span
+                        >
+                        that can ask <span class="bold"
+                            >follow-up questions</span
+                        > to capture more complete answers. We also integrated <span
+                            class="bold">real-time voice</span
+                        >
+                        (<span class="bold">OpenAI Realtime</span>) so responses
+                        can be spoken instead of typed.
+                    </p>
                 </div>
 
                 <div class="ai-next-item ai-next-item--left">
                     <div class="ai-next-image">
-                        <img src="/images/work/ai/image-ai-man1.png" alt="Man speaking to AI">
+                        <img
+                            src="/images/work/ai/image-ai-man1.png"
+                            alt="Man speaking to AI"
+                        />
                     </div>
                     <div class="ai-next-text">
-                        <h3>Speech to Text</h3>
-                        <p>You can talk to mArvIn through your computer or mobile phone's microphone. It will then transcribe what you say as text to talk to the bot. We've seen this functionality for personal assistants on your phone and it's really handy for accessibility challenged users or visitors.</p>
+                        <h3>Vectorisation at scale</h3>
+                        <p>
+                            Every response is <span class="bold">embedded</span
+                            >,
+                            <span class="bold">vectorised</span>, and stored for
+                            <span class="bold">semantic analysis</span> — working
+                            with
+                            <span class="bold">meaning</span>, not keywords.
+                        </p>
                     </div>
                 </div>
 
                 <div class="ai-next-item ai-next-item--right">
                     <div class="ai-next-text">
-                        <h3>Text to Speech</h3>
-                        <p>mArvIn can read its answers to you, very handy for a chatbot that you can be hands free or if it needs to dictate text to you.</p>
+                        <h3>Data science, not guesswork</h3>
+                        <p>
+                            We apply proven techniques (including
+                            <span class="bold">k-means clustering</span>) to
+                            identify
+                            <span class="bold">dominant themes</span>, <span
+                                class="bold">outliers</span
+                            >, and areas of <span class="bold"
+                                >consensus vs divergence</span
+                            >.
+                        </p>
                     </div>
                     <div class="ai-next-image">
-                        <img src="/images/work/ai/image-ai-girl1.png" alt="Girl with headphones">
+                        <img
+                            src="/images/work/ai/image-ai-girl1.png"
+                            alt="Girl with headphones"
+                        />
                     </div>
                 </div>
 
                 <div class="ai-next-item ai-next-item--left">
                     <div class="ai-next-image">
-                        <img src="/images/work/ai/image-ai-people1.png" alt="Diverse group of people">
+                        <img
+                            src="/images/work/ai/image-ai-people1.png"
+                            alt="Diverse group of people"
+                        />
                     </div>
                     <div class="ai-next-text">
-                        <h3>Multi-Lingual</h3>
-                        <p>Instead of translating the content you're providing, mArvIn can do it instead becoming on demand translator for the content. This is handy when the user is trying to converse in their own language instead of English.</p>
+                        <h3>Explore the consensus</h3>
+                        <p>
+                            Users explore responses by <span class="bold"
+                                >semantic density</span
+                            >
+                            and inspect <span class="bold">raw answers</span> inside
+                            each cluster — moving from <span class="bold"
+                                >patterns</span
+                            > to individual voices.
+                        </p>
                     </div>
                 </div>
 
                 <div class="ai-next-item ai-next-item--right">
                     <div class="ai-next-text">
-                        <h3>Expanding Data</h3>
-                        <p>Although it comes with its own risk, we can expand mArvIn to use OpenAI's data so it behaves like ChatGPT at home. But as we mentioned above, it will also reduce the accuracy of the answers it can give you as the wealth of information it's learning from.</p>
+                        <h3>Traceable insight</h3>
+                        <p>
+                            Nothing is hidden behind <span class="bold"
+                                >abstract summaries</span
+                            >. Insights remain <span class="bold"
+                                >traceable</span
+                            > back to
+                            <span class="bold">real human input</span>.
+                        </p>
                     </div>
                     <div class="ai-next-image">
-                        <img src="/images/work/ai/image-ai-gpt.png" alt="ChatGPT interface">
+                        <img
+                            src="/images/work/ai/image-ai-gpt.png"
+                            alt="ChatGPT interface"
+                        />
                     </div>
+                </div>
+
+                <div class="ai-next-header" style="margin-top: 20px;">
+                    <p class="section-label">THE RESULT</p>
+                    <p class="ai-next-intro">
+                        A production-ready AI platform that captures large-scale
+                        qualitative input, identifies consensus and divergence,
+                        and keeps every insight linked back to real responses.
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- ========================================
+             YOUTUBE VIDEO SECTION
+             ======================================== -->
+        <section class="ai-youtube-section fade-in" data-theme="dark">
+            <div class="ai-youtube-container">
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/11dftwJtcgM?start=1"
+                        title="Strategy Connect – Consensus platform"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    >
+                    </iframe>
+                </div>
+            </div>
+        </section>
     </main>
 
     <OtherWork currentSlug="putting-the-intelligence-in-ai" />
 
     <Footer />
 </BaseLayout>
-

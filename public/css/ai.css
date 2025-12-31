@@ -10,8 +10,43 @@
    HERO SECTION - AI SPECIFIC
    ======================================== */
 .ai-hero .hero-text-box {
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
 }
+
+.ai-hero .hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    max-width: 42ch;
+}
+
+/* Problem copy block (light section) */
+.ai-problem-copy {
+    max-width: 522px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1b2226;
+}
+
+.ai-problem-copy p {
+    margin: 0 0 18px;
+}
+
+.ai-problem-copy p:last-child {
+    margin-bottom: 0;
+}
+
+/* Keep consistent spacing when a section has no visible section-label */
 
 /* ========================================
    PHONE SECTION
@@ -38,7 +73,11 @@
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 100px;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--page-margin, 100px);
+    box-sizing: border-box;
 }
 
 .ai-phone-device {
@@ -91,6 +130,8 @@
     gap: 60px 40px;
     max-width: 960px;
     margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .ai-feature {
@@ -131,6 +172,19 @@
     padding: 80px 100px 120px;
     overflow: hidden;
     margin-bottom: 0;
+}
+
+/* ========================================
+   YOUTUBE SECTION
+   ======================================== */
+.ai-youtube-section {
+    background-color: #000000;
+    padding: 60px 100px 85px;
+}
+
+.ai-youtube-container {
+    max-width: 1180px;
+    margin: 0 auto;
 }
 
 .ai-next-content {
