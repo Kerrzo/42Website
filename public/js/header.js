@@ -165,24 +165,9 @@
         // Close menu on overlay click
         mobileOverlay.addEventListener('click', closeMenu);
 
-        // Handle submenu toggle
-        const submenuToggle = document.querySelector('.mobile-nav-link-toggle');
-        if (submenuToggle) {
-            submenuToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-            });
-        }
-
-        // Close menu when clicking a nav link (but not submenu links)
+        // Close menu when clicking a nav link
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Don't close if it's a toggle button
-                if (this.classList.contains('mobile-nav-link-toggle')) {
-                    return;
-                }
+            link.addEventListener('click', function() {
                 // Update active state
                 mobileNavLinks.forEach(l => l.classList.remove('active'));
                 this.classList.add('active');

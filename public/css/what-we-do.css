@@ -12,20 +12,17 @@
    ======================================== */
 
 .what-we-do-landing-section {
-    padding: 360px var(--page-margin) 0;
+    padding: 200px var(--page-margin) 0;
     position: relative;
 }
 
 .what-we-do-landing-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 80px;
-    font-weight: 800;
-    line-height: 1.2;
-    color: #ffffff;
+    font-size: 60px;
+    font-weight: 700;
+    color: var(--primary-text);
     text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 80px;
-    letter-spacing: 2px;
+    margin: 0 0 80px 0;
+    letter-spacing: 0.2px;
 }
 
 /* Service Cards Grid */
@@ -125,8 +122,7 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
     .what-we-do-landing-title {
-        font-size: 60px;
-        margin-bottom: 60px;
+        font-size: 48px;
     }
 
     .service-cards-grid {
@@ -156,9 +152,7 @@
     }
 
     .what-we-do-landing-title {
-        font-size: 48px;
-        margin-bottom: 50px;
-        letter-spacing: 1px;
+        font-size: 36px;
     }
 
     .service-card {
@@ -196,8 +190,7 @@
     }
 
     .what-we-do-landing-title {
-        font-size: 36px;
-        margin-bottom: 40px;
+        font-size: 28px;
     }
 
     .service-card {

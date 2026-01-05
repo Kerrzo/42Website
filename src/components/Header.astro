@@ -44,12 +44,8 @@ const { activePage = "home" } = Astro.props;
 <nav class="mobile-menu">
     <a href="/who-we-are" class="mobile-nav-link">Who We Are</a>
     <div class="mobile-nav-item-with-submenu">
-        <button class="mobile-nav-link mobile-nav-link-toggle" aria-expanded="false">
-            What We Do
-            <span class="submenu-toggle-icon">+</span>
-        </button>
+        <a href="/what-we-do" class="mobile-nav-link">What We Do</a>
         <div class="mobile-submenu">
-            <a href="/what-we-do" class="mobile-submenu-link"><span class="submenu-chevron">›</span>What We Do</a>
             <a href="/what-we-do/building-restaurants-of-the-future" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Building Restaurants of The Future</a>
             <a href="/what-we-do/a-brand-that-feels-like-a-friend" class="mobile-submenu-link"><span class="submenu-chevron">›</span>A Brand That Feels Like a Friend</a>
             <a href="/what-we-do/connecting-people-to-workplace" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Connecting People to workplace</a>
