@@ -208,9 +208,10 @@ const formatDate = (dateString: string) => {
                                 >
                                     <div class="youtube-thumbnail">
                                         <img
-                                            src={`https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg`}
+                                            src={podcast.thumbnail || `https://img.youtube.com/vi/${podcast.id}/hqdefault.jpg`}
                                             alt={podcast.title}
                                             class="podcast-image"
+                                            data-video-id={podcast.id}
                                         />
                                         <div class="play-button">
                                             <svg
@@ -252,9 +253,10 @@ const formatDate = (dateString: string) => {
                                 >
                                     <div class="youtube-thumbnail">
                                         <img
-                                            src={`https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg`}
+                                            src={podcast.thumbnail || `https://img.youtube.com/vi/${podcast.id}/hqdefault.jpg`}
                                             alt={podcast.title}
                                             class="podcast-image"
+                                            data-video-id={podcast.id}
                                         />
                                         <div class="play-button">
                                             <svg

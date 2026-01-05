@@ -43,7 +43,7 @@
             const podcastsHTML = podcasts.map(podcast => `
                 <div class="youtube-video-card" data-video-id="${podcast.id}">
                     <div class="youtube-thumbnail">
-                        <img src="https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg" 
+                        <img src="${podcast.thumbnail || `https://img.youtube.com/vi/${podcast.id}/hqdefault.jpg`}" 
                              alt="${podcast.title}" 
                              class="podcast-image">
                         <div class="play-button">

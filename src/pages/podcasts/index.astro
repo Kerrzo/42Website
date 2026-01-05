@@ -126,9 +126,10 @@ const podcasts = [...configData.podcasts]
                             >
                                 <div class="podcast-card-image-wrapper">
                                     <img
-                                        src={`https://img.youtube.com/vi/${podcast.id}/maxresdefault.jpg`}
+                                        src={podcast.thumbnail || `https://img.youtube.com/vi/${podcast.id}/hqdefault.jpg`}
                                         alt={podcast.title}
                                         class="podcast-image"
+                                        data-video-id={podcast.id}
                                     />
                                     <div class="podcast-card-overlay">
                                         <div class="play-button">
@@ -377,6 +378,17 @@ const podcasts = [...configData.podcasts]
     document.addEventListener("DOMContentLoaded", function () {
         if ((window as any).App && (window as any).App.initYouTubeLightbox) {
             (window as any).App.initYouTubeLightbox();
+        }
+        
+        // Setup thumbnail fallbacks for all podcast images
+        if ((window as any).App && (window as any).App.setupThumbnailFallback) {
+            const podcastImages = document.querySelectorAll('.podcast-image[data-video-id]');
+            podcastImages.forEach((img: HTMLImageElement) => {
+                const videoId = img.getAttribute('data-video-id');
+                if (videoId) {
+                    (window as any).App.setupThumbnailFallback(img, videoId);
+                }
+            });
         }
     });
 </script>
