@@ -189,6 +189,9 @@
         
         mobileNavLinks.forEach(link => {
             const linkHref = link.href;
+            // Check if linkHref exists before using it
+            if (!linkHref) return;
+            
             // Check if current page matches the link
             if (currentHref === linkHref || 
                 (currentPath.endsWith('/') && linkHref.includes('index.html')) ||
@@ -202,6 +205,8 @@
         desktopNavLinks.forEach(desktopLink => {
             if (desktopLink.classList.contains('active')) {
                 const desktopHref = desktopLink.href;
+                if (!desktopHref) return;
+                
                 mobileNavLinks.forEach(mobileLink => {
                     if (mobileLink.href === desktopHref) {
                         mobileLink.classList.add('active');

@@ -57,11 +57,14 @@ const gaId = (configData as any).googleAnalytics;
                         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
                     />
                     <script
-                        set:html={`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${gaId}');`}
-                    />
+                        is:inline
+                        define:vars={{ gaId }}
+                    >
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', gaId);
+                    </script>
                 </>
             )
         }
