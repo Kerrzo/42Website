@@ -2,7 +2,7 @@
 title: "Xamarin Forms Shell: Streamline Your Mobile App Development"
 publishedAt: "2023-11-05"
 summary: "Boost your mobile app development efficiency with Xamarin Forms Shell. Navigate, customize UI, and implement MVVM architecture effortlessly. Learn more now!"
-image: "/blog/images/6237b74d84bece82b20d6652_xamarin-sidemenu-yitro-kurniawan.jpg"
+image: "/blog/images/xamarin-sidemenu-yitro-kurniawan.jpg"
 category: "technology-development"
 ---
 
@@ -125,9 +125,9 @@ As users navigate through your Xamarin Forms Shell app, you may need to handle n
 
 Flyout and Tabs are 2 top-level navigation components brought by Shell to help you accomplish navigation tickets in your [project](/digital-agency-projects-accolades) as shown in the following images below.
 
-![xamarin sidemenu](/blog/images/6237b74d84bece82b20d6652_xamarin-sidemenu-yitro-kurniawan.jpg)
+![xamarin sidemenu](/blog/images/xamarin-sidemenu-yitro-kurniawan.jpg)
 
-![xamarin lists with thumbnails](/blog/images/6237b76a3349ba46412d93fc_xamarin-list-with-thumb.jpg)
+![xamarin lists with thumbnails](/blog/images/xamarin-list-with-thumb.jpg)
 
 An application can have both Flyout and Tab bar or only one of them at a time. Besides its appearance and behaviour is greatly customizable through the properties and methods that the various Shell classes expose, it's also possible to create a Shell custom renderer when more refined platform-specific customizations are required like other custom renderers. Followings are overridable methods provided by Shell Renderer class that can be customized and exported from each platform project.
 
@@ -165,7 +165,7 @@ An application can have both Flyout and Tab bar or only one of them at a time. B
 
 Optimized navigation using Routes enables the user experience to navigate to a specific page without having to follow a set navigation hierarchy. Routes can be defined on _FlyoutItem_, _Tab_, and _ShellContent_ objects in code behind or tag in XAML, through their Route properties. Given the sample visual hierarchy of app navigation:
 
-![sample code visual hierarchy of app navigation](/blog/images/6130be860c5bdb1c13329ce1_code_1.png)
+![sample code visual hierarchy of app navigation](/blog/images/code_1.png)
 
 ‍
 
@@ -173,41 +173,41 @@ To navigate to the _ShellContent_ object for the ‘dogs’ route, the absolute 
 
 Additional routes can be explicitly registered for any sort of pages that does not exist in the Shell visual hierarchy.
 
-![sample code additional routes](/blog/images/6130be865ad8c1f9d5c9ae51_code_2.png)
+![sample code additional routes](/blog/images/code_2.png)
 
 Navigation can be performed by either by passing a valid route string/URI absolute route path or relative route (after registering the unique route name to the routing table) into _GoToAsync()_ method of _Current_ property of _Shell_ object.
 
-![sample code for GotoAsync method](/blog/images/6130be86f63fe7fc99ad1ca2_code_3.png)
+![sample code for GotoAsync method](/blog/images/code_3.png)
 
 ‍
 
 Or
 
-![sample code for GotoAsync method Current property shell object](/blog/images/6130be87334b2c5050857331_code_4.png)
+![sample code for GotoAsync method Current property shell object](/blog/images/code_4.png)
 
 #### **Deep Linking**
 
 When a Shell app receives Deep Link or App Link, the URL can be easily processed by removing the schema and app domain. And then it leaves the rest path including the query parameters as an argument to navigate to the target page. This is also can be used as in-app navigation.
 
-![sample query parameters](/blog/images/6130be8748f60ab0ee1be0e3_code_5.png)
+![sample query parameters](/blog/images/code_5.png)
 
 ‍
 
 And the target View Model can capture the parameter by decorating the View Model property with Query Property Attribute which specifies the name of the property that will receive the data, with the second argument specifying the query parameter id. Note that when you pass the query parameter, the value is being URL encoded so it needs to be decoded before use. Multiple Query Property Attribute objects are also supported in a class.
 
-![custom Search Handler](/blog/images/6130be889b21250e996fe62e_code_6.png)
+![custom Search Handler](/blog/images/code_6.png)
 
 ### **Integrated Search Control with Shell Page**
 
 The integrated search functionality in the pages is also provided by Shell application to save development time. With a search box that can be added to the top of each page, the search query is handled by custom Search Handler that processes the underlying data source and returns the results back to the search box and displays them in a popup list.
 
-![xamarin autocomplete](/blog/images/6237b77cec34d081bc00c355_xamarin-autocomplete.jpg)
+![xamarin autocomplete](/blog/images/xamarin-autocomplete.jpg)
 
-![Multiple Query Property Attribute objects](/blog/images/6130be88705c3b215be12b47_code_7.png)
+![Multiple Query Property Attribute objects](/blog/images/code_7.png)
 
 ‍
 
-![sample TrackSearchHandler method](/blog/images/6130be89ff545a4b8a0de8c3_code_8.png)
+![sample TrackSearchHandler method](/blog/images/code_8.png)
 
 ## **UI Customization and Theming**
 

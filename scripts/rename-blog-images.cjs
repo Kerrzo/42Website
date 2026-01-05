@@ -6,6 +6,13 @@
  * Usage:
  *   node scripts/rename-blog-images.cjs --list /absolute/path/to/long-filenames.txt --dry-run
  *   node scripts/rename-blog-images.cjs --list /absolute/path/to/long-filenames.txt
+ *
+ *   # Rename all candidates in a directory (default: public/blog/images)
+ *   node scripts/rename-blog-images.cjs --all --dry-run
+ *   node scripts/rename-blog-images.cjs --all
+ *
+ * Options:
+ *   --dir  /abs/path/to/dir   (defaults to <repo>/public/blog/images)
  */
 
 const fs = require("fs");
@@ -19,15 +26,19 @@ const getArgValue = (flag) => {
 };
 
 const listPath = getArgValue("--list");
+const useAll = args.includes("--all");
+const dirArg = getArgValue("--dir");
 const isDryRun = args.includes("--dry-run");
 
-if (!listPath) {
-  console.error("Missing required --list argument");
+if (!useAll && !listPath) {
+  console.error("Missing required --list (or pass --all)");
   process.exit(1);
 }
 
 const repoRoot = path.resolve(__dirname, "..");
-const publicImagesDir = path.join(repoRoot, "public", "blog", "images");
+const publicImagesDir = dirArg
+  ? path.resolve(dirArg)
+  : path.join(repoRoot, "public", "blog", "images");
 
 if (!fs.existsSync(publicImagesDir)) {
   console.error(`Missing expected directory: ${publicImagesDir}`);
@@ -73,8 +84,12 @@ function findActualFilenameFromListEntry(relPath) {
 }
 
 function shortenBaseName(originalBase) {
-  // Strip Webflow-style GUID prefix: 24-32 hex chars + underscore.
-  let base = originalBase.replace(/^[0-9a-f]{24,32}_/i, "");
+  // Strip Webflow-style GUID prefix(es): 24-32 hex chars + underscore.
+  // Some exports contain multiple nested GUID prefixes.
+  let base = originalBase;
+  while (/^[0-9a-f]{24,32}_/i.test(base)) {
+    base = base.replace(/^[0-9a-f]{24,32}_/i, "");
+  }
 
   // If the filename contains a big SEO tail starting with "-42-interactive-", drop it.
   const tailIdx = base.indexOf("-42-interactive-");
@@ -107,6 +122,22 @@ function shortenBaseName(originalBase) {
     out = next;
   }
   return out || tokens[0] || "image";
+}
+
+function isCandidateFilename(fileName) {
+  return (
+    /^[0-9a-f]{24,32}_/i.test(fileName) ||
+    fileName.includes("-42-interactive-") ||
+    fileName.startsWith("42-interactive-") ||
+    fileName.endsWith(".")
+  );
+}
+
+function getCandidatesFromDir(dir) {
+  return fs
+    .readdirSync(dir)
+    .filter((f) => fs.statSync(path.join(dir, f)).isFile())
+    .filter(isCandidateFilename);
 }
 
 function isTextFile(filePath) {
@@ -142,7 +173,7 @@ function walkFiles(dir, ignoreNames) {
   return out;
 }
 
-const listEntries = readListFile(listPath);
+const listEntries = useAll ? [] : readListFile(listPath);
 
 /** @type {{old: string, next: string}[]} */
 const mapping = [];
@@ -150,14 +181,26 @@ const mapping = [];
 const existingFiles = new Set(fs.readdirSync(publicImagesDir));
 const plannedNewNames = new Set();
 
-for (const rel of listEntries) {
-  if (!rel.includes("public/blog/images/")) continue;
+const inputs = useAll ? getCandidatesFromDir(publicImagesDir) : listEntries;
 
-  const actual = findActualFilenameFromListEntry(rel);
-  if (!actual) {
-    console.warn(`[skip] Could not resolve actual file for list entry: ${rel}`);
-    continue;
+for (const input of inputs) {
+  let actual = null;
+  let guidPrefix = null;
+
+  if (useAll) {
+    actual = input;
+    guidPrefix = /^[0-9a-f]{24,32}_/i.test(actual) ? actual.split("_")[0] : null;
+  } else {
+    const rel = input;
+    if (!rel.includes("public/blog/images/")) continue;
+    actual = findActualFilenameFromListEntry(rel);
+    if (!actual) {
+      console.warn(`[skip] Could not resolve actual file for list entry: ${rel}`);
+      continue;
+    }
+    guidPrefix = actual.split("_")[0];
   }
+
   if (!existingFiles.has(actual)) {
     console.warn(`[skip] File not found in public/blog/images: ${actual}`);
     continue;
@@ -171,15 +214,30 @@ for (const rel of listEntries) {
   if (ext === "." || ext === "") {
     ext = ".jpg";
   }
+
   const shortBase = shortenBaseName(base);
 
   let candidate = `${shortBase}${ext}`;
+
+  // Disambiguate with a short suffix if needed (avoid reintroducing long GUIDs).
+  const shortSuffix = guidPrefix ? guidPrefix.slice(0, 6).toLowerCase() : null;
+
+  if (
+    (existingFiles.has(candidate) && candidate !== actual) ||
+    plannedNewNames.has(candidate)
+  ) {
+    if (shortSuffix) {
+      candidate = `${shortBase}-${shortSuffix}${ext}`;
+    }
+  }
+
   let n = 2;
   while (
     (existingFiles.has(candidate) && candidate !== actual) ||
     plannedNewNames.has(candidate)
   ) {
-    candidate = `${shortBase}-${n}${ext}`;
+    const stem = path.basename(candidate, ext);
+    candidate = `${stem}-${n}${ext}`;
     n += 1;
   }
 
@@ -197,7 +255,12 @@ if (mapping.length === 0) {
 }
 
 console.log(`Planned renames (${mapping.length}):`);
-for (const m of mapping) console.log(`- ${m.old} -> ${m.next}`);
+if (mapping.length <= 200) {
+  for (const m of mapping) console.log(`- ${m.old} -> ${m.next}`);
+} else {
+  for (const m of mapping.slice(0, 60)) console.log(`- ${m.old} -> ${m.next}`);
+  console.log(`... (${mapping.length - 60} more; see mapping file)`);
+}
 
 const mappingOutPath = path.join(
   repoRoot,
@@ -219,7 +282,7 @@ for (const m of mapping) {
   fs.renameSync(from, to);
 }
 
-// 2) Update references across repo
+// 2) Update references across repo (local blog image paths only)
 const includeRoots = [
   path.join(repoRoot, "data"),
   path.join(repoRoot, "src"),
@@ -247,9 +310,17 @@ for (const root of includeRoots) {
     let changed = false;
 
     for (const m of mapping) {
-      if (content.includes(m.old)) {
-        content = content.split(m.old).join(m.next);
-        changed = true;
+      const patterns = [
+        `public/blog/images/${m.old}`,
+        `/blog/images/${m.old}`,
+        `blog/images/${m.old}`,
+      ];
+      for (const p of patterns) {
+        if (content.includes(p)) {
+          const np = p.replace(m.old, m.next);
+          content = content.split(p).join(np);
+          changed = true;
+        }
       }
     }
 

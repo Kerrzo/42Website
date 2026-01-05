@@ -2342,6 +2342,45 @@ main>section:last-of-type {
     .work-image-wrapper {
         aspect-ratio: 1;
     }
+
+    /* Reduce gap between clients section and testimonials on mobile */
+    .clients-section {
+        padding-bottom: 40px;
+    }
+
+    .testimonial-section {
+        padding-top: 30px;
+    }
+
+    /* Reorder testimonials for mobile: quote first, then author */
+    .testimonial-slide {
+        display: none;
+        flex-direction: column;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    .testimonial-slide.active {
+        display: flex;
+    }
+
+    .testimonial-slide .testimonial-quote {
+        order: 1;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .testimonial-slide .testimonial-author {
+        order: 2;
+        width: 100%;
+    }
+
+    .testimonial-quote .quote-text {
+        font-size: 20px;
+        line-height: 1.5;
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2356,6 +2395,19 @@ main>section:last-of-type {
 
     .clients-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Ensure testimonials spacing on small mobile */
+    .clients-section {
+        padding-bottom: 30px;
+    }
+
+    .testimonial-section {
+        padding-top: 20px;
+    }
+
+    .testimonial-quote .quote-text {
+        font-size: 18px;
     }
 }
 
