@@ -120,15 +120,23 @@
      * Tries different quality levels if maxresdefault fails
      */
     App.setupThumbnailFallback = function(imgElement, videoId) {
+        // Get current src to determine what we've already tried
+        const currentSrc = imgElement.src;
         const thumbnailQualities = [
-            'maxresdefault.jpg',  // 1920x1080 (best quality)
-            'sddefault.jpg',      // 640x480
-            'hqdefault.jpg',      // 480x360
+            'maxresdefault.jpg',  // 1920x1080 (best quality, may not exist)
+            'sddefault.jpg',      // 640x480 (more reliable)
             'mqdefault.jpg',      // 320x180
-            'default.jpg'         // 120x90 (fallback)
+            'default.jpg'         // 120x90 (always exists)
         ];
         
-        let currentQualityIndex = 0;
+        // Determine starting index based on current src
+        let currentQualityIndex = -1;
+        if (currentSrc.includes('hqdefault.jpg')) {
+            // If we started with hqdefault, try maxresdefault next, then others
+            currentQualityIndex = -1; // Will be 0 after increment
+        } else if (currentSrc.includes('maxresdefault.jpg')) {
+            currentQualityIndex = 0; // Already tried maxresdefault
+        }
         
         imgElement.addEventListener('error', function() {
             currentQualityIndex++;

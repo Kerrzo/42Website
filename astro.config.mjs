@@ -8,7 +8,14 @@ export default defineConfig({
     output: 'static',
     integrations: [mdx()],
     build: {
-        assets: 'assets'
+        assets: 'assets',
+        // Ensure production builds don't include dev-only attributes
+        inlineStylesheets: 'auto'
+    },
+    vite: {
+        build: {
+            sourcemap: false
+        }
     }
 });
 
