@@ -43,5 +43,22 @@ const { activePage = "home" } = Astro.props;
 <div class="mobile-menu-overlay"></div>
 <nav class="mobile-menu">
     <a href="/who-we-are" class="mobile-nav-link">Who We Are</a>
-    <a href="/what-we-do" class="mobile-nav-link">What We Do</a>
+    <div class="mobile-nav-item-with-submenu">
+        <button class="mobile-nav-link mobile-nav-link-toggle" aria-expanded="false">
+            What We Do
+            <span class="submenu-toggle-icon">+</span>
+        </button>
+        <div class="mobile-submenu">
+            <a href="/what-we-do" class="mobile-submenu-link"><span class="submenu-chevron">›</span>What We Do</a>
+            <a href="/what-we-do/building-restaurants-of-the-future" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Building Restaurants of The Future</a>
+            <a href="/what-we-do/a-brand-that-feels-like-a-friend" class="mobile-submenu-link"><span class="submenu-chevron">›</span>A Brand That Feels Like a Friend</a>
+            <a href="/what-we-do/connecting-people-to-workplace" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Connecting People to workplace</a>
+            <a href="/what-we-do/putting-the-intelligence-in-ai" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Putting the Intelligence in AI</a>
+            <a href="/what-we-do/the-magic-of-theatre-at-home" class="mobile-submenu-link"><span class="submenu-chevron">›</span>The Magic of Theatre at home</a>
+            <a href="/what-we-do/a-better-way-to-manage-pain" class="mobile-submenu-link"><span class="submenu-chevron">›</span>A Better Way to Manage Pain</a>
+            <a href="/what-we-do/immortalising-creativity" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Immortalising Creativity</a>
+            <a href="/what-we-do/bringing-art-to-life" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Bringing Art To Life</a>
+            <a href="/what-we-do/bringing-products-to-life" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Bringing Products to Life</a>
+        </div>
+    </div>
 </nav>
