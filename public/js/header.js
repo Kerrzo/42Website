@@ -165,12 +165,36 @@
         // Close menu on overlay click
         mobileOverlay.addEventListener('click', closeMenu);
 
-        // Close menu when clicking a nav link
+        // Handle submenu toggle
+        const submenuToggle = document.querySelector('.mobile-nav-link-toggle');
+        if (submenuToggle) {
+            submenuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+            });
+        }
+
+        // Close menu when clicking a nav link (but not submenu links)
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(e) {
+                // Don't close if it's a toggle button
+                if (this.classList.contains('mobile-nav-link-toggle')) {
+                    return;
+                }
                 // Update active state
                 mobileNavLinks.forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
+                // Close menu after a short delay for better UX
+                setTimeout(closeMenu, 300);
+            });
+        });
+
+        // Close menu when clicking submenu links
+        const submenuLinks = document.querySelectorAll('.mobile-submenu-link');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
                 // Close menu after a short delay for better UX
                 setTimeout(closeMenu, 300);
             });
