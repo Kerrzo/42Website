@@ -129,8 +129,6 @@
             // Start the rotation cycle
             scheduleNextRotation();
         }
-        
-        console.log('Client logos carousel initialized');
     };
 })();
 

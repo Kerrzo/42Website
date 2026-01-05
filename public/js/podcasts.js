@@ -75,8 +75,6 @@
                 App.loadYouTubeMetadata && App.loadYouTubeMetadata();
             }, 100);
             
-            console.log(`Loaded ${podcasts.length} podcasts into ${podcastContainers.length} container(s)`);
-            
         } catch (error) {
             console.error('Error loading podcasts:', error);
         }
