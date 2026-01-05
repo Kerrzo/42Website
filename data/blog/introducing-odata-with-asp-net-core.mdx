@@ -2,7 +2,7 @@
 title: "Implementing OData: A Game-Changing Approach in ASP.NET Core"
 publishedAt: "2023-11-05"
 summary: "Dive into the world of OData Core. Discover how to leverage the power of OData in ASP.NET Core to create flexible and efficient APIs for your applications."
-image: "/blog/images/623188d61454c0e0f0564a79_pedestrian-odata.jpg"
+image: "/blog/images/pedestrian-odata.jpg"
 category: "digital-transformation"
 ---
 
@@ -32,13 +32,13 @@ At the data level, OData will need to have a “Direct” access to our database
 
 The code in data level will look like this:
 
-![sample code in data level ](/blog/images/6130be9b9d47040bc1dd845f_image002.png)
+![sample code in data level ](/blog/images/image002.png)
 
 ‍
 
 We are using interfaces to make our life in Dependency Injection easier, we can use Scrutor to do assembly scan and register all the classes in the DI
 
-![sample code using scrutor](/blog/images/6130be9c290e6cf803692527_image004.png)
+![sample code using scrutor](/blog/images/image004.png)
 
 ‍
 
@@ -48,13 +48,13 @@ Now we can start to implement the OData Part. First of all, we need to register 
 
 Add this line to ConfigureServices method:
 
-![sample line of code to ConfigureServices method](/blog/images/6130be9c5b5ea3b886d5a311_image006-1.png)
+![sample line of code to ConfigureServices method](/blog/images/image006-1.png)
 
 ‍
 
 And the following lines to Configure Method:
 
-![sample line of code to configure method](/blog/images/6130be9c9bb0ab56e44b2afa_image008-1.png)
+![sample line of code to configure method](/blog/images/image008-1.png)
 
 ‍
 
@@ -66,7 +66,7 @@ After all set up we are ready to implement the OData endpoint.
 
 Create a new controller and put these lines:
 
-![sample code Odata endpoint](/blog/images/6130be9c57121b318ad6856a_image010.png)
+![sample code Odata endpoint](/blog/images/image010.png)
 
 ‍
 
@@ -78,7 +78,7 @@ query: [https://localhost:44354/api/person-odata](https://localhost:44354/api/pe
 
 result:
 
-![sample result using Postman](/blog/images/6130be9e10749c17e7cc2f20_image011-1024x330.png)
+![sample result using Postman](/blog/images/image011-1024x330.png)
 
 ‍
 
@@ -88,7 +88,7 @@ Query: [https://localhost:44354/api/person-odata?$top=20](https://localhost:4435
 
 Result:
 
-![sample result personal odata](/blog/images/6130be9e1ecc743445aebb52_image013-1024x298.png)
+![sample result personal odata](/blog/images/image013-1024x298.png)
 
 ‍
 
@@ -100,7 +100,7 @@ Type eq 'SP'
 
 Result:
 
-![sample raw code](/blog/images/6130be9e9bb0ab0cbe4b2afd_image015-1024x248.png)
+![sample raw code](/blog/images/image015-1024x248.png)
 
 ‍
 
@@ -112,7 +112,7 @@ Type,title,firstName
 
 Result:
 
-![sample odata code result](/blog/images/6130be9ef4e75d139fc182df_image017-1024x167.png)
+![sample odata code result](/blog/images/image017-1024x167.png)
 
 ‍
 
@@ -126,7 +126,7 @@ The problem with OData is because it uses do “Direct” query to our DBSet it 
 
 Create a new controller and do some modification from the code above
 
-![sample code modification](/blog/images/6130be9e290e6c584669252b_image020.png)
+![sample code modification](/blog/images/image020-6130be.png)
 
 ‍
 
@@ -138,7 +138,7 @@ Query: https://localhost:44354/api/person-vm?$filter=titleeq 'Mr.' and person Ty
 
 Result:
 
-![sample code query result](/blog/images/6130bea048f60a2ff61be0ee_image021-1024x415.png)
+![sample code query result](/blog/images/image021-1024x415.png)
 
 ‍
 
@@ -146,7 +146,7 @@ Result:
 
 Pagination is a common practise to present data, it helps the performance of retrieving data and avoid big chunk of data to be sent to caller. Let’s see how ODatahandle the server-side paging.
 
-![sample person paging controller](/blog/images/6130be9fef8e240e5ab3bbf0_image024.png)
+![sample person paging controller](/blog/images/image024.png)
 
 ‍
 
@@ -156,7 +156,7 @@ Query: [https://localhost:44354/api/person-paging?$count=true](https://localhost
 
 Result:
 
-![sample raw line of code](/blog/images/6130bea08ceb58a9811e7e40_image025-1024x399.png)
+![sample raw line of code](/blog/images/image025-1024x399.png)
 
 The response is limited into 15 records and we are given a link to next page.
 

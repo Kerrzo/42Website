@@ -2,7 +2,7 @@
 title: "Developing a Simple E-commerce Mobile App with Flutter & GetX using the MVVM Pattern"
 publishedAt: "2024-04-03"
 summary: "Learn how to develop a straightforward e-commerce mobile app using Flutter & GetX with the MVVM pattern. Build efficient, user-friendly apps."
-image: "/blog/images/65efc8dbcc8e764222660559_Simple_e-commerce_main_image.jpg"
+image: "/blog/images/simple_e-commerce_main_image.jpg"
 category: "technology-development"
 ---
 
@@ -96,7 +96,7 @@ Alternatively, you can create a Flutter project from Visual Studio Code by follo
 
 Upon successful creation, the project structure will resemble the following:
 
-![__wf_reserved_inherit](/blog/images/65efbe4ded9db0172fc06540_Simple_e-commerce_1.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_1.png)
 
 ‍
 
@@ -112,11 +112,11 @@ Upon successful creation, the project structure will resemble the following:
 
 Here is project structure that we will use in this app:
 
-![__wf_reserved_inherit](/blog/images/65efc01c1ebde73e63666b15_Simple_e-commerce_2.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_2.png)
 
 ‍
 
-![__wf_reserved_inherit](/blog/images/65efc034d9d0f8ce669c9212_Simple_e-commerce_3.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_3.png)
 
 ‍
 
@@ -146,17 +146,17 @@ Let’s start creating those components:
 
 -   Download cart & arrow back icon [https://boxicons.com/](https://boxicons.com/) , then copy and paste it into ‘assets/images’. Finally, add these lines to your ‘pubspec.yaml’
 
-![__wf_reserved_inherit](/blog/images/65efc10a8c4e0de75d242b2e_Simple_e-commerce_4.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_4.png)
 
 ‍
 
 -   Create a file on “lib/config/**spacing.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc19b6b20fa4d6f216d50_Simple_e-commerce_5.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_5.png)
 
 -   Create a file on “lib/app/widgets/**custom\_app\_bar.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc1ac8c4e0de75d24d593_Simple_e-commerce_6.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_6.jpeg)
 
 ‍
 
@@ -176,7 +176,7 @@ Let’s start creating those components:
 
 -   Create a file on “lib/app/widgets/**carousel.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc244ceafab58b908386f_Simple_e-commerce_7.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_7.jpeg)
 
 ‍
 
@@ -184,7 +184,7 @@ Let’s start creating those components:
 
 Create a file on “lib/app/widgets/**category\_card.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc26e970a80f961817eda_Simple_e-commerce_8.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_8.png)
 
 ‍
 
@@ -192,7 +192,7 @@ Create a file on “lib/app/widgets/**category\_card.dart**” and copy the code
 
 Create a file on “lib/app/widgets/**product\_card.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc28783cca5692f5e78cd_Simple_e-commerce_9.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_9.jpeg)
 
 ‍
 
@@ -206,7 +206,7 @@ Install “pagination flutter” package [https://pub.dev/packages/pagination\_f
 
 Create a file on “lib/app/widgets/**paginator.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc2ceb6a51cbde9609d28_Simple_e-commerce_10.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_10.jpeg)
 
 ‍
 
@@ -220,7 +220,7 @@ For this project, we will use fake store API to fetch the data [https://fakeapi.
 
 Create a file on “lib/app/models/**product\_model.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc33a433747842a6f6db8_Simple_e-commerce_11.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_11.jpeg)
 
 ‍
 
@@ -228,7 +228,7 @@ Create a file on “lib/app/models/**product\_model.dart**” and copy the code 
 
 Create a file on “lib/config/general.dart” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc361e21bdb547d62e3e8_Simple_e-commerce_12.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_12.png)
 
 ‍
 
@@ -236,7 +236,7 @@ Create a file on “lib/config/general.dart” and copy the code below:
 
 Create a file on “lib/app/repositories/**product\_repository.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc38d6339d47bbba3f4af_Simple_e-commerce_13.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_13.jpeg)
 
 ‍
 
@@ -244,7 +244,7 @@ Create a file on “lib/app/repositories/**product\_repository.dart**” and cop
 
 Create a file on “lib/app/controllers/**home\_screen\_controller.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc3b683cca5692f5fddfe_Simple_e-commerce_14.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_14.jpeg)
 
 ‍
 
@@ -252,7 +252,7 @@ Create a file on “lib/app/controllers/**home\_screen\_controller.dart**” and
 
 Create a file on “lib/app/bindings/**home\_screen\_binding.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc3cf86e8742ee74ec0b6_Simple_e-commerce_15.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_15.png)
 
 ‍
 
@@ -264,13 +264,13 @@ Create a file on “lib/app/bindings/**home\_screen\_binding.dart**” and copy 
 
 -   Create a file on “lib/app/widgets/**screen\_padding.dart**” and copy the code below
 
-![__wf_reserved_inherit](/blog/images/65efc3fdb01ebe5bb1ab37e7_Simple_e-commerce_16.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_16.png)
 
 ‍
 
 -   Create a file on “lib/app/screens/**home\_screen.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc4277aa6ec956286b4e6_Simple_e-commerce_17.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_17.jpeg)
 
 ‍
 
@@ -282,7 +282,7 @@ Create a file on “lib/app/bindings/**home\_screen\_binding.dart**” and copy 
 
 Create a file on “lib/app/controllers/**category\_screen\_controller.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc45364890e135c176358_Simple_e-commerce_18.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_18.jpeg)
 
 ‍
 
@@ -290,7 +290,7 @@ Create a file on “lib/app/controllers/**category\_screen\_controller.dart**”
 
 Create a file on “lib/app/bindings/**category\_screen\_binding.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc4901ebde73e636baec7_Simple_e-commerce_19.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_19.png)
 
 ‍
 
@@ -298,7 +298,7 @@ Create a file on “lib/app/bindings/**category\_screen\_binding.dart**” and c
 
 Create a file on “lib/app/screens/**category\_screen.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc5201ebde73e636c6f88_Simple_e-commerce_20.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_20.jpeg)
 
 ‍
 
@@ -310,7 +310,7 @@ Create a file on “lib/app/screens/**category\_screen.dart**” and copy the co
 
 Create a file on “lib/app/controllers/**product\_detail\_screen\_controller.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc4ea523ac3730c5173ff_Simple_e-commerce_21.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_21.jpeg)
 
 ‍
 
@@ -318,7 +318,7 @@ Create a file on “lib/app/controllers/**product\_detail\_screen\_controller.da
 
 Create a file on “lib/app/bindings/**product\_detail\_screen\_binding.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc4c807101b029d90e26d_Simple_e-commerce_22.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_22.png)
 
 ‍
 
@@ -326,7 +326,7 @@ Create a file on “lib/app/bindings/**product\_detail\_screen\_binding.dart**�
 
 Create a file on “lib/app/screens/**product\_detail\_screen.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc6061b19d8a055de079b_Simple_e-commerce_23.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_23.jpeg)
 
 #### **  
 Create Cart Screen**
@@ -337,7 +337,7 @@ Create Cart Screen**
 
 Create a file on “lib/app/models/**cart\_model.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc6407435e1ef3dd3301c_Simple_e-commerce_24.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_24.png)
 
 ‍
 
@@ -345,7 +345,7 @@ Create a file on “lib/app/models/**cart\_model.dart**” and copy the code bel
 
 Create a file on “lib/app/controllers/**cart\_screen\_controller.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc6be687b05b131e8b554_Simple_e-commerce_25.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_25.png)
 
 ‍
 
@@ -353,7 +353,7 @@ Create a file on “lib/app/controllers/**cart\_screen\_controller.dart**” and
 
 Create a file on “lib/app/bindings/**init\_binding.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc6e6433747842a73ca74_Simple_e-commerce_26.png)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_26.png)
 
 ‍
 
@@ -361,13 +361,13 @@ Create a file on “lib/app/bindings/**init\_binding.dart**” and copy the code
 
 -   Create Cart Card component on “lib/app/widgets/**cart\_card.dart**” that will be used in Cart Screen:
 
-![__wf_reserved_inherit](/blog/images/65efc776e4e64119233c4ee5_Simple_e-commerce_27.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_27.jpeg)
 
 ‍
 
 Create Cart Screen view on “lib/app/screens/**cart\_screen.dart**” and copy the code below:
 
-![__wf_reserved_inherit](/blog/images/65efc7a5fa4d7e9858e4092f_Simple_e-commerce_28.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_28.jpeg)
 
 ‍
 
@@ -375,7 +375,7 @@ Create Cart Screen view on “lib/app/screens/**cart\_screen.dart**” and copy 
 
 Copy the code below and replace into **“lib/main.dart”:**
 
-![__wf_reserved_inherit](/blog/images/65efc7c31762eb1ebe0e47aa_Simple_e-commerce_29.jpeg)
+![__wf_reserved_inherit](/blog/images/simple_e-commerce_29.jpeg)
 
 ‍
 
