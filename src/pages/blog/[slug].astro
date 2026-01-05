@@ -91,17 +91,6 @@ const latestBlogs = blogPostsArray
                     <div class="hero-bg-image">
                         <img src={frontmatter.image} alt={frontmatter.title} />
                     </div>
-                    <div class="hero-info">
-                        <div class="hero-text-box">
-                            <h1 class="hero-title">{frontmatter.title}</h1>
-                        </div>
-                        <div class="hero-credits-box">
-                            <div class="credit-info">
-                                <p class="credit-label">Published</p>
-                                <p class="credit-value">{formattedDate}</p>
-                            </div>
-                        </div>
-                    </div>
                 </section>
             )
         }
@@ -109,18 +98,13 @@ const latestBlogs = blogPostsArray
         <section class="blog-content-wrapper" data-theme="light">
             <div class="blog-detail-container">
                 <article class="blog-detail-main">
-                    {
-                        !frontmatter.image && (
-                            <div class="blog-detail-header">
-                                <h1 class="blog-detail-title">
-                                    {frontmatter.title}
-                                </h1>
-                                <p class="blog-detail-date">{formattedDate}</p>
-                            </div>
-                        )
-                    }
-
                     <div class="blog-detail-content">
+                        <div class="blog-detail-header">
+                            <h1 class="blog-detail-title">
+                                {frontmatter.title}
+                            </h1>
+                            <p class="blog-detail-date">{formattedDate}</p>
+                        </div>
                         <Content />
                     </div>
                 </article>
@@ -230,55 +214,6 @@ const latestBlogs = blogPostsArray
         object-position: 50% 50%;
     }
 
-    .blog-hero .hero-info {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        align-items: stretch;
-        gap: 0;
-        width: min(1400px, calc(100% - 2 * var(--page-margin, 20px)));
-        max-width: 1400px;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .blog-hero .hero-text-box {
-        background-color: rgba(42, 42, 252, 0.8);
-        padding: 20px 32px;
-        width: 100%;
-        max-width: none;
-        height: auto;
-        display: flex;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    .blog-hero .hero-title {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 800;
-        font-size: 54px;
-        line-height: 1.05;
-        color: #ffffff;
-        margin: 0;
-        text-align: left;
-    }
-
-    .blog-hero .hero-credits-box {
-        background-color: rgba(16, 22, 83, 0.8);
-        width: 100%;
-        min-width: 200px;
-        height: auto;
-        padding: 16px 28px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-        align-self: stretch;
-    }
-
     .blog-content-wrapper {
         width: 100%;
         background-color: #ffffff;
@@ -298,11 +233,17 @@ const latestBlogs = blogPostsArray
         min-width: 0;
     }
 
+    .blog-detail-content {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #0e1026;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+    }
+
     .blog-detail-header {
         margin-bottom: 40px;
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
     }
 
     .blog-detail-title {
@@ -311,25 +252,12 @@ const latestBlogs = blogPostsArray
         line-height: 1.15;
         margin-bottom: 12px;
         color: #0e1026;
-        width: 70%;
-        flex-shrink: 0;
     }
 
     .blog-detail-date {
         font-size: 12px;
         color: #666666;
-        margin-bottom: 30px;
-        width: 30%;
-        flex-shrink: 0;
-    }
-
-    .blog-detail-content {
-        font-size: 18px;
-        line-height: 1.8;
-        color: #0e1026;
-        background-color: #ffffff;
-        padding: 40px;
-        border-radius: 8px;
+        margin-bottom: 0;
     }
 
     .blog-detail-content :global(h1),
@@ -520,50 +448,6 @@ const latestBlogs = blogPostsArray
             grid-template-columns: 1fr;
             gap: 40px;
         }
-
-        .blog-hero .hero-title {
-            font-size: 48px;
-        }
-
-        .blog-hero .hero-info {
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(1200px, calc(100% - 2 * var(--page-margin, 20px)));
-            grid-template-columns: 2fr 1fr;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .blog-hero .hero-info {
-            position: absolute;
-            left: 50%;
-            right: auto;
-            bottom: 0;
-            transform: translateX(-50%);
-            grid-template-columns: 1fr;
-            gap: 0;
-            align-items: stretch;
-            padding: 0 40px;
-            margin: 0 auto;
-        }
-
-        .blog-hero .hero-text-box {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            padding: 30px 40px;
-        }
-
-        .blog-hero .hero-credits-box {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            padding: 20px 40px;
-        }
-
-        .blog-hero .hero-title {
-            font-size: 40px;
-        }
     }
 
     @media (max-width: 768px) {
@@ -583,46 +467,6 @@ const latestBlogs = blogPostsArray
 
         .blog-detail-date {
             width: 100%;
-        }
-
-        .blog-hero .hero-info {
-            position: relative;
-            left: auto;
-            right: auto;
-            bottom: auto;
-            width: 100%;
-            transform: none;
-            grid-template-columns: 1fr;
-            gap: 0;
-            align-items: stretch;
-            padding: 0 var(--page-margin, 20px);
-            margin: 0 auto;
-        }
-
-        .blog-hero .hero-text-box,
-        .blog-hero .hero-credits-box {
-            width: 100%;
-        }
-
-        .blog-hero .hero-title {
-            font-size: 32px;
-        }
-
-        .blog-hero .hero-text-box {
-            width: 100%;
-            height: auto;
-            padding: 20px;
-            max-width: none;
-        }
-
-        .blog-hero .hero-credits-box {
-            width: 100%;
-            height: auto;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 15px 20px;
-            max-width: none;
         }
 
         .sidebar-blog-list {

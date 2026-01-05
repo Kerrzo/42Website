@@ -106,8 +106,6 @@
                     }
                     
                     // Date is set from config.json, not from YouTube API
-                } else {
-                    console.warn(`Failed to load metadata for video: ${videoId}`);
                 }
             } catch (error) {
                 console.error(`Error fetching video metadata for ${videoId}:`, error);
@@ -143,7 +141,6 @@
             
             if (currentQualityIndex < thumbnailQualities.length) {
                 const newQuality = thumbnailQualities[currentQualityIndex];
-                console.log(`Thumbnail failed for ${videoId}, trying: ${newQuality}`);
                 this.src = `https://img.youtube.com/vi/${videoId}/${newQuality}`;
             } else {
                 console.error(`All thumbnail qualities failed for video: ${videoId}`);
