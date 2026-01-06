@@ -142,6 +142,7 @@
             mobileMenu.classList.add('active');
             mobileOverlay.classList.add('active');
             body.style.overflow = 'hidden';
+            body.classList.add('mobile-menu-open');
         }
 
         function closeMenu() {
@@ -149,6 +150,7 @@
             mobileMenu.classList.remove('active');
             mobileOverlay.classList.remove('active');
             body.style.overflow = '';
+            body.classList.remove('mobile-menu-open');
         }
 
         function toggleMenu() {
