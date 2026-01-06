@@ -446,7 +446,7 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
 .mobile-nav-link {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
-    color: var(--primary-text);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
@@ -454,9 +454,12 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
     padding-bottom: 10px;
 }
 
-.mobile-nav-link:hover,
+.mobile-nav-link:hover {
+    color: #d0d0d0;
+}
+
 .mobile-nav-link.active {
-    color: var(--accent-blue);
+    color: #ffffff;
 }
 
 .mobile-nav-link.active::after {
@@ -466,7 +469,7 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
     left: 0;
     right: 0;
     height: 2px;
-    background-color: var(--accent-blue);
+    background-color: #ffffff;
 }
 
 /* Mobile Menu Submenu Styles */
@@ -485,8 +488,9 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
 
 .mobile-submenu-link {
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    color: var(--text-gray);
+    font-size: 18px;
+    line-height: 120%;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -497,11 +501,12 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
 }
 
 .mobile-submenu-link:hover {
-    color: var(--accent-blue);
+    color: #d0d0d0;
 }
 
 .submenu-chevron {
     font-size: 18px;
+    line-height: 120%;
     font-weight: 300;
     opacity: 0.6;
     margin-right: 8px;
