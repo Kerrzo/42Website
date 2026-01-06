@@ -6,7 +6,15 @@
     background-color: #0e1026;
 }
 
-/* Latham header uses global header styles from styles.css */
+/* Latham header uses global header styles from styles.css
+   but Bootstrap on this page defines its own .nav-link at the same specificity.
+   This small override simply re-applies the global header styles with higher priority. */
+.latham-page .main-menu .nav-menu .nav-link {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+}
 
 /* ===========================================
    INTRO SECTION (WHAT WE'VE DONE)
