@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /* */
 :root {
     --primary-bg: #000000;
@@ -1716,7 +1717,7 @@ main>section:last-of-type {
     .logo-42i {
         width: 225px;
     }
-    
+
     .logo-container {
         display: flex;
         align-items: center;
@@ -1783,7 +1784,7 @@ main>section:last-of-type {
     .logo-42i {
         width: 150px;
     }
-    
+
     .logo-container {
         display: flex;
         align-items: center;
@@ -1795,7 +1796,7 @@ main>section:last-of-type {
 
     /* Mobile menu adjustments for small screens */
     .mobile-menu {
-        padding: 40px 20px;
+        padding: 80px 20px 40px 20px;
     }
 
     .mobile-nav-link {

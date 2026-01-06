@@ -1795,7 +1795,7 @@ main>section:last-of-type {
 
     /* Mobile menu adjustments for small screens */
     .mobile-menu {
-        padding: 40px 20px;
+        padding: 80px 20px 40px 20px;
     }
 
     .mobile-nav-link {
