@@ -1353,7 +1353,7 @@ main>section:last-of-type {
    ======================================== */
 .section-hero {
     position: relative;
-    height: 900px;
+    height: 800px;
     width: 100%;
     overflow: hidden;
 }
@@ -1417,6 +1417,9 @@ main>section:last-of-type {
     color: #ffffff;
     margin: 0;
     text-align: left !important;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-credits-box {
