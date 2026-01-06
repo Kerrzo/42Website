@@ -56,15 +56,22 @@
     display: flex;
     align-items: flex-end;
     gap: 0;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 var(--page-margin);
+    box-sizing: border-box;
 }
 
 .craveable-hero__title-card {
-    width: 620px;
-    height: 266px;
+    width: 66.666%;
+    flex: 0 0 66.666%;
+    height: auto;
+    min-height: auto;
     background-color: rgba(42, 42, 252, 0.8);
     display: flex;
-    align-items: center;
-    padding: 25px 60px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 60px 60px;
     box-sizing: border-box;
 }
 
@@ -75,10 +82,12 @@
     line-height: 1;
     color: #ffffff;
     margin: 0;
+    text-align: left;
 }
 
 .craveable-hero__client-card {
-    width: 720px;
+    width: 33.333%;
+    flex: 0 0 33.333%;
     height: 133px;
     background-color: rgba(16, 22, 83, 0.8);
     box-sizing: border-box;
