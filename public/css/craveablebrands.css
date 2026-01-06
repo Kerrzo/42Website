@@ -23,111 +23,7 @@
 /* ========================================
    HERO SECTION
    ======================================== */
-
-.craveable-hero.section-hero {
-    position: relative;
-    height: 800px;
-    overflow: hidden;
-}
-
-.craveable-hero__bg {
-    position: absolute;
-    inset: 0;
-}
-
-.craveable-hero__bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.craveable-hero__bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(92, 0, 0, 0.24);
-}
-
-.craveable-hero__bottom {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    display: flex;
-    align-items: flex-end;
-    gap: 0;
-    width: 100%;
-    max-width: 1440px;
-    padding: 0 var(--page-margin);
-    box-sizing: border-box;
-}
-
-.craveable-hero__title-card {
-    width: 66.666%;
-    flex: 0 0 66.666%;
-    height: auto;
-    min-height: auto;
-    background-color: rgba(42, 42, 252, 0.8);
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 60px 60px;
-    box-sizing: border-box;
-}
-
-.craveable-hero__title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 60px;
-    line-height: 1;
-    color: #ffffff;
-    margin: 0;
-    text-align: left;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.craveable-hero__client-card {
-    width: 33.333%;
-    flex: 0 0 33.333%;
-    height: 133px;
-    background-color: rgba(16, 22, 83, 0.8);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    padding: 20px 36px;
-}
-
-.craveable-hero__client-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.craveable-hero__client-left {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.craveable-hero__client-label {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    color: #ffffff;
-    margin: 0;
-}
-
-.craveable-hero__client-value,
-.craveable-hero__client-credits {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: #ffffff;
-    margin: 0;
-}
+/* Craveable hero uses global hero styles from styles.css */
 
 /* ========================================
    INTRO – WHAT WE'VE DONE
@@ -727,24 +623,7 @@
    ======================================== */
 
 @media (max-width: 1200px) {
-    .craveable-hero.section-hero {
-        height: auto;
-        min-height: 600px;
-    }
-
-    .craveable-hero__bottom {
-        left: 60px;
-        transform: none;
-        flex-direction: column;
-        gap: 0;
-        align-items: flex-start;
-    }
-
-    .craveable-hero__title-card,
-    .craveable-hero__client-card {
-        width: 100%;
-        max-width: 600px;
-    }
+    /* Craveable hero uses global responsive styles from styles.css */
 
     .craveable-flock__title {
         font-size: 72px;
@@ -814,40 +693,7 @@
 }
 
 @media (max-width: 768px) {
-    .craveable-hero__bottom {
-        left: 0;
-        right: 0;
-        width: 100%;
-        transform: none;
-        flex-direction: column;
-        gap: 0;
-        align-items: stretch;
-        padding: 0;
-    }
-
-    .craveable-hero__title-card {
-        width: 100%;
-        height: auto;
-        padding: 20px;
-        max-width: none;
-    }
-
-    .craveable-hero__title {
-        font-size: 32px;
-    }
-
-    .craveable-hero__client-card {
-        width: 100%;
-        height: auto;
-        padding: 15px 20px;
-        max-width: none;
-    }
-
-    .craveable-hero__client-inner {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
+    /* Craveable hero uses global mobile styles from styles.css */
 
     .craveable-intro {
         padding: 60px 20px;

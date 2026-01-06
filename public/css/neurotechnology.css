@@ -9,27 +9,7 @@
 /* ========================================
    HERO SECTION - NT SPECIFIC
    ======================================== */
-.nt-hero .hero-bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.nt-hero .hero-bg-image img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    min-width: 100%;
-    min-height: 100%;
-}
+/* NT hero uses global hero styles from styles.css */
 
 .nt-hero .hero-text-box {
     padding: 60px 50px;
@@ -377,27 +357,7 @@
 }
 
 @media (max-width: 768px) {
-    .nt-hero .hero-bg-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    .nt-hero .hero-bg-image img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-        min-width: 100%;
-        min-height: 100%;
-    }
+    /* NT hero uses global mobile hero styles from styles.css */
 
     .nt-split-section__left {
         height: 350px;

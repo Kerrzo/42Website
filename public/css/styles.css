@@ -1560,41 +1560,57 @@ main>section:last-of-type {
 }
 
 @media (max-width: 768px) {
+    /* Mobile hero layout – image on top, text underneath on all hero sections */
     .section-hero {
         height: auto;
-        min-height: 500px;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-bg-mask,
+    .hero-bg-image-wrapper {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
     }
 
     .hero-bg-image {
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: static;
+        top: auto;
+        left: auto;
         width: 100%;
-        height: 100%;
+        height: auto;
+        display: block;
         object-fit: cover;
         object-position: 50% 50%;
     }
 
     .hero-info {
-        left: 0;
-        right: 0;
+        position: static;
+        left: auto;
+        right: auto;
+        bottom: auto;
         width: 100%;
+        height: auto;
         transform: none;
         flex-direction: column;
         gap: 0;
         align-items: stretch;
         padding: 0;
-    }
-
-    .work-page .hero-title {
-        font-size: 32px;
+        box-sizing: border-box;
     }
 
     .hero-text-box {
         width: 100%;
         height: auto;
-        padding: 60px 20px;
+        flex: 1 1 auto;
+        padding: 40px;
         max-width: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-credits-box {
@@ -1605,10 +1621,16 @@ main>section:last-of-type {
         gap: 20px;
         padding: 15px 20px;
         max-width: none;
+        box-sizing: border-box;
     }
 
     .credit-photo {
         text-align: left;
+    }
+
+    /* Make hero titles ~75% of base desktop size on mobile */
+    .section-hero .hero-title {
+        font-size: 45px;
     }
 
     .section-intro {

@@ -6,40 +6,7 @@
     background-color: #0e1026;
 }
 
-/* Override Bootstrap nav-link styles to match site navigation */
-.latham-page .main-menu .nav-menu .nav-link {
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 24px !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 700 !important;
-    transition: color 0.3s ease !important;
-    position: relative !important;
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-    display: inline-block !important;
-}
-
-.latham-page .main-menu .nav-menu .nav-link:hover {
-    color: #ffffff !important;
-    background: none !important;
-}
-
-.latham-page .main-menu .nav-menu .nav-link.active {
-    color: #ffffff !important;
-    background: none !important;
-}
-
-.latham-page .main-menu .nav-menu .nav-link.active::after {
-    content: '' !important;
-    position: absolute !important;
-    bottom: -5px !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 2px !important;
-    background-color: #ffffff !important;
-}
+/* Latham header uses global header styles from styles.css */
 
 /* ===========================================
    INTRO SECTION (WHAT WE'VE DONE)

@@ -13,13 +13,7 @@
     margin-bottom: 16px;
 }
 
-/* Hero info positioning override */
-.amicabrand-hero .hero-info {
-    max-width: 1440px;
-    width: 100%;
-    padding: 0 100px;
-    box-sizing: border-box;
-}
+/* Amicabrand hero uses global hero styles from styles.css */
 
 /* Intro section - White background override */
 .amicabrand-page .section-intro {
@@ -273,9 +267,7 @@
 
 /* Responsive - Tablet */
 @media (max-width: 1200px) {
-    .amicabrand-hero .hero-info {
-        padding: 0 60px;
-    }
+    /* Amicabrand hero uses global tablet styles from styles.css */
     
     .amicabrand-page .section-intro .section-inner,
     .amicabrand-logo__inner,
@@ -359,16 +351,7 @@
 
 /* Responsive - Mobile */
 @media (max-width: 768px) {
-    .amicabrand-hero .hero-info {
-        left: 0;
-        right: 0;
-        width: 100%;
-        transform: none;
-        flex-direction: column;
-        gap: 0;
-        align-items: stretch;
-        padding: 0;
-    }
+    /* Amicabrand mobile hero uses global styles now */
     
     .amicabrand-page .section-intro {
         padding: 40px 0;
