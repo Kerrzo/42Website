@@ -514,7 +514,7 @@ p {
 .who-we-are-section {
     background: linear-gradient(to bottom, #000000 0%, #0a1628 100%);
     color: var(--primary-text);
-    padding: 80px 0;
+    padding: 0 0 80px 0;
     position: relative;
     overflow: hidden;
 }
@@ -527,7 +527,7 @@ p {
 
 /* Hero Section */
 .hero-section {
-    padding-top: 170px;
+    padding-top: 200px;
     text-align: center;
     padding-bottom: 60px;
     width: 100%;
@@ -1723,6 +1723,11 @@ main>section:last-of-type {
         align-items: center;
     }
 
+    /* Hero Section - Match what-we-do-landing-section padding */
+    .hero-section {
+        padding-top: 120px;
+    }
+
     /* Typography */
     .hero-title {
         font-size: 36px;
@@ -1769,6 +1774,11 @@ main>section:last-of-type {
 }
 
 @media (max-width: 480px) {
+    /* Hero Section - Match what-we-do-landing-section padding */
+    .hero-section {
+        padding-top: 100px;
+    }
+
     .hero-title {
         font-size: 28px;
     }
