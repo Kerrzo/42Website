@@ -245,7 +245,7 @@
 .tools-of-trade-section {
     background-color: #0e1026;
     /* Dark blue-black background from Figma */
-    padding: 40px var(--page-margin) 120px;
+    padding: 80px var(--page-margin) 120px;
     position: relative;
 }
 
@@ -289,12 +289,14 @@
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .tool-item {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-bottom: 30px;
 }
 
 .tool-name {
@@ -358,7 +360,7 @@
     }
 
     .tool-name {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .tool-description {

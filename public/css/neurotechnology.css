@@ -290,6 +290,19 @@
     }
 }
 
+@media (max-width: 920px) {
+    .nt-split-section__left {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .nt-split-section__left img {
+        object-position: top;
+        height: calc(100% + 80px);
+        transform: translateY(-80px);
+    }
+}
+
 @media (max-width: 992px) {
     .nt-split-section {
         flex-direction: column;
@@ -298,11 +311,18 @@
 
     .nt-split-section__left {
         width: 100%;
+        max-width: 100%;
         height: 500px;
     }
 
     .nt-split-section__image-top {
+        width: 100%;
         height: 350px;
+    }
+
+    .nt-split-section__left img,
+    .nt-split-section__image-top img {
+        width: 100%;
     }
 
     .nt-split-section__content {
@@ -360,11 +380,25 @@
     /* NT hero uses global mobile hero styles from styles.css */
 
     .nt-split-section__left {
-        height: 350px;
+        width: 100%;
+        height: 300px;
     }
 
     .nt-split-section__image-top {
-        height: 250px;
+        height: 300px;
+        width: 100%;
+    }
+
+    .nt-split-section__left img,
+    .nt-split-section__image-top img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .nt-split-section__left img {
+        object-position: top;
+        height: calc(100% + 80px);
+        transform: translateY(-80px);
     }
 
     .nt-split-section__content {
@@ -379,8 +413,14 @@
         font-size: 18px;
     }
 
+    .nt-split-section__logo {
+        text-align: center;
+    }
+
     .nt-split-section__logo img {
         height: 80px;
+        margin: 0 auto;
+        display: block;
     }
 
     .nt-clinic {
@@ -395,6 +435,10 @@
     .nt-clinic__title {
         font-size: 28px;
         max-width: 100%;
+    }
+
+    .nt-youtube__video {
+        margin-top: 80px;
     }
 
     .nt-instacalm__row {

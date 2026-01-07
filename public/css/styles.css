@@ -604,6 +604,9 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
     font-size: 26px;
     color: var(--text-gray);
     line-height: 1.3;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .what-we-do-text strong {
