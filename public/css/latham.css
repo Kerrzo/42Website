@@ -50,10 +50,18 @@
     background: linear-gradient(-65.54deg, rgba(42, 43, 252, 0) 44.54%, rgba(42, 43, 252, 0.4) 98.13%);
 }
 
-.latham-showcase .showcase-content {
+.latham-showcase .section-inner {
     position: absolute;
     top: 94px;
-    left: 100px;
+    left: 0;
+    right: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.latham-showcase .showcase-content {
+    position: relative;
     max-width: 640px;
 }
 
@@ -239,8 +247,8 @@
         height: 700px;
     }
 
-    .latham-showcase .showcase-content {
-        left: 60px;
+    .latham-showcase .section-inner {
+        padding: 0 60px;
     }
 
     .latham-partner {
@@ -270,9 +278,8 @@
         height: 600px;
     }
 
-    .latham-showcase .showcase-content {
-        left: 30px;
-        right: 30px;
+    .latham-showcase .section-inner {
+        padding: 0 30px;
     }
 
     .latham-showcase .showcase-title {
