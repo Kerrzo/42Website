@@ -513,7 +513,8 @@ p {
 .who-we-are-section {
     background: linear-gradient(to bottom, #000000 0%, #0a1628 100%);
     color: var(--primary-text);
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
     position: relative;
     overflow: hidden;
 }
@@ -851,7 +852,7 @@ p {
 /* Don't Panic Section */
 .dont-panic-section {
     text-align: center;
-    padding: 80px var(--page-margin);
+    padding: 0px var(--page-margin);
     max-width: 920px;
     margin: 0 auto;
 }

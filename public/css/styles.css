@@ -533,7 +533,8 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
 .who-we-are-section {
     background: linear-gradient(to bottom, #000000 0%, #0a1628 100%);
     color: var(--primary-text);
-    padding: 0 0 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
     position: relative;
     overflow: hidden;
 }
@@ -874,7 +875,7 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
 /* Don't Panic Section */
 .dont-panic-section {
     text-align: center;
-    padding: 80px var(--page-margin);
+    padding: 0px var(--page-margin);
     max-width: 920px;
     margin: 0 auto;
 }
@@ -888,9 +889,11 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
 }
 
 .dont-panic-text {
+    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
+    font-weight: 400;
     color: var(--text-light-gray);
-    line-height: 1.3;
+    line-height: 1.6;
 }
 
 .dont-panic-text strong {
