@@ -48,6 +48,10 @@
     padding-bottom: 0;
 }
 
+.wrg-3d-section .wrg-description-wrapper {
+    padding-bottom: 5px;
+}
+
 .wrg-3d-section .wrg-description {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
