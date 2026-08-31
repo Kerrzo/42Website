@@ -44,6 +44,10 @@ Desktop.ini
 *.swo
 *~
 
+# Local start/stop scripts
+start.bat
+stop.bat
+
 # Temporary files
 *.tmp
 *.temp
