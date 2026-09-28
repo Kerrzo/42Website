@@ -192,6 +192,15 @@ const latestBlogs = blogPostsArray
     <Footer />
 </BaseLayout>
 
+<script>
+    // Low Power Mode / Data Saver block autoplay; expose controls so the video can still be played.
+    document.querySelectorAll<HTMLVideoElement>(".blog-detail-content video[autoplay]").forEach((video) => {
+        video.play()?.catch(() => {
+            video.controls = true;
+        });
+    });
+</script>
+
 <style>
     /* Blog Hero Section */
     .blog-hero {
