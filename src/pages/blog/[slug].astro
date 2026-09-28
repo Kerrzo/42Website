@@ -286,11 +286,21 @@ const latestBlogs = blogPostsArray
         color: #0e1026;
     }
 
-    .blog-detail-content :global(img) {
+    .blog-detail-content :global(img),
+    .blog-detail-content :global(video) {
         max-width: 100%;
         height: auto;
         border-radius: 8px;
         margin: 30px 0;
+    }
+
+    .blog-detail-content :global(p:has(> img):has(+ p > em:only-child)) {
+        margin-bottom: 0;
+    }
+
+    .blog-detail-content :global(p:has(> img):has(+ p > em:only-child) > img) {
+        display: block;
+        margin-bottom: 10px;
     }
 
     .blog-detail-content :global(ul),
@@ -315,6 +325,12 @@ const latestBlogs = blogPostsArray
         margin: 20px 0;
         font-style: italic;
         color: #0e1026;
+    }
+
+    .blog-detail-content :global(hr) {
+        border: none;
+        border-top: 1px solid #e0e0e0;
+        margin: 60px 0 40px;
     }
 
     /* Sidebar Styles */
