@@ -1,0 +1,77 @@
+---
+title: "From AI Experiments to Business Value"
+publishedAt: "2026-11-20"
+summary: "Paul and I spoke at CUB about how we use AI at 42 Interactive: experiments that worked, ones that didn't, and how to turn them into business value."
+image: "/blog/images/from-ai-experiments-to-business-value-hero.jpg"
+category: "technology-development"
+---
+
+_Business value. Better workflows. Human capability._
+
+<div class="blog-youtube">
+<iframe
+  src="https://www.youtube.com/embed/I05Zhl4ZZNQ"
+  title="From AI Experiments to Business Value — CUB talk"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+  loading="lazy"
+></iframe>
+</div>
+
+Paul and I were recently invited by CUB to talk about how we use AI at 42 Interactive. We didn't want to preach about which model is "best", because that changes every month. Instead, we shared what we've actually been doing: the experiments that worked, the ones that didn't, and what we've learned about turning experiments into something a business can rely on.
+
+The video above is my half of the talk. Here's a short summary, plus a note on Paul's half and why it isn't in the public cut.
+
+## The tools have moved faster than our habits
+
+I started with a simple test. In February 2025 I gave ChatGPT and Midjourney the same prompt, a businesswoman carrying a branded tote bag, and the results were rough. A year later, the same prompt in ChatGPT gave an image you'd struggle to tell from a photo. Putting a product onto that image used to mean a ComfyUI workflow that ran for minutes and still altered the picture. Now it takes about five seconds.
+
+Taking that one step further, I turned the still into a short product video. From blank page to finished clip took about half an hour. In my creative director days, the model, studio, photographer and edit would have taken more than a week.
+
+The same thing is happening with physical products. With AI as a guide I built a wearable e-badge: sourcing the parts, writing the firmware, working out which pins to solder, and designing a 3D-printed case. I also had Claude design a 3D-printed tray for our sink through a CAD tool. That would have taken me a weekend; it took about 15 minutes.
+
+None of this removes the need for taste. Slop is still slop if nobody directs it.
+
+## You are the composer and the conductor
+
+The way I think about it is an orchestra. You write the score: the outcome you want for the project or the business. The AI tools are the players: assistants, research tools, agents, image and video models, coding agents and plain old deterministic services. Your job is to pick the right players for each part and keep them in time.
+
+There's a trap here, though. Every platform wants to be _your_ conductor. It's $20 a month today, but once your whole workflow depends on it, $200 a month is hard to walk away from. So I built my own: a local agent called LUMA that runs on a Mac mini. It keeps my "second brain" of everything I'm learning, and it decides when to call Claude, Cursor or a local model. One example is a small tool that checks government tender sites every few days, matches tenders to our capability profile, and reads me the top three on my phone.
+
+## A checklist before you ship anything built with AI
+
+In the second half I covered what we check before an AI-assisted product goes to a client:
+
+-   **Assume your app will be inspected.** Anyone can hand your app to an AI and ask it to open it up, so keys, logins and server addresses must stay server-side.
+-   **Test beyond the screen.** AI can tell you a button works without noticing it's too small to tap. Real user testing still matters.
+-   **AI needs your business context.** Your team's words and your database's names are rarely the same. Without that context, AI either says it can't find the answer or makes one up.
+-   **Set the rules.** Update your terms and privacy policy to say how customer data reaches AI, keep agents to their business purpose, and log and review misuse.
+
+## The skills that matter now
+
+Back to the orchestra. Create the score: define what success looks like and write a clear brief. Conduct the right players. Keep people in control so the review step catches what automation gets wrong. Then rehearse, listen and improve: measure whether the work is actually getting better.
+
+My last point was a warning. It's easy to become a bad conductor: always on, always prompting, doing more work that creates no more value. Sometimes the best move is to slow down, step back, and ask whether the score is any good. The goal isn't to have fun with AI. It's to build business value.
+
+## Paul's half, and why it's not in this video
+
+Paul's section, _How can we move from experimenting with AI to creating real business value?_, took the same idea from the technical side. His approach is to experiment, learn from the experiment, and only then look for the commercial opportunity, because you can't spot what you don't know is possible.
+
+He walked through a chess coach he built for himself that combines a chess engine with a language model that learns your weaknesses. That idea later became the basis for a coaching platform for a fellow CUB member. He showed how AI can hold thousands of one-to-one conversations with a workforce and turn them into insight, and why deploying that at scale taught us to build guardrails and monitoring in from day one. He also showed a fully AI-assisted 3D character he made without a character-design background. His lessons: slow down to go faster, don't stop at efficiency, and human judgment is still essential.
+
+So why isn't it here? Much of Paul's section walked through live client platforms, real client data problems and prototypes still in discussion, and the Q&A went further into client specifics. Those stories made the session valuable for the room, but they aren't ours to publish. Out of respect for our clients, we've kept that half with the people who were there. A few of his moments that don't involve client work are in our short clips.
+
+Thanks again to CUB for having us, and to everyone who came along and asked such good questions. If you want to talk about turning your own AI experiments into business value, get in touch.
+
+**Let's build business value.**
+
+<button class="btn-get-touch" type="button">Let's Talk</button>
+
+---
+
+Written by,
+
+Dhani Sutanto  
+Creative Director / Technologist  
+42 Interactive Co-Founder
