@@ -303,11 +303,17 @@ const latestBlogs = blogPostsArray
         margin: 30px 0;
     }
 
+    .blog-detail-content :global(img.img-full-width) {
+        width: 100%;
+        object-fit: cover;
+    }
+
     .blog-detail-content :global(p:has(> img):has(+ p > em:only-child)) {
         margin-bottom: 0;
     }
 
-    .blog-detail-content :global(p:has(> img):has(+ p > em:only-child) > img) {
+    .blog-detail-content :global(p:has(> img):has(+ p > em:only-child) > img),
+    .blog-detail-content :global(img:has(+ p > em:only-child)) {
         display: block;
         margin-bottom: 10px;
     }
