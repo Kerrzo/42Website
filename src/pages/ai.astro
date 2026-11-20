@@ -1,0 +1,396 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+// Service visuals: a "spark to system" progression — scattered signals
+// get found (01), linked into a working path (02), then become a live
+// network (03). Plain SVG + SMIL so it needs no extra JS.
+const dot = (x, y, r = 3, cls = "sv-dot") =>
+    `<circle class="${cls}" cx="${x}" cy="${y}" r="${r}"/>`;
+
+const findPts = [
+    [40, 52], [96, 38], [150, 50], [204, 44], [62, 118], [130, 92],
+    [196, 100], [30, 186], [88, 150], [150, 196], [206, 176], [182, 214],
+    [52, 220], [118, 228],
+];
+const findHits = [[78, 96], [168, 140], [110, 176]];
+const findPath = "M78,96 C118,58 196,92 168,140 S136,212 110,176 S38,136 78,96 Z";
+
+const visualFind = `<svg viewBox="0 0 240 240" aria-hidden="true">
+  <defs><radialGradient id="svLens"><stop offset="0" stop-color="#8c8cff" stop-opacity=".35"/><stop offset="1" stop-color="#8c8cff" stop-opacity="0"/></radialGradient></defs>
+  ${findPts.map(([x, y]) => dot(x, y, 2.6)).join("")}
+  ${findHits
+      .map(
+          ([x, y], i) =>
+              `<g class="sv-hit" style="--d:${i * 3}s"><circle class="sv-hit-ring" cx="${x}" cy="${y}" r="6"/>${dot(x, y, 4.5, "sv-hit-core")}</g>`,
+      )
+      .join("")}
+  <g class="sv-lens">
+    <circle r="34" fill="url(#svLens)"/>
+    <circle r="34" class="sv-lens-ring"/>
+    <path d="M-8,0 H8 M0,-8 V8" class="sv-lens-cross"/>
+    <animateMotion dur="9s" repeatCount="indefinite" path="${findPath}"/>
+  </g>
+</svg>`;
+
+const proveNodes = [[36, 180], [84, 114], [142, 148], [198, 72]];
+const provePath = "M36,180 L84,114 L142,148 L198,72";
+const visualProve = `<svg viewBox="0 0 240 240" aria-hidden="true">
+  <path d="M84,114 L122,52 M142,148 L176,206 M84,114 L40,74" class="sv-link sv-link--ghost"/>
+  ${[[122, 52], [176, 206], [40, 74]].map(([x, y]) => dot(x, y, 3, "sv-dot sv-dot--ghost")).join("")}
+  <path d="${provePath}" class="sv-link sv-link--main"/>
+  ${proveNodes.slice(0, 3).map(([x, y]) => dot(x, y, 5, "sv-node")).join("")}
+  <g class="sv-goal">
+    <circle class="sv-goal-ring" cx="198" cy="72" r="16"/>
+    <circle class="sv-goal-core" cx="198" cy="72" r="15"/>
+    <path d="M191,72 l5,5 l9,-10" class="sv-goal-tick"/>
+  </g>
+  <circle r="4.5" class="sv-signal">
+    <animateMotion dur="3.2s" repeatCount="indefinite" path="${provePath}" keyTimes="0;0.85;1" keyPoints="0;1;1" calcMode="linear"/>
+  </circle>
+</svg>`;
+
+const netNodes = [
+    [120, 120], [52, 66], [112, 36], [186, 58], [210, 128], [176, 196],
+    [100, 206], [36, 150], [78, 118], [160, 98], [144, 164],
+];
+const netLinks = [
+    [0, 8], [0, 9], [0, 10], [8, 1], [8, 7], [1, 2], [2, 9], [9, 3], [3, 4],
+    [9, 4], [10, 4], [10, 5], [10, 6], [6, 7], [8, 6], [2, 3], [5, 4],
+];
+const netPath = (ids) => "M" + ids.map((i) => netNodes[i].join(",")).join(" L");
+const netSignals = [
+    { path: netPath([7, 8, 0, 9, 3]), dur: 3.4 },
+    { path: netPath([2, 9, 0, 10, 5]), dur: 3.9 },
+    { path: netPath([1, 8, 6, 10, 4]), dur: 4.4 },
+    { path: netPath([4, 9, 0, 8, 7]), dur: 3.7 },
+];
+const visualBuild = `<svg viewBox="0 0 240 240" aria-hidden="true">
+  ${netLinks
+      .map(([a, b]) => `<line x1="${netNodes[a][0]}" y1="${netNodes[a][1]}" x2="${netNodes[b][0]}" y2="${netNodes[b][1]}" class="sv-link"/>`)
+      .join("")}
+  <circle cx="120" cy="120" r="30" class="sv-hub-glow"/>
+  ${netNodes
+      .slice(1)
+      .map(([x, y], i) => `<circle class="sv-node sv-node--blink" style="--d:${(i * 0.37).toFixed(2)}s" cx="${x}" cy="${y}" r="4.5"/>`)
+      .join("")}
+  <circle cx="120" cy="120" r="9" class="sv-hub"/>
+  ${netSignals
+      .map(
+          (s, i) =>
+              `<circle r="3.5" class="sv-signal"><animateMotion dur="${s.dur}s" begin="${(i * 0.8).toFixed(1)}s" repeatCount="indefinite" path="${s.path}"/></circle>`,
+      )
+      .join("")}
+</svg>`;
+
+const services = [
+    {
+        num: "01",
+        stage: "Find it",
+        visual: visualFind,
+        title: "AI Consultancy",
+        text: "We look at how work really happens in your business, find where AI will help most, and agree what success looks like.",
+        items: [
+            "Workshops with you and your team",
+            "Finding the jobs most worth doing",
+            "Value, risk and data review",
+        ],
+    },
+    {
+        num: "02",
+        stage: "Prove it",
+        visual: visualProve,
+        title: "AI Proof of Concept & Prototyping",
+        text: "We build a working prototype and test it with your people on real tasks, so you can decide before you invest.",
+        items: [
+            "Rapid, working prototypes",
+            "Tested by your team on real work",
+            "A clear go, no-go or pivot decision",
+        ],
+    },
+    {
+        num: "03",
+        stage: "Build it",
+        visual: visualBuild,
+        title: "Agentic AI Development",
+        text: "We build AI agents that take work off your team's plate, connect them to your systems, and keep them performing.",
+        items: [
+            "Connected to the tools you already use",
+            "Your business knowledge and rules built in",
+            "Hosted, monitored and improved over time",
+        ],
+    },
+];
+
+const approach = [
+    {
+        icon: "icon-idea.svg",
+        title: "Starts with your workflow",
+        text: "We map the work before we automate any of it",
+    },
+    {
+        icon: "icon-paint-palette.svg",
+        title: "Works in your existing tools",
+        text: "Email, Microsoft 365, Google, your CRM, your systems and more",
+    },
+    {
+        icon: "icon-learning.svg",
+        title: "Understands your business",
+        text: "Built on your knowledge, processes and rules, so it acts with your business context",
+    },
+    {
+        icon: "icon-natural-ui.svg",
+        title: "No prompting skills needed",
+        text: "Your team doesn't need to learn AI; the AI comes to them",
+    },
+    {
+        icon: "icon-test-tube.svg",
+        title: "Grows with your team",
+        text: "New skills added as your needs change",
+    },
+];
+
+const principles = [
+    {
+        title: "You stay in control",
+        text: "Every agent is designed with a human in the loop. It drafts, prepares and flags, while your people approve anything that matters, with clear rules on what it may and may not do.",
+        image: "trust-1.png",
+        alt: "A person approving work prepared by an AI assistant",
+    },
+    {
+        title: "Tested beyond the happy path",
+        text: "Before launch, we test every agent against misuse, including attempts to trick it into ignoring its instructions (prompt injection), and set the right guardrails for internal and external use.",
+        image: "trust-2.png",
+        alt: "Engineers stress-testing an AI system",
+    },
+    {
+        title: "Only the access it needs",
+        text: "We connect AI only to the data it needs to do its job, and put clear governance in place for your team and clients.",
+        image: "trust-3.png",
+        alt: "An AI assistant given a key to a single unlocked server",
+    },
+    {
+        title: "Looked after over time",
+        text: "After launch, every action the agent takes is logged so you can see what it did and why. We provide ongoing support and maintenance, keeping it reliable and up to date as AI models change.",
+        image: "trust-4.png",
+        alt: "A team monitoring and upgrading an AI assistant",
+    },
+];
+
+const clients = [
+    {
+        name: "International Towers",
+        logo: { src: "/images/ai/logo-international-towers.svg", width: 193, height: 70 },
+        challenge:
+            "AMICA is a Commercial Real Estate (CRE) platform by International Towers that connects people, property strategy, and place. The property management team aims to extract actionable insights from large volumes of tenancy and operational data.",
+        outcome:
+            "Developed an agentic AI to validate feasibility across a shared knowledge base and complex management data.",
+        results: [
+            "Validated AI feasibility across tenancy and operational data",
+            "Enabled transition from concept to production system",
+            "Reduced uncertainty before full platform investment",
+        ],
+    },
+    {
+        name: "Waterfield",
+        logo: { src: "/images/ai/logo-waterfield.png", width: 260, height: 52 },
+        challenge:
+            "Manage multiple clients and align stakeholders time to focus on the same business transformation strategy. Waterfield is looking into an Agentic AI that would help scale their strategic service fast and optimise their cost.",
+        outcome:
+            "Waterfield used the Agentic AI prototype with multiple clients at the same time and the success validated the usability of agentic AI within their business.",
+        results: [
+            "Validated multi-client AI usage across stakeholders",
+            "Confirmed scalability of strategic service delivery",
+            "Defined clear path for AI-driven transformation",
+        ],
+        href: "/what-we-do/putting-the-intelligence-in-ai",
+    },
+    {
+        name: "Flux",
+        logo: { src: "/images/ai/logo-flux.png", width: 95, height: 42 },
+        challenge:
+            "Helps clients and stakeholders navigate business transformation using a centralised strategic knowledge base on a single platform. Flux aims to build this AI powered platform to optimise its service processes.",
+        outcome:
+            "We created a prototype AI platform called Fluxi to help Flux validate whether clients and stakeholders can use it effectively and support scaling their strategic services.",
+        results: [
+            "Validated platform usability with real stakeholders",
+            "Confirmed viability of centralised knowledge platform",
+            "Supported scaling of strategic services",
+        ],
+    },
+];
+---
+
+<BaseLayout
+    title="AI Services | 42 Interactive"
+    description="AI consultancy, proof of concept and agentic AI development, built around how your business works and how your team uses AI."
+    bodyClass="eai-page"
+    additionalStyles={["/css/enterprise-ai.css"]}
+>
+    <Header activePage="ai" />
+
+    <main class="main-content">
+        <!-- HERO -->
+        <section class="eai-hero" data-theme="dark">
+            <canvas class="eai-hero-field" data-neural-field aria-hidden="true"></canvas>
+            <p class="intro-label">AI at 42 Interactive</p>
+            <h1 class="eai-hero-title">
+                Practical AI,<br />built around<br />your business.
+            </h1>
+            <p class="intro-text eai-hero-text">
+                We help you find where <span class="bold">AI</span> can make a
+                <span class="bold">real difference</span>, <span class="bold"
+                    >prove it works</span
+                > with your people, then <span class="bold"
+                    >build it into the way your team already works</span
+                >.
+            </p>
+        </section>
+
+        <!-- SERVICES + HOW WE BUILD -->
+        <section class="eai-advisory" data-theme="dark">
+            <h2 class="eai-title">What We Offer</h2>
+            <p class="intro-text eai-lead">
+                Three ways we help, from working out where AI fits to putting it
+                to work every day.
+            </p>
+            <p class="intro-label eai-label">Our AI services</p>
+            <ol class="eai-svc-list">
+                {
+                    services.map((s) => (
+                        <li class="eai-svc">
+                            <div class="eai-svc-visual" set:html={s.visual} />
+                            <div class="eai-svc-body">
+                                <p class="eai-svc-stage">
+                                    <span>{s.num}</span>
+                                    {s.stage}
+                                </p>
+                                <h3 class="eai-svc-title">{s.title}</h3>
+                                <p class="eai-svc-text">{s.text}</p>
+                            </div>
+                            <ul class="eai-svc-items">
+                                {s.items.map((item) => (
+                                    <li>{item}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))
+                }
+            </ol>
+
+            <h2 class="eai-title eai-title--engineering">
+                Agentic AI Built Around Your Workflow
+            </h2>
+            <p class="intro-text eai-lead">
+                We start with how your business works, not with the technology.
+                Every agent is shaped around a real workflow and designed to
+                help your team get more from AI.
+            </p>
+            <p class="intro-label eai-label">How we build</p>
+            <ol class="eai-flow">
+                {
+                    approach.map((a, i) => (
+                        <li class="eai-flow-step">
+                            <span class="eai-flow-node">
+                                <img src={`/images/ai/${a.icon}`} alt="" />
+                            </span>
+                            <span class="eai-flow-num">{String(i + 1).padStart(2, "0")}</span>
+                            <h3>{a.title}</h3>
+                            <p>{a.text}</p>
+                        </li>
+                    ))
+                }
+            </ol>
+        </section>
+
+        <!-- TRUST -->
+        <section class="eai-principles" data-theme="light">
+            <h2 class="eai-title eai-principles-title">
+                Built to Be Trusted,<br />Not Just Demoed
+            </h2>
+            <div class="eai-principles-stage">
+                {
+                    principles.map((p, i) => (
+                        <div class={`eai-principle eai-principle--${i + 1}`}>
+                            <img
+                                class="eai-principle-img"
+                                src={`/images/ai/${p.image}`}
+                                alt={p.alt}
+                                loading="lazy"
+                            />
+                            <div class="eai-principle-text">
+                                <h3>{p.title}</h3>
+                                <p>{p.text}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- CLIENT WORK -->
+        <section class="eai-proven" data-theme="dark">
+            <h2 class="eai-title eai-proven-title">
+                What We've Built for Our Clients
+            </h2>
+            <p class="eai-proven-text">Real AI, in use by real teams.</p>
+
+            <div class="eai-client-grid">
+                {
+                    clients.map((c) => {
+                        const Tag = c.href ? "a" : "div";
+                        return (
+                            <Tag class="eai-client" href={c.href}>
+                                <div class="eai-client-logo">
+                                    <img
+                                        src={c.logo.src}
+                                        alt={c.name}
+                                        width={c.logo.width}
+                                        height={c.logo.height}
+                                    />
+                                </div>
+                                <p class="eai-client-label">Business challenge</p>
+                                <p>{c.challenge}</p>
+                                <p class="eai-client-label">Outcome</p>
+                                <p>{c.outcome}</p>
+                                <ul>
+                                    {c.results.map((r) => (
+                                        <li>{r}</li>
+                                    ))}
+                                </ul>
+                                {c.href && (
+                                    <span class="eai-client-link">
+                                        Read the case study
+                                        <img src="/images/ai/arrow.svg" alt="" width="24.6329" height="26.9835" />
+                                    </span>
+                                )}
+                            </Tag>
+                        );
+                    })
+                }
+            </div>
+        </section>
+
+        <section class="eai-outcomes" data-theme="dark">
+            <!-- CTA -->
+            <div class="eai-cta">
+                <p class="intro-label">Get started</p>
+                <h2 class="eai-title">Ready to Put an AI Agent to Work?</h2>
+                <p class="intro-text eai-cta-text">
+                    Let's have a free 30-minute chat. Tell us about a task your team
+                    repeats every week, and we'll show you what an AI agent
+                    could take off their plate and what the first step would
+                    look like.
+                </p>
+                <button class="footer-button eai-cta-button">
+                    Let's Talk
+                    <img src="/images/ai/arrow.svg" alt="" width="24.6329" height="26.9835" />
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+    <script is:inline src="/js/neural-field.js" defer></script>
+</BaseLayout>

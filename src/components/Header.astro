@@ -1,6 +1,6 @@
 ---
 interface Props {
-    activePage?: "home" | "who-we-are" | "what-we-do";
+    activePage?: "home" | "who-we-are" | "what-we-do" | "ai";
 }
 
 const { activePage = "home" } = Astro.props;
@@ -17,14 +17,19 @@ const { activePage = "home" } = Astro.props;
         </a>
         <nav class="nav-menu">
             <a
-                href="/who-we-are"
-                class={`nav-link ${activePage === "who-we-are" ? "active" : ""}`}
-                >Who We Are</a
-            >
-            <a
                 href="/what-we-do"
                 class={`nav-link ${activePage === "what-we-do" ? "active" : ""}`}
-                >What We Do</a
+                >Services</a
+            >
+            <a
+                href="/ai"
+                class={`nav-link ${activePage === "ai" ? "active" : ""}`}
+                >AI</a
+            >
+            <a
+                href="/who-we-are"
+                class={`nav-link ${activePage === "who-we-are" ? "active" : ""}`}
+                >About</a
             >
             <button class="btn-get-touch">Let's Talk</button>
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -42,9 +47,8 @@ const { activePage = "home" } = Astro.props;
 <!-- Mobile Menu -->
 <div class="mobile-menu-overlay"></div>
 <nav class="mobile-menu">
-    <a href="/who-we-are" class="mobile-nav-link">Who We Are</a>
     <div class="mobile-nav-item-with-submenu">
-        <a href="/what-we-do" class="mobile-nav-link">What We Do</a>
+        <a href="/what-we-do" class="mobile-nav-link">Services</a>
         <div class="mobile-submenu">
             <a href="/what-we-do/building-restaurants-of-the-future" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Building Restaurants of The Future</a>
             <a href="/what-we-do/a-brand-that-feels-like-a-friend" class="mobile-submenu-link"><span class="submenu-chevron">›</span>A Brand That Feels Like a Friend</a>
@@ -57,4 +61,6 @@ const { activePage = "home" } = Astro.props;
             <a href="/what-we-do/bringing-products-to-life" class="mobile-submenu-link"><span class="submenu-chevron">›</span>Bringing Products to Life</a>
         </div>
     </div>
+    <a href="/ai" class="mobile-nav-link">AI</a>
+    <a href="/who-we-are" class="mobile-nav-link">About</a>
 </nav>
