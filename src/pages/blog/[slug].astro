@@ -372,6 +372,84 @@ const latestBlogs = blogPostsArray
         cursor: pointer;
     }
 
+    /* Highlighted callout box (e.g. link to a service page) */
+    .blog-detail-content :global(.blog-callout) {
+        position: relative;
+        overflow: hidden;
+        margin: 56px 0 0;
+        padding: 48px 48px 44px;
+        border-radius: 12px;
+        background:
+            radial-gradient(circle at 100% 0%, rgba(42, 42, 252, 0.55), rgba(42, 42, 252, 0) 55%),
+            radial-gradient(circle at 0% 100%, rgba(127, 160, 229, 0.25), rgba(127, 160, 229, 0) 50%),
+            #02002d;
+    }
+
+    /* faint dot grid, a nod to the AI page network */
+    .blog-detail-content :global(.blog-callout::before) {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(185, 200, 242, 0.22) 1px, transparent 1.5px);
+        background-size: 22px 22px;
+        mask-image: linear-gradient(120deg, transparent 35%, #000 100%);
+        -webkit-mask-image: linear-gradient(120deg, transparent 35%, #000 100%);
+        pointer-events: none;
+    }
+
+    .blog-detail-content :global(.blog-callout > *) {
+        position: relative;
+    }
+
+    .blog-detail-content :global(.blog-callout .blog-callout-label) {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #7fa0e5;
+    }
+
+    .blog-detail-content :global(.blog-callout .blog-callout-title) {
+        margin: 12px 0 0;
+        font-size: 40px;
+        line-height: 1.1;
+        color: #ffffff;
+    }
+
+    .blog-detail-content :global(.blog-callout .blog-callout-text) {
+        max-width: 620px;
+        margin: 18px 0 0;
+        font-size: 22px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    .blog-detail-content :global(.blog-callout .blog-callout-link) {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 28px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+        text-decoration: none;
+        border-bottom: 2px solid #7fa0e5;
+        padding-bottom: 4px;
+        transition: gap 0.3s ease, border-color 0.3s ease;
+    }
+
+    .blog-detail-content :global(.blog-callout .blog-callout-link:hover) {
+        gap: 16px;
+        border-color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+        .blog-detail-content :global(.blog-callout) { padding: 32px 24px; }
+        .blog-detail-content :global(.blog-callout .blog-callout-title) { font-size: 30px; }
+        .blog-detail-content :global(.blog-callout .blog-callout-text) { font-size: 18px; }
+    }
+
     /* Sidebar Styles */
     .blog-sidebar {
         display: flex;
