@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { displayImage } from "../data/images";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import configData from '../../data/config.json';
+import { companyGraph } from '../data/schema';
 
 // Get featured podcasts using the featuredPodcasts array from config
 // The order in the array determines display order (1st = left, 2nd = middle, 3rd = right)
@@ -87,6 +89,8 @@ const formatDate = (dateString: string) => {
 
 <BaseLayout 
   title="Who We Are - 42 Interactive"
+    description="The story behind 42 Interactive, a Sydney creative technology studio that designs and develops web, app and AI experiences. Meet the team and see how we work."
+    jsonLd={companyGraph()}
   bodyClass=""
 >
     <Header activePage="who-we-are" />
@@ -134,44 +138,75 @@ const formatDate = (dateString: string) => {
                 </div>
             </div>
 
+            <!-- Leadership Section -->
+            <div class="leadership-section">
+                <div class="section-label">OUR LEADERSHIP</div>
+                <ul class="leadership-list">
+                    <li class="leadership-person">
+                        <span class="leadership-name">Dhani Sutanto</span>
+                        <span class="leadership-role">Chief Creative Officer</span>
+                        <a
+                            class="leadership-link"
+                            href="https://www.linkedin.com/in/dhanisutanto"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Dhani Sutanto on LinkedIn (opens in a new tab)"
+                            >LinkedIn <span aria-hidden="true">↗</span></a
+                        >
+                    </li>
+                    <li class="leadership-person">
+                        <span class="leadership-name">Paul Kerr</span>
+                        <span class="leadership-role">Chief Technology Officer</span>
+                        <a
+                            class="leadership-link"
+                            href="https://www.linkedin.com/in/kerrzo"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Paul Kerr on LinkedIn (opens in a new tab)"
+                            >LinkedIn <span aria-hidden="true">↗</span></a
+                        >
+                    </li>
+                </ul>
+            </div>
+
             <!-- Crew Carousel Section -->
             <div class="crew-carousel-section">
                 <div class="carousel-row">
                     <div class="carousel-track">
-                        <img src="/images/crew/image-crew-1.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-2.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-3.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-4.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-6.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-7.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-8.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-1.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-2.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-3.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-4.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-6.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-7.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-8.webp" alt="Team Member" class="carousel-image">
                         <!-- Duplicate for seamless loop -->
-                        <img src="/images/crew/image-crew-1.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-2.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-3.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-4.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-6.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-7.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-8.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-1.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-2.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-3.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-4.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-6.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-7.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-8.webp" alt="Team Member" class="carousel-image">
                     </div>
                 </div>
                 <div class="carousel-row carousel-row-reverse">
                     <div class="carousel-track">
-                        <img src="/images/crew/image-crew-9.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-10.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-11.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-12.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-13.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-14.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-15.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-9.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-10.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-11.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-12.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-13.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-14.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-15.webp" alt="Team Member" class="carousel-image">
                         <!-- Duplicate for seamless loop -->
-                        <img src="/images/crew/image-crew-9.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-10.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-11.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-12.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-13.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-14.png" alt="Team Member" class="carousel-image">
-                        <img src="/images/crew/image-crew-15.png" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-9.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-10.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-11.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-12.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-13.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-14.webp" alt="Team Member" class="carousel-image">
+                        <img src="/images/crew/image-crew-15.webp" alt="Team Member" class="carousel-image">
                     </div>
                 </div>
             </div>
@@ -288,7 +323,7 @@ const formatDate = (dateString: string) => {
 
                 <!-- Show All Podcasts Button -->
                 <div class="podcasts-section" style="text-align: center; margin-top: 40px;">
-                    <a href="/podcasts" class="btn-show-all">Show All Podcasts</a>
+                    <a href="/podcasts/" class="btn-show-all">Show All Podcasts</a>
                 </div>
 
                 <!-- Featured Blogs Section -->
@@ -297,11 +332,11 @@ const formatDate = (dateString: string) => {
                     <div class="podcasts-grid">
                         {
                             featuredBlogs.map((blog) => (
-                                <a href={`/blog/${blog.slug}`} class="youtube-video-card" style="text-decoration: none;">
+                                <a href={`/blog/${blog.slug}/`} class="youtube-video-card" style="text-decoration: none;">
                                     {blog.image ? (
                                         <div class="youtube-thumbnail">
                                             <img
-                                                src={blog.image}
+                                                src={displayImage(blog.image)}
                                                 alt={blog.title}
                                                 class="podcast-image"
                                             />
@@ -329,11 +364,11 @@ const formatDate = (dateString: string) => {
                     <div class="podcasts-grid">
                         {
                             latestBlogs.map((blog) => (
-                                <a href={`/blog/${blog.slug}`} class="youtube-video-card" style="text-decoration: none;">
+                                <a href={`/blog/${blog.slug}/`} class="youtube-video-card" style="text-decoration: none;">
                                     {blog.image ? (
                                         <div class="youtube-thumbnail">
                                             <img
-                                                src={blog.image}
+                                                src={displayImage(blog.image)}
                                                 alt={blog.title}
                                                 class="podcast-image"
                                             />
@@ -357,7 +392,7 @@ const formatDate = (dateString: string) => {
 
                 <!-- Show All Blogs Button -->
                 <div class="podcasts-section" style="text-align: center; margin-top: 40px;">
-                    <a href="/blog" class="btn-show-all">Show All Blogs</a>
+                    <a href="/blog/" class="btn-show-all">Show All Blogs</a>
                 </div>
             
         </section>

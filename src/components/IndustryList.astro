@@ -1,0 +1,40 @@
+---
+import { industries } from "../data/industries";
+
+// Rows of industries with the case studies behind each one.
+interface Props {
+    /** Heading level for each industry title (h2 on /industries/, h3 inside a section) */
+    level?: "h2" | "h3";
+}
+const { level = "h3" } = Astro.props;
+const Heading = level;
+---
+
+<ul class="sp-rows">
+    {
+        industries.map((ind) => (
+            <li class="sp-row">
+                <div>
+                    <Heading class="sp-row-title">
+                        {ind.overview ? <a href={ind.overview}>{ind.title}</a> : ind.title}
+                    </Heading>
+                    <p class="sp-row-text">{ind.text}</p>
+                </div>
+                <div>
+                    <ul class="sp-links sp-links--stack" aria-label={`${ind.title} work`}>
+                        {ind.overview && (
+                            <li>
+                                <a href={ind.overview}>{ind.title} overview</a>
+                            </li>
+                        )}
+                        {ind.work.map((w) => (
+                            <li>
+                                <a href={w.href}>{w.name}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </li>
+        ))
+    }
+</ul>

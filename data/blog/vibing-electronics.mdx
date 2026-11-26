@@ -4,6 +4,7 @@ publishedAt: "2026-09-28"
 summary: "What happens when vibe coding moves from software into hardware? I used AI to plan, wire, code, design and 3D print a wearable electronic name badge."
 image: "/blog/images/vibing-electronics-internal-assembly.jpg"
 category: "technology-development"
+author: "Dhani Sutanto"
 ---
 
 We’ve seen plenty of software built with AI through what people now call _vibe coding_: automation tools, digital products, websites and entire applications.
@@ -76,7 +77,7 @@ I designed the badge interface in Figma and used Figma MCP to give the coding ag
 
 From that, the agents created the screens and translated the visual design into something that could run on the ESP32.
 
-![Figma frames for the badge: name, LinkedIn and website QR codes, clock, timer and portfolio screens](/blog/images/vibing-electronics-figma-ui-screens.jpg)
+![Figma frames for the badge: name, LinkedIn and website QR codes, clock, timer and portfolio screens](/blog/images/vibing-electronics-figma-ui-screens.webp)
 
 _The badge UI system in Figma: identity screens, QR codes, clock, timer and portfolio content._
 
@@ -106,17 +107,17 @@ That meant designing an enclosure with accurate measurements for the board, batt
 
 I used Fusion 360 to model the case and iterated on the dimensions until everything aligned correctly.
 
-![Exploded 3D model of the two-part badge enclosure in Fusion 360](/blog/images/vibing-electronics-fusion-360-enclosure.jpg)
+![Exploded 3D model of the two-part badge enclosure in Fusion 360](/blog/images/vibing-electronics-fusion-360-enclosure.webp)
 
 _The enclosure model in Fusion 360 before printing._
 
 Then it went to the 3D printer. And, predictably, it did not work perfectly on the first attempt. There were multiple prints, small dimensional changes, test fits and another round of printing before all of the parts finally came together.
 
-![Enclosure parts laid out on the print plate in the slicer software](/blog/images/vibing-electronics-3d-print-slicer.jpg)
+![Enclosure parts laid out on the print plate in the slicer software](/blog/images/vibing-electronics-3d-print-slicer.webp)
 
 _Preparing another enclosure iteration for 3D printing._
 
-<video src="/blog/videos/vibing-electronics-enclosure-printing.mp4" poster="/blog/images/vibing-electronics-enclosure-printing-poster.jpg" autoplay muted loop playsinline aria-label="Time-lapse of the badge enclosure being 3D printed"></video>
+<video src="/blog/videos/vibing-electronics-enclosure-printing.mp4" poster="/blog/images/vibing-electronics-enclosure-printing-poster.webp" autoplay muted loop playsinline aria-label="Time-lapse of the badge enclosure being 3D printed"></video>
 
 That iterative process was probably the most physical part of the project. In software, changing a few pixels can take seconds. With fabrication, a tiny measurement error might mean waiting a few hours for a new print.
 

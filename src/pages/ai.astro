@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { serviceGraph, faqGraph } from "../data/schema";
 
 // Service visuals: a "spark to system" progression — scattered signals
 // get found (01), linked into a working path (02), then become a live
@@ -155,26 +156,78 @@ const principles = [
     {
         title: "You stay in control",
         text: "Every agent is designed with a human in the loop. It drafts, prepares and flags, while your people approve anything that matters, with clear rules on what it may and may not do.",
-        image: "trust-1.png",
+        image: "trust-1.webp",
         alt: "A person approving work prepared by an AI assistant",
     },
     {
         title: "Tested beyond the happy path",
         text: "Before launch, we test every agent against misuse, including attempts to trick it into ignoring its instructions (prompt injection), and set the right guardrails for internal and external use.",
-        image: "trust-2.png",
+        image: "trust-2.webp",
         alt: "Engineers stress-testing an AI system",
     },
     {
         title: "Only the access it needs",
         text: "We connect AI only to the data it needs to do its job, and put clear governance in place for your team and clients.",
-        image: "trust-3.png",
+        image: "trust-3.webp",
         alt: "An AI assistant given a key to a single unlocked server",
     },
     {
         title: "Looked after over time",
         text: "After launch, every action the agent takes is logged so you can see what it did and why. We provide ongoing support and maintenance, keeping it reliable and up to date as AI models change.",
-        image: "trust-4.png",
+        image: "trust-4.webp",
         alt: "A team monitoring and upgrading an AI assistant",
+    },
+];
+
+// Plain-English explainers. General definitions, not claims about us.
+const definitions = [
+    {
+        term: "AI agent",
+        text: "Software that carries out a task for you, using the tools you already have. It drafts, prepares and flags, and your people approve anything that matters.",
+    },
+    {
+        term: "RAG (retrieval-augmented generation)",
+        text: "The AI looks up answers in your own documents and data before it replies, so what it says is based on your business information and not only on general knowledge.",
+    },
+    {
+        term: "Workflow automation",
+        text: "Turning a job your team repeats into steps a system can run, with people stepping in where judgement is needed.",
+    },
+    {
+        term: "System integration",
+        text: "Connecting the agent to your email, Microsoft 365, Google, CRM and other systems, so it works inside the tools your team already uses.",
+    },
+];
+
+// Visible FAQ. FAQPage markup is built from this same list, so the two always match.
+const faqs = [
+    {
+        q: "How much does an AI agent cost?",
+        a: "It depends on the workflow, how many systems the agent connects to, and how much testing it needs. We do not publish fixed prices because every workflow is different. We usually start with a consultation or a prototype, so you can see the value before you commit to a full build.",
+    },
+    {
+        q: "How does an AI project work, from start to finish?",
+        a: "There are four stages. In AI Consultancy, we map how work happens in your business and agree what success looks like. In the proof of concept, we build a working prototype and test it with your team on real tasks. In agentic AI development, we build the agent, connect it to your systems and build in your business knowledge and rules. After launch, we log what the agent does, maintain it and keep it up to date as AI models change.",
+    },
+    {
+        q: "Which systems can an AI agent connect to?",
+        a: "Agents work inside the tools you already use, such as email, Microsoft 365, Google and your CRM, as well as your own systems. We confirm what is possible during the consultation.",
+    },
+    {
+        q: "Where does the AI agent run?",
+        a: "In the cloud. We connect it only to the data it needs to do its job, and we agree clear rules with you on what the agent can and cannot do.",
+    },
+    {
+        q: "How do you keep our data safe and our people in control?",
+        a: "Every agent is designed with a human in the loop: it drafts, prepares and flags, and your people approve anything that matters. An agent connects only to the data it needs. Before launch, we test it against misuse, including attempts to trick it into ignoring its instructions (prompt injection).",
+    },
+    {
+        q: "Who looks after the agent after launch?",
+        a: "We do. Every action the agent takes is logged, so you can see what it did and why. We provide ongoing support and maintenance, and keep the agent reliable and up to date as AI models change.",
+    },
+    {
+        q: "Does my team need to learn prompting?",
+        a: "No. Your team does not need to learn AI; the AI comes to them. We build agents around your existing workflow.",
     },
 ];
 
@@ -204,7 +257,7 @@ const clients = [
             "Confirmed scalability of strategic service delivery",
             "Defined clear path for AI-driven transformation",
         ],
-        href: "/what-we-do/putting-the-intelligence-in-ai",
+        href: "/what-we-do/putting-the-intelligence-in-ai/",
     },
     {
         name: "Flux",
@@ -225,6 +278,7 @@ const clients = [
 <BaseLayout
     title="AI Services | 42 Interactive"
     description="AI consultancy, proof of concept and agentic AI development, built around how your business works and how your team uses AI."
+    jsonLd={[serviceGraph("/ai/", services), faqGraph(faqs)]}
     bodyClass="eai-page"
     additionalStyles={["/css/enterprise-ai.css"]}
 >
@@ -371,6 +425,36 @@ const clients = [
                     ))
                 }
             </ol>
+        </section>
+
+        <!-- PLAIN ENGLISH + FAQ -->
+        <section class="eai-learn" data-theme="light">
+            <h2 class="eai-title">AI in Plain English</h2>
+            <p class="eai-learn-sub">
+                Four ideas sit behind most useful business AI.
+            </p>
+            <dl class="eai-defs">
+                {
+                    definitions.map((d) => (
+                        <div class="eai-def">
+                            <dt>{d.term}</dt>
+                            <dd>{d.text}</dd>
+                        </div>
+                    ))
+                }
+            </dl>
+
+            <h2 class="eai-title eai-faq-title">Common Questions</h2>
+            <div class="eai-faq">
+                {
+                    faqs.map((f) => (
+                        <details>
+                            <summary>{f.q}</summary>
+                            <p>{f.a}</p>
+                        </details>
+                    ))
+                }
+            </div>
         </section>
 
         <section class="eai-outcomes" data-theme="dark">

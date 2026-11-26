@@ -2,15 +2,17 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import CaseFacts from "../../components/CaseFacts.astro";
 import OtherWork from "../../components/OtherWork.astro";
 ---
 
 <BaseLayout
     title="Neurotechnology – A Better Way to Manage Pain | 42 Interactive"
+    description="How 42 Interactive built a world-first VR therapy experience that uses neuroplasticity to help people manage chronic pain, for a clinic in Edgecliff, NSW."
     bodyClass="neurotechnology-page"
     additionalStyles={["/css/neurotechnology.css"]}
 >
-    <Header activePage="home" />
+    <Header activePage="what-we-do" />
 
     <main class="main-content">
         <!-- ========================================
@@ -19,7 +21,7 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="nt-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-mask">
                 <img
-                    src="/images/work/neurotechnology/image-nt-hero.png"
+                    src="/images/work/neurotechnology/image-nt-hero.webp"
                     alt="Neurotechnology Hero"
                     class="hero-bg-image"
                 />
@@ -30,6 +32,8 @@ import OtherWork from "../../components/OtherWork.astro";
                 </div>
             </div>
         </section>
+
+        <CaseFacts client="Innovate Pain Clinic" built="A VR therapy experience that uses neuroplasticity to help people manage chronic pain" industry="Healthcare" />
 
         <!-- ========================================
              INTRO – WHAT WE'VE DONE
@@ -52,14 +56,14 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="nt-split-section" data-theme="dark">
             <div class="nt-split-section__left">
                 <img
-                    src="/images/work/neurotechnology/image-nt-patient.png"
+                    src="/images/work/neurotechnology/image-nt-patient.webp"
                     alt="Patient using VR"
                 />
             </div>
             <div class="nt-split-section__right">
                 <div class="nt-split-section__image-top">
                     <img
-                        src="/images/work/neurotechnology/image-nt-computers.png"
+                        src="/images/work/neurotechnology/image-nt-computers.webp"
                         alt="Computers setup"
                     />
                 </div>
@@ -97,7 +101,7 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="nt-clinic" data-theme="dark">
             <div class="nt-clinic__image">
                 <img
-                    src="/images/work/neurotechnology/image-nt-clinic.png"
+                    src="/images/work/neurotechnology/image-nt-clinic.webp"
                     alt="Innovate Pain Clinic"
                 />
             </div>
@@ -133,29 +137,29 @@ import OtherWork from "../../components/OtherWork.astro";
             <div class="nt-instacalm__grid">
                 <div class="nt-instacalm__row">
                     <img
-                        src="/images/work/neurotechnology/image-nt-instacalm-1a.png"
+                        src="/images/work/neurotechnology/image-nt-instacalm-1a.webp"
                         alt="Instacalm Experience 1a"
                     />
                     <img
-                        src="/images/work/neurotechnology/image-nt-instacalm-2a.png"
+                        src="/images/work/neurotechnology/image-nt-instacalm-2a.webp"
                         alt="Instacalm Experience 2a"
                     />
                     <img
-                        src="/images/work/neurotechnology/image-nt-instacalm-3a.png"
+                        src="/images/work/neurotechnology/image-nt-instacalm-3a.webp"
                         alt="Instacalm Experience 3a"
                     />
                 </div>
                 <div class="nt-instacalm__row">
                     <img
-                        src="/images/work/neurotechnology/image-nt-instacalm-1b.png"
+                        src="/images/work/neurotechnology/image-nt-instacalm-1b.webp"
                         alt="Instacalm Experience 1b"
                     />
                     <img
-                        src="/images/work/neurotechnology/image-nt-instacalm-2b.png"
+                        src="/images/work/neurotechnology/image-nt-instacalm-2b.webp"
                         alt="Instacalm Experience 2b"
                     />
                     <img
-                        src="/images/work/neurotechnology/image-nt-instacalm-3b.png"
+                        src="/images/work/neurotechnology/image-nt-instacalm-3b.webp"
                         alt="Instacalm Experience 3b"
                     />
                 </div>

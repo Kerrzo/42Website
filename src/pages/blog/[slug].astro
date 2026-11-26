@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { displayImage } from "../../data/images";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import OtherWork from "../../components/OtherWork.astro";
 import config from "../../../data/config.json";
+import { blogPostingGraph, SITE } from "../../data/schema";
 
 // Get all blog posts to generate static paths
 export async function getStaticPaths() {
@@ -78,6 +80,17 @@ const latestBlogs = blogPostsArray
     title={`${frontmatter.title} | 42 Interactive`}
     description={frontmatter.summary}
     bodyClass="blog-page"
+    ogType="article"
+    ogImage={frontmatter.image}
+    publishedTime={frontmatter.publishedAt}
+    jsonLd={blogPostingGraph({
+        title: frontmatter.title,
+        description: frontmatter.summary,
+        image: frontmatter.image,
+        publishedAt: frontmatter.publishedAt,
+        url: `${SITE}/blog/${currentSlug}/`,
+        author: frontmatter.author,
+    })}
 >
     <Header activePage="who-we-are" />
 
@@ -89,7 +102,7 @@ const latestBlogs = blogPostsArray
                     data-theme="dark"
                 >
                     <div class="hero-bg-image">
-                        <img src={frontmatter.image} alt={frontmatter.title} />
+                        <img src={displayImage(frontmatter.image)} alt={frontmatter.title} />
                     </div>
                 </section>
             )
@@ -117,14 +130,14 @@ const latestBlogs = blogPostsArray
                                 <div class="sidebar-blog-list">
                                     {featuredBlogs.map((post) => (
                                         <a
-                                            href={`/blog/${post.slug}`}
+                                            href={`/blog/${post.slug}/`}
                                             class="sidebar-blog-card"
                                             style="text-decoration: none;"
                                         >
                                             {post.image && (
                                                 <div class="sidebar-blog-image-wrapper">
                                                     <img
-                                                        src={post.image}
+                                                        src={displayImage(post.image)}
                                                         alt={post.title}
                                                         class="sidebar-blog-image"
                                                     />
@@ -151,14 +164,14 @@ const latestBlogs = blogPostsArray
                                 <div class="sidebar-blog-list">
                                     {latestBlogs.map((post) => (
                                         <a
-                                            href={`/blog/${post.slug}`}
+                                            href={`/blog/${post.slug}/`}
                                             class="sidebar-blog-card"
                                             style="text-decoration: none;"
                                         >
                                             {post.image && (
                                                 <div class="sidebar-blog-image-wrapper">
                                                     <img
-                                                        src={post.image}
+                                                        src={displayImage(post.image)}
                                                         alt={post.title}
                                                         class="sidebar-blog-image"
                                                     />
@@ -175,7 +188,7 @@ const latestBlogs = blogPostsArray
                                     ))}
                                 </div>
                                 <div class="sidebar-show-all">
-                                    <a href="/blog" class="btn-show-all">
+                                    <a href="/blog/" class="btn-show-all">
                                         Show All
                                     </a>
                                 </div>

@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import { breadcrumbGraph } from "../data/schema";
+
+// One template for every industry page. Content lives in the page that uses it.
+interface Props {
+    title: string;
+    description: string;
+    heading: string;
+    path: string;
+    crumbName: string;
+    lead: string;
+    problems: string[];
+    builds: string[];
+    connects: string[];
+    stats: { num: string; label: string }[];
+    evidence: { name: string; text: string; href: string }[];
+    services: { name: string; href: string }[];
+    articleSlugs: string[];
+}
+
+const {
+    title,
+    description,
+    heading,
+    path,
+    crumbName,
+    lead,
+    problems,
+    builds,
+    connects,
+    stats,
+    evidence,
+    services,
+    articleSlugs,
+} = Astro.props;
+
+const crumbs = [
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries/" },
+    { name: crumbName, path },
+];
+
+// Article titles come from the posts themselves, so they never go out of date
+const posts = import.meta.glob("../../data/blog/*.mdx", {
+    eager: true,
+    import: "frontmatter",
+}) as Record<string, { title: string }>;
+const articles = articleSlugs
+    .map((slug) => {
+        const fm = posts[`../../data/blog/${slug}.mdx`];
+        return fm ? { title: fm.title, href: `/blog/${slug}/` } : null;
+    })
+    .filter((a): a is { title: string; href: string } => a !== null);
+---
+
+<BaseLayout
+    title={title}
+    description={description}
+    additionalStyles={["/css/service-pages.css"]}
+    bodyClass="sp-page"
+    jsonLd={breadcrumbGraph(crumbs)}
+>
+    <Header activePage="services" />
+
+    <main class="main-content">
+        <section class="sp-hero" data-theme="dark">
+            <Breadcrumbs items={crumbs} />
+            <p class="intro-label">Industry</p>
+            <h1 class="sp-title">{heading}</h1>
+            <p class="intro-text sp-lead">{lead}</p>
+        </section>
+
+        <section class="sp-section" data-theme="dark">
+            <div class="sp-two">
+                <div>
+                    <h2>Problems we solve</h2>
+                    <ul class="sp-list">
+                        {problems.map((p) => <li>{p}</li>)}
+                    </ul>
+                </div>
+                <div>
+                    <h2>What we build</h2>
+                    <ul class="sp-list">
+                        {builds.map((b) => <li>{b}</li>)}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sp-section" data-theme="dark">
+            <h2 class="sp-h2">What It Connects To</h2>
+            <ul class="sp-list sp-centered">
+                {connects.map((c) => <li>{c}</li>)}
+            </ul>
+        </section>
+
+        <section class="sp-section" data-theme="dark">
+            <h2 class="sp-h2">The Results</h2>
+            <div class="sp-stats" style={`--cols: ${stats.length}`}>
+                {
+                    stats.map((s) => (
+                        <div class="sp-stat">
+                            <span class="sp-stat-num">{s.num}</span>
+                            <span class="sp-stat-label">{s.label}</span>
+                        </div>
+                    ))
+                }
+            </div>
+            <ul class="sp-rows">
+                {
+                    evidence.map((e) => (
+                        <li class="sp-row">
+                            <h3 class="sp-row-title">
+                                <a href={e.href}>{e.name}</a>
+                            </h3>
+                            <div>
+                                <p class="sp-row-text" style="margin-top: 0;">{e.text}</p>
+                                <a class="sp-more" href={e.href} style="margin-top: 16px;">
+                                    Read the case study
+                                </a>
+                            </div>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+
+        <section class="sp-section" data-theme="dark">
+            <h2 class="sp-h2">Related Services</h2>
+            <ul class="sp-links sp-centered-links">
+                {
+                    services.map((s) => (
+                        <li>
+                            <a href={s.href}>{s.name}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+
+        {
+            articles.length > 0 && (
+                <section class="sp-section" data-theme="dark">
+                    <h2 class="sp-h2">Related Articles</h2>
+                    <ul class="sp-articles">
+                        {
+                            articles.map((a) => (
+                                <li>
+                                    <a href={a.href}>{a.title}</a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </section>
+            )
+        }
+
+        <section class="sp-cta" data-theme="dark">
+            <p class="intro-label">Get started</p>
+            <h2 class="sp-h2">Planning Something in {crumbName}?</h2>
+            <p class="intro-text sp-sub">
+                Tell us what you need. We will tell you honestly what is possible
+                and what the first step would look like.
+            </p>
+            <button class="footer-button">Let's Talk</button>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>

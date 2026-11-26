@@ -1,0 +1,37 @@
+---
+// Slim "who / what / where" strip under a case study hero. Plain facts, taken from the page itself.
+interface Props {
+    client: string;
+    built: string;
+    industry?: string;
+    industryHref?: string;
+}
+const { client, built, industry, industryHref } = Astro.props;
+---
+
+<section class="case-facts" data-theme="dark" aria-label="Project summary">
+    <dl class="case-facts__list">
+        <div class="case-facts__item">
+            <dt>Client</dt>
+            <dd>{client}</dd>
+        </div>
+        {
+            industry && (
+                <div class="case-facts__item">
+                    <dt>Industry</dt>
+                    <dd>
+                        {industryHref ? (
+                            <a href={industryHref}>{industry}</a>
+                        ) : (
+                            industry
+                        )}
+                    </dd>
+                </div>
+            )
+        }
+        <div class="case-facts__item case-facts__item--wide">
+            <dt>What we built</dt>
+            <dd>{built}</dd>
+        </div>
+    </dl>
+</section>

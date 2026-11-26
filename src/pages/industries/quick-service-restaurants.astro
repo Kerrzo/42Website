@@ -1,0 +1,61 @@
+---
+import IndustryPage from "../../components/IndustryPage.astro";
+
+// Facts below come from the Craveable Brands case study and related articles on this site.
+---
+
+<IndustryPage
+    title="Restaurant Technology Development Partner | 42 Interactive"
+    description="42 Interactive builds online ordering, delivery, pickup and loyalty platforms for quick service restaurant brands, including Red Rooster, Oporto and Chicken Treat."
+    heading="Technology for Quick Service Restaurants"
+    path="/industries/quick-service-restaurants/"
+    crumbName="Quick Service Restaurants"
+    lead="We build online ordering and digital platforms for quick service restaurant brands, from ecommerce and payments to delivery, pickup, loyalty and CRM. Our platform for Craveable Brands, the franchisor of Red Rooster, Oporto and Chicken Treat, is connected to around 580 restaurants."
+    problems={[
+        "Taking online orders at scale across several brands",
+        "Getting delivery orders to customers hot",
+        "Offering safe, contactless ways to order and collect",
+        "Making an ordering website easy to find in search",
+        "Joining a brand website and an ordering website without breaking either",
+        "Connecting loyalty, payments and customer data across channels",
+    ]}
+    builds={[
+        "Scalable ecommerce and online ordering platforms",
+        "Delivery partner integration that releases each order as the driver approaches the store",
+        "Drive-thru, kerbside pickup and in-store contactless payment options",
+        "Loyalty across online and in-store card payments, through an integration with Tranxactor",
+        "Payment integration with popular merchants",
+        "Search-friendly ordering sites built with Contentful and Next.js",
+        "Salesforce integration and automated testing with Cypress",
+    ]}
+    connects={[
+        "Delivery partners",
+        "Payment merchants",
+        "Loyalty and card payments through Tranxactor",
+        "Salesforce",
+        "Content management with Contentful",
+    ]}
+    stats={[
+        { num: "~580", label: "restaurants connected to the technology" },
+        { num: "1M+", label: "customers served per week" },
+        { num: "50%", label: "increase in online conversions, from 3% to 4.5%" },
+        { num: "6 min", label: "less delivery time, by releasing the order as the driver approaches" },
+    ]}
+    evidence={[
+        {
+            name: "Building Restaurants of The Future",
+            text: "A scalable ecommerce platform for three major restaurant brands, built to handle millions of customers, with delivery, pickup, loyalty and payments.",
+            href: "/what-we-do/building-restaurants-of-the-future/",
+        },
+    ]}
+    services={[
+        { name: "Software Development", href: "/services/#software-development" },
+        { name: "Interaction Design", href: "/services/#interaction-design" },
+    ]}
+    articleSlugs={[
+        "red-rosters-brand-merge",
+        "enhancing-customer-experience-and-safety-red-rooster-pickup-options",
+        "qa-perspective-for-red-rooster-brand-merge-website",
+        "streamlining-success-42-interactives-seamless-salesforce-integration-for-craveable-brands",
+    ]}
+/>

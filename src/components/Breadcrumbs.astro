@@ -1,0 +1,23 @@
+---
+// Visible breadcrumbs. Pair with breadcrumbGraph() from src/data/schema.ts so the markup matches.
+interface Props {
+    items: { name: string; path?: string }[];
+}
+const { items } = Astro.props;
+---
+
+<nav class="sp-crumbs" aria-label="Breadcrumb">
+    <ol>
+        {
+            items.map((item, i) => (
+                <li>
+                    {item.path && i < items.length - 1 ? (
+                        <a href={item.path}>{item.name}</a>
+                    ) : (
+                        <span aria-current="page">{item.name}</span>
+                    )}
+                </li>
+            ))
+        }
+    </ol>
+</nav>

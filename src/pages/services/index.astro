@@ -1,0 +1,190 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import IndustryList from "../../components/IndustryList.astro";
+import { serviceGraph, breadcrumbGraph } from "../../data/schema";
+
+// Every line below comes from work shown on this site. Add services only with evidence.
+// Each service is a "chapter": copy on one side, a collage of real project photos on the other.
+const services = [
+    {
+        num: "01",
+        id: "creative-technology",
+        title: "Creative Technology",
+        text: "Interactive and immersive experiences that people see and use: augmented and virtual reality, interactive installations and digital twins.",
+        items: [
+            "Augmented reality product showcases",
+            "Virtual reality platforms and therapy experiences",
+            "Interactive installations that respond to each visitor",
+            "Digital twins of physical spaces and collections",
+        ],
+        work: [
+            { name: "VIVID Sydney 2019: See What I See", href: "/what-we-do/putting-smiles-on-peoples-faces/" },
+            { name: "Innovate Pain Clinic: VR therapy", href: "/what-we-do/a-better-way-to-manage-pain/" },
+            { name: "Latham: AR product showcase", href: "/what-we-do/bringing-products-to-life/" },
+            { name: "Box Office VR: VR theatre streaming", href: "/what-we-do/the-magic-of-theatre-at-home/" },
+            { name: "White Rabbit Gallery: digital twin", href: "/what-we-do/immortalising-creativity/" },
+        ],
+    },
+    {
+        num: "02",
+        id: "interaction-design",
+        title: "Interaction Design",
+        text: "Brand, user experience and interface design for apps, websites and platforms, refined through user testing.",
+        items: [
+            "Brand design for both physical and digital",
+            "User experience and interface design for apps and websites",
+            "UX and SEO optimisation, measured by conversions",
+            "User testing to find and fix pain points",
+        ],
+        work: [
+            { name: "International Towers: brand design", href: "/what-we-do/a-brand-that-feels-like-a-friend/" },
+            { name: "Amica: app UX and UI", href: "/what-we-do/connecting-people-to-workplace/" },
+            { name: "Craveable Brands: online conversions up 50%", href: "/what-we-do/building-restaurants-of-the-future/" },
+        ],
+    },
+    {
+        num: "03",
+        id: "software-development",
+        title: "Software Development",
+        text: "Custom web and app platforms that scale, connect to the systems a business already runs on, and are tested before they go live.",
+        items: [
+            "Ecommerce and ordering platforms for several brands",
+            "Connected platforms for access, services and loyalty",
+            "Integrations with payments, loyalty, delivery partners, Salesforce and HubSpot",
+            "Automated testing and quality assurance",
+        ],
+        work: [
+            { name: "Craveable Brands: ordering platform", href: "/what-we-do/building-restaurants-of-the-future/" },
+            { name: "International Towers: connected workplace", href: "/what-we-do/connecting-people-to-workplace/" },
+        ],
+    },
+    {
+        num: "04",
+        id: "ai",
+        title: "AI Consultancy, Prototyping and Agents",
+        text: "Practical AI built around your business: we find where it helps, prove it with your people, then build agents around your workflow.",
+        items: [
+            "AI Consultancy",
+            "AI Proof of Concept and Prototyping",
+            "Agentic AI Development",
+        ],
+        work: [
+            { name: "Waterfield: AI conversation at scale", href: "/what-we-do/putting-the-intelligence-in-ai/" },
+        ],
+        more: { name: "Explore our AI services", href: "/ai/" },
+    },
+];
+
+const crumbs = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services/" },
+];
+
+const jsonLd = [
+    serviceGraph("/services/", [
+        ...services.map((s) => ({
+            title: s.title,
+            text: s.text,
+            url: s.more ? s.more.href : undefined,
+        })),
+    ]),
+    breadcrumbGraph(crumbs),
+];
+---
+
+<BaseLayout
+    title="Creative Technology, Software & AI Services | 42 Interactive"
+    description="42 Interactive designs and develops interactive experiences, custom software and AI for businesses. See our services and the work behind them."
+    additionalStyles={["/css/service-pages.css"]}
+    bodyClass="sp-page"
+    jsonLd={jsonLd}
+>
+    <Header activePage="services" />
+
+    <main class="main-content">
+        <!-- One section holds the hero, the four services and Industries, so the
+             3D stage and its gradient run from the very top of the page -->
+        <section class="svc-scrolly" data-theme="dark">
+            <div class="svc-stage" aria-hidden="true">
+                <canvas data-formations></canvas>
+            </div>
+
+        <div class="sp-hero svc-hero">
+            <Breadcrumbs items={crumbs} />
+            <p class="intro-label">Our services</p>
+            <h1 class="sp-title">
+                Creative Technology, Software<br />and AI Services
+            </h1>
+            <p class="intro-text sp-lead">
+                We design and develop <span class="bold">digital experiences</span>,
+                <span class="bold">custom software</span> and
+                <span class="bold">AI solutions</span> for businesses. Here is what
+                that covers, and where we have done it.
+            </p>
+        </div>
+
+            <!-- Text scrolls on the left; the stage stays on the right and morphs per service -->
+            <div class="svc-steps">
+        {
+            services.map((s) => (
+                <article class="svc-step" id={s.id}>
+                        <div class="svc-copy">
+                            <p class="svc-kicker">Service {s.num}</p>
+                            <h2 class="svc-title">{s.title}</h2>
+                            <p class="svc-text">{s.text}</p>
+                            <ul class="svc-caps">
+                                {s.items.map((item) => (
+                                    <li>{item}</li>
+                                ))}
+                            </ul>
+                            {s.work.length > 0 && (
+                                <ul class="svc-more-work" aria-label={`More ${s.title} work`}>
+                                    {s.work.map((w) => (
+                                        <li>
+                                            <a href={w.href}>{w.name}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                            {s.more && (
+                                <a class="svc-cta" href={s.more.href}>
+                                    {s.more.name}
+                                    <img src="/images/ai/arrow.svg" alt="" width="20" height="22" />
+                                </a>
+                            )}
+                        </div>
+                </article>
+            ))
+        }
+            </div>
+
+            <!-- Industries: the formation disperses and a moving gradient takes over behind it -->
+            <div class="sp-section svc-outro" id="industries">
+                <h2 class="sp-h2">Industries We Know</h2>
+                <p class="intro-text sp-sub">
+                    Our work spans many sectors. Here is where, with the projects
+                    behind each one.
+                </p>
+                <IndustryList />
+            </div>
+        </section>
+
+        <section class="sp-cta" data-theme="dark">
+            <p class="intro-label">Get started</p>
+            <h2 class="sp-h2">Tell Us What You Want to Build</h2>
+            <p class="intro-text sp-sub">
+                Share the problem, not the solution. We will tell you honestly
+                what is possible and what the first step would look like.
+            </p>
+            <button class="footer-button">Let's Talk</button>
+        </section>
+    </main>
+
+    <Footer />
+    <script>
+        import "../../scripts/service-objects.js";
+    </script>
+</BaseLayout>

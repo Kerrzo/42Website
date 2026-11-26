@@ -2,15 +2,17 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import CaseFacts from "../../components/CaseFacts.astro";
 import OtherWork from "../../components/OtherWork.astro";
 ---
 
 <BaseLayout
     title="Craveable Brands – Building Restaurants of The Future | 42 Interactive"
+    description="A scalable ecommerce platform built by 42 Interactive for three major restaurant brands, with online ordering, delivery partner integration and loyalty."
     bodyClass="craveable-page"
     additionalStyles={["/css/craveablebrands.css"]}
 >
-    <Header activePage="home" />
+    <Header activePage="what-we-do" />
 
     <main class="main-content">
         <!-- ========================================
@@ -19,7 +21,7 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="craveable-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-mask">
                 <img
-                    src="/images/work/craveable/image-craveable-hero.png"
+                    src="/images/work/craveable/image-craveable-hero.webp"
                     alt=""
                     class="hero-bg-image"
                 />
@@ -32,6 +34,8 @@ import OtherWork from "../../components/OtherWork.astro";
                 </div>
             </div>
         </section>
+
+        <CaseFacts client="Craveable Brands (Red Rooster, Oporto, Chicken Treat)" built="A scalable online ordering platform for three restaurant brands, connected to around 580 restaurants and serving over 1 million customers per week" industry="Quick service restaurants" industryHref="/industries/quick-service-restaurants/" />
 
         <!-- ========================================
              WHAT WE'VE DONE
@@ -81,19 +85,19 @@ import OtherWork from "../../components/OtherWork.astro";
             </div>
             <div class="craveable-flock__websites" aria-hidden="true">
                 <img
-                    src="/images/work/craveable/website-oporto.png"
+                    src="/images/work/craveable/website-oporto.webp"
                     alt=""
                     class="craveable-flock__site craveable-flock__site--oporto"
                     loading="lazy"
                 />
                 <img
-                    src="/images/work/craveable/website-redrooster.png"
+                    src="/images/work/craveable/website-redrooster.webp"
                     alt=""
                     class="craveable-flock__site craveable-flock__site--redrooster"
                     loading="lazy"
                 />
                 <img
-                    src="/images/work/craveable/website-chickentreat.png"
+                    src="/images/work/craveable/website-chickentreat.webp"
                     alt=""
                     class="craveable-flock__site craveable-flock__site--chickentreat"
                     loading="lazy"
@@ -132,7 +136,7 @@ import OtherWork from "../../components/OtherWork.astro";
 
                 <div class="craveable-delivered__image">
                     <img
-                        src="/images/work/craveable/image-craveable-delivery.png"
+                        src="/images/work/craveable/image-craveable-delivery.webp"
                         alt=""
                         loading="lazy"
                     />
@@ -145,7 +149,7 @@ import OtherWork from "../../components/OtherWork.astro";
              ======================================== -->
         <section class="craveable-apps-image" data-theme="dark">
             <img
-                src="/images/work/craveable/image-craveable-apps.png"
+                src="/images/work/craveable/image-craveable-apps.webp"
                 alt=""
                 loading="lazy"
             />
@@ -160,7 +164,7 @@ import OtherWork from "../../components/OtherWork.astro";
                 <div class="craveable-orange__row craveable-orange__row--loyalty">
                     <div class="craveable-orange__col craveable-orange__col--image">
                         <img
-                            src="/images/work/craveable/image-craveable-loyalty.png"
+                            src="/images/work/craveable/image-craveable-loyalty.webp"
                             alt="Loyalty voucher"
                             class="craveable-orange__loyalty-image"
                             loading="lazy"
@@ -228,7 +232,7 @@ import OtherWork from "../../components/OtherWork.astro";
                 <div class="craveable-orange__row craveable-orange__row--flythru">
                     <div class="craveable-orange__col craveable-orange__col--image">
                         <img
-                            src="/images/work/craveable/image-craveable-flythru.png"
+                            src="/images/work/craveable/image-craveable-flythru.webp"
                             alt="Fly Thru"
                             class="craveable-orange__flythru"
                             loading="lazy"

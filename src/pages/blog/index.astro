@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { displayImage } from "../../data/images";
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -44,7 +45,7 @@ const formatDate = (dateString: string) => {
         <section class="blog-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-image-wrapper">
                 <img
-                    src="/images/blog/image.png"
+                    src="/images/blog/image.webp"
                     alt=""
                     class="hero-bg-image"
                 />
@@ -72,7 +73,7 @@ const formatDate = (dateString: string) => {
                 <div class="blog-grid grid-3col" id="blog-grid">
                     {blogPosts.map((post) => (
                         <a 
-                            href={`/blog/${post.slug}`} 
+                            href={`/blog/${post.slug}/`} 
                             class="blog-card"
                             data-category={post.category || 'all'}
                             style="text-decoration: none; display: block;"
@@ -80,7 +81,7 @@ const formatDate = (dateString: string) => {
                             {post.image && (
                                 <div class="blog-card-image-wrapper">
                                     <img
-                                        src={post.image}
+                                        src={displayImage(post.image)}
                                         alt={post.title}
                                         class="blog-card-image"
                                     />

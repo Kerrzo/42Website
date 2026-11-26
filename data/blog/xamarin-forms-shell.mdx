@@ -1,6 +1,6 @@
 ---
 title: "Xamarin Forms Shell: Streamline Your Mobile App Development"
-publishedAt: "2023-11-05"
+publishedAt: "2019-07-08"
 summary: "Boost your mobile app development efficiency with Xamarin Forms Shell. Navigate, customize UI, and implement MVVM architecture effortlessly. Learn more now!"
 image: "/blog/images/xamarin-sidemenu-yitro-kurniawan.jpg"
 category: "technology-development"
@@ -123,9 +123,9 @@ As users navigate through your Xamarin Forms Shell app, you may need to handle n
 
 ### **Common Navigation User Experience**
 
-Flyout and Tabs are 2 top-level navigation components brought by Shell to help you accomplish navigation tickets in your [project](/digital-agency-projects-accolades) as shown in the following images below.
+Flyout and Tabs are 2 top-level navigation components brought by Shell to help you accomplish navigation tickets in your [project](/what-we-do/) as shown in the following images below.
 
-![xamarin sidemenu](/blog/images/xamarin-sidemenu-yitro-kurniawan.jpg)
+![xamarin sidemenu](/blog/images/xamarin-sidemenu-yitro-kurniawan.webp)
 
 ![xamarin lists with thumbnails](/blog/images/xamarin-list-with-thumb.jpg)
 
@@ -165,7 +165,7 @@ An application can have both Flyout and Tab bar or only one of them at a time. B
 
 Optimized navigation using Routes enables the user experience to navigate to a specific page without having to follow a set navigation hierarchy. Routes can be defined on _FlyoutItem_, _Tab_, and _ShellContent_ objects in code behind or tag in XAML, through their Route properties. Given the sample visual hierarchy of app navigation:
 
-![sample code visual hierarchy of app navigation](/blog/images/code_1.png)
+![sample code visual hierarchy of app navigation](/blog/images/code_1.webp)
 
 ‍
 
@@ -173,41 +173,41 @@ To navigate to the _ShellContent_ object for the ‘dogs’ route, the absolute 
 
 Additional routes can be explicitly registered for any sort of pages that does not exist in the Shell visual hierarchy.
 
-![sample code additional routes](/blog/images/code_2.png)
+![sample code additional routes](/blog/images/code_2.webp)
 
 Navigation can be performed by either by passing a valid route string/URI absolute route path or relative route (after registering the unique route name to the routing table) into _GoToAsync()_ method of _Current_ property of _Shell_ object.
 
-![sample code for GotoAsync method](/blog/images/code_3.png)
+![sample code for GotoAsync method](/blog/images/code_3.webp)
 
 ‍
 
 Or
 
-![sample code for GotoAsync method Current property shell object](/blog/images/code_4.png)
+![sample code for GotoAsync method Current property shell object](/blog/images/code_4.webp)
 
 #### **Deep Linking**
 
 When a Shell app receives Deep Link or App Link, the URL can be easily processed by removing the schema and app domain. And then it leaves the rest path including the query parameters as an argument to navigate to the target page. This is also can be used as in-app navigation.
 
-![sample query parameters](/blog/images/code_5.png)
+![sample query parameters](/blog/images/code_5.webp)
 
 ‍
 
 And the target View Model can capture the parameter by decorating the View Model property with Query Property Attribute which specifies the name of the property that will receive the data, with the second argument specifying the query parameter id. Note that when you pass the query parameter, the value is being URL encoded so it needs to be decoded before use. Multiple Query Property Attribute objects are also supported in a class.
 
-![custom Search Handler](/blog/images/code_6.png)
+![custom Search Handler](/blog/images/code_6.webp)
 
 ### **Integrated Search Control with Shell Page**
 
 The integrated search functionality in the pages is also provided by Shell application to save development time. With a search box that can be added to the top of each page, the search query is handled by custom Search Handler that processes the underlying data source and returns the results back to the search box and displays them in a popup list.
 
-![xamarin autocomplete](/blog/images/xamarin-autocomplete.jpg)
+![xamarin autocomplete](/blog/images/xamarin-autocomplete.webp)
 
-![Multiple Query Property Attribute objects](/blog/images/code_7.png)
+![Multiple Query Property Attribute objects](/blog/images/code_7.webp)
 
 ‍
 
-![sample TrackSearchHandler method](/blog/images/code_8.png)
+![sample TrackSearchHandler method](/blog/images/code_8.webp)
 
 ## **UI Customization and Theming**
 

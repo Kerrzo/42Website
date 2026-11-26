@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { displayImage } from "../data/images";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Testimonials from "../components/Testimonials.astro";
 import configData from "../data/config.json";
+import { companyGraph } from "../data/schema";
 
 // Get featured podcasts using the featuredPodcasts array from config
 // The order in the array determines display order (1st = left, 2nd = middle, 3rd = right)
@@ -55,7 +57,9 @@ const formatDate = (dateString: string) => {
 ---
 
 <BaseLayout
-    title="42 Interactive - Building What Others Only Imagine"
+    title="Creative Technology & Interaction Design Sydney | 42 Interactive"
+    description="42 Interactive is a Sydney-based creative technology company. We design and develop digital experiences, custom software and AI solutions for businesses."
+    jsonLd={companyGraph()}
     bodyClass=""
 >
     <Header activePage="home" />
@@ -71,16 +75,27 @@ const formatDate = (dateString: string) => {
                 loop
                 muted
                 playsinline
+                preload="auto"
             >
+                <!-- AV1 (3 MB) where the browser can decode it, H.264 (4.5 MB) everywhere else -->
+                <source src="/videos/hero.webm" type='video/webm; codecs="av01.0.04M.08"' />
                 <source src="/videos/hero.mp4" type="video/mp4" />
             </video>
             <div class="section-inner">
                 <div class="hero-content-wrapper">
                     <h1 class="home-hero-title">
+                        <span class="home-hero-kicker"
+                            >Creative Technology and Interaction Design</span
+                        >
                         <span class="bold">Building</span> What Others Only <span
                             class="bold">Imagine</span
                         >
                     </h1>
+                    <p class="home-hero-intro">
+                        42 Interactive is a Sydney-based creative technology
+                        company. We design and develop digital experiences,
+                        custom software and AI solutions for businesses.
+                    </p>
                 </div>
             </div>
         </section>
@@ -110,13 +125,13 @@ const formatDate = (dateString: string) => {
                 <div class="work-grid">
                     <!-- Work Item 1 - Red Rooster -->
                     <a
-                        href="/what-we-do/building-restaurants-of-the-future"
+                        href="/what-we-do/building-restaurants-of-the-future/"
                         class="work-card"
                         style="text-decoration: none;"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-redrooster.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-redrooster.webp"
                                 alt="Building Restaurants of The Future"
                                 class="work-image"
                             />
@@ -129,13 +144,13 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 2 - Amica Branding -->
                     <a
-                        href="/what-we-do/a-brand-that-feels-like-a-friend"
+                        href="/what-we-do/a-brand-that-feels-like-a-friend/"
                         class="work-card"
                         style="text-decoration: none;"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-amica-branding.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-amica-branding.webp"
                                 alt="A Brand That Feels Like a Friend"
                                 class="work-image"
                             />
@@ -148,13 +163,13 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 3 - Amica App -->
                     <a
-                        href="/what-we-do/connecting-people-to-workplace"
+                        href="/what-we-do/connecting-people-to-workplace/"
                         class="work-card"
                         style="text-decoration: none;"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-amica.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-amica.webp"
                                 alt="Connecting People to workplace"
                                 class="work-image"
                             />
@@ -167,12 +182,12 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 4 - AI -->
                     <a
-                        href="/what-we-do/putting-the-intelligence-in-ai"
+                        href="/what-we-do/putting-the-intelligence-in-ai/"
                         class="work-card"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/whatwedo/engageplus.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/whatwedo/engageplus.webp"
                                 alt="Putting the Intelligence in AI"
                                 class="work-image"
                             />
@@ -185,12 +200,12 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 5 - Box Office VR -->
                     <a
-                        href="/what-we-do/the-magic-of-theatre-at-home"
+                        href="/what-we-do/the-magic-of-theatre-at-home/"
                         class="work-card"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-bovr.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-bovr.webp"
                                 alt="The Magic of Theatre at home"
                                 class="work-image"
                             />
@@ -201,12 +216,12 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 6 - Neurotechnology -->
                     <a
-                        href="/what-we-do/a-better-way-to-manage-pain"
+                        href="/what-we-do/a-better-way-to-manage-pain/"
                         class="work-card"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-nt.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-nt.webp"
                                 alt="A Better Way to Manage Pain"
                                 class="work-image"
                             />
@@ -217,12 +232,12 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 7 - WRG -->
                     <a
-                        href="/what-we-do/immortalising-creativity"
+                        href="/what-we-do/immortalising-creativity/"
                         class="work-card"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-wrg.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-wrg.webp"
                                 alt="Immortalising Creativity"
                                 class="work-image"
                             />
@@ -235,12 +250,12 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 8 - Vivid -->
                     <a
-                        href="/what-we-do/putting-smiles-on-peoples-faces"
+                        href="/what-we-do/putting-smiles-on-peoples-faces/"
                         class="work-card"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-vivid.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-vivid.webp"
                                 alt="Putting Smiles on Peoples Faces"
                                 class="work-image"
                             />
@@ -251,12 +266,12 @@ const formatDate = (dateString: string) => {
 
                     <!-- Work Item 9 - Latham -->
                     <a
-                        href="/what-we-do/bringing-products-to-life"
+                        href="/what-we-do/bringing-products-to-life/"
                         class="work-card"
                     >
                         <div class="work-image-wrapper">
-                            <img
-                                src="/images/work/image-latham.png"
+                            <img loading="lazy" decoding="async"
+                                src="/images/work/image-latham.webp"
                                 alt="Bringing Products to Life"
                                 class="work-image"
                             />
@@ -294,7 +309,7 @@ const formatDate = (dateString: string) => {
                         Here's a glimpse into <strong>our world</strong>, what
                         we do and what <strong>makes us different.</strong>
                     </p>
-                    <a href="/who-we-are" class="btn-find-out-more"
+                    <a href="/who-we-are/" class="btn-find-out-more"
                         >Find Out More</a
                     >
                 </div>
@@ -312,7 +327,7 @@ const formatDate = (dateString: string) => {
                                     data-video-id={podcast.id}
                                 >
                                     <div class="youtube-thumbnail">
-                                        <img
+                                        <img loading="lazy" decoding="async"
                                             src={podcast.thumbnail || `https://img.youtube.com/vi/${podcast.id}/hqdefault.jpg`}
                                             alt={podcast.title}
                                             class="podcast-image"
@@ -346,7 +361,7 @@ const formatDate = (dateString: string) => {
                         }
                     </div>
                     <div class="show-all-centered">
-                        <a href="/podcasts" class="btn-show-all"
+                        <a href="/podcasts/" class="btn-show-all"
                             >Show All Podcasts</a
                         >
                     </div>
@@ -362,15 +377,15 @@ const formatDate = (dateString: string) => {
                             featuredBlogs.length > 0 ? (
                                 featuredBlogs.map((blog) => (
                                     <a
-                                        href={`/blog/${blog.slug}`}
+                                        href={`/blog/${blog.slug}/`}
                                         class="blog-card-link"
                                         style="text-decoration: none; display: block;"
                                     >
                                         <div class="youtube-video-card">
                                             {blog.image && (
                                                 <div class="youtube-thumbnail">
-                                                    <img
-                                                        src={blog.image}
+                                                    <img loading="lazy" decoding="async"
+                                                        src={displayImage(blog.image)}
                                                         alt={blog.title}
                                                         class="podcast-image"
                                                     />
@@ -399,7 +414,7 @@ const formatDate = (dateString: string) => {
                         }
                     </div>
                     <div class="show-all-centered">
-                        <a href="/blog" class="btn-show-all">Show All Blogs</a>
+                        <a href="/blog/" class="btn-show-all">Show All Blogs</a>
                     </div>
                 </div>
             </div>

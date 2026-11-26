@@ -635,6 +635,114 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
     margin-bottom: 20px;
 }
 
+/* Case study summary strip (component CaseFacts) */
+.case-facts {
+    background-color: #02002d;
+    padding: 36px var(--page-margin);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.case-facts__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 64px;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.case-facts__item { min-width: 0; }
+.case-facts__item--wide { flex: 1 1 320px; }
+
+.case-facts dt {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent-light-blue);
+    margin: 0 0 8px;
+}
+
+.case-facts dd {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 1.35;
+    color: #ffffff;
+}
+
+.case-facts dd a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-light-blue);
+    text-underline-offset: 4px;
+}
+
+.case-facts dd a:hover { color: var(--accent-light-blue); }
+
+@media (max-width: 768px) {
+    .case-facts { padding: 28px var(--page-margin); }
+    .case-facts__list { gap: 16px 32px; }
+    .case-facts dd { font-size: 16px; }
+}
+
+/* Leadership (Who We Are) */
+.leadership-section {
+    text-align: center;
+    padding: 0 var(--page-margin) 40px;
+    max-width: 914px;
+    margin: 0 auto;
+}
+
+.leadership-list {
+    list-style: none;
+    margin: 30px 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px 96px;
+}
+
+.leadership-name {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--primary-text);
+}
+
+.leadership-role {
+    display: block;
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-gray);
+}
+
+.leadership-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--accent-light-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.leadership-link:hover,
+.leadership-link:focus-visible {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .leadership-list { flex-direction: column; gap: 28px; }
+    .leadership-name { font-size: 24px; }
+    .leadership-role { font-size: 16px; }
+}
+
 /* Crew Carousel Section */
 .crew-carousel-section {
     padding: 80px 0;
@@ -1941,6 +2049,20 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
     pointer-events: none;
 }
 
+/* Static film grain over the video: hides compression blocks and banding.
+   A small tiling noise texture that never moves (cheap, no animation). */
+.home-hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    opacity: 0.16;
+    mix-blend-mode: overlay;
+}
+
 /* Hero text must be on top */
 .home-hero-section .section-inner {
     position: relative;
@@ -1964,6 +2086,41 @@ body:has(.mobile-menu.active) .main-menu.header-show-background {
 
 .home-hero-title .bold {
     font-weight: 700;
+}
+
+/* Descriptive line above the brand statement (the page's keyword heading) */
+.home-hero-kicker {
+    display: block;
+    margin-bottom: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b9c8f2;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* One-sentence positioning statement under the brand statement */
+.home-hero-intro {
+    max-width: 640px;
+    margin: 36px 0 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 1024px) {
+    .home-hero-kicker { font-size: 18px; margin-bottom: 22px; }
+    .home-hero-intro { font-size: 20px; margin-top: 28px; }
+}
+
+@media (max-width: 768px) {
+    .home-hero-kicker { font-size: 14px; margin-bottom: 18px; letter-spacing: 0.12em; }
+    .home-hero-intro { font-size: 17px; margin-top: 24px; }
 }
 
 /* What We Do Main Section */

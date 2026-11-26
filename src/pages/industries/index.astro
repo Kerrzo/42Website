@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import IndustryList from "../../components/IndustryList.astro";
+import { breadcrumbGraph } from "../../data/schema";
+
+const crumbs = [
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries/" },
+];
+
+---
+
+<BaseLayout
+    title="Industries We Work In | 42 Interactive"
+    description="Where 42 Interactive has delivered work: commercial real estate, quick service restaurants, healthcare, arts and culture, theatre, building products and strategy consulting."
+    additionalStyles={["/css/service-pages.css"]}
+    bodyClass="sp-page"
+    jsonLd={breadcrumbGraph(crumbs)}
+>
+    <Header activePage="services" />
+
+    <main class="main-content">
+        <section class="sp-hero" data-theme="dark">
+            <Breadcrumbs items={crumbs} />
+            <p class="intro-label">Industries</p>
+            <h1 class="sp-title">Industries We Work In</h1>
+            <p class="intro-text sp-lead">
+                Our work spans many sectors. Here is where we have delivered,
+                with the case studies behind each one.
+            </p>
+        </section>
+
+        <section class="sp-section" data-theme="dark">
+            <IndustryList level="h2" />
+        </section>
+
+        <section class="sp-cta" data-theme="dark">
+            <p class="intro-label">Get started</p>
+            <h2 class="sp-h2">Working in Another Industry?</h2>
+            <p class="intro-text sp-sub">
+                Tell us about it. Our services are not limited to these sectors.
+            </p>
+            <button class="footer-button">Let's Talk</button>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>

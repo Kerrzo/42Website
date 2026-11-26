@@ -2,15 +2,17 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import CaseFacts from "../../components/CaseFacts.astro";
 import OtherWork from "../../components/OtherWork.astro";
 ---
 
 <BaseLayout
     title="Box Office VR – The Magic of Theatre at home | 42 Interactive"
+    description="Box Office VR, an immersive VR theatre streaming platform from 42 Interactive and Neon 8, with on-demand performances in VR headsets and mobile apps."
     bodyClass="bovr-page"
     additionalStyles={["/css/bovr.css"]}
 >
-    <Header activePage="home" />
+    <Header activePage="what-we-do" />
 
     <main class="main-content">
         <!-- ========================================
@@ -19,7 +21,7 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="bovr-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-image-wrapper">
                 <img
-                    src="/images/work/bovr/image-bovr-hero.png"
+                    src="/images/work/bovr/image-bovr-hero.webp"
                     alt="Box Office VR Hero"
                     class="hero-bg-image"
                 />
@@ -30,6 +32,8 @@ import OtherWork from "../../components/OtherWork.astro";
                 </div>
             </div>
         </section>
+
+        <CaseFacts client="Box Office VR (a joint venture with Neon 8)" built="An immersive VR theatre streaming platform with on-demand performances in VR headsets and mobile apps" industry="Theatre and live performance" />
 
         <!-- ========================================
              INTRO – WHAT WE'VE DONE
@@ -77,7 +81,7 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="bovr-app" data-theme="dark">
             <div class="bovr-app__image">
                 <img
-                    src="/images/work/bovr/image-bovr-app.png"
+                    src="/images/work/bovr/image-bovr-app.webp"
                     alt="Box Office VR App Screens"
                 />
             </div>
@@ -118,7 +122,7 @@ import OtherWork from "../../components/OtherWork.astro";
                 </div>
                 <div class="bovr-article__image">
                     <img
-                        src="/images/work/bovr/image-bovr-article1.png"
+                        src="/images/work/bovr/image-bovr-article1.webp"
                         alt="Box Office VR Article"
                     />
                 </div>
@@ -150,7 +154,7 @@ import OtherWork from "../../components/OtherWork.astro";
             >
                 <div class="bovr-article__image">
                     <img
-                        src="/images/work/bovr/image-bovr-article2.png"
+                        src="/images/work/bovr/image-bovr-article2.webp"
                         alt="Box Office VR Article 2"
                     />
                 </div>
@@ -203,7 +207,7 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="bovr-vr" data-theme="dark">
             <div class="bovr-vr__image">
                 <img
-                    src="/images/work/bovr/image-bovr-VR.png"
+                    src="/images/work/bovr/image-bovr-VR.webp"
                     alt="Box Office VR Headset"
                 />
             </div>

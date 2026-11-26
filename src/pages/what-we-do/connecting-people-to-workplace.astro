@@ -2,15 +2,17 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import CaseFacts from "../../components/CaseFacts.astro";
 import OtherWork from "../../components/OtherWork.astro";
 ---
 
 <BaseLayout
     title="Amica – Connecting People to workplace | 42 Interactive"
+    description="A connected workplace platform built with International Towers, unifying access, mobility, services and loyalty for tenants, retailers and visitors."
     bodyClass="amica-page"
     additionalStyles={["/css/amica.css"]}
 >
-    <Header activePage="home" />
+    <Header activePage="what-we-do" />
 
     <main class="main-content">
         <!-- ========================================
@@ -19,13 +21,13 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="amica-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-mask">
                 <img
-                    src="/images/work/amica/image-amica-background.png"
+                    src="/images/work/amica/image-amica-background.webp"
                     alt=""
                     class="hero-bg-image"
                 />
                 <div class="hero-image">
                     <img
-                        src="/images/work/amica/image-amica-hero-1.png"
+                        src="/images/work/amica/image-amica-hero-1.webp"
                         alt="Woman using phone in workplace"
                     />
                 </div>
@@ -36,6 +38,8 @@ import OtherWork from "../../components/OtherWork.astro";
                 </div>
             </div>
         </section>
+
+        <CaseFacts client="International Towers" built="A connected workplace platform unifying access, mobility, services and community" industry="Commercial real estate" industryHref="/industries/commercial-real-estate/" />
 
         <!-- ========================================
              INTRO – WHAT WE'VE DONE
@@ -57,7 +61,7 @@ import OtherWork from "../../components/OtherWork.astro";
             <div class="section-inner amica-award__inner">
                 <div class="amica-award__image">
                     <img
-                        src="/images/work/amica/image-tower.png"
+                        src="/images/work/amica/image-tower.webp"
                         alt="International Towers and Amica experience"
                     />
                 </div>
@@ -111,14 +115,14 @@ import OtherWork from "../../components/OtherWork.astro";
             <div class="section-inner amica-phones__inner">
                 <div class="amica-phones__row">
                     <img
-                        src="/images/work/amica/image-3phones.png"
+                        src="/images/work/amica/image-3phones.webp"
                         alt="Amica Perks mobile app screens"
                     />
                 </div>
 
                 <div class="amica-metrics">
                     <img
-                        src="/images/work/amica/image-perksdiagram.png"
+                        src="/images/work/amica/image-perksdiagram.webp"
                         alt="Amica perks metrics – users, vouchers, rewards and competition entries"
                     />
                 </div>
@@ -152,20 +156,20 @@ import OtherWork from "../../components/OtherWork.astro";
                 <div class="amica-access__copy">
                     <div class="amica-access__circle">
                         <img
-                            src="/images/work/amica/image-amica-permit.png"
+                            src="/images/work/amica/image-amica-permit.webp"
                             alt="Digital access permit dashboard"
                         />
                     </div>
                     <div class="section-label">ACCESS PERMITS</div>
                     <h2>
-                        Automating 8+ years worth of working hours with digital
-                        Access Permits.
+                        Saving around 40 working years with digital Access
+                        Permits.
                     </h2>
                     <div class="amica-access__stats">
                         <div class="stat">
-                            <div class="stat__value">16,448</div>
+                            <div class="stat__value">26,338</div>
                             <div class="stat__label">
-                                Access permits raised and processed
+                                Access permits raised and processed to date
                             </div>
                         </div>
                         <div class="stat-operator">×</div>
@@ -174,14 +178,15 @@ import OtherWork from "../../components/OtherWork.astro";
                                 3<span class="stat__unit">Hrs</span>
                             </div>
                             <div class="stat__label">
-                                Tenancy, property team &amp; contractors working
-                                hours
+                                Saved per permit: 1 hour for each of 3 people
                             </div>
                         </div>
                         <div class="stat-operator">=</div>
                         <div class="stat">
-                            <div class="stat__value">8.16</div>
-                            <div class="stat__label">Working years</div>
+                            <div class="stat__value">~40</div>
+                            <div class="stat__label">
+                                Working years saved (79,014 hours)
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -213,7 +218,7 @@ import OtherWork from "../../components/OtherWork.astro";
                 </div>
                 <div class="walkthrough-right">
                     <img
-                        src="/images/work/amica/image-amicaesg.png"
+                        src="/images/work/amica/image-amicaesg.webp"
                         alt="ESG model mapping dashboard on laptop"
                     />
                 </div>

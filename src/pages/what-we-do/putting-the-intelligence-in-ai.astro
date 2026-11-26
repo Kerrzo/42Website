@@ -2,15 +2,17 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import CaseFacts from "../../components/CaseFacts.astro";
 import OtherWork from "../../components/OtherWork.astro";
 ---
 
 <BaseLayout
     title="AI – Putting the Intelligence in AI | 42 Interactive"
+    description="An AI platform built for Waterfield that holds conversations at scale and surfaces real consensus from large-scale human input, turning it into insight."
     bodyClass="ai-page"
     additionalStyles={["/css/amica.css", "/css/ai.css"]}
 >
-    <Header activePage="home" />
+    <Header activePage="what-we-do" />
 
     <main class="main-content">
         <!-- ========================================
@@ -19,7 +21,7 @@ import OtherWork from "../../components/OtherWork.astro";
         <section class="ai-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-image-wrapper">
                 <img
-                    src="/images/work/ai/image-ai-hero.png"
+                    src="/images/work/ai/image-ai-hero.webp"
                     alt=""
                     class="hero-bg-image"
                 />
@@ -30,6 +32,8 @@ import OtherWork from "../../components/OtherWork.astro";
                 </div>
             </div>
         </section>
+
+        <CaseFacts client="Waterfield" built="An AI platform for conversation at scale that surfaces real consensus from large-scale human input" industry="Strategy and consulting" />
 
         <!-- ========================================
              INTRO – WHAT WE'VE DONE
@@ -55,7 +59,7 @@ import OtherWork from "../../components/OtherWork.astro";
             <div class="ai-phone-content">
                 <div class="ai-phone-device">
                     <img
-                        src="/images/work/ai/image-ai-phone.png"
+                        src="/images/work/ai/image-ai-phone.webp"
                         alt="AI chatbot on mobile phone"
                     />
                 </div>
@@ -189,7 +193,7 @@ import OtherWork from "../../components/OtherWork.astro";
                 <div class="ai-next-item ai-next-item--left">
                     <div class="ai-next-image">
                         <img
-                            src="/images/work/ai/image-ai-man1.png"
+                            src="/images/work/ai/image-ai-man1.webp"
                             alt="Man speaking to AI"
                         />
                     </div>
@@ -222,7 +226,7 @@ import OtherWork from "../../components/OtherWork.astro";
                     </div>
                     <div class="ai-next-image">
                         <img
-                            src="/images/work/ai/image-ai-girl1.png"
+                            src="/images/work/ai/image-ai-girl1.webp"
                             alt="Girl with headphones"
                         />
                     </div>
@@ -231,7 +235,7 @@ import OtherWork from "../../components/OtherWork.astro";
                 <div class="ai-next-item ai-next-item--left">
                     <div class="ai-next-image">
                         <img
-                            src="/images/work/ai/image-ai-people1.png"
+                            src="/images/work/ai/image-ai-people1.webp"
                             alt="Diverse group of people"
                         />
                     </div>
@@ -263,7 +267,7 @@ import OtherWork from "../../components/OtherWork.astro";
                     </div>
                     <div class="ai-next-image">
                         <img
-                            src="/images/work/ai/image-ai-gpt.png"
+                            src="/images/work/ai/image-ai-gpt.webp"
                             alt="ChatGPT interface"
                         />
                     </div>

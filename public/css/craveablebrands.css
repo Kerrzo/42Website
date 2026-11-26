@@ -955,3 +955,6 @@
         font-size: 18px;
     }
 }
+
+/* Decorative pieces (flock images, permit circle) reach past the edge; clip them so the page never scrolls sideways */
+.craveable-page .main-content { overflow-x: clip; }

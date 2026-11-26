@@ -51,17 +51,17 @@
 
 /* Card 1: Branding & Design */
 .service-card--branding {
-    background-image: url('/images/whatwedo/brandinganddesign.png');
+    background-image: url('/images/whatwedo/brandinganddesign.webp');
 }
 
 /* Card 2: Web, App & AI Development */
 .service-card--development {
-    background-image: url('/images/whatwedo/webappaidevelopment.png');
+    background-image: url('/images/whatwedo/webappaidevelopment.webp');
 }
 
 /* Card 3: Interactive Experiences */
 .service-card--interactive {
-    background-image: url('/images/whatwedo/image.png');
+    background-image: url('/images/whatwedo/image.webp');
 }
 
 /* Gradient Overlay */

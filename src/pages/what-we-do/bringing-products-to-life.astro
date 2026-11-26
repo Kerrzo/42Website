@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import CaseFacts from "../../components/CaseFacts.astro";
 import OtherWork from "../../components/OtherWork.astro";
 
 // Get the model ID from URL params, default to FA711ST
@@ -11,6 +12,7 @@ const modelId = urlParams.get("id") || "FA711ST";
 
 <BaseLayout
     title="Latham – Bringing Products to Life | 42 Interactive"
+    description="An augmented reality showcase for Latham Australia that lets architects, interior designers and builders see products in the real world, built into its website."
     bodyClass="latham-page"
     additionalStyles={[
         "/css/latham.css",
@@ -18,7 +20,7 @@ const modelId = urlParams.get("id") || "FA711ST";
         "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css",
     ]}
 >
-    <Header activePage="home" />
+    <Header activePage="what-we-do" />
 
     <main class="main-content">
         <!-- ========================================
@@ -27,7 +29,7 @@ const modelId = urlParams.get("id") || "FA711ST";
         <section class="latham-hero section-hero fade-in" data-theme="dark">
             <div class="hero-bg-mask">
                 <img
-                    src="/images/work/latham/image-latham-hero.png"
+                    src="/images/work/latham/image-latham-hero.webp"
                     alt=""
                     class="hero-bg-image"
                 />
@@ -38,6 +40,8 @@ const modelId = urlParams.get("id") || "FA711ST";
                 </div>
             </div>
         </section>
+
+        <CaseFacts client="Latham Australia" built="An augmented reality product showcase, built into the Latham website" industry="Building products" />
 
         <!-- ========================================
              INTRO – WHAT WE'VE DONE
@@ -59,7 +63,7 @@ const modelId = urlParams.get("id") || "FA711ST";
         <section class="latham-showcase" data-theme="dark">
             <div class="showcase-bg">
                 <img
-                    src="/images/work/latham/image-latham-example.png"
+                    src="/images/work/latham/image-latham-example.webp"
                     alt=""
                     class="showcase-bg-image"
                 />
@@ -130,14 +134,14 @@ const modelId = urlParams.get("id") || "FA711ST";
 
                     <div class="partner-item partner-item-image">
                         <img
-                            src="/images/work/latham/image-latham-03.png"
+                            src="/images/work/latham/image-latham-03.webp"
                             alt="Latham AR showcase"
                         />
                     </div>
 
                     <div class="partner-item partner-item-image">
                         <img
-                            src="/images/work/latham/image-latham-01.png"
+                            src="/images/work/latham/image-latham-01.webp"
                             alt="Latham product visualization"
                         />
                     </div>
@@ -195,7 +199,7 @@ const modelId = urlParams.get("id") || "FA711ST";
 
                     <div class="partner-item partner-item-image">
                         <img
-                            src="/images/work/latham/image-latham-02.png"
+                            src="/images/work/latham/image-latham-02.webp"
                             alt="Latham analytics dashboard"
                         />
                     </div>

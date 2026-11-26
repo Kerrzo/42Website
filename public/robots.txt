@@ -1,0 +1,23 @@
+# 42 Interactive — https://42interactive.com
+# All public pages may be crawled, including by AI search crawlers.
+# (GPTBot, the OpenAI training crawler, is not listed on purpose: it follows the "*" rule below.)
+
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://42interactive.com/sitemap.xml
