@@ -2828,6 +2828,17 @@ body:not(.animations-ready) .preview-description {
 
     .mobile-submenu-link:hover { color: #ffffff; background-color: rgba(255, 255, 255, 0.06); }
     .mobile-submenu-link.active { background-color: rgba(127, 160, 229, 0.22); }
+
+    /* Let's Talk lives in the menu on mobile (the top bar has no button) */
+    .mobile-menu .mobile-menu-cta {
+        flex-shrink: 0;
+        align-self: flex-start;
+        margin: 22px 0 0 18px;
+        padding: 14px 30px;
+        border-radius: 999px;
+        font-size: 17px;
+        font-weight: 500;
+    }
 }
 
 @media (max-width: 480px) {
